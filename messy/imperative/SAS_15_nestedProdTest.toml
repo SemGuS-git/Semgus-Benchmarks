@@ -1,0 +1,30 @@
+
+[[task]]
+    # SAS_15_nestedProdTest
+    files = [
+        "SAS_15_nestedProdTest/no15_nestedprod_01.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_02.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_03.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_04.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_05.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_06.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_07.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_08.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_09.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_10.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"

@@ -6,11 +6,8 @@
     ]
 
     # temp field to set background theory
-    lib = "regex_bmat" 
-
-    output_file_json = "magic-regex.json"
-    log_file = "magic-regex.log"
-
+    lib = "regex_bmat"
+    
     # array of solver configurations to apply for each problem
     [[task.solver]]
         method = "bottom_up"

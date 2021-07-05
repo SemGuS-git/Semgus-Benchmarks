@@ -1,0 +1,30 @@
+
+[[task]]
+    # SAS_05_piSquareTests
+    files = [
+        "SAS_05_piSquareTests/no05_piSquare_01.sem",
+        "SAS_05_piSquareTests/no05_piSquare_02.sem",
+        "SAS_05_piSquareTests/no05_piSquare_03.sem",
+        "SAS_05_piSquareTests/no05_piSquare_04.sem",
+        "SAS_05_piSquareTests/no05_piSquare_05.sem",
+        "SAS_05_piSquareTests/no05_piSquare_06.sem",
+        "SAS_05_piSquareTests/no05_piSquare_07.sem",
+        "SAS_05_piSquareTests/no05_piSquare_08.sem",
+        "SAS_05_piSquareTests/no05_piSquare_09.sem",
+        "SAS_05_piSquareTests/no05_piSquare_10.sem",
+        "SAS_05_piSquareTests/no05_piSquare_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"

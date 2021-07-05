@@ -1,0 +1,783 @@
+[[task]]
+    # basic_1
+    files = [
+        "basic_1/basicTest20_one_way_loop.sem",
+        "basic_1/basicTest21_one_way_loop.sem",
+        "basic_1/basicTest_AddByWhileLoop_01.sem",
+        "basic_1/basicTest_AddByWhileLoop_02.sem",
+        "basic_1/basicTest_AddByWhileLoop_03.sem",
+        "basic_1/basicTest_AddByWhileLoop_04.sem",
+        "basic_1/basicTest_AddByWhileLoop_05.sem",
+        "basic_1/basicTest_AddOne_01.sem",
+        "basic_1/basicTest_Fib_01.sem",
+        "basic_1/basicTest_MAX_01.sem",
+        "basic_1/basicTest_MAX_02.sem",
+        "basic_1/basicTest_MAX_03.sem",
+        "basic_1/basicTest_MultByWhileLoop_01.sem",
+        "basic_1/basicTest_MultByWhileLoop_02.sem",
+        "basic_1/basicTest_Sanity01.sem",
+        "basic_1/basicTest_SetBothtoLarger_01.sem",
+        "basic_1/basicTest_SumByWhileLoop_01.sem",
+        "basic_1/basicTest_SumWithLimitedOps_01.sem",
+        "basic_1/basicTest_SumWithLimitedOps_02.sem",
+        "basic_1/minimal_unsat.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # basic_bv
+    files = [
+        "basic_bv/BVtest_ADD_01.sem",
+        "basic_bv/BVtest_AND_01.sem",
+        "basic_bv/BVtest_AND_02.sem",
+        "basic_bv/BVtest_AND_03.sem",
+        "basic_bv/BVtest_MAX_01.sem",
+        "basic_bv/BVtest_NAND_01.sem",
+        "basic_bv/BVtest_PLUS_01.sem",
+        "basic_bv/BVtest_Swap_XOR_01.sem",
+        "basic_bv/BVtest_Swap_XOR_02.sem",
+        "basic_bv/BVtest_Swap_XOR_03.sem",
+        "basic_bv/BVtest_While_01_XOR_by_AND_OR.sem",
+        "basic_bv/BVtest_While_02_XOR_by_AND_OR_ADD.sem",
+        "basic_bv/BVtest_XOR_01.sem",
+        "basic_bv/BVtest_XOR_02.sem",
+        "basic_bv/BVtest_XOR_03.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # constantTests
+    files = [
+        "constantTests/constantTest01.sem",
+        "constantTests/constantTest02.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_01_factorialTests
+    files = [
+        "SAS_01_factorialTests/no01_factorialTest_01.sem",
+        "SAS_01_factorialTests/no01_factorialTest_02.sem",
+        "SAS_01_factorialTests/no01_factorialTest_03.sem",
+        "SAS_01_factorialTests/no01_factorialTest_04.sem",
+        "SAS_01_factorialTests/no01_factorialTest_05.sem",
+        "SAS_01_factorialTests/no01_factorialTest_06.sem",
+        "SAS_01_factorialTests/no01_factorialTest_07.sem",
+        "SAS_01_factorialTests/no01_factorialTest_08.sem",
+        "SAS_01_factorialTests/no01_factorialTest_09.sem",
+        "SAS_01_factorialTests/no01_factorialTest_10.sem",
+        "SAS_01_factorialTests/no01_factorialTest_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_02_doublefacTests
+    files = [
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_01.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_02.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_03.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_04.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_05.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_06.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_07.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_08.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_09.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_10.sem",
+        "SAS_02_doublefacTests/no02_doubleFactorialTest_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_03_sigmaTests
+    files = [
+        "SAS_03_sigmaTests/no03_sigmaTest_01.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_02.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_03.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_04.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_05.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_06.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_07.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_08.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_09.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_10.sem",
+        "SAS_03_sigmaTests/no03_sigmaTest_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_04_sigmaSquareTests
+    files = [
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_01.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_02.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_03.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_04.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_05.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_06.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_07.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_08.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_09.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_10.sem",
+        "SAS_04_sigmaSquareTests/no04_sigmaSquare_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_05_piSquareTests
+    files = [
+        "SAS_05_piSquareTests/no05_piSquare_01.sem",
+        "SAS_05_piSquareTests/no05_piSquare_02.sem",
+        "SAS_05_piSquareTests/no05_piSquare_03.sem",
+        "SAS_05_piSquareTests/no05_piSquare_04.sem",
+        "SAS_05_piSquareTests/no05_piSquare_05.sem",
+        "SAS_05_piSquareTests/no05_piSquare_06.sem",
+        "SAS_05_piSquareTests/no05_piSquare_07.sem",
+        "SAS_05_piSquareTests/no05_piSquare_08.sem",
+        "SAS_05_piSquareTests/no05_piSquare_09.sem",
+        "SAS_05_piSquareTests/no05_piSquare_10.sem",
+        "SAS_05_piSquareTests/no05_piSquare_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_06_powerTest
+    files = [
+        "SAS_06_powerTest/no06_power_01.sem",
+        "SAS_06_powerTest/no06_power_02.sem",
+        "SAS_06_powerTest/no06_power_03.sem",
+        "SAS_06_powerTest/no06_power_04.sem",
+        "SAS_06_powerTest/no06_power_05.sem",
+        "SAS_06_powerTest/no06_power_06.sem",
+        "SAS_06_powerTest/no06_power_07.sem",
+        "SAS_06_powerTest/no06_power_08.sem",
+        "SAS_06_powerTest/no06_power_09.sem",
+        "SAS_06_powerTest/no06_power_10.sem",
+        "SAS_06_powerTest/no06_power_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_07_suma2nTest
+    files = [
+        "SAS_07_suma2nTest/no07_suma2n_01.sem",
+        "SAS_07_suma2nTest/no07_suma2n_02.sem",
+        "SAS_07_suma2nTest/no07_suma2n_03.sem",
+        "SAS_07_suma2nTest/no07_suma2n_04.sem",
+        "SAS_07_suma2nTest/no07_suma2n_05.sem",
+        "SAS_07_suma2nTest/no07_suma2n_06.sem",
+        "SAS_07_suma2nTest/no07_suma2n_07.sem",
+        "SAS_07_suma2nTest/no07_suma2n_08.sem",
+        "SAS_07_suma2nTest/no07_suma2n_09.sem",
+        "SAS_07_suma2nTest/no07_suma2n_10.sem",
+        "SAS_07_suma2nTest/no07_suma2n_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_08_proda2nTest
+    files = [
+        "SAS_08_proda2nTest/no08_proda2n_01.sem",
+        "SAS_08_proda2nTest/no08_proda2n_02.sem",
+        "SAS_08_proda2nTest/no08_proda2n_03.sem",
+        "SAS_08_proda2nTest/no08_proda2n_04.sem",
+        "SAS_08_proda2nTest/no08_proda2n_05.sem",
+        "SAS_08_proda2nTest/no08_proda2n_06.sem",
+        "SAS_08_proda2nTest/no08_proda2n_07.sem",
+        "SAS_08_proda2nTest/no08_proda2n_08.sem",
+        "SAS_08_proda2nTest/no08_proda2n_09.sem",
+        "SAS_08_proda2nTest/no08_proda2n_10.sem",
+        "SAS_08_proda2nTest/no08_proda2n_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_13_fibonacciTest
+    files = [
+        "SAS_13_fibonacciTest/no13_fibonacci_01.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_02.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_03.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_04.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_05.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_06.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_07.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_08.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_09.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_10.sem",
+        "SAS_13_fibonacciTest/no13_fibonacci_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_14_nestedSumTest
+    files = [
+        "SAS_14_nestedSumTest/no14_nestedsum_01.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_02.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_03.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_04.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_05.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_06.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_07.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_08.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_09.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_10.sem",
+        "SAS_14_nestedSumTest/no14_nestedsum_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_15_nestedProdTest
+    files = [
+        "SAS_15_nestedProdTest/no15_nestedprod_01.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_02.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_03.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_04.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_05.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_06.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_07.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_08.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_09.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_10.sem",
+        "SAS_15_nestedProdTest/no15_nestedprod_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_17_arraysumTest
+    files = [
+        "SAS_17_arraysumTest/no17_arraysum_01.sem",
+        "SAS_17_arraysumTest/no17_arraysum_02.sem",
+        "SAS_17_arraysumTest/no17_arraysum_03.sem",
+        "SAS_17_arraysumTest/no17_arraysum_04.sem",
+        "SAS_17_arraysumTest/no17_arraysum_05.sem",
+        "SAS_17_arraysumTest/no17_arraysum_06.sem",
+        "SAS_17_arraysumTest/no17_arraysum_07.sem",
+        "SAS_17_arraysumTest/no17_arraysum_08.sem",
+        "SAS_17_arraysumTest/no17_arraysum_09.sem",
+        "SAS_17_arraysumTest/no17_arraysum_10.sem",
+        "SAS_17_arraysumTest/no17_arraysum_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_18_arrayprodTest
+    files = [
+        "SAS_18_arrayprodTest/no18_arrayprod_01.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_02.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_03.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_04.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_05.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_06.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_07.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_08.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_09.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_10.sem",
+        "SAS_18_arrayprodTest/no18_arrayprod_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_19_addarraysTest
+    files = [
+        "SAS_19_addarraysTest/no19_addarray_01.sem",
+        "SAS_19_addarraysTest/no19_addarray_02.sem",
+        "SAS_19_addarraysTest/no19_addarray_03.sem",
+        "SAS_19_addarraysTest/no19_addarray_04.sem",
+        "SAS_19_addarraysTest/no19_addarray_05.sem",
+        "SAS_19_addarraysTest/no19_addarray_06.sem",
+        "SAS_19_addarraysTest/no19_addarray_07.sem",
+        "SAS_19_addarraysTest/no19_addarray_08.sem",
+        "SAS_19_addarraysTest/no19_addarray_09.sem",
+        "SAS_19_addarraysTest/no19_addarray_10.sem",
+        "SAS_19_addarraysTest/no19_addarray_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_20_multarraysTest
+    files = [
+        "SAS_20_multarraysTest/no20_multarray_01.sem",
+        "SAS_20_multarraysTest/no20_multarray_02.sem",
+        "SAS_20_multarraysTest/no20_multarray_03.sem",
+        "SAS_20_multarraysTest/no20_multarray_04.sem",
+        "SAS_20_multarraysTest/no20_multarray_05.sem",
+        "SAS_20_multarraysTest/no20_multarray_06.sem",
+        "SAS_20_multarraysTest/no20_multarray_07.sem",
+        "SAS_20_multarraysTest/no20_multarray_08.sem",
+        "SAS_20_multarraysTest/no20_multarray_09.sem",
+        "SAS_20_multarraysTest/no20_multarray_10.sem",
+        "SAS_20_multarraysTest/no20_multarray_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_21_cubearrayTest
+    files = [
+        "SAS_21_cubearrayTest/no21_cubearray_01.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_02.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_03.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_04.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_05.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_06.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_07.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_08.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_09.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_10.sem",
+        "SAS_21_cubearrayTest/no21_cubearray_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_22_quartarrayTest
+    files = [
+        "SAS_22_quartarrayTest/no22_quartarray_01.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_02.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_03.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_04.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_05.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_06.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_07.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_08.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_09.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_10.sem",
+        "SAS_22_quartarrayTest/no22_quartarray_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_23_maxTest
+    files = [
+        "SAS_23_maxTest/no23_max_01.sem",
+        "SAS_23_maxTest/no23_max_02.sem",
+        "SAS_23_maxTest/no23_max_03.sem",
+        "SAS_23_maxTest/no23_max_04.sem",
+        "SAS_23_maxTest/no23_max_05.sem",
+        "SAS_23_maxTest/no23_max_06.sem",
+        "SAS_23_maxTest/no23_max_07.sem",
+        "SAS_23_maxTest/no23_max_08.sem",
+        "SAS_23_maxTest/no23_max_09.sem",
+        "SAS_23_maxTest/no23_max_10.sem",
+        "SAS_23_maxTest/no23_max_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_24_minTest
+    files = [
+        "SAS_24_minTest/no24_min_01.sem",
+        "SAS_24_minTest/no24_min_02.sem",
+        "SAS_24_minTest/no24_min_03.sem",
+        "SAS_24_minTest/no24_min_04.sem",
+        "SAS_24_minTest/no24_min_05.sem",
+        "SAS_24_minTest/no24_min_06.sem",
+        "SAS_24_minTest/no24_min_07.sem",
+        "SAS_24_minTest/no24_min_08.sem",
+        "SAS_24_minTest/no24_min_09.sem",
+        "SAS_24_minTest/no24_min_10.sem",
+        "SAS_24_minTest/no24_min_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_25_addoneTest
+    files = [
+        "SAS_25_addoneTest/no25_addone_01.sem",
+        "SAS_25_addoneTest/no25_addone_02.sem",
+        "SAS_25_addoneTest/no25_addone_03.sem",
+        "SAS_25_addoneTest/no25_addone_04.sem",
+        "SAS_25_addoneTest/no25_addone_05.sem",
+        "SAS_25_addoneTest/no25_addone_06.sem",
+        "SAS_25_addoneTest/no25_addone_07.sem",
+        "SAS_25_addoneTest/no25_addone_08.sem",
+        "SAS_25_addoneTest/no25_addone_09.sem",
+        "SAS_25_addoneTest/no25_addone_10.sem",
+        "SAS_25_addoneTest/no25_addone_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_26_sumsquaresTest
+    files = [
+        "SAS_26_sumsquaresTest/no26_sumsquares_01.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_02.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_03.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_04.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_05.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_06.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_07.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_08.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_09.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_10.sem",
+        "SAS_26_sumsquaresTest/no26_sumsquares_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_27_prodsquaresTest
+    files = [
+        "SAS_27_prodsquaresTest/no27_prodsquares_01.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_02.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_03.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_04.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_05.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_06.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_07.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_08.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_09.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_10.sem",
+        "SAS_27_prodsquaresTest/no27_prodsquares_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
+
+[[task]]
+    # SAS_28_sumprodsTest
+    files = [
+        "SAS_28_sumprodsTest/no28_sumprods_01.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_02.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_03.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_04.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_05.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_06.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_07.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_08.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_09.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_10.sem",
+        "SAS_28_sumprodsTest/no28_sumprods_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"

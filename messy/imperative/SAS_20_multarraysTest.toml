@@ -1,0 +1,30 @@
+
+[[task]]
+    # SAS_20_multarraysTest
+    files = [
+        "SAS_20_multarraysTest/no20_multarray_01.sem",
+        "SAS_20_multarraysTest/no20_multarray_02.sem",
+        "SAS_20_multarraysTest/no20_multarray_03.sem",
+        "SAS_20_multarraysTest/no20_multarray_04.sem",
+        "SAS_20_multarraysTest/no20_multarray_05.sem",
+        "SAS_20_multarraysTest/no20_multarray_06.sem",
+        "SAS_20_multarraysTest/no20_multarray_07.sem",
+        "SAS_20_multarraysTest/no20_multarray_08.sem",
+        "SAS_20_multarraysTest/no20_multarray_09.sem",
+        "SAS_20_multarraysTest/no20_multarray_10.sem",
+        "SAS_20_multarraysTest/no20_multarray_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"

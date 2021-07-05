@@ -1,8 +1,9 @@
-{% for batchName in batches %}
+
 [[task]]
-    # {{batchName}}
-    files = [{% for file in batches[batchName] %}
-        "{{file}}",{% endfor %}
+    # constantTests
+    files = [
+        "constantTests/constantTest01.sem",
+        "constantTests/constantTest02.sem",
     ]
     
     # temp field to set background theory
@@ -18,4 +19,3 @@
             use_observational_equivalence_reduction = "true"
             interpreter_max_depth = 1000
             halt_on_parse_error = "true"
-{% endfor %}

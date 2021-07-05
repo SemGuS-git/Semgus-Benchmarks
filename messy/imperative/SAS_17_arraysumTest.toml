@@ -1,0 +1,30 @@
+
+[[task]]
+    # SAS_17_arraysumTest
+    files = [
+        "SAS_17_arraysumTest/no17_arraysum_01.sem",
+        "SAS_17_arraysumTest/no17_arraysum_02.sem",
+        "SAS_17_arraysumTest/no17_arraysum_03.sem",
+        "SAS_17_arraysumTest/no17_arraysum_04.sem",
+        "SAS_17_arraysumTest/no17_arraysum_05.sem",
+        "SAS_17_arraysumTest/no17_arraysum_06.sem",
+        "SAS_17_arraysumTest/no17_arraysum_07.sem",
+        "SAS_17_arraysumTest/no17_arraysum_08.sem",
+        "SAS_17_arraysumTest/no17_arraysum_09.sem",
+        "SAS_17_arraysumTest/no17_arraysum_10.sem",
+        "SAS_17_arraysumTest/no17_arraysum_11.sem",
+    ]
+    
+    # temp field to set background theory
+    lib = "lia"
+    
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"
