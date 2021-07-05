@@ -1,2 +1,0 @@
-C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\constantTests\constantTest01.sem
-C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\constantTests\constantTest02.sem
