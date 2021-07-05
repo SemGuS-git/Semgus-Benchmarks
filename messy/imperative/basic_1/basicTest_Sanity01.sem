@@ -92,6 +92,6 @@
 
 (constraint
     (and
-        (_Entry.Sem t 4 10)
+        (_Entry.Sem t 4 10) // { x: 4, } -> { x: 10, }
     )
 )

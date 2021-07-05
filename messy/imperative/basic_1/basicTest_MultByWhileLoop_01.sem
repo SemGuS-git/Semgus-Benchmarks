@@ -202,8 +202,8 @@
 
 (constraint
     (and
-        (_Entry.Sem t 10 0 0 4 0 40)
-        (_Entry.Sem t 6 0 0 5 0 30)
-        (_Entry.Sem t 3 0 0 8 0 24)
+        (_Entry.Sem t 10 0 0 4 0 40) // { y: 10, j: 0, i: 0, x: 4, c: 0, } -> { c: 40, }
+        (_Entry.Sem t 6 0 0 5 0 30) // { y: 6, j: 0, i: 0, x: 5, c: 0, } -> { c: 30, }
+        (_Entry.Sem t 3 0 0 8 0 24) // { y: 3, j: 0, i: 0, x: 8, c: 0, } -> { c: 24, }
     )
 )

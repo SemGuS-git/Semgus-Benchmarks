@@ -108,7 +108,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 4 5 1 3 2 15)
-        (_Entry.Sem t 13 16 9 11 21 70)
+        (_Entry.Sem t 4 5 1 3 2 15) // { y: 4, z: 5, v: 1, x: 3, w: 2, } -> { x: 15, }
+        (_Entry.Sem t 13 16 9 11 21 70) // { y: 13, z: 16, v: 9, x: 11, w: 21, } -> { x: 70, }
     )
 )

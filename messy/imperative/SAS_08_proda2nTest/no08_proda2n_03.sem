@@ -135,8 +135,8 @@
 
 (constraint
     (and
-        (_Entry.Sem t 2 2 1 2)
-        (_Entry.Sem t 4 4 2 24)
-        (_Entry.Sem t 5 5 3 60)
+        (_Entry.Sem t 2 2 1 2) // { n: 2, r: 2, a: 1, } -> { r: 2, }
+        (_Entry.Sem t 4 4 2 24) // { n: 4, r: 4, a: 2, } -> { r: 24, }
+        (_Entry.Sem t 5 5 3 60) // { n: 5, r: 5, a: 3, } -> { r: 60, }
     )
 )

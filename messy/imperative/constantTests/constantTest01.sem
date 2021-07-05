@@ -54,7 +54,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 0 3268)
-        (_Entry.Sem t 642 3910)
+        (_Entry.Sem t 0 3268) // { x: 0, } -> { x: 3268, }
+        (_Entry.Sem t 642 3910) // { x: 642, } -> { x: 3910, }
     )
 )

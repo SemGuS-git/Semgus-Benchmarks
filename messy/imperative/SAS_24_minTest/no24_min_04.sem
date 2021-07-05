@@ -160,7 +160,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 3 0 0 (array.init (- 1) (- 2) (- 3)) (- 3))
-        (_Entry.Sem t 5 0 0 (array.init 10 31 7 37 100) 7)
+        (_Entry.Sem t 3 0 0 (array.init (- 1) (- 2) (- 3)) (- 3)) // { len: 3, r: 0, i: 0, arr: [ -1, -2, -3 ], } -> { r: -3, }
+        (_Entry.Sem t 5 0 0 (array.init 10 31 7 37 100) 7) // { len: 5, r: 0, i: 0, arr: [ 10, 31, 7, 37, 100 ], } -> { r: 7, }
     )
 )

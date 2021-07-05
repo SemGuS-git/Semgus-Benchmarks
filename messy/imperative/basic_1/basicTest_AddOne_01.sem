@@ -54,9 +54,9 @@
 
 (constraint
     (and
-        (_Entry.Sem t 4 5)
-        (_Entry.Sem t 2 3)
-        (_Entry.Sem t 1 2)
-        (_Entry.Sem t 8 9)
+        (_Entry.Sem t 4 5) // { x: 4, } -> { x: 5, }
+        (_Entry.Sem t 2 3) // { x: 2, } -> { x: 3, }
+        (_Entry.Sem t 1 2) // { x: 1, } -> { x: 2, }
+        (_Entry.Sem t 8 9) // { x: 8, } -> { x: 9, }
     )
 )

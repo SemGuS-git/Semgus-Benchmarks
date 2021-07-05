@@ -182,7 +182,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 5 2 6)
-        (_Entry.Sem t 10 2 9)
+        (_Entry.Sem t 5 2 6) // { x: 5, n: 2, } -> { x: 6, }
+        (_Entry.Sem t 10 2 9) // { x: 10, n: 2, } -> { x: 9, }
     )
 )

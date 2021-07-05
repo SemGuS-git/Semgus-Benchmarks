@@ -149,7 +149,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 2 0 0 (array.init 1 2) 5)
-        (_Entry.Sem t 3 0 0 (array.init 2 3 4) 29)
+        (_Entry.Sem t 2 0 0 (array.init 1 2) 5) // { len: 2, r: 0, i: 0, arr: [ 1, 2 ], } -> { r: 5, }
+        (_Entry.Sem t 3 0 0 (array.init 2 3 4) 29) // { len: 3, r: 0, i: 0, arr: [ 2, 3, 4 ], } -> { r: 29, }
     )
 )

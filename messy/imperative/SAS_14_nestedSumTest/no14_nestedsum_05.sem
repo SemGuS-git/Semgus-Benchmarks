@@ -127,9 +127,9 @@
 
 (constraint
     (and
-        (_Entry.Sem t 1 0 0 1)
-        (_Entry.Sem t 2 0 0 4)
-        (_Entry.Sem t 3 0 0 10)
-        (_Entry.Sem t 4 0 0 20)
+        (_Entry.Sem t 1 0 0 1) // { n: 1, r: 0, a: 0, } -> { r: 1, }
+        (_Entry.Sem t 2 0 0 4) // { n: 2, r: 0, a: 0, } -> { r: 4, }
+        (_Entry.Sem t 3 0 0 10) // { n: 3, r: 0, a: 0, } -> { r: 10, }
+        (_Entry.Sem t 4 0 0 20) // { n: 4, r: 0, a: 0, } -> { r: 20, }
     )
 )

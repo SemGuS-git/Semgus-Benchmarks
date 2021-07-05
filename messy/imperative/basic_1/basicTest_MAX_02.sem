@@ -85,9 +85,9 @@
 
 (constraint
     (and
-        (_Entry.Sem t 4 1 4 1)
-        (_Entry.Sem t 2 6 6 2)
-        (_Entry.Sem t 1 1 1 1)
-        (_Entry.Sem t 8 8 8 8)
+        (_Entry.Sem t 4 1 4 1) // { x: 4, y: 1, } -> { x: 4, y: 1, }
+        (_Entry.Sem t 2 6 6 2) // { x: 2, y: 6, } -> { x: 6, y: 2, }
+        (_Entry.Sem t 1 1 1 1) // { x: 1, y: 1, } -> { x: 1, y: 1, }
+        (_Entry.Sem t 8 8 8 8) // { x: 8, y: 8, } -> { x: 8, y: 8, }
     )
 )

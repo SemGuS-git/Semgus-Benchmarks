@@ -171,9 +171,9 @@
 
 (constraint
     (and
-        (_Entry.Sem t 1 1 1 1)
-        (_Entry.Sem t 2 1 1 1)
-        (_Entry.Sem t 3 1 1 2)
-        (_Entry.Sem t 8 1 1 21)
+        (_Entry.Sem t 1 1 1 1) // { n: 1, r: 1, a: 1, } -> { r: 1, }
+        (_Entry.Sem t 2 1 1 1) // { n: 2, r: 1, a: 1, } -> { r: 1, }
+        (_Entry.Sem t 3 1 1 2) // { n: 3, r: 1, a: 1, } -> { r: 2, }
+        (_Entry.Sem t 8 1 1 21) // { n: 8, r: 1, a: 1, } -> { r: 21, }
     )
 )

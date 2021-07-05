@@ -161,7 +161,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 3 0 0 (array.init 1 2 3) (array.init 1 16 81))
-        (_Entry.Sem t 3 0 0 (array.init 2 3 4) (array.init 16 81 256))
+        (_Entry.Sem t 3 0 0 (array.init 1 2 3) (array.init 1 16 81)) // { len: 3, r: 0, i: 0, arr: [ 1, 2, 3 ], } -> { arr: [ 1, 16, 81 ], }
+        (_Entry.Sem t 3 0 0 (array.init 2 3 4) (array.init 16 81 256)) // { len: 3, r: 0, i: 0, arr: [ 2, 3, 4 ], } -> { arr: [ 16, 81, 256 ], }
     )
 )
