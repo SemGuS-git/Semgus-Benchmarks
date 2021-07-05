@@ -102,7 +102,7 @@
 
         // S ::= IArrayUpdate $arr @A @E
 
-        (prod16 A:_term0 E:_term1) [((_index Int) (_value Int))) (and
+        (prod16 A:_term0 E:_term1) [((_index Int) (_value Int)) (and
             (= t (IArrayUpdate 'arr' _term0 _term1))
             (A.Sem _term0 len r i arr _index)
             (E.Sem _term1 len r i arr _value)
@@ -153,7 +153,7 @@
 
 (constraint
     (and
-        (_Entry.Sem t 3 0 0 (array.init -1 -2 -3) -1)
+        (_Entry.Sem t 3 0 0 (array.init (- 1) (- 2) (- 3)) (- 1))
         (_Entry.Sem t 5 0 0 (array.init 3 2 17 5 8) 17)
     )
 )

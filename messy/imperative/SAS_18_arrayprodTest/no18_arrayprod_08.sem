@@ -116,9 +116,9 @@
         // E ::= IArrayAccess $arr @A $len
 
         (prod12 A:_term0) [((_term0_val Int)) (and
-            (= t (IArrayAccess 'arr' _term0 'len'))
+            (= t (IArrayAccess 'arr' _term0))
             (A.Sem _term0 len r i arr _term0_val)
-            (= _result (select arr _term0_val len))
+            (= _result (select arr _term0_val))
         )]
 
         // E ::= Plus @A @A

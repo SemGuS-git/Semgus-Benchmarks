@@ -124,7 +124,7 @@
 
         // S1 ::= IArrayUpdate $arr @A @A
 
-        (prod16 A:_term0 A:_term1) [((_index Int) (_value Int))) (and
+        (prod16 A:_term0 A:_term1) [((_index Int) (_value Int)) (and
             (= t (IArrayUpdate 'arr' _term0 _term1))
             (A.Sem _term0 len r i arr _index)
             (A.Sem _term1 len r i arr _value)

@@ -28,7 +28,7 @@
 
         // E ::= IntSingleTerm -1
 
-        prod4 [() (and (= t (Leaf '-1')) (= _result -1))]
+        prod4 [() (and (= t (Leaf '-1')) (= _result (- 1)))]
 
         // E ::= IntSingleTerm 0
 
@@ -77,8 +77,8 @@
 
 (constraint
     (and
-        (_Entry.Sem t 3 -1)
-        (_Entry.Sem t 334454 -1)
+        (_Entry.Sem t 3 (- 1))
+        (_Entry.Sem t 334454 (- 1))
         (_Entry.Sem t 334455 0)
         (_Entry.Sem t 334467 0)
     )

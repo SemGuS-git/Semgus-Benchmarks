@@ -79,17 +79,17 @@
         // E ::= IArrayAccess $arr @A $len
 
         (prod12 A:_term0) [((_term0_val Int)) (and
-            (= t (IArrayAccess 'arr' _term0 'len'))
+            (= t (IArrayAccess 'arr' _term0))
             (A.Sem _term0 arr2 r i len arr _term0_val)
-            (= _result (select arr _term0_val len))
+            (= _result (select arr _term0_val))
         )]
 
         // E ::= IArrayAccess $arr2 @A $len
 
         (prod15 A:_term0) [((_term0_val Int)) (and
-            (= t (IArrayAccess 'arr2' _term0 'len'))
+            (= t (IArrayAccess 'arr2' _term0))
             (A.Sem _term0 arr2 r i len arr _term0_val)
-            (= _result (select arr2 _term0_val len))
+            (= _result (select arr2 _term0_val))
         )]
 
         // E ::= Minus @A @A
@@ -141,7 +141,7 @@
 
         // S ::= IArrayUpdate $arr @A @E
 
-        (prod16 A:_term0 E:_term1) [((_index Int) (_value Int))) (and
+        (prod16 A:_term0 E:_term1) [((_index Int) (_value Int)) (and
             (= t (IArrayUpdate 'arr' _term0 _term1))
             (A.Sem _term0 arr2 r i len arr _index)
             (E.Sem _term1 arr2 r i len arr _value)
