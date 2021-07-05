@@ -1,0 +1,11 @@
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_01.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_02.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_03.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_04.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_05.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_06.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_07.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_08.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_09.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_10.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_18_arrayprodTest\no18_arrayprod_11.sem

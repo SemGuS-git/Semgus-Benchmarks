@@ -1,0 +1,92 @@
+// basicTest_MAX_02
+(synth-fun _max ((x Int) (y Int)) ((x_out Int) (y_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int Int)) : t
+    [() (_Entry.Sem t x y x_out y_out)]
+    (
+        (Eval Start:_term0) [( ) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 x y x_out y_out)
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int Int)) : t
+    [( (_result Int)) (E.Sem t x y _result)]
+    (
+
+        // E ::= EITE @B @E @E
+
+        (prod5 B:_term0 E:_term1 E:_term2) [((_term0_val Bool) (_term1_val Int) (_term2_val Int)) (and
+            (= t (EITE _term0 _term1 _term2))
+            (B.Sem _term0 x y _term0_val) (E.Sem _term1 x y _term1_val) (E.Sem _term2 x y _term2_val)
+            (= _result (ite _term0_val _term1_val _term2_val))
+        )]
+
+        // E ::= IntSingleTerm $x
+
+        prod3 [() (and (= t (Leaf 'x')) (= _result x))]
+
+        // E ::= IntSingleTerm $y
+
+        prod4 [() (and (= t (Leaf 'y')) (= _result y))]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Int Bool)) : t
+    [( (_result Bool)) (B.Sem t x y _result)]
+    (
+
+        // B ::= LT @E @E
+
+        (prod2 E:_term0 E:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (LT _term0 _term1))
+            (E.Sem _term0 x y _term0_val) (E.Sem _term1 x y _term1_val)
+            (= _result (< _term0_val _term1_val))
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int Int)) : t
+    [( ) (Start.Sem t x y x_out y_out)]
+    (
+
+        // Start ::= IntAssign $x @E
+
+        (prod0 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'x' _term0))
+            (E.Sem _term0 x y _temp)
+            (= x_out _temp) (= y_out y)
+        )]
+
+        // Start ::= Seq @Start @Start
+
+        (prod6 Start:_term0 Start:_term1) [((x_temp Int) (y_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (Start.Sem _term0 x y x_temp y_temp)
+            (Start.Sem _term1 x_temp y_temp x_out y_out)
+        )]
+
+        // Start ::= IntAssign $y @E
+
+        (prod1 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'y' _term0))
+            (E.Sem _term0 x y _temp)
+            (= x_out x) (= y_out _temp)
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 4 1 4 1)
+        (_Entry.Sem t 2 6 6 2)
+        (_Entry.Sem t 1 1 1 1)
+        (_Entry.Sem t 8 8 8 8)
+    )
+)

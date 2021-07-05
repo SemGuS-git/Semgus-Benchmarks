@@ -1,0 +1,84 @@
+// constantTest02
+(synth-fun const ((x Int)) ((x_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int)) : t
+    [() (_Entry.Sem t x x_out)]
+    (
+        (Eval Start:_term0) [( ) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 x x_out)
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int)) : t
+    [( (_result Int)) (E.Sem t x _result)]
+    (
+
+        // E ::= EITE @B @E @E
+
+        (prod1 B:_term0 E:_term1 E:_term2) [((_term0_val Bool) (_term1_val Int) (_term2_val Int)) (and
+            (= t (EITE _term0 _term1 _term2))
+            (B.Sem _term0 x _term0_val) (E.Sem _term1 x _term1_val) (E.Sem _term2 x _term2_val)
+            (= _result (ite _term0_val _term1_val _term2_val))
+        )]
+
+        // E ::= IntSingleTerm -1
+
+        prod4 [() (and (= t (Leaf '-1')) (= _result -1))]
+
+        // E ::= IntSingleTerm 0
+
+        prod5 [() (and (= t (Leaf '0')) (= _result 0))]
+
+        // E ::= IntSingleTerm $x
+
+        prod2 [() (and (= t (Leaf 'x')) (= _result x))]
+
+        // E ::= IntSingleTerm 4123
+
+        prod3 [() (and (= t (Leaf '4123')) (= _result 4123))]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int)) : t
+    [( ) (Start.Sem t x x_out)]
+    (
+
+        // Start ::= IntAssign $x @E
+
+        (prod0 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'x' _term0))
+            (E.Sem _term0 x _temp)
+            (= x_out _temp)
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Bool)) : t
+    [( (_result Bool)) (B.Sem t x _result)]
+    (
+
+        // B ::= LT @E @E
+
+        (prod6 E:_term0 E:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (LT _term0 _term1))
+            (E.Sem _term0 x _term0_val) (E.Sem _term1 x _term1_val)
+            (= _result (< _term0_val _term1_val))
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 3 -1)
+        (_Entry.Sem t 334454 -1)
+        (_Entry.Sem t 334455 0)
+        (_Entry.Sem t 334467 0)
+    )
+)

@@ -1,0 +1,34 @@
+
+[[task]]
+    files = [
+        # "./BVtest_XOR_01.sem",
+        "./BVtest_XOR_02.sem",
+        # "./BVtest_AND_01.sem",
+        # "./BVtest_NAND_01.sem",
+        # "./BVtest_Swap_XOR_01.sem",
+        # "./BVtest_Swap_XOR_02.sem",
+        # "./BVtest_Swap_XOR_03.sem",
+        # "./BVtest_ADD_01.sem",
+        # "./BVtest_AND_02.sem",
+        # "./BVtest_PLUS_01.sem",
+        # "./BVtest_AND_03.sem",
+        # "./BVtest_MAX_01.sem",
+        # "./BVtest_XOR_03.sem",
+        # "./BVtest_While_01_XOR_by_AND_OR.sem",
+        # "./BVtest_While_02_XOR_by_AND_OR_ADD.sem",
+    ]
+
+    # temp field to set background theory
+    lib = "lia" 
+
+    output_file_json = "basic_bv.out.json"
+    log_file = "basic_bv.out.log"
+
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "false"

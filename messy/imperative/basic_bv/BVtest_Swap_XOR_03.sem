@@ -1,0 +1,75 @@
+// BVtest_Swap_XOR_03
+(synth-fun _max ((x BitVec) (y BitVec)) ((x_out BitVec) (y_out BitVec))
+
+(
+    _Entry : (_Entry.Sem (Term BitVec BitVec BitVec BitVec)) : t
+    [() (_Entry.Sem t x y x_out y_out)]
+    (
+        (Eval Start:_term0) [( ) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 x y x_out y_out)
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term BitVec BitVec BitVec BitVec)) : t
+    [( ) (Start.Sem t x y x_out y_out)]
+    (
+
+        // Start ::= BVAssign $y @E
+
+        (prod1 E:_term0) [((_temp BitVec)) (and 
+            (= t (BVAssign 'y' _term0))
+            (E.Sem _term0 x y _temp)
+            (= x_out x) (= y_out _temp)
+        )]
+
+        // Start ::= Seq @Start @Start
+
+        (prod10 Start:_term0 Start:_term1) [((x_temp BitVec) (y_temp BitVec)) (and
+            (= t (Seq _term0 _term1))
+            (Start.Sem _term0 x y x_temp y_temp)
+            (Start.Sem _term1 x_temp y_temp x_out y_out)
+        )]
+
+        // Start ::= BVAssign $x @E
+
+        (prod0 E:_term0) [((_temp BitVec)) (and 
+            (= t (BVAssign 'x' _term0))
+            (E.Sem _term0 x y _temp)
+            (= x_out _temp) (= y_out y)
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term BitVec BitVec BitVec)) : t
+    [( (_result BitVec)) (E.Sem t x y _result)]
+    (
+
+        // E ::= BVXor @E @E
+
+        (prod2 E:_term0 E:_term1) [((_term0_val BitVec) (_term1_val BitVec)) (and
+            (= t (BVXor _term0 _term1))
+            (E.Sem _term0 x y _term0_val) (E.Sem _term1 x y _term1_val)
+            (= _result (bvxor _term0_val _term1_val))
+        )]
+
+        // E ::= BVSingleTerm $x
+
+        prod3 [() (and (= t (Leaf 'x')) (= _result x))]
+
+        // E ::= BVSingleTerm $y
+
+        prod4 [() (and (= t (Leaf 'y')) (= _result y))]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t #x00000009 #x00000006 #x00000006 #x00000009)
+        (_Entry.Sem t #x000000f7 #x0000002c #x0000002c #x000000f7)
+    )
+)

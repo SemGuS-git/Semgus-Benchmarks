@@ -1,0 +1,11 @@
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_01.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_02.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_03.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_04.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_05.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_06.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_07.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_08.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_09.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_10.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_20_multarraysTest\no20_multarray_11.sem

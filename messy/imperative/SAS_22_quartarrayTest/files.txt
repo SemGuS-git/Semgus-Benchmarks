@@ -1,0 +1,11 @@
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_01.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_02.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_03.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_04.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_05.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_06.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_07.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_08.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_09.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_10.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_22_quartarrayTest\no22_quartarray_11.sem

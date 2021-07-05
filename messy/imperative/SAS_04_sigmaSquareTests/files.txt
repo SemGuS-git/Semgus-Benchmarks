@@ -1,0 +1,11 @@
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_01.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_02.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_03.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_04.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_05.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_06.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_07.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_08.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_09.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_10.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_04_sigmaSquareTests\no04_sigmaSquare_11.sem

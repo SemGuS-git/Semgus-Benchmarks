@@ -1,0 +1,11 @@
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_01.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_02.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_03.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_04.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_05.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_06.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_07.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_08.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_09.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_10.sem
+C:\Users\Wiley\home\uw\semgus\Semgus-Interpreter\examples\messy\imperative\SAS_03_sigmaTests\no03_sigmaTest_11.sem

@@ -1,0 +1,826 @@
+[ {
+  "Name" : "BVtest_XOR_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 219
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAnd @E @E"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVOr @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_XOR_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 219
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAnd @E @E"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 8,
+    "LHS" : "E",
+    "RHS" : "BVNeg @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVOr @E @E"
+  } ]
+}, {
+  "Name" : "BVtest_AND_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 0
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 36
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVXor @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  } ]
+}, {
+  "Name" : "BVtest_NAND_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 31
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 209
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVNeg @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAnd @E @E"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_Swap_XOR_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 6,
+      "y" : 9
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 44,
+      "y" : 247
+    }
+  } ],
+  "Nonterminals" : {
+    "Start1" : "Stmt",
+    "V" : "BitVec",
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVXor @V @V"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start1",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "V",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 10,
+    "LHS" : "Start",
+    "RHS" : "Seq @Start1 @Start1"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start1",
+    "RHS" : "BVAssign $y @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "V",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_Swap_XOR_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 6,
+      "y" : 9
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 44,
+      "y" : 247
+    }
+  } ],
+  "Nonterminals" : {
+    "Start1" : "Stmt",
+    "V" : "BitVec",
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVXor @V @V"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start1",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "V",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 10,
+    "LHS" : "Start",
+    "RHS" : "Seq @Start1 @Start1"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start1",
+    "RHS" : "BVAssign $y @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "V",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_Swap_XOR_03",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 6,
+      "y" : 9
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 44,
+      "y" : 247
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $y @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVXor @E @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 10,
+    "LHS" : "Start",
+    "RHS" : "Seq @Start @Start"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  } ]
+}, {
+  "Name" : "BVtest_ADD_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 4
+    },
+    "Output" : {
+      "x" : 3
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAdd @E @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVSub @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_AND_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 0
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 36
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAdd @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  } ]
+}, {
+  "Name" : "BVtest_PLUS_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 291
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAnd @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  } ]
+}, {
+  "Name" : "BVtest_AND_03",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 0
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 36
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "BVNeg @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVOr @E @E"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_MAX_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 9
+    }
+  }, {
+    "Input" : {
+      "x" : 44,
+      "y" : 247
+    },
+    "Output" : {
+      "x" : 247
+    }
+  }, {
+    "Input" : {
+      "x" : 32,
+      "y" : 17
+    },
+    "Output" : {
+      "x" : 32
+    }
+  }, {
+    "Input" : {
+      "x" : 142,
+      "y" : 142
+    },
+    "Output" : {
+      "x" : 142
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "BVAnd @E @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVOr @E @E"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVAdd @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_XOR_03",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 219
+    }
+  }, {
+    "Input" : {
+      "x" : 14,
+      "y" : 15
+    },
+    "Output" : {
+      "x" : 1
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "BitVec"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "BVAdd @E @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "BVAnd @E @E"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "BVAssign $x @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "BVOr @E @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "BVSingleTerm $x"
+  } ]
+}, {
+  "Name" : "BVtest_While_01_XOR_by_AND_OR",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 6,
+      "y" : 9
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 219
+    }
+  }, {
+    "Input" : {
+      "x" : 14,
+      "y" : 15
+    },
+    "Output" : {
+      "x" : 1
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E1" : "BitVec",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 3,
+    "LHS" : "E1",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "BVAssign $x @E1"
+  }, {
+    "Index" : 4,
+    "LHS" : "E1",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 7,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "BVUlt @E1 @E1"
+  }, {
+    "Index" : 8,
+    "LHS" : "S",
+    "RHS" : "BVAssign $y @E1"
+  }, {
+    "Index" : 5,
+    "LHS" : "E1",
+    "RHS" : "BVAnd @E1 @E1"
+  }, {
+    "Index" : 6,
+    "LHS" : "E1",
+    "RHS" : "BVOr @E1 @E1"
+  } ]
+}, {
+  "Name" : "BVtest_While_02_XOR_by_AND_OR_ADD",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 9,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "x" : 247,
+      "y" : 44
+    },
+    "Output" : {
+      "x" : 219
+    }
+  }, {
+    "Input" : {
+      "x" : 14,
+      "y" : 15
+    },
+    "Output" : {
+      "x" : 1
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E1" : "BitVec",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "BitVec",
+    "y" : "BitVec"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 3,
+    "LHS" : "E1",
+    "RHS" : "BVSingleTerm $x"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "BVAssign $x @E1"
+  }, {
+    "Index" : 7,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "BVUlt @E1 @E1"
+  }, {
+    "Index" : 8,
+    "LHS" : "E1",
+    "RHS" : "BVAdd @E1 @E1"
+  }, {
+    "Index" : 4,
+    "LHS" : "E1",
+    "RHS" : "BVSingleTerm $y"
+  }, {
+    "Index" : 5,
+    "LHS" : "E1",
+    "RHS" : "BVAnd @E1 @E1"
+  }, {
+    "Index" : 6,
+    "LHS" : "E1",
+    "RHS" : "BVOr @E1 @E1"
+  } ]
+} ]

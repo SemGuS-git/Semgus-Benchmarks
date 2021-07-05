@@ -1,0 +1,24 @@
+{
+    "Programs": [
+        "(Eval (Star (Or (Leaf 1 ) (Leaf 2))))"
+    ],
+    "Examples": [
+        {"len": 0, "s": "" },
+        {"len": 1, "s": "1"},
+        {"len": 1, "s": "2"},
+        {"len": 1, "s": "3"},
+        {"len": 2, "s": "12"},
+        {"len": 2, "s": "31"},
+        {"len": 2, "s": "21"},
+        {"len": 2, "s": "13"},
+        {"len": 6, "s": "121211"},
+        {"len": 6, "s": "221321"},
+        {"len": 32, "s": "12121122121211221212112212121122"},
+        {"len": 32, "s": "22132133221321332213213322132133"}
+    ],
+    "Grammars": [
+        {"File": "magic-regex-test-lin.sem", "Theory": "regex_bmat"},
+        {"File": "magic-regex-test-log.sem", "Theory": "regex_bmat"}
+    ],
+    "RunCount": 1000
+}

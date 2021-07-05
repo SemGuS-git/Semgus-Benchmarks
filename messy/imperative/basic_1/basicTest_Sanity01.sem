@@ -1,0 +1,96 @@
+// basicTest_Sanity01
+(synth-fun _max ((x Int)) ((x_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int)) : t
+    [() (_Entry.Sem t x x_out)]
+    (
+        (Eval Start:_term0) [( ) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 x x_out)
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int)) : t
+    [( (_result Int)) (E.Sem t x _result)]
+    (
+
+        // E ::= Plus $x $x
+
+        prod1 [() (and
+            (= t (Plus 'x' 'x'))
+            
+            (= _result (+ x x))
+        )]
+
+        // E ::= Minus $x $x
+
+        prod4 [() (and
+            (= t (Minus 'x' 'x'))
+            
+            (= _result (- x x))
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int)) : t
+    [( ) (Start.Sem t x x_out)]
+    (
+
+        // Start ::= While @B @S
+
+        (prod2 B:_term0 S:_term1) [((_cond Bool) (x_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 x _cond)
+            (= _cond true)
+            (S.Sem _term1 x x_temp)
+            (Start.Sem t x_temp x_out)
+        )]
+        (prod2 B:_term0 S:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 x _cond)
+            (= _cond false)
+            (= x_out x)
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Bool)) : t
+    [( (_result Bool)) (B.Sem t x _result)]
+    (
+
+        // B ::= LT $x 200
+
+        prod3 [() (and
+            (= t (LT 'x' '200'))
+            
+            (= _result (< x 200))
+        )]
+    )
+)
+(
+
+    S : (S.Sem (Term Int Int)) : t
+    [( ) (S.Sem t x x_out)]
+    (
+
+        // S ::= IntAssign $x @E
+
+        (prod0 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'x' _term0))
+            (E.Sem _term0 x _temp)
+            (= x_out _temp)
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 4 10)
+    )
+)

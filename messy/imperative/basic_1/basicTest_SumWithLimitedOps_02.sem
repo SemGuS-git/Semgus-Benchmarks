@@ -1,0 +1,93 @@
+// basicTest_SumWithLimitedOps_02
+(synth-fun _max ((y Int) (z Int) (v Int) (x Int) (w Int)) ((x_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int Int Int Int)) : t
+    [() (_Entry.Sem t y z v x w x_out)]
+    (
+        (Eval Start:_term0) [( (y_out Int) (z_out Int) (v_out Int) (w_out Int)) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 y z v x w y_out z_out v_out x_out w_out)
+        )]
+    )
+)
+(
+
+    V : (V.Sem (Term Int Int Int Int Int Int)) : t
+    [( (_result Int)) (V.Sem t y z v x w _result)]
+    (
+
+        // V ::= IntSingleTerm $y
+
+        prod6 [() (and (= t (Leaf 'y')) (= _result y))]
+
+        // V ::= IntSingleTerm $w
+
+        prod4 [() (and (= t (Leaf 'w')) (= _result w))]
+
+        // V ::= IntSingleTerm $x
+
+        prod5 [() (and (= t (Leaf 'x')) (= _result x))]
+
+        // V ::= IntSingleTerm $v
+
+        prod3 [() (and (= t (Leaf 'v')) (= _result v))]
+
+        // V ::= IntSingleTerm $z
+
+        prod7 [() (and (= t (Leaf 'z')) (= _result z))]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int Int Int Int Int)) : t
+    [( (_result Int)) (E.Sem t y z v x w _result)]
+    (
+
+        // E ::= Plus @E1 @E1
+
+        (prod1 E1:_term0 E1:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (Plus _term0 _term1))
+            (E1.Sem _term0 y z v x w _term0_val) (E1.Sem _term1 y z v x w _term1_val)
+            (= _result (+ _term0_val _term1_val))
+        )]
+    )
+)
+(
+
+    E1 : (E1.Sem (Term Int Int Int Int Int Int)) : t
+    [( (_result Int)) (E1.Sem t y z v x w _result)]
+    (
+
+        // E1 ::= Plus @V @V
+
+        (prod2 V:_term0 V:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (Plus _term0 _term1))
+            (V.Sem _term0 y z v x w _term0_val) (V.Sem _term1 y z v x w _term1_val)
+            (= _result (+ _term0_val _term1_val))
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int Int Int Int Int Int Int Int)) : t
+    [( (y_out Int) (z_out Int) (v_out Int) (w_out Int)) (Start.Sem t y z v x w y_out z_out v_out x_out w_out)]
+    (
+
+        // Start ::= IntAssign $x @E
+
+        (prod0 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'x' _term0))
+            (E.Sem _term0 y z v x w _temp)
+            (= y_out y) (= z_out z) (= v_out v) (= x_out _temp) (= w_out w)
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 4 5 1 3 2 15)
+        (_Entry.Sem t 13 16 9 11 21 70)
+    )
+)

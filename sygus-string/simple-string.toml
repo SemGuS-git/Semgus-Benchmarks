@@ -1,0 +1,22 @@
+
+[[task]]
+    files = [
+        "./second-initial.sem",
+        "./phone-5.sl.sem",
+        "./stackoverflow9.sl.sem",
+    ]
+
+    # temp field to set background theory
+    lib = "string"
+
+    output_file_json = "basic-string.out.json"
+    log_file = "basic-string.out.log"
+
+    # array of solver configurations to apply for each problem
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "true"

@@ -1,0 +1,210 @@
+(synth-fun f ((_arg_0 String)) ((result String)) // phone-5.sl
+(
+    S : (S.Sem(Term String String)) : t
+    [() (S.Sem t _arg_0 result)]
+    (
+        _leaf_arg_0 [() (and (= t (Leaf "_arg_0")) (= result _arg_0))]
+        _leaf_space [() (and (= t (Leaf "space")) (= result " "))]
+        _leaf_plus  [() (and (= t (Leaf "plus")) (= result "+"))]
+        _leaf_minus [() (and (= t (Leaf "minus")) (= result "-"))]
+        _leaf_dot   [() (and (= t (Leaf "dot")) (= result "."))]
+        
+        
+        (str.++ S:t1 S:t2)
+        [
+            ((v1 String) (v2 String)) 
+            (and
+                (= t (str.++ t1 t2))
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (= result (str.++ v1 v2))
+            )
+        ]
+        
+        (str.replace S:t1 S:t2 S:t3)
+        [
+            ((v1 String) (v2 String) (v3 String)) 
+            (and
+                (= t (str.replace t1 t2 t3))
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (S.Sem t3 _arg_0 v3)
+                (= result (str.replace v1 v2 v3))
+            )
+        ]
+        
+        (str.at S:t1 I:t2)
+        [
+            ((v1 String) (v2 Int)) 
+            (and
+                (= t (str.at t1 t2))
+                (S.Sem t1 _arg_0 v1)
+                (I.Sem t2 _arg_0 v2)
+                (= result (str.at v1 v2))
+            )
+        ]
+        
+        (int.to.str I:t1)
+        [
+            ((v1 Int)) 
+            (and
+                (= t (int.to.str t1))
+                (I.Sem t1 _arg_0 v1)
+                (= result (int.to.str v1))
+            )
+        ]
+        
+        (ite B:tb S:t1 S:t2)
+        [
+            ((vb Bool) (v1 String) (v2 String)) 
+            (and 
+                (= t (ite tb t1 t2))
+                (B.Sem tb _arg_0 vb)
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (= result (ite vb v1 v2))
+            )
+        ]
+        
+        (str.substr S:t1 I:t2 I:t3)
+        [
+            ((v1 String) (v2 Int) (v3 Int)) 
+            (and 
+                (= t (str.substr t1 t2 t3))
+                (S.Sem t1 _arg_0 v1)
+                (I.Sem t2 _arg_0 v2)
+                (I.Sem t3 _arg_0 v3)
+                (= result (str.substr v1 v2 v3))
+            )
+        ]
+      )
+)
+(
+    I : (I.Sem(Term String Int)) : t
+    [((ri Int)) (I.Sem t _arg_0 ri)]
+    (
+        _leaf_0 [() (and (= t (Leaf "0")) (= ri 0))]
+        _leaf_1 [() (and (= t (Leaf "1")) (= ri 1))]
+        _leaf_2 [() (and (= t (Leaf "2")) (= ri 2))]
+        _leaf_3 [() (and (= t (Leaf "3")) (= ri 3))]
+        _leaf_4 [() (and (= t (Leaf "4")) (= ri 4))]
+        _leaf_5 [() (and (= t (Leaf "5")) (= ri 5))]
+
+        (+ I:t1 I:t2)
+        [
+            ((v1 Int) (v2 Int))
+            (and
+                (= t (+ t1 t2))
+                (I.Sem t1 _arg_0 v1)
+                (I.Sem t2 _arg_0 v2)
+                (= ri (+ v1 v2))
+            )
+        ]
+        
+        (- I:t1 I:t2)
+        [
+            ((v1 Int) (v2 Int))
+            (and
+                (= t (- t1 t2))
+                (I.Sem t1 _arg_0 v1)
+                (I.Sem t2 _arg_0 v2)
+                (= ri (- v1 v2))
+            )
+        ]
+        
+        (str.len S:t1)
+        [
+            ((v1 String))
+            (and
+                (= t (str.len t1))
+                (S.Sem t1 _arg_0 v1)
+                (= ri (str.len v1))
+            )
+        ]
+        
+        (str.to.int S:t1)
+        [
+            ((v1 String))
+            (and
+                (= t (str.to.int t1))
+                (S.Sem t1 _arg_0 v1)
+                (= ri (str.to.int v1))
+            )
+        ]
+        
+        (str.indexof S:t1 S:t2 I:t3)
+        [
+            ((v1 String) (v2 String) (v3 Int))
+            (and
+                (= t (str.indexof t1 t2 t3))
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (I.Sem t3 _arg_0 v3)
+                (= ri (str.indexof v1 v2 v3))
+            )
+        ]
+    )
+)
+(
+    B : (B.Sem(Term String Bool)) : t
+    [((rb Bool)) (B.Sem t _arg_0 rb)]
+    (
+        true [() (and (= t (Leaf "true")) (= rb true))]     // True
+        false [() (and (= t (Leaf "false")) (= rb false))]  // False
+        
+        (= I:t1 I:t2)
+        [
+            ((v1 Int) (v2 Int))
+            (and
+                (= t (= t1 t2))
+                (I.Sem t1 _arg_0 v1)
+                (I.Sem t2 _arg_0 v2)
+                (= rb (= v1 v2))
+            )
+        ]
+        
+        (str.prefixof S:t1 S:t2)
+        [
+            ((v1 String) (v2 String)) 
+            (and
+                (= t (str.prefixof t1 t2))
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (= rb (str.prefixof v1 v2))
+            )
+        ]
+        
+        (str.suffixof S:t1 S:t2)
+        [
+            ((v1 String) (v2 String)) 
+            (and
+                (= t (str.suffixof t1 t2))
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (= rb (str.suffixof v1 v2))
+            )
+        ]
+        
+        (str.contains S:t1 S:t2)
+        [
+            ((v1 String) (v2 String)) 
+            (and
+                (= t (str.contains t1 t2))
+                (S.Sem t1 _arg_0 v1)
+                (S.Sem t2 _arg_0 v2)
+                (= rb (str.contains v1 v2))
+            )
+        ]
+    )
+)
+)
+
+(constraint (and
+  (S.Sem t "+106 769-858-438" "106")
+  (S.Sem t "+83 973-757-831" "83")
+  (S.Sem t "+62 647-787-775" "62")
+  (S.Sem t "+172 027-507-632" "172")
+  (S.Sem t "+72 001-050-856" "72")
+  (S.Sem t "+95 310-537-401" "95")
+  (S.Sem t "+6 775-969-238" "6")
+))

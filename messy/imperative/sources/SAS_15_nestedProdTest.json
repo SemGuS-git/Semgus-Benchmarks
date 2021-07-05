@@ -1,0 +1,1293 @@
+[ {
+  "Name" : "no15_nestedprod_01",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 15,
+    "LHS" : "S",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_02",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 15,
+    "LHS" : "S",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_03",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_04",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_05",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @A"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 3,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $n @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_06",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "E" : "Int",
+    "S3" : "Stmt",
+    "B" : "Bool",
+    "B2" : "Bool",
+    "A" : "Int",
+    "S31" : "Stmt",
+    "S" : "Stmt",
+    "S2" : "Stmt",
+    "P" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 25,
+    "LHS" : "S31",
+    "RHS" : "Seq @S31 @S31"
+  }, {
+    "Index" : 21,
+    "LHS" : "S2",
+    "RHS" : "Seq @S2 @S2"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 15,
+    "LHS" : "S2",
+    "RHS" : "While @B2 @S3"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 31,
+    "LHS" : "P",
+    "RHS" : "Plus $a 1"
+  }, {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 30,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 44,
+    "LHS" : "B2",
+    "RHS" : "LT $a $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S31",
+    "RHS" : "IntAssign $a @P"
+  }, {
+    "Index" : 20,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a 0"
+  }, {
+    "Index" : 4,
+    "LHS" : "S31",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 23,
+    "LHS" : "S3",
+    "RHS" : "Seq @S31 @S31"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_07",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "E" : "Int",
+    "S3" : "Stmt",
+    "S32" : "Stmt",
+    "B" : "Bool",
+    "B2" : "Bool",
+    "A" : "Int",
+    "S31" : "Stmt",
+    "S" : "Stmt",
+    "S2" : "Stmt",
+    "P" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 44,
+    "LHS" : "B2",
+    "RHS" : "LT $a $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S32",
+    "RHS" : "IntAssign $a @P"
+  }, {
+    "Index" : 25,
+    "LHS" : "S31",
+    "RHS" : "Seq @S31 @S31"
+  }, {
+    "Index" : 21,
+    "LHS" : "S2",
+    "RHS" : "Seq @S2 @S2"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  }, {
+    "Index" : 15,
+    "LHS" : "S2",
+    "RHS" : "While @B2 @S3"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 31,
+    "LHS" : "P",
+    "RHS" : "Plus $a 1"
+  }, {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 30,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 23,
+    "LHS" : "S3",
+    "RHS" : "Seq @S31 @S32"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 20,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a 0"
+  }, {
+    "Index" : 4,
+    "LHS" : "S31",
+    "RHS" : "IntAssign $r @E"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_08",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "E" : "Int",
+    "S3" : "Stmt",
+    "S32" : "Stmt",
+    "S21" : "Stmt",
+    "B" : "Bool",
+    "B2" : "Bool",
+    "A" : "Int",
+    "S22" : "Stmt",
+    "S31" : "Stmt",
+    "S" : "Stmt",
+    "S2" : "Stmt",
+    "P" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 44,
+    "LHS" : "B2",
+    "RHS" : "LT $a $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S32",
+    "RHS" : "IntAssign $a @P"
+  }, {
+    "Index" : 3,
+    "LHS" : "S22",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 25,
+    "LHS" : "S3",
+    "RHS" : "Seq @S31 @S32"
+  }, {
+    "Index" : 15,
+    "LHS" : "S21",
+    "RHS" : "While @B2 @S3"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 31,
+    "LHS" : "P",
+    "RHS" : "Plus $a 1"
+  }, {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 30,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 23,
+    "LHS" : "S3",
+    "RHS" : "Seq @S31 @S32"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 20,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a 0"
+  }, {
+    "Index" : 21,
+    "LHS" : "S2",
+    "RHS" : "Seq @S21 @S22"
+  }, {
+    "Index" : 4,
+    "LHS" : "S31",
+    "RHS" : "IntAssign $r @E"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_09",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "S3" : "Stmt",
+    "S32" : "Stmt",
+    "S21" : "Stmt",
+    "B" : "Bool",
+    "B2" : "Bool",
+    "A" : "Int",
+    "S22" : "Stmt",
+    "S31" : "Stmt",
+    "S" : "Stmt",
+    "S2" : "Stmt",
+    "P" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 44,
+    "LHS" : "B2",
+    "RHS" : "LT $a $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S32",
+    "RHS" : "IntAssign $a @P"
+  }, {
+    "Index" : 3,
+    "LHS" : "S22",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 25,
+    "LHS" : "S3",
+    "RHS" : "Seq @S31 @S32"
+  }, {
+    "Index" : 4,
+    "LHS" : "S31",
+    "RHS" : "IntAssign $r @A"
+  }, {
+    "Index" : 15,
+    "LHS" : "S21",
+    "RHS" : "While @B2 @S3"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 31,
+    "LHS" : "P",
+    "RHS" : "Plus $a 1"
+  }, {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 30,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 23,
+    "LHS" : "S3",
+    "RHS" : "Seq @S31 @S32"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 20,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a 0"
+  }, {
+    "Index" : 21,
+    "LHS" : "S2",
+    "RHS" : "Seq @S21 @S22"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_10",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT $n 0"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 15,
+    "LHS" : "S",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no15_nestedprod_11",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 2
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 12
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 4,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 288
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "E" : "Int",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT $n 0"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 15,
+    "LHS" : "S2",
+    "RHS" : "While @B @S1"
+  } ]
+} ]

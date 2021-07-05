@@ -1,0 +1,158 @@
+// no25_addone_04
+(synth-fun _arrsum ((len Int) (r Int) (i Int) (arr IArray)) ((arr_out IArray))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int IArray IArray)) : t
+    [() (_Entry.Sem t len r i arr arr_out)]
+    (
+        (Eval Start:_term0) [( (len_out Int) (r_out Int) (i_out Int)) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 len r i arr len_out r_out i_out arr_out)
+        )]
+    )
+)
+(
+
+    A : (A.Sem (Term Int Int Int IArray Int)) : t
+    [( (_result Int)) (A.Sem t len r i arr _result)]
+    (
+
+        // A ::= IntSingleTerm $r
+
+        prod8 [() (and (= t (Leaf 'r')) (= _result r))]
+
+        // A ::= IntSingleTerm $len
+
+        prod7 [() (and (= t (Leaf 'len')) (= _result len))]
+
+        // A ::= IntSingleTerm 1
+
+        prod6 [() (and (= t (Leaf '1')) (= _result 1))]
+
+        // A ::= IntSingleTerm 0
+
+        prod5 [() (and (= t (Leaf '0')) (= _result 0))]
+
+        // A ::= IntSingleTerm $i
+
+        prod13 [() (and (= t (Leaf 'i')) (= _result i))]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int IArray Int Int Int IArray)) : t
+    [( (len_out Int) (r_out Int) (i_out Int)) (Start.Sem t len r i arr len_out r_out i_out arr_out)]
+    (
+
+        // Start ::= While @B @S
+
+        (prod0 B:_term0 S:_term1) [((_cond Bool) (len_temp Int) (r_temp Int) (i_temp Int) (arr_temp IArray)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 len r i arr _cond)
+            (= _cond true)
+            (S.Sem _term1 len r i arr len_temp r_temp i_temp arr_temp)
+            (Start.Sem t len_temp r_temp i_temp arr_temp len_out r_out i_out arr_out)
+        )]
+        (prod0 B:_term0 S:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 len r i arr _cond)
+            (= _cond false)
+            (= len_out len) (= r_out r) (= i_out i) (= arr_out arr)
+        )]
+    )
+)
+(
+
+    S1 : (S1.Sem (Term Int Int Int IArray Int Int Int IArray)) : t
+    [( (len_out Int) (r_out Int) (i_out Int)) (S1.Sem t len r i arr len_out r_out i_out arr_out)]
+    (
+
+        // S1 ::= IArrayUpdate $arr @A @E
+
+        (prod16 A:_term0 E:_term1) [((_index Int) (_value Int))) (and
+            (= t (IArrayUpdate 'arr' _term0 _term1))
+            (A.Sem _term0 len r i arr _index)
+            (E.Sem _term1 len r i arr _value)
+            (= arr_out (store arr _index _value))
+            (= len_out len) (= r_out r) (= i_out i)
+        )]
+
+        // S1 ::= IntAssign $r @E
+
+        (prod4 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'r' _term0))
+            (E.Sem _term0 len r i arr _temp)
+            (= len_out len) (= r_out _temp) (= i_out i) (= arr_out arr)
+        )]
+
+        // S1 ::= IntAssign $len @E
+
+        (prod3 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'len' _term0))
+            (E.Sem _term0 len r i arr _temp)
+            (= len_out _temp) (= r_out r) (= i_out i) (= arr_out arr)
+        )]
+
+        // S1 ::= IntAssign $i @E
+
+        (prod14 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'i' _term0))
+            (E.Sem _term0 len r i arr _temp)
+            (= len_out len) (= r_out r) (= i_out _temp) (= arr_out arr)
+        )]
+    )
+)
+(
+
+    S : (S.Sem (Term Int Int Int IArray Int Int Int IArray)) : t
+    [( (len_out Int) (r_out Int) (i_out Int)) (S.Sem t len r i arr len_out r_out i_out arr_out)]
+    (
+
+        // S ::= Seq @S1 @S1
+
+        (prod2 S1:_term0 S1:_term1) [((len_temp Int) (r_temp Int) (i_temp Int) (arr_temp IArray)) (and
+            (= t (Seq _term0 _term1))
+            (S1.Sem _term0 len r i arr len_temp r_temp i_temp arr_temp)
+            (S1.Sem _term1 len_temp r_temp i_temp arr_temp len_out r_out i_out arr_out)
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Int Int IArray Bool)) : t
+    [( (_result Bool)) (B.Sem t len r i arr _result)]
+    (
+
+        // B ::= LT @A @A
+
+        (prod1 A:_term0 A:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (LT _term0 _term1))
+            (A.Sem _term0 len r i arr _term0_val) (A.Sem _term1 len r i arr _term1_val)
+            (= _result (< _term0_val _term1_val))
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int Int IArray Int)) : t
+    [( (_result Int)) (E.Sem t len r i arr _result)]
+    (
+
+        // E ::= Minus @A @A
+
+        (prod10 A:_term0 A:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (Minus _term0 _term1))
+            (A.Sem _term0 len r i arr _term0_val) (A.Sem _term1 len r i arr _term1_val)
+            (= _result (- _term0_val _term1_val))
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 2 0 0 (store (store EMPTY_ARRAY 0 1) 1 2) (store (store EMPTY_ARRAY 0 2) 1 3))
+        (_Entry.Sem t 3 0 0 (store (store (store EMPTY_ARRAY 0 2) 1 3) 2 4) (store (store (store EMPTY_ARRAY 0 3) 1 4) 2 5))
+        (_Entry.Sem t 4 0 0 (store (store (store (store EMPTY_ARRAY 0 10) 1 11) 2 12) 3 13) (store (store (store (store EMPTY_ARRAY 0 11) 1 12) 2 13) 3 14))
+    )
+)

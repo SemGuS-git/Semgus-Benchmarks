@@ -1,0 +1,276 @@
+// no14_nestedsum_08
+(synth-fun _fact ((n Int) (r Int) (a Int)) ((r_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int Int)) : t
+    [() (_Entry.Sem t n r a r_out)]
+    (
+        (Eval Start:_term0) [( (n_out Int) (a_out Int)) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 n r a n_out r_out a_out)
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (Start.Sem t n r a n_out r_out a_out)]
+    (
+
+        // Start ::= While @B @S
+
+        (prod0 B:_term0 S:_term1) [((_cond Bool) (n_temp Int) (r_temp Int) (a_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 n r a _cond)
+            (= _cond true)
+            (S.Sem _term1 n r a n_temp r_temp a_temp)
+            (Start.Sem t n_temp r_temp a_temp n_out r_out a_out)
+        )]
+        (prod0 B:_term0 S:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 n r a _cond)
+            (= _cond false)
+            (= n_out n) (= r_out r) (= a_out a)
+        )]
+    )
+)
+(
+
+    A : (A.Sem (Term Int Int Int Int)) : t
+    [( (_result Int)) (A.Sem t n r a _result)]
+    (
+
+        // A ::= IntSingleTerm $n
+
+        prod7 [() (and (= t (Leaf 'n')) (= _result n))]
+
+        // A ::= IntSingleTerm $r
+
+        prod8 [() (and (= t (Leaf 'r')) (= _result r))]
+
+        // A ::= IntSingleTerm $a
+
+        prod13 [() (and (= t (Leaf 'a')) (= _result a))]
+    )
+)
+(
+
+    B2 : (B2.Sem (Term Int Int Int Bool)) : t
+    [( (_result Bool)) (B2.Sem t n r a _result)]
+    (
+
+        // B2 ::= LT $a $n
+
+        prod44 [() (and
+            (= t (LT 'a' 'n'))
+            
+            (= _result (< a n))
+        )]
+    )
+)
+(
+
+    S32 : (S32.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S32.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S32 ::= IntAssign $a @P
+
+        (prod12 P:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'a' _term0))
+            (P.Sem _term0 n r a _temp)
+            (= n_out n) (= r_out r) (= a_out _temp)
+        )]
+    )
+)
+(
+
+    S22 : (S22.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S22.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S22 ::= IntAssign $n @M
+
+        (prod3 M:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'n' _term0))
+            (M.Sem _term0 n r a _temp)
+            (= n_out _temp) (= r_out r) (= a_out a)
+        )]
+    )
+)
+(
+
+    S3 : (S3.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S3.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S3 ::= Seq @S31 @S32
+
+        (prod25 S31:_term0 S32:_term1) [((n_temp Int) (r_temp Int) (a_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S31.Sem _term0 n r a n_temp r_temp a_temp)
+            (S32.Sem _term1 n_temp r_temp a_temp n_out r_out a_out)
+        )]
+
+        // S3 ::= Seq @S31 @S32
+
+        (prod23 S31:_term0 S32:_term1) [((n_temp Int) (r_temp Int) (a_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S31.Sem _term0 n r a n_temp r_temp a_temp)
+            (S32.Sem _term1 n_temp r_temp a_temp n_out r_out a_out)
+        )]
+    )
+)
+(
+
+    S21 : (S21.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S21.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S21 ::= While @B2 @S3
+
+        (prod15 B2:_term0 S3:_term1) [((_cond Bool) (n_temp Int) (r_temp Int) (a_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B2.Sem _term0 n r a _cond)
+            (= _cond true)
+            (S3.Sem _term1 n r a n_temp r_temp a_temp)
+            (S21.Sem t n_temp r_temp a_temp n_out r_out a_out)
+        )]
+        (prod15 B2:_term0 S3:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B2.Sem _term0 n r a _cond)
+            (= _cond false)
+            (= n_out n) (= r_out r) (= a_out a)
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int Int Int)) : t
+    [( (_result Int)) (E.Sem t n r a _result)]
+    (
+
+        // E ::= Minus @A @A
+
+        (prod10 A:_term0 A:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (Minus _term0 _term1))
+            (A.Sem _term0 n r a _term0_val) (A.Sem _term1 n r a _term1_val)
+            (= _result (- _term0_val _term1_val))
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Int Int Bool)) : t
+    [( (_result Bool)) (B.Sem t n r a _result)]
+    (
+
+        // B ::= LT 0 $n
+
+        prod1 [() (and
+            (= t (LT '0' 'n'))
+            
+            (= _result (< 0 n))
+        )]
+    )
+)
+(
+
+    S : (S.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S ::= Seq @S1 @S2
+
+        (prod2 S1:_term0 S2:_term1) [((n_temp Int) (r_temp Int) (a_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S1.Sem _term0 n r a n_temp r_temp a_temp)
+            (S2.Sem _term1 n_temp r_temp a_temp n_out r_out a_out)
+        )]
+    )
+)
+(
+
+    P : (P.Sem (Term Int Int Int Int)) : t
+    [( (_result Int)) (P.Sem t n r a _result)]
+    (
+
+        // P ::= Plus $a 1
+
+        prod31 [() (and
+            (= t (Plus 'a' '1'))
+            
+            (= _result (+ a 1))
+        )]
+    )
+)
+(
+
+    M : (M.Sem (Term Int Int Int Int)) : t
+    [( (_result Int)) (M.Sem t n r a _result)]
+    (
+
+        // M ::= Minus $n 1
+
+        prod30 [() (and
+            (= t (Minus 'n' '1'))
+            
+            (= _result (- n 1))
+        )]
+    )
+)
+(
+
+    S1 : (S1.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S1.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S1 ::= IntAssign $a 0
+
+        prod20 [((_temp Int)) (and 
+            (= t (IntAssign 'a' '0'))
+            (= _temp 0)
+            (= n_out n) (= r_out r) (= a_out _temp)
+        )]
+    )
+)
+(
+
+    S2 : (S2.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S2.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S2 ::= Seq @S21 @S22
+
+        (prod21 S21:_term0 S22:_term1) [((n_temp Int) (r_temp Int) (a_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S21.Sem _term0 n r a n_temp r_temp a_temp)
+            (S22.Sem _term1 n_temp r_temp a_temp n_out r_out a_out)
+        )]
+    )
+)
+(
+
+    S31 : (S31.Sem (Term Int Int Int Int Int Int)) : t
+    [( (n_out Int) (a_out Int)) (S31.Sem t n r a n_out r_out a_out)]
+    (
+
+        // S31 ::= IntAssign $r @E
+
+        (prod4 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'r' _term0))
+            (E.Sem _term0 n r a _temp)
+            (= n_out n) (= r_out _temp) (= a_out a)
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 1 0 0 1)
+        (_Entry.Sem t 2 0 0 4)
+        (_Entry.Sem t 3 0 0 10)
+        (_Entry.Sem t 4 0 0 20)
+    )
+)

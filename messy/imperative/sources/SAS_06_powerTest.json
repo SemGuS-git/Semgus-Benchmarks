@@ -1,0 +1,1166 @@
+[ {
+  "Name" : "no06_power_01",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_02",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_03",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_04",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_05",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @A"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 3,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $n @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_06",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "S" : "Stmt",
+    "E" : "Int",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 21,
+    "LHS" : "S1",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 20,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  } ]
+}, {
+  "Name" : "no06_power_07",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "S" : "Stmt",
+    "E" : "Int",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 21,
+    "LHS" : "S1",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 20,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  } ]
+}, {
+  "Name" : "no06_power_08",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "S" : "Stmt",
+    "E" : "Int",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 20,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  } ]
+}, {
+  "Name" : "no06_power_09",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "M" : "Int",
+    "S" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @A"
+  }, {
+    "Index" : 20,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT 0 $n"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_10",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool",
+    "A" : "Int"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 12,
+    "LHS" : "S",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT $n 1"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  } ]
+}, {
+  "Name" : "no06_power_11",
+  "FunName" : "_fact",
+  "Examples" : [ {
+    "Input" : {
+      "a" : 0,
+      "n" : 0,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 1,
+      "n" : 1,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 1
+    }
+  }, {
+    "Input" : {
+      "a" : 3,
+      "n" : 3,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 27
+    }
+  }, {
+    "Input" : {
+      "a" : 5,
+      "n" : 2,
+      "r" : 1
+    },
+    "Output" : {
+      "r" : 25
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "E" : "Int",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "n" : "Int",
+    "r" : "Int",
+    "a" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $r"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @E"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "Mult @A @A"
+  }, {
+    "Index" : 13,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $a"
+  }, {
+    "Index" : 7,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $n"
+  }, {
+    "Index" : 6,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 4,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $r @E"
+  }, {
+    "Index" : 10,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 12,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $a @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 1,
+    "LHS" : "B",
+    "RHS" : "LT $n 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  } ]
+} ]

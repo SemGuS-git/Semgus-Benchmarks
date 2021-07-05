@@ -1,0 +1,44 @@
+(synth-fun int_compare ((x Int) (y Int)) ((result Int)) // name, Inputs (x, y), Outputs (result)
+( 
+  Start : (Start.Sem(Term Int Int Int)) : t 
+  [() (Start.Sem t x y result)]
+  (
+    x [() (and (= t (Leaf 'x')) (= result x))]
+    y [() (and (= t (Leaf 'y')) (= result y))]
+    0 [() (and (= t (Leaf '0')) (= result 0))]
+    1 [() (and (= t (Leaf '1')) (= result 1))]
+    2 [() (and (= t (Leaf '2')) (= result 2))]
+
+    (+ Start:t1 Start:t2)
+		[((v1 Int) (v2 Int)) (and (= t (Plus t1 t2)) (Start.Sem t1 x y v1) (Start.Sem t2 x y v2) (= result (+ v1 v2)))]
+
+    (ite B:tb Start:t1 Start:t2)
+    [((vb Bool) (v1 Int) (v2 Int)) (and (= t (ITE tb t1 t2)) (B.Sem tb x y vb) (Start.Sem t1 x y v1) (Start.Sem t2 x y v2) (= result (ite vb v1 v2)))]
+  )
+)
+(
+  B : (B.Sem(Term Int Int Bool)) : t
+  [((rb Bool)) (B.Sem t x y rb)]
+  (
+    true [() (and (= t (Leaf 'true')) (= rb true))]
+    false [() (and (= t (Leaf 'false')) (= rb false))]
+    
+    (! B:t1) [((v1 Bool)) (and (= t (Not t1)) (B.Sem t1 x y v1) (= rb (! v1)))]
+
+    (and B:t1 B:t2)
+    [((v1 Bool) (v2 Bool)) (and (= t (And t1 t2)) (B.Sem t1 x y v1) (B.Sem t2 x y v2) (= rb (and v1 v2)))]
+
+    (LT Start:t1 Start:t2)
+    [((v1 Int) (v2 Int)) (and (= t (LT t1 t2)) (Start.Sem t1 x y v1) (Start.Sem t2 x y v2) (= rb (< v1 v2)))]
+  )
+)
+)
+
+(constraint (and
+  (Start.Sem t 0 10 0) 
+  (Start.Sem t 5 5 1) 
+  (Start.Sem t 10 0 2)
+  (Start.Sem t 4 11 0) 
+  (Start.Sem t 12 12 1) 
+  (Start.Sem t 22 3 2)
+))

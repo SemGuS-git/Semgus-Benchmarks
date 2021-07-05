@@ -1,0 +1,208 @@
+// basicTest_MultByWhileLoop_01
+(synth-fun _max ((y Int) (j Int) (i Int) (x Int) (c Int)) ((c_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int Int Int Int)) : t
+    [() (_Entry.Sem t y j i x c c_out)]
+    (
+        (Eval Start:_term0) [( (y_out Int) (j_out Int) (i_out Int) (x_out Int)) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 y j i x c y_out j_out i_out x_out c_out)
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int Int Int Int Int)) : t
+    [( (_result Int)) (E.Sem t y j i x c _result)]
+    (
+
+        // E ::= IntSingleTerm 1
+
+        prod12 [() (and (= t (Leaf '1')) (= _result 1))]
+
+        // E ::= IntSingleTerm $j
+
+        prod15 [() (and (= t (Leaf 'j')) (= _result j))]
+
+        // E ::= IntSingleTerm $i
+
+        prod14 [() (and (= t (Leaf 'i')) (= _result i))]
+
+        // E ::= IntSingleTerm $c
+
+        prod13 [() (and (= t (Leaf 'c')) (= _result c))]
+
+        // E ::= IntSingleTerm 0
+
+        prod11 [() (and (= t (Leaf '0')) (= _result 0))]
+
+        // E ::= Plus @E @E
+
+        (prod16 E:_term0 E:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (Plus _term0 _term1))
+            (E.Sem _term0 y j i x c _term0_val) (E.Sem _term1 y j i x c _term1_val)
+            (= _result (+ _term0_val _term1_val))
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int Int Int Int Int Int Int Int)) : t
+    [( (y_out Int) (j_out Int) (i_out Int) (x_out Int)) (Start.Sem t y j i x c y_out j_out i_out x_out c_out)]
+    (
+
+        // Start ::= While @B @S
+
+        (prod0 B:_term0 S:_term1) [((_cond Bool) (y_temp Int) (j_temp Int) (i_temp Int) (x_temp Int) (c_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 y j i x c _cond)
+            (= _cond true)
+            (S.Sem _term1 y j i x c y_temp j_temp i_temp x_temp c_temp)
+            (Start.Sem t y_temp j_temp i_temp x_temp c_temp y_out j_out i_out x_out c_out)
+        )]
+        (prod0 B:_term0 S:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 y j i x c _cond)
+            (= _cond false)
+            (= y_out y) (= j_out j) (= i_out i) (= x_out x) (= c_out c)
+        )]
+    )
+)
+(
+
+    V : (V.Sem (Term Int Int Int Int Int Int)) : t
+    [( (_result Int)) (V.Sem t y j i x c _result)]
+    (
+
+        // V ::= IntSingleTerm $y
+
+        prod20 [() (and (= t (Leaf 'y')) (= _result y))]
+
+        // V ::= IntSingleTerm $c
+
+        prod18 [() (and (= t (Leaf 'c')) (= _result c))]
+
+        // V ::= IntSingleTerm $j
+
+        prod22 [() (and (= t (Leaf 'j')) (= _result j))]
+
+        // V ::= IntSingleTerm $i
+
+        prod21 [() (and (= t (Leaf 'i')) (= _result i))]
+
+        // V ::= IntSingleTerm $x
+
+        prod19 [() (and (= t (Leaf 'x')) (= _result x))]
+    )
+)
+(
+
+    NS : (NS.Sem (Term Int Int Int Int Int Int Int Int Int Int)) : t
+    [( (y_out Int) (j_out Int) (i_out Int) (x_out Int)) (NS.Sem t y j i x c y_out j_out i_out x_out c_out)]
+    (
+
+        // NS ::= IntAssign $i @E
+
+        (prod7 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'i' _term0))
+            (E.Sem _term0 y j i x c _temp)
+            (= y_out y) (= j_out j) (= i_out _temp) (= x_out x) (= c_out c)
+        )]
+
+        // NS ::= IntAssign $j @E
+
+        (prod9 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'j' _term0))
+            (E.Sem _term0 y j i x c _temp)
+            (= y_out y) (= j_out _temp) (= i_out i) (= x_out x) (= c_out c)
+        )]
+
+        // NS ::= Seq @NS @NS
+
+        (prod10 NS:_term0 NS:_term1) [((y_temp Int) (j_temp Int) (i_temp Int) (x_temp Int) (c_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (NS.Sem _term0 y j i x c y_temp j_temp i_temp x_temp c_temp)
+            (NS.Sem _term1 y_temp j_temp i_temp x_temp c_temp y_out j_out i_out x_out c_out)
+        )]
+
+        // NS ::= IntAssign $c @E
+
+        (prod6 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'c' _term0))
+            (E.Sem _term0 y j i x c _temp)
+            (= y_out y) (= j_out j) (= i_out i) (= x_out x) (= c_out _temp)
+        )]
+    )
+)
+(
+
+    S : (S.Sem (Term Int Int Int Int Int Int Int Int Int Int)) : t
+    [( (y_out Int) (j_out Int) (i_out Int) (x_out Int)) (S.Sem t y j i x c y_out j_out i_out x_out c_out)]
+    (
+
+        // S ::= Seq @S @S
+
+        (prod1 S:_term0 S:_term1) [((y_temp Int) (j_temp Int) (i_temp Int) (x_temp Int) (c_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S.Sem _term0 y j i x c y_temp j_temp i_temp x_temp c_temp)
+            (S.Sem _term1 y_temp j_temp i_temp x_temp c_temp y_out j_out i_out x_out c_out)
+        )]
+
+        // S ::= IntAssign $j @E
+
+        (prod5 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'j' _term0))
+            (E.Sem _term0 y j i x c _temp)
+            (= y_out y) (= j_out _temp) (= i_out i) (= x_out x) (= c_out c)
+        )]
+
+        // S ::= IntAssign $i @E
+
+        (prod4 E:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'i' _term0))
+            (E.Sem _term0 y j i x c _temp)
+            (= y_out y) (= j_out j) (= i_out _temp) (= x_out x) (= c_out c)
+        )]
+
+        // S ::= While @B @NS
+
+        (prod2 B:_term0 NS:_term1) [((_cond Bool) (y_temp Int) (j_temp Int) (i_temp Int) (x_temp Int) (c_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 y j i x c _cond)
+            (= _cond true)
+            (NS.Sem _term1 y j i x c y_temp j_temp i_temp x_temp c_temp)
+            (S.Sem t y_temp j_temp i_temp x_temp c_temp y_out j_out i_out x_out c_out)
+        )]
+        (prod2 B:_term0 NS:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 y j i x c _cond)
+            (= _cond false)
+            (= y_out y) (= j_out j) (= i_out i) (= x_out x) (= c_out c)
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Int Int Int Int Bool)) : t
+    [( (_result Bool)) (B.Sem t y j i x c _result)]
+    (
+
+        // B ::= LT @V @V
+
+        (prod17 V:_term0 V:_term1) [((_term0_val Int) (_term1_val Int)) (and
+            (= t (LT _term0 _term1))
+            (V.Sem _term0 y j i x c _term0_val) (V.Sem _term1 y j i x c _term1_val)
+            (= _result (< _term0_val _term1_val))
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 10 0 0 4 0 40)
+        (_Entry.Sem t 6 0 0 5 0 30)
+        (_Entry.Sem t 3 0 0 8 0 24)
+    )
+)

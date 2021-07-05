@@ -1,0 +1,101 @@
+// basicTest_AddByWhileLoop_04
+(synth-fun _max ((x Int) (y Int)) ((x_out Int) (y_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int Int)) : t
+    [() (_Entry.Sem t x y x_out y_out)]
+    (
+        (Eval Start:_term0) [( ) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 x y x_out y_out)
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int Int)) : t
+    [( ) (Start.Sem t x y x_out y_out)]
+    (
+
+        // Start ::= While @B @S1
+
+        (prod2 B:_term0 S1:_term1) [((_cond Bool) (x_temp Int) (y_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 x y _cond)
+            (= _cond true)
+            (S1.Sem _term1 x y x_temp y_temp)
+            (Start.Sem t x_temp y_temp x_out y_out)
+        )]
+        (prod2 B:_term0 S1:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 x y _cond)
+            (= _cond false)
+            (= x_out x) (= y_out y)
+        )]
+    )
+)
+(
+
+    E1 : (E1.Sem (Term Int Int Int)) : t
+    [( (_result Int)) (E1.Sem t x y _result)]
+    (
+
+        // E1 ::= Plus $x 1
+
+        prod5 [() (and
+            (= t (Plus 'x' '1'))
+            
+            (= _result (+ x 1))
+        )]
+    )
+)
+(
+
+    S1 : (S1.Sem (Term Int Int Int Int)) : t
+    [( ) (S1.Sem t x y x_out y_out)]
+    (
+
+        // S1 ::= IntAssign $x @E1
+
+        (prod0 E1:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'x' _term0))
+            (E1.Sem _term0 x y _temp)
+            (= x_out _temp) (= y_out y)
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Int Bool)) : t
+    [( (_result Bool)) (B.Sem t x y _result)]
+    (
+
+        // B ::= LT @E $y
+
+        (prod3 E:_term0) [((_term0_val Int)) (and
+            (= t (LT _term0 'y'))
+            (E.Sem _term0 x y _term0_val)
+            (= _result (< _term0_val y))
+        )]
+    )
+)
+(
+
+    E : (E.Sem (Term Int Int Int)) : t
+    [( (_result Int)) (E.Sem t x y _result)]
+    (
+
+        // E ::= IntSingleTerm $x
+
+        prod4 [() (and (= t (Leaf 'x')) (= _result x))]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 4 10 10 10)
+        (_Entry.Sem t 12 20 20 20)
+        (_Entry.Sem t 20 12 12 12)
+    )
+)

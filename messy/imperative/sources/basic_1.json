@@ -1,0 +1,1506 @@
+[ {
+  "Name" : "basicTest_MAX_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 1
+    },
+    "Output" : {
+      "x" : 4,
+      "y" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 2,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 6,
+      "y" : 2
+    }
+  }, {
+    "Input" : {
+      "x" : 1,
+      "y" : 1
+    },
+    "Output" : {
+      "x" : 1,
+      "y" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 8,
+      "y" : 8
+    },
+    "Output" : {
+      "x" : 8,
+      "y" : 8
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 3,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $y @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  } ]
+}, {
+  "Name" : "basicTest_MAX_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 1
+    },
+    "Output" : {
+      "x" : 4,
+      "y" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 2,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 6,
+      "y" : 2
+    }
+  }, {
+    "Input" : {
+      "x" : 1,
+      "y" : 1
+    },
+    "Output" : {
+      "x" : 1,
+      "y" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 8,
+      "y" : 8
+    },
+    "Output" : {
+      "x" : 8,
+      "y" : 8
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "EITE @B @E @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "B",
+    "RHS" : "LT @E @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 6,
+    "LHS" : "Start",
+    "RHS" : "Seq @Start @Start"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $y @E"
+  } ]
+}, {
+  "Name" : "basicTest_MAX_03",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 1
+    },
+    "Output" : {
+      "x" : 4,
+      "y" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 2,
+      "y" : 6
+    },
+    "Output" : {
+      "x" : 6,
+      "y" : 2
+    }
+  }, {
+    "Input" : {
+      "x" : 1,
+      "y" : 1
+    },
+    "Output" : {
+      "x" : 1,
+      "y" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 8,
+      "y" : 8
+    },
+    "Output" : {
+      "x" : 8,
+      "y" : 8
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int",
+    "c" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 8,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $c"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "EITE @B @E @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $c @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "B",
+    "RHS" : "LT @E @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 6,
+    "LHS" : "Start",
+    "RHS" : "Seq @Start @Start"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $y @E"
+  } ]
+}, {
+  "Name" : "basicTest_AddOne_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4
+    },
+    "Output" : {
+      "x" : 5
+    }
+  }, {
+    "Input" : {
+      "x" : 2
+    },
+    "Output" : {
+      "x" : 3
+    }
+  }, {
+    "Input" : {
+      "x" : 1
+    },
+    "Output" : {
+      "x" : 2
+    }
+  }, {
+    "Input" : {
+      "x" : 8
+    },
+    "Output" : {
+      "x" : 9
+    }
+  } ],
+  "Nonterminals" : {
+    "Start" : "Stmt",
+    "E" : "Int"
+  },
+  "Variables" : {
+    "x" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  } ]
+}, {
+  "Name" : "basicTest_AddByWhileLoop_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10
+    },
+    "Output" : {
+      "x" : 10,
+      "y" : 10
+    }
+  }, {
+    "Input" : {
+      "x" : 12,
+      "y" : 20
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT @E $y"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $y @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "Start",
+    "RHS" : "While @B @Start"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  } ]
+}, {
+  "Name" : "basicTest_AddByWhileLoop_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10
+    },
+    "Output" : {
+      "x" : 10,
+      "y" : 10
+    }
+  }, {
+    "Input" : {
+      "x" : 12,
+      "y" : 20
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  }, {
+    "Input" : {
+      "x" : 20,
+      "y" : 12
+    },
+    "Output" : {
+      "x" : 12,
+      "y" : 12
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT @E $y"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $y @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "Start",
+    "RHS" : "While @B @Start"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  } ]
+}, {
+  "Name" : "basicTest_AddByWhileLoop_03",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10
+    },
+    "Output" : {
+      "x" : 10,
+      "y" : 10
+    }
+  }, {
+    "Input" : {
+      "x" : 12,
+      "y" : 20
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  }, {
+    "Input" : {
+      "x" : 20,
+      "y" : 12
+    },
+    "Output" : {
+      "x" : 12,
+      "y" : 12
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 2,
+    "LHS" : "Start",
+    "RHS" : "While @B @Start"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT @E $y"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 1,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $y @E"
+  } ]
+}, {
+  "Name" : "basicTest_AddByWhileLoop_04",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10
+    },
+    "Output" : {
+      "x" : 10,
+      "y" : 10
+    }
+  }, {
+    "Input" : {
+      "x" : 12,
+      "y" : 20
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  }, {
+    "Input" : {
+      "x" : 20,
+      "y" : 12
+    },
+    "Output" : {
+      "x" : 12,
+      "y" : 12
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "E" : "Int",
+    "E1" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 2,
+    "LHS" : "Start",
+    "RHS" : "While @B @S1"
+  }, {
+    "Index" : 5,
+    "LHS" : "E1",
+    "RHS" : "Plus $x 1"
+  }, {
+    "Index" : 0,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $x @E1"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT @E $y"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  } ]
+}, {
+  "Name" : "basicTest_AddByWhileLoop_05",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10
+    },
+    "Output" : {
+      "x" : 10,
+      "y" : 10
+    }
+  }, {
+    "Input" : {
+      "x" : 12,
+      "y" : 20
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  }, {
+    "Input" : {
+      "x" : 20,
+      "y" : 12
+    },
+    "Output" : {
+      "x" : 12,
+      "y" : 12
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "E" : "Int",
+    "E1" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 2,
+    "LHS" : "Start",
+    "RHS" : "While @B @S1"
+  }, {
+    "Index" : 5,
+    "LHS" : "E1",
+    "RHS" : "Plus $x 1"
+  }, {
+    "Index" : 0,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $x @E1"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT @E $y"
+  }, {
+    "Index" : 6,
+    "LHS" : "S1",
+    "RHS" : "Seq @S1 @S1"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  } ]
+}, {
+  "Name" : "basicTest_SumWithLimitedOps_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "y" : 4,
+      "z" : 5,
+      "x" : 3,
+      "w" : 2,
+      "v" : 1
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "z" : 16,
+      "w" : 21,
+      "x" : 11,
+      "v" : 9,
+      "y" : 13
+    },
+    "Output" : {
+      "x" : 70
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "y" : "Int",
+    "z" : "Int",
+    "v" : "Int",
+    "x" : "Int",
+    "w" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $z"
+  }, {
+    "Index" : 2,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $v"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 3,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $w"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 1,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  } ]
+}, {
+  "Name" : "basicTest_SumWithLimitedOps_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "y" : 4,
+      "z" : 5,
+      "x" : 3,
+      "w" : 2,
+      "v" : 1
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "z" : 16,
+      "w" : 21,
+      "x" : 11,
+      "v" : 9,
+      "y" : 13
+    },
+    "Output" : {
+      "x" : 70
+    }
+  } ],
+  "Nonterminals" : {
+    "E" : "Int",
+    "E1" : "Int",
+    "V" : "Int",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "y" : "Int",
+    "z" : "Int",
+    "v" : "Int",
+    "x" : "Int",
+    "w" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 6,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 1,
+    "LHS" : "E",
+    "RHS" : "Plus @E1 @E1"
+  }, {
+    "Index" : 2,
+    "LHS" : "E1",
+    "RHS" : "Plus @V @V"
+  }, {
+    "Index" : 4,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $w"
+  }, {
+    "Index" : 5,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 3,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $v"
+  }, {
+    "Index" : 7,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $z"
+  } ]
+}, {
+  "Name" : "basicTest_SumByWhileLoop_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "y" : 4,
+      "z" : 5,
+      "x" : 3,
+      "w" : 2,
+      "v" : 1
+    },
+    "Output" : {
+      "x" : 15
+    }
+  }, {
+    "Input" : {
+      "z" : 16,
+      "w" : 21,
+      "x" : 11,
+      "v" : 9,
+      "y" : 13
+    },
+    "Output" : {
+      "x" : 70
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "y" : "Int",
+    "z" : "Int",
+    "v" : "Int",
+    "x" : "Int",
+    "w" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 2,
+    "LHS" : "B",
+    "RHS" : "LT $x @E"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $v"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 8,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $z"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $w"
+  }, {
+    "Index" : 3,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  } ]
+}, {
+  "Name" : "basicTest_SetBothtoLarger_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10
+    },
+    "Output" : {
+      "x" : 10,
+      "y" : 10
+    }
+  }, {
+    "Input" : {
+      "x" : 12,
+      "y" : 20
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  }, {
+    "Input" : {
+      "x" : 20,
+      "y" : 12
+    },
+    "Output" : {
+      "x" : 20,
+      "y" : 20
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 5,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT @E @E"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  } ]
+}, {
+  "Name" : "basicTest_MultByWhileLoop_01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "j" : 0,
+      "y" : 10,
+      "c" : 0,
+      "i" : 0
+    },
+    "Output" : {
+      "c" : 40
+    }
+  }, {
+    "Input" : {
+      "c" : 0,
+      "i" : 0,
+      "x" : 5,
+      "j" : 0,
+      "y" : 6
+    },
+    "Output" : {
+      "c" : 30
+    }
+  }, {
+    "Input" : {
+      "y" : 3,
+      "x" : 8,
+      "j" : 0,
+      "c" : 0,
+      "i" : 0
+    },
+    "Output" : {
+      "c" : 24
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "NS" : "Stmt",
+    "V" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "y" : "Int",
+    "j" : "Int",
+    "i" : "Int",
+    "x" : "Int",
+    "c" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 12,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 20,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 15,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $j"
+  }, {
+    "Index" : 18,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $c"
+  }, {
+    "Index" : 22,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $j"
+  }, {
+    "Index" : 7,
+    "LHS" : "NS",
+    "RHS" : "IntAssign $i @E"
+  }, {
+    "Index" : 9,
+    "LHS" : "NS",
+    "RHS" : "IntAssign $j @E"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 5,
+    "LHS" : "S",
+    "RHS" : "IntAssign $j @E"
+  }, {
+    "Index" : 14,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $i"
+  }, {
+    "Index" : 10,
+    "LHS" : "NS",
+    "RHS" : "Seq @NS @NS"
+  }, {
+    "Index" : 6,
+    "LHS" : "NS",
+    "RHS" : "IntAssign $c @E"
+  }, {
+    "Index" : 13,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $c"
+  }, {
+    "Index" : 21,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $i"
+  }, {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $i @E"
+  }, {
+    "Index" : 17,
+    "LHS" : "B",
+    "RHS" : "LT @V @V"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 19,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 16,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "While @B @NS"
+  } ]
+}, {
+  "Name" : "basicTest_MultByWhileLoop_02",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4,
+      "y" : 10,
+      "c" : 0
+    },
+    "Output" : {
+      "c" : 40
+    }
+  }, {
+    "Input" : {
+      "x" : 5,
+      "y" : 6,
+      "c" : 0
+    },
+    "Output" : {
+      "c" : 30
+    }
+  }, {
+    "Input" : {
+      "x" : 8,
+      "y" : 3,
+      "c" : 0
+    },
+    "Output" : {
+      "c" : 24
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "NS" : "Stmt",
+    "V" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int",
+    "c" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 12,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 20,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $y"
+  }, {
+    "Index" : 18,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $c"
+  }, {
+    "Index" : 10,
+    "LHS" : "NS",
+    "RHS" : "Seq @NS @NS"
+  }, {
+    "Index" : 6,
+    "LHS" : "NS",
+    "RHS" : "IntAssign $c @E"
+  }, {
+    "Index" : 13,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $c"
+  }, {
+    "Index" : 17,
+    "LHS" : "B",
+    "RHS" : "LT @V @V"
+  }, {
+    "Index" : 11,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 0"
+  }, {
+    "Index" : 19,
+    "LHS" : "V",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 16,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  }, {
+    "Index" : 2,
+    "LHS" : "S",
+    "RHS" : "While @B @NS"
+  } ]
+}, {
+  "Name" : "basicTest_Fib_01",
+  "FunName" : "_gcd",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 1,
+      "y" : 1,
+      "i" : 1
+    },
+    "Output" : {
+      "x" : 1
+    }
+  }, {
+    "Input" : {
+      "x" : 1,
+      "y" : 1,
+      "i" : 5
+    },
+    "Output" : {
+      "x" : 5
+    }
+  }, {
+    "Input" : {
+      "x" : 1,
+      "y" : 1,
+      "i" : 10
+    },
+    "Output" : {
+      "x" : 55
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "B1" : "Bool",
+    "E1" : "Int",
+    "Start" : "Stmt",
+    "E2" : "Int"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "y" : "Int",
+    "i" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 4,
+    "LHS" : "S",
+    "RHS" : "IntAssign $i @E1"
+  }, {
+    "Index" : 12,
+    "LHS" : "E1",
+    "RHS" : "IntSingleTerm $i"
+  }, {
+    "Index" : 9,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 7,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 10,
+    "LHS" : "E2",
+    "RHS" : "IntSingleTerm 2"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "IntAssign $x @E"
+  }, {
+    "Index" : 11,
+    "LHS" : "E2",
+    "RHS" : "IntSingleTerm $i"
+  }, {
+    "Index" : 3,
+    "LHS" : "S",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "Seq @S @S"
+  }, {
+    "Index" : 13,
+    "LHS" : "E1",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 5,
+    "LHS" : "B1",
+    "RHS" : "LT @E2 @E2"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "Plus @E @E"
+  }, {
+    "Index" : 8,
+    "LHS" : "E",
+    "RHS" : "IntSingleTerm $y"
+  } ]
+}, {
+  "Name" : "basicTest_Sanity01",
+  "FunName" : "_max",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 4
+    },
+    "Output" : {
+      "x" : 10
+    }
+  } ],
+  "Nonterminals" : {
+    "S" : "Stmt",
+    "E" : "Int",
+    "Start" : "Stmt",
+    "B" : "Bool"
+  },
+  "Variables" : {
+    "x" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 1,
+    "LHS" : "E",
+    "RHS" : "Plus $x $x"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "Minus $x $x"
+  }, {
+    "Index" : 2,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 3,
+    "LHS" : "B",
+    "RHS" : "LT $x 200"
+  }, {
+    "Index" : 0,
+    "LHS" : "S",
+    "RHS" : "IntAssign $x @E"
+  } ]
+}, {
+  "Name" : "minimal_unsat",
+  "FunName" : "_mini",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 5,
+      "n" : 4
+    },
+    "Output" : {
+      "x" : 2
+    }
+  } ],
+  "Nonterminals" : {
+    "S1" : "Stmt",
+    "S" : "Stmt",
+    "E" : "Int",
+    "B" : "Bool",
+    "A" : "Int",
+    "S2" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "n" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "Seq @S1 @S2"
+  }, {
+    "Index" : 5,
+    "LHS" : "B",
+    "RHS" : "LT 1 $n"
+  }, {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n 1"
+  }, {
+    "Index" : 6,
+    "LHS" : "E",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 4,
+    "LHS" : "E",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 2,
+    "LHS" : "S1",
+    "RHS" : "IntAssign $x @E"
+  } ]
+}, {
+  "Name" : "basicTest20_one_way_loop",
+  "FunName" : "_mini",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 5,
+      "n" : 2
+    },
+    "Output" : {
+      "x" : 6
+    }
+  }, {
+    "Input" : {
+      "x" : 10,
+      "n" : 2
+    },
+    "Output" : {
+      "x" : 9
+    }
+  } ],
+  "Nonterminals" : {
+    "M" : "Int",
+    "S" : "Stmt",
+    "EPlus" : "Int",
+    "EMinus" : "Int",
+    "B" : "Bool",
+    "S2" : "Stmt",
+    "SMinus" : "Stmt",
+    "Start" : "Stmt",
+    "A" : "Int",
+    "SPlus" : "Stmt"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "n" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 5,
+    "LHS" : "B",
+    "RHS" : "LT 1 $n"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 14,
+    "LHS" : "EMinus",
+    "RHS" : "Minus @A @A"
+  }, {
+    "Index" : 9,
+    "LHS" : "S",
+    "RHS" : "Seq @SMinus @S2"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "Seq @SPlus @S2"
+  }, {
+    "Index" : 13,
+    "LHS" : "EPlus",
+    "RHS" : "Plus @A @A"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 10,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 12,
+    "LHS" : "SMinus",
+    "RHS" : "IntAssign $x @EMinus"
+  }, {
+    "Index" : 8,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm $x"
+  }, {
+    "Index" : 15,
+    "LHS" : "A",
+    "RHS" : "IntSingleTerm 1"
+  }, {
+    "Index" : 11,
+    "LHS" : "SPlus",
+    "RHS" : "IntAssign $x @EPlus"
+  } ]
+}, {
+  "Name" : "basicTest21_one_way_loop",
+  "FunName" : "_mini",
+  "Examples" : [ {
+    "Input" : {
+      "x" : 5,
+      "n" : 2
+    },
+    "Output" : {
+      "x" : 6
+    }
+  }, {
+    "Input" : {
+      "x" : 6,
+      "n" : 2
+    },
+    "Output" : {
+      "x" : 5
+    }
+  } ],
+  "Nonterminals" : {
+    "M" : "Int",
+    "S" : "Stmt",
+    "EPlus" : "Int",
+    "EMinus" : "Int",
+    "B" : "Bool",
+    "SPlus" : "Stmt",
+    "S2" : "Stmt",
+    "SMinus" : "Stmt",
+    "Start" : "Stmt"
+  },
+  "Variables" : {
+    "x" : "Int",
+    "n" : "Int"
+  },
+  "Rules" : [ {
+    "Index" : 5,
+    "LHS" : "B",
+    "RHS" : "LT 1 $n"
+  }, {
+    "Index" : 3,
+    "LHS" : "S2",
+    "RHS" : "IntAssign $n @M"
+  }, {
+    "Index" : 12,
+    "LHS" : "SMinus",
+    "RHS" : "IntAssign $x @EMinus"
+  }, {
+    "Index" : 11,
+    "LHS" : "SPlus",
+    "RHS" : "IntAssign $x @EPlus"
+  }, {
+    "Index" : 9,
+    "LHS" : "S",
+    "RHS" : "Seq @SMinus @S2"
+  }, {
+    "Index" : 14,
+    "LHS" : "EMinus",
+    "RHS" : "Minus $x 1"
+  }, {
+    "Index" : 1,
+    "LHS" : "S",
+    "RHS" : "Seq @SPlus @S2"
+  }, {
+    "Index" : 0,
+    "LHS" : "Start",
+    "RHS" : "While @B @S"
+  }, {
+    "Index" : 10,
+    "LHS" : "M",
+    "RHS" : "Minus $n 1"
+  }, {
+    "Index" : 13,
+    "LHS" : "EPlus",
+    "RHS" : "Plus $x 1"
+  }, {
+    "Index" : 16,
+    "LHS" : "SPlus",
+    "RHS" : "Seq @SPlus @SPlus"
+  }, {
+    "Index" : 17,
+    "LHS" : "SMinus",
+    "RHS" : "Seq @SMinus @SMinus"
+  } ]
+} ]

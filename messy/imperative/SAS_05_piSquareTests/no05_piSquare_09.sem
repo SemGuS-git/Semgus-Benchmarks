@@ -1,0 +1,162 @@
+// no05_piSquare_09
+(synth-fun _fact ((n Int) (r Int)) ((r_out Int))
+
+(
+    _Entry : (_Entry.Sem (Term Int Int Int)) : t
+    [() (_Entry.Sem t n r r_out)]
+    (
+        (Eval Start:_term0) [((t1 Int) (n_out Int) (t1_out Int)) (and
+            (= t (Eval _term0))
+            (Start.Sem _term0 n r t1 n_out r_out t1_out)
+        )]
+    )
+)
+(
+
+    A : (A.Sem (Term Int Int Int Int)) : t
+    [((t1 Int) (_result Int)) (A.Sem t n r t1 _result)]
+    (
+
+        // A ::= IntSingleTerm $r
+
+        prod8 [() (and (= t (Leaf 'r')) (= _result r))]
+
+        // A ::= IntSingleTerm $t1
+
+        prod13 [() (and (= t (Leaf 't1')) (= _result t1))]
+
+        // A ::= IntSingleTerm $n
+
+        prod7 [() (and (= t (Leaf 'n')) (= _result n))]
+    )
+)
+(
+
+    S1 : (S1.Sem (Term Int Int Int Int Int Int)) : t
+    [((t1 Int) (n_out Int) (t1_out Int)) (S1.Sem t n r t1 n_out r_out t1_out)]
+    (
+
+        // S1 ::= Seq @S11 @S11
+
+        (prod21 S11:_term0 S11:_term1) [((n_temp Int) (r_temp Int) (t1_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S11.Sem _term0 n r t1 n_temp r_temp t1_temp)
+            (S11.Sem _term1 n_temp r_temp t1_temp n_out r_out t1_out)
+        )]
+    )
+)
+(
+
+    M : (M.Sem (Term Int Int Int Int)) : t
+    [((t1 Int) (_result Int)) (M.Sem t n r t1 _result)]
+    (
+
+        // M ::= Minus $n 1
+
+        prod20 [() (and
+            (= t (Minus 'n' '1'))
+            
+            (= _result (- n 1))
+        )]
+    )
+)
+(
+
+    B : (B.Sem (Term Int Int Int Bool)) : t
+    [((t1 Int) (_result Bool)) (B.Sem t n r t1 _result)]
+    (
+
+        // B ::= LT 0 $n
+
+        prod1 [() (and
+            (= t (LT '0' 'n'))
+            
+            (= _result (< 0 n))
+        )]
+    )
+)
+(
+
+    S : (S.Sem (Term Int Int Int Int Int Int)) : t
+    [((t1 Int) (n_out Int) (t1_out Int)) (S.Sem t n r t1 n_out r_out t1_out)]
+    (
+
+        // S ::= Seq @S1 @S2
+
+        (prod2 S1:_term0 S2:_term1) [((n_temp Int) (r_temp Int) (t1_temp Int)) (and
+            (= t (Seq _term0 _term1))
+            (S1.Sem _term0 n r t1 n_temp r_temp t1_temp)
+            (S2.Sem _term1 n_temp r_temp t1_temp n_out r_out t1_out)
+        )]
+    )
+)
+(
+
+    Start : (Start.Sem (Term Int Int Int Int Int Int)) : t
+    [((t1 Int) (n_out Int) (t1_out Int)) (Start.Sem t n r t1 n_out r_out t1_out)]
+    (
+
+        // Start ::= While @B @S
+
+        (prod0 B:_term0 S:_term1) [((_cond Bool) (n_temp Int) (r_temp Int) (t1_temp Int)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 n r t1 _cond)
+            (= _cond true)
+            (S.Sem _term1 n r t1 n_temp r_temp t1_temp)
+            (Start.Sem t n_temp r_temp t1_temp n_out r_out t1_out)
+        )]
+        (prod0 B:_term0 S:_term1) [((_cond Bool)) (and
+            (= t (While _term0 _term1))
+            (B.Sem _term0 n r t1 _cond)
+            (= _cond false)
+            (= n_out n) (= r_out r) (= t1_out t1)
+        )]
+    )
+)
+(
+
+    S11 : (S11.Sem (Term Int Int Int Int Int Int)) : t
+    [((t1 Int) (n_out Int) (t1_out Int)) (S11.Sem t n r t1 n_out r_out t1_out)]
+    (
+
+        // S11 ::= IntAssign $t1 @A
+
+        (prod12 A:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 't1' _term0))
+            (A.Sem _term0 n r t1 _temp)
+            (= n_out n) (= r_out r) (= t1_out _temp)
+        )]
+
+        // S11 ::= IntAssign $r @A
+
+        (prod4 A:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'r' _term0))
+            (A.Sem _term0 n r t1 _temp)
+            (= n_out n) (= r_out _temp) (= t1_out t1)
+        )]
+    )
+)
+(
+
+    S2 : (S2.Sem (Term Int Int Int Int Int Int)) : t
+    [((t1 Int) (n_out Int) (t1_out Int)) (S2.Sem t n r t1 n_out r_out t1_out)]
+    (
+
+        // S2 ::= IntAssign $n @M
+
+        (prod3 M:_term0) [((_temp Int)) (and 
+            (= t (IntAssign 'n' _term0))
+            (M.Sem _term0 n r t1 _temp)
+            (= n_out _temp) (= r_out r) (= t1_out t1)
+        )]
+    )
+)
+)
+
+(constraint
+    (and
+        (_Entry.Sem t 1 1 1)
+        (_Entry.Sem t 2 1 4)
+        (_Entry.Sem t 3 1 36)
+    )
+)
