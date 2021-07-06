@@ -1,0 +1,14 @@
+
+{
+    "Programs": [
+        "(Eval (While (LT (Leaf 0) (Leaf len)) (Seq (Seq (IntAssign len (Minus (Leaf len) (Leaf 1))) (IntAssign i (IArrayAccess arr (Leaf len))) ) (IntAssign r (Mult (Leaf r) (Leaf i))) ) ) )"
+    ],
+    "Examples": [
+        { "len": 2, "r": 1, "i": 0, "arr": [1, 2]},
+        { "len": 3, "r": 1, "i": 0, "arr": [2,3,4]}
+    ],
+    "Grammars": [
+        {"File": "no18_arrayprod_01.sem", "Theory": "lia"}
+    ],
+    "RunCount": 1
+}

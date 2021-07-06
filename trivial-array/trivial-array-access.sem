@@ -1,0 +1,35 @@
+
+(synth-fun myfun ((x Int) (arr IArray)) ((result Int))
+(
+    Start : (Start.Sem(Term Int IArray Int)) : t
+    [() (Start.Sem t x arr result)]
+    (
+        (Get Start:t1) [((v1 Int)) (and 
+            (= t (Get t1))
+            (Start.Sem t1 x arr v1)
+            (= result (select arr v1))
+        )]
+        
+        x [() (and (= t (Leaf 'x')) (= result x))]
+        1 [() (and (= t (Leaf '1')) (= result 1))]
+
+        (+ Start:t1 Start:t2) [((v1 Int) (v2 Int)) (and
+            (= t (Plus t1 t2))
+            (Start.Sem t1 x arr v1) 
+            (Start.Sem t2 x arr v2)
+            (= result (+ v1 v2))
+        )]
+    )
+)
+)
+
+// should produce (get (get x))
+(constraint
+    (and
+        (Start.Sem t 1 (array.init 1 2 3) 3)
+        (Start.Sem t 1 (array.init 4 1 2) 1)
+        (Start.Sem t 0 (array.init 2 3 6) 6)
+        (Start.Sem t 0 (array.init 0) 0)
+        (Start.Sem t 0 (array.init 0 2 1) 0)
+    )
+)

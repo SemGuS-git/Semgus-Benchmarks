@@ -20,7 +20,11 @@
 
         // E ::= BVNeg @E
 
-        (prod5 E:_term0) [() (and (= t (BVNeg _term0)) (E.Sem _term0 x y _result))]
+        (prod5 E:_term0) [((_term0_val BitVec)) (and
+            (= t (BVNeg _term0))
+            (E.Sem _term0 x y _term0_val)
+            (= _result (bvnot _term0_val))
+        )]
 
         // E ::= BVSingleTerm $y
 
