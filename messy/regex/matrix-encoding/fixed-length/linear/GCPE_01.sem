@@ -1,0 +1,151 @@
+// GCPE_01: word starts with 0
+// string length: 3
+(synth-fun match_regex ( (len Int) (s_0 Int) (s_1 Int) (s_2 Int) ) ((result Bool)) (
+  Start : (Start.Sem(Term Int Int Int Int  Bool)) : t
+  [((X_0_0 Bool) (X_0_1 Bool) (X_0_2 Bool) (X_0_3 Bool) (X_1_1 Bool) (X_1_2 Bool) (X_1_3 Bool) (X_2_2 Bool) (X_2_3 Bool) (X_3_3 Bool) ) (Start.Sem t len s_0 s_1 s_2  result)]
+  (
+    // Evaluate regex on all substrings, return corner element
+
+    (eval R:r) [ () (and (= t (Eval r)) (= len 0) (R.Sem r len s_0 s_1 s_2  X_0_0 X_0_1 X_0_2 X_0_3 X_1_1 X_1_2 X_1_3 X_2_2 X_2_3 X_3_3 ) (= result X_0_0) ) ]
+
+    (eval R:r) [ () (and (= t (Eval r)) (= len 1) (R.Sem r len s_0 s_1 s_2  X_0_0 X_0_1 X_0_2 X_0_3 X_1_1 X_1_2 X_1_3 X_2_2 X_2_3 X_3_3 ) (= result X_0_1) ) ]
+
+    (eval R:r) [ () (and (= t (Eval r)) (= len 2) (R.Sem r len s_0 s_1 s_2  X_0_0 X_0_1 X_0_2 X_0_3 X_1_1 X_1_2 X_1_3 X_2_2 X_2_3 X_3_3 ) (= result X_0_2) ) ]
+
+    (eval R:r) [ () (and (= t (Eval r)) (= len 3) (R.Sem r len s_0 s_1 s_2  X_0_0 X_0_1 X_0_2 X_0_3 X_1_1 X_1_2 X_1_3 X_2_2 X_2_3 X_3_3 ) (= result X_0_3) ) ]
+
+  )
+)
+(
+  R : (R.Sem(Term Int Int Int Int  Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool )) : t
+  [ ((X_0_0 Bool) (X_0_1 Bool) (X_0_2 Bool) (X_0_3 Bool) (X_1_1 Bool) (X_1_2 Bool) (X_1_3 Bool) (X_2_2 Bool) (X_2_3 Bool) (X_3_3 Bool) ) (R.Sem t len s_0 s_1 s_2  X_0_0 X_0_1 X_0_2 X_0_3 X_1_1 X_1_2 X_1_3 X_2_2 X_2_3 X_3_3 ) ]
+  (
+    // epsilon: identity matrix (set of empty strings)
+    eps [() (and (= t (Leaf 'eps')) (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_2_2 true) (= X_2_3 false) (= X_3_3 true)  )]
+    
+
+    // phi production is omitted
+
+    
+    // characters
+
+    char_0 [() (and (= t (Leaf '0')) (= X_0_0 false) (= X_0_1 (= s_0 0)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (= s_1 0)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 0)) (= X_3_3 false)  )]
+
+    char_1 [() (and (= t (Leaf '1')) (= X_0_0 false) (= X_0_1 (= s_0 1)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (= s_1 1)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 1)) (= X_3_3 false)  )]
+
+
+    // any (regex dot)
+    any [() (and (= t (Leaf '.')) (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_2_2 false) (= X_2_3 true) (= X_3_3 false)  )]
+    
+    // Disjunction
+    (or R:t1 R:t2)
+    [
+        (
+            (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_3_3 Bool) 
+            (B_0_0 Bool) (B_0_1 Bool) (B_0_2 Bool) (B_0_3 Bool) (B_1_1 Bool) (B_1_2 Bool) (B_1_3 Bool) (B_2_2 Bool) (B_2_3 Bool) (B_3_3 Bool) 
+        )
+        (and
+            (= t (Or t1 t2))
+            (R.Sem t1 len s_0 s_1 s_2  A_0_0 A_0_1 A_0_2 A_0_3 A_1_1 A_1_2 A_1_3 A_2_2 A_2_3 A_3_3 )
+            (R.Sem t2 len s_0 s_1 s_2  B_0_0 B_0_1 B_0_2 B_0_3 B_1_1 B_1_2 B_1_3 B_2_2 B_2_3 B_3_3 )
+            
+            // X = A+B
+            
+            (= X_0_0 (or A_0_0 B_0_0))
+            (= X_0_1 (or A_0_1 B_0_1))
+            (= X_0_2 (or A_0_2 B_0_2))
+            (= X_0_3 (or A_0_3 B_0_3))
+            (= X_1_1 (or A_1_1 B_1_1))
+            (= X_1_2 (or A_1_2 B_1_2))
+            (= X_1_3 (or A_1_3 B_1_3))
+            (= X_2_2 (or A_2_2 B_2_2))
+            (= X_2_3 (or A_2_3 B_2_3))
+            (= X_3_3 (or A_3_3 B_3_3))
+        )
+    ]
+    
+    // Concatenation
+    (concat R:t1 R:t2)
+    [
+        (
+            (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_3_3 Bool) 
+            (B_0_0 Bool) (B_0_1 Bool) (B_0_2 Bool) (B_0_3 Bool) (B_1_1 Bool) (B_1_2 Bool) (B_1_3 Bool) (B_2_2 Bool) (B_2_3 Bool) (B_3_3 Bool) 
+        )
+        (and
+            (= t (Concat t1 t2))
+            (R.Sem t1 len s_0 s_1 s_2  A_0_0 A_0_1 A_0_2 A_0_3 A_1_1 A_1_2 A_1_3 A_2_2 A_2_3 A_3_3 )
+            (R.Sem t2 len s_0 s_1 s_2  B_0_0 B_0_1 B_0_2 B_0_3 B_1_1 B_1_2 B_1_3 B_2_2 B_2_3 B_3_3 )
+            
+            // X = AB
+            
+            (= X_0_0 (or (and A_0_0 B_0_0)                                                       ))
+            (= X_0_1 (or (and A_0_0 B_0_1) (and A_0_1 B_1_1)                                     ))
+            (= X_0_2 (or (and A_0_0 B_0_2) (and A_0_1 B_1_2) (and A_0_2 B_2_2)                   ))
+            (= X_0_3 (or (and A_0_0 B_0_3) (and A_0_1 B_1_3) (and A_0_2 B_2_3) (and A_0_3 B_3_3) ))
+            (= X_1_1 (or                   (and A_1_1 B_1_1)                                     ))
+            (= X_1_2 (or                   (and A_1_1 B_1_2) (and A_1_2 B_2_2)                   ))
+            (= X_1_3 (or                   (and A_1_1 B_1_3) (and A_1_2 B_2_3) (and A_1_3 B_3_3) ))
+            (= X_2_2 (or                                     (and A_2_2 B_2_2)                   ))
+            (= X_2_3 (or                                     (and A_2_2 B_2_3) (and A_2_3 B_3_3) ))
+            (= X_3_3 (or                                                       (and A_3_3 B_3_3) ))
+        )
+    ]
+    
+    // Star: base case
+    (star R:t1)
+    [ () (and (= t (Star t1)) (= len 0) (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_2_2 true) (= X_2_3 false) (= X_3_3 true)  )]
+    
+    // Star: inductive case
+    (star R:t1)
+    [
+        (
+            (kpr Int)
+            (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_3_3 Bool)  // X
+            (B_0_0 Bool) (B_0_1 Bool) (B_0_2 Bool) (B_0_3 Bool) (B_1_1 Bool) (B_1_2 Bool) (B_1_3 Bool) (B_2_2 Bool) (B_2_3 Bool) (B_3_3 Bool)  // X_{k-1}
+        )
+        (and
+            (= t (Star t1))
+            (< 0 len)
+            (= kpr (- len 1))
+            (R.Sem t1 len s_0 s_1 s_2  A_0_0 A_0_1 A_0_2 A_0_3 A_1_1 A_1_2 A_1_3 A_2_2 A_2_3 A_3_3 )
+            (R.Sem t  kpr s_0 s_1 s_2  B_0_0 B_0_1 B_0_2 B_0_3 B_1_1 B_1_2 B_1_3 B_2_2 B_2_3 B_3_3 )
+            
+            // X = (X X_{k-1}) + X_{k-1}
+            
+            (= X_0_0 (or B_0_0 (and A_0_0 B_0_0)                                                       ))
+            (= X_0_1 (or B_0_1 (and A_0_0 B_0_1) (and A_0_1 B_1_1)                                     ))
+            (= X_0_2 (or B_0_2 (and A_0_0 B_0_2) (and A_0_1 B_1_2) (and A_0_2 B_2_2)                   ))
+            (= X_0_3 (or B_0_3 (and A_0_0 B_0_3) (and A_0_1 B_1_3) (and A_0_2 B_2_3) (and A_0_3 B_3_3) ))
+            (= X_1_1 (or B_1_1                   (and A_1_1 B_1_1)                                     ))
+            (= X_1_2 (or B_1_2                   (and A_1_1 B_1_2) (and A_1_2 B_2_2)                   ))
+            (= X_1_3 (or B_1_3                   (and A_1_1 B_1_3) (and A_1_2 B_2_3) (and A_1_3 B_3_3) ))
+            (= X_2_2 (or B_2_2                                     (and A_2_2 B_2_2)                   ))
+            (= X_2_3 (or B_2_3                                     (and A_2_2 B_2_3) (and A_2_3 B_3_3) ))
+            (= X_3_3 (or B_3_3                                                       (and A_3_3 B_3_3) ))
+        )
+    ]
+  )
+)
+)
+
+// GCPE_01: word starts with 0
+
+(constraint
+    (and
+    
+        (Start.Sem t 1 0 9 9 true)
+        (Start.Sem t 2 0 1 9 true)
+        (Start.Sem t 2 0 0 9 true)
+        (Start.Sem t 3 0 1 1 true)
+        (Start.Sem t 3 0 0 0 true)
+        (Start.Sem t 3 0 1 0 true)
+        (Start.Sem t 3 0 0 1 true)
+        (Start.Sem t 1 1 9 9 false)
+        (Start.Sem t 2 1 1 9 false)
+        (Start.Sem t 2 1 0 9 false)
+        (Start.Sem t 3 1 1 1 false)
+        (Start.Sem t 3 1 0 0 false)
+        (Start.Sem t 3 1 1 0 false)
+        (Start.Sem t 3 1 0 1 false)
+    )
+)

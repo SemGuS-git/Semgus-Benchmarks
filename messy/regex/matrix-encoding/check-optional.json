@@ -1,0 +1,19 @@
+
+{
+    "Programs": [
+        "(Eval (Or (Leaf 0) (Leaf eps)))"
+    ],
+    "Examples": [
+        {"len": 0,  "s": ""},
+        {"len": 1,  "s": "0"},
+        {"len": 1,  "s": "1"},
+        {"len": 1,  "s": "X"},
+        {"len": 2,  "s": "00"},
+        {"len": 2,  "s": "0X"}
+    ],
+    "Grammars": [
+        {"File": "magic/linear/GCPE_01.sem", "Theory": "regex_bmat"},
+        {"File": "magic/logarithmic/GCPE_01.sem", "Theory": "regex_bmat"}
+    ],
+    "RunCount": 1
+}

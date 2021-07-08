@@ -25,3 +25,13 @@
             use_observational_equivalence_reduction = "true"
             interpreter_max_depth = 1000
             halt_on_parse_error = "true"
+
+    [[task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [task.solver.params]
+            cost_function = "size"
+            use_observational_equivalence_reduction = "false"
+            interpreter_max_depth = 1000
+            halt_on_parse_error = "true"

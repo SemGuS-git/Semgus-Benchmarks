@@ -8,7 +8,7 @@
 {% macro eq_false(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} false) {%endfor%}{%endfor%}{%endmacro%}
 {% macro eq_id(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 {% macro eq_any(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i+1==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
-{% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(= {{s}}_{{i}} {{c}}){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+{% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(or (= {{s}}_{{i}} {{c}}) (= {{s}}_{{i}} {{sigma_neg}})){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 
 {% if comment is defined %}// {{ comment }}{% endif %}
 // string length: {{ n }}
@@ -101,7 +101,7 @@
         )
         (and
             (= t (Star t1))
-            (and (< 0 len) (= 1 (mod len 2)))
+            (= 1 (mod len 2))
             (< 0 len)
             (= kpr (- len 1))
             (R.Sem t1 len {{str(s)}} {{mat(A)}})
@@ -127,7 +127,7 @@
         (and
             (= t (Star t1))
             (and (< 0 len) (= 0 (mod len 2)))
-            (= kpr (/ len 2))
+            (= kpr (div len 2))
             (R.Sem t  kpr {{str(s)}} {{mat(A)}})
             
             // X_{k} = (X_{k/2} X_{k/2})

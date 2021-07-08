@@ -8,7 +8,7 @@
 {% macro eq_false(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} false) {%endfor%}{%endfor%}{%endmacro%}
 {% macro eq_id(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 {% macro eq_any(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i+1==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
-{% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(= {{s}}_{{i}} {{c}}){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+{% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(or (= {{s}}_{{i}} {{c}}) (= {{s}}_{{i}} {{sigma_neg}})){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 
 {% if comment is defined %}// {{ comment }}{% endif %}
 // string length: {{ n }}
@@ -84,14 +84,7 @@
     (star R:t1)
     [ () (and (= t (Star t1)) (= len 0) {{eq_id(X)}} )]
     
-    
-// Logarithmic semantics
-    
-    // Star: inductive case (odd)
-    //   Sem_R {<= k-1} () = M_{k-1}  Sem_R() = M
-    //   ---------------------------------------- k-odd
-    //   Sem_R {<= k} (...) = M_{k-1} (M + 1)
-    
+    // Star: inductive case
     (star R:t1)
     [
         (
@@ -101,38 +94,14 @@
         )
         (and
             (= t (Star t1))
-            (and (< 0 len) (= 1 (mod len 2)))
             (< 0 len)
             (= kpr (- len 1))
             (R.Sem t1 len {{str(s)}} {{mat(A)}})
             (R.Sem t  kpr {{str(s)}} {{mat(B)}})
             
-            // X_{k} = X_{k-1} X
+            // X = (X X_{k-1}) + X_{k-1}
             {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
             (= {{X}}_{{i}}_{{j}} (or {{B}}_{{i}}_{{j}} {% for k in range(0, n+1)%}{% if i <= k and k <= j%}(and {{A}}_{{i}}_{{k}} {{B}}_{{k}}_{{j}}){%else%}                 {%endif%} {%endfor%})){%endfor%}{%endfor%}
-        )
-    ]    
-    
-    // Star: inductive case (even)
-    //   Sem_{<= k/2} = M_{<= k/2}
-    //   ------------------------------------------- k-even
-    //   Sem_{<= k} = (M_{<= k/2})(M_{<= k/2})
-        
-    (star R:t1)
-    [
-        (
-            (kpr Int)
-            {{dec_mat(A)}} // X_{k/2}
-        )
-        (and
-            (= t (Star t1))
-            (and (< 0 len) (= 0 (mod len 2)))
-            (= kpr (/ len 2))
-            (R.Sem t  kpr {{str(s)}} {{mat(A)}})
-            
-            // X_{k} = (X_{k/2} X_{k/2})
-            {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
-            (= {{X}}_{{i}}_{{j}} (or {% for k in range(0, n+1)%}{% if i <= k and k <= j%}(and {{A}}_{{i}}_{{k}} {{A}}_{{k}}_{{j}}){%else%}                 {%endif%} {%endfor%})){%endfor%}{%endfor%}
         )
     ]
   )
