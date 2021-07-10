@@ -5,10 +5,17 @@
 {% macro t_str() %}{%for i in range(0,n)%}Int {%endfor%}{%endmacro%}
 {% macro t_mat() %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}Bool {%endfor%}{%endfor%}{%endmacro%}
 
-{% macro eq_false(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} false) {%endfor%}{%endfor%}{%endmacro%}
-{% macro eq_id(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
-{% macro eq_any(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i+1==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
-{% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(or (= {{s}}_{{i}} {{c}}) (= {{s}}_{{i}} {{sigma_neg}})){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+{% macro eq_false(name) %}{% for i in range(0,n+1) %}
+        {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} false) {%endfor%}{%endfor%}{%endmacro%}
+
+{% macro eq_id(name) %}{% for i in range(0,n+1) %}
+        {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+
+{% macro eq_any(name) %}{% for i in range(0,n+1) %}
+        {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i+1==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+
+{% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}
+        {% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(or (= {{s}}_{{i}} {{c}}) (= {{s}}_{{i}} {{sigma_neg}})){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 
 {% if comment is defined %}// {{ comment }}{% endif %}
 // string length: {{ n }}
@@ -27,22 +34,30 @@
   [ ({{dec_mat(X)}}) (R.Sem t len {{str(s)}} {{mat(X)}}) ]
   (
     // epsilon: identity matrix (set of empty strings)
-    eps [() (and (= t (Leaf 'eps')) {{eq_id(X)}} )]
+    eps [()
+        (and (= t (Leaf 'eps')){{eq_id(X)}}
+    )]
     
 {% if include_phi is defined and include_phi %}
     // phi: zero matrix (empty set)
-    phi [() (and (= t (Leaf 'phi')) {{eq_false(X)}} )]
+    phi [() (and
+        (= t (Leaf 'phi')){{eq_false(X)}}
+    )]
 {% else %}
     // phi production is omitted
 {% endif %}
     
-    // characters
+    // characters (with negative sigma)
 {% for c in charset %}
-    char_{{c}} [() (and (= t (Leaf '{{c}}')) {{eq_char(s,X,c)}} )]
+    char_{{c}} [() (and
+        (= t (Leaf '{{c}}')){{eq_char(s,X,c)}}
+    )]
 {% endfor %}
 
     // any (regex dot)
-    any [() (and (= t (Leaf '.')) {{eq_any(X)}} )]
+    any [() (and
+        (= t (Leaf '.')){{eq_any(X)}}
+    )]
     
     // Disjunction
     (or R:t1 R:t2)

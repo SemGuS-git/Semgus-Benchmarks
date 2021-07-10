@@ -35,21 +35,58 @@
   [ ((X_0_0 Bool) (X_0_1 Bool) (X_0_2 Bool) (X_0_3 Bool) (X_0_4 Bool) (X_0_5 Bool) (X_0_6 Bool) (X_0_7 Bool) (X_0_8 Bool) (X_0_9 Bool) (X_0_10 Bool) (X_1_1 Bool) (X_1_2 Bool) (X_1_3 Bool) (X_1_4 Bool) (X_1_5 Bool) (X_1_6 Bool) (X_1_7 Bool) (X_1_8 Bool) (X_1_9 Bool) (X_1_10 Bool) (X_2_2 Bool) (X_2_3 Bool) (X_2_4 Bool) (X_2_5 Bool) (X_2_6 Bool) (X_2_7 Bool) (X_2_8 Bool) (X_2_9 Bool) (X_2_10 Bool) (X_3_3 Bool) (X_3_4 Bool) (X_3_5 Bool) (X_3_6 Bool) (X_3_7 Bool) (X_3_8 Bool) (X_3_9 Bool) (X_3_10 Bool) (X_4_4 Bool) (X_4_5 Bool) (X_4_6 Bool) (X_4_7 Bool) (X_4_8 Bool) (X_4_9 Bool) (X_4_10 Bool) (X_5_5 Bool) (X_5_6 Bool) (X_5_7 Bool) (X_5_8 Bool) (X_5_9 Bool) (X_5_10 Bool) (X_6_6 Bool) (X_6_7 Bool) (X_6_8 Bool) (X_6_9 Bool) (X_6_10 Bool) (X_7_7 Bool) (X_7_8 Bool) (X_7_9 Bool) (X_7_10 Bool) (X_8_8 Bool) (X_8_9 Bool) (X_8_10 Bool) (X_9_9 Bool) (X_9_10 Bool) (X_10_10 Bool) ) (R.Sem t len s_0 s_1 s_2 s_3 s_4 s_5 s_6 s_7 s_8 s_9  X_0_0 X_0_1 X_0_2 X_0_3 X_0_4 X_0_5 X_0_6 X_0_7 X_0_8 X_0_9 X_0_10 X_1_1 X_1_2 X_1_3 X_1_4 X_1_5 X_1_6 X_1_7 X_1_8 X_1_9 X_1_10 X_2_2 X_2_3 X_2_4 X_2_5 X_2_6 X_2_7 X_2_8 X_2_9 X_2_10 X_3_3 X_3_4 X_3_5 X_3_6 X_3_7 X_3_8 X_3_9 X_3_10 X_4_4 X_4_5 X_4_6 X_4_7 X_4_8 X_4_9 X_4_10 X_5_5 X_5_6 X_5_7 X_5_8 X_5_9 X_5_10 X_6_6 X_6_7 X_6_8 X_6_9 X_6_10 X_7_7 X_7_8 X_7_9 X_7_10 X_8_8 X_8_9 X_8_10 X_9_9 X_9_10 X_10_10 ) ]
   (
     // epsilon: identity matrix (set of empty strings)
-    eps [() (and (= t (Leaf 'eps')) (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) (= X_2_2 true) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) (= X_3_3 true) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) (= X_4_4 true) (= X_4_5 false) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) (= X_5_5 true) (= X_5_6 false) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) (= X_6_6 true) (= X_6_7 false) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) (= X_7_7 true) (= X_7_8 false) (= X_7_9 false) (= X_7_10 false) (= X_8_8 true) (= X_8_9 false) (= X_8_10 false) (= X_9_9 true) (= X_9_10 false) (= X_10_10 true)  )]
+    eps [()
+        (and (= t (Leaf 'eps'))
+        (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) 
+        (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) 
+        (= X_2_2 true) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) 
+        (= X_3_3 true) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) 
+        (= X_4_4 true) (= X_4_5 false) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) 
+        (= X_5_5 true) (= X_5_6 false) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) 
+        (= X_6_6 true) (= X_6_7 false) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) 
+        (= X_7_7 true) (= X_7_8 false) (= X_7_9 false) (= X_7_10 false) 
+        (= X_8_8 true) (= X_8_9 false) (= X_8_10 false) 
+        (= X_9_9 true) (= X_9_10 false) 
+        (= X_10_10 true) 
+    )]
     
 
     // phi production is omitted
 
     
-    // characters
+    // characters (with negative sigma)
 
-    char_0 [() (and (= t (Leaf '0')) (= X_0_0 false) (= X_0_1 (= s_0 0)) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) (= X_1_1 false) (= X_1_2 (= s_1 0)) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) (= X_2_2 false) (= X_2_3 (= s_2 0)) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) (= X_3_3 false) (= X_3_4 (= s_3 0)) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) (= X_4_4 false) (= X_4_5 (= s_4 0)) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) (= X_5_5 false) (= X_5_6 (= s_5 0)) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) (= X_6_6 false) (= X_6_7 (= s_6 0)) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) (= X_7_7 false) (= X_7_8 (= s_7 0)) (= X_7_9 false) (= X_7_10 false) (= X_8_8 false) (= X_8_9 (= s_8 0)) (= X_8_10 false) (= X_9_9 false) (= X_9_10 (= s_9 0)) (= X_10_10 false)  )]
+    char_0 [() (and
+        (= t (Leaf '0'))
+        (= X_0_0 false) (= X_0_1 (or (= s_0 0) (= s_0 3))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) 
+        (= X_1_1 false) (= X_1_2 (or (= s_1 0) (= s_1 3))) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) 
+        (= X_2_2 false) (= X_2_3 (or (= s_2 0) (= s_2 3))) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) 
+        (= X_3_3 false) (= X_3_4 (or (= s_3 0) (= s_3 3))) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) 
+        (= X_4_4 false) (= X_4_5 (or (= s_4 0) (= s_4 3))) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) 
+        (= X_5_5 false) (= X_5_6 (or (= s_5 0) (= s_5 3))) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) 
+        (= X_6_6 false) (= X_6_7 (or (= s_6 0) (= s_6 3))) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) 
+        (= X_7_7 false) (= X_7_8 (or (= s_7 0) (= s_7 3))) (= X_7_9 false) (= X_7_10 false) 
+        (= X_8_8 false) (= X_8_9 (or (= s_8 0) (= s_8 3))) (= X_8_10 false) 
+        (= X_9_9 false) (= X_9_10 (or (= s_9 0) (= s_9 3))) 
+        (= X_10_10 false) 
+    )]
 
-    char_1 [() (and (= t (Leaf '1')) (= X_0_0 false) (= X_0_1 (= s_0 1)) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) (= X_1_1 false) (= X_1_2 (= s_1 1)) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) (= X_2_2 false) (= X_2_3 (= s_2 1)) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) (= X_3_3 false) (= X_3_4 (= s_3 1)) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) (= X_4_4 false) (= X_4_5 (= s_4 1)) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) (= X_5_5 false) (= X_5_6 (= s_5 1)) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) (= X_6_6 false) (= X_6_7 (= s_6 1)) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) (= X_7_7 false) (= X_7_8 (= s_7 1)) (= X_7_9 false) (= X_7_10 false) (= X_8_8 false) (= X_8_9 (= s_8 1)) (= X_8_10 false) (= X_9_9 false) (= X_9_10 (= s_9 1)) (= X_10_10 false)  )]
+    char_1 [() (and
+        (= t (Leaf '1'))
+        (= X_0_0 false) (= X_0_1 (or (= s_0 1) (= s_0 3))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) 
+        (= X_1_1 false) (= X_1_2 (or (= s_1 1) (= s_1 3))) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) 
+        (= X_2_2 false) (= X_2_3 (or (= s_2 1) (= s_2 3))) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) 
+        (= X_3_3 false) (= X_3_4 (or (= s_3 1) (= s_3 3))) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) 
+        (= X_4_4 false) (= X_4_5 (or (= s_4 1) (= s_4 3))) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) 
+        (= X_5_5 false) (= X_5_6 (or (= s_5 1) (= s_5 3))) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) 
+        (= X_6_6 false) (= X_6_7 (or (= s_6 1) (= s_6 3))) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) 
+        (= X_7_7 false) (= X_7_8 (or (= s_7 1) (= s_7 3))) (= X_7_9 false) (= X_7_10 false) 
+        (= X_8_8 false) (= X_8_9 (or (= s_8 1) (= s_8 3))) (= X_8_10 false) 
+        (= X_9_9 false) (= X_9_10 (or (= s_9 1) (= s_9 3))) 
+        (= X_10_10 false) 
+    )]
 
-
-    // any (regex dot)
-    any [() (and (= t (Leaf '.')) (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) (= X_2_2 false) (= X_2_3 true) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) (= X_3_3 false) (= X_3_4 true) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) (= X_4_4 false) (= X_4_5 true) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) (= X_5_5 false) (= X_5_6 true) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) (= X_6_6 false) (= X_6_7 true) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) (= X_7_7 false) (= X_7_8 true) (= X_7_9 false) (= X_7_10 false) (= X_8_8 false) (= X_8_9 true) (= X_8_10 false) (= X_9_9 false) (= X_9_10 true) (= X_10_10 false)  )]
+    
     
     // Disjunction
     (or R:t1 R:t2)
@@ -219,7 +256,18 @@
     
     // Star: base case
     (star R:t1)
-    [ () (and (= t (Star t1)) (= len 0) (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) (= X_2_2 true) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) (= X_3_3 true) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) (= X_4_4 true) (= X_4_5 false) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) (= X_5_5 true) (= X_5_6 false) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) (= X_6_6 true) (= X_6_7 false) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) (= X_7_7 true) (= X_7_8 false) (= X_7_9 false) (= X_7_10 false) (= X_8_8 true) (= X_8_9 false) (= X_8_10 false) (= X_9_9 true) (= X_9_10 false) (= X_10_10 true)  )]
+    [ () (and (= t (Star t1)) (= len 0) 
+        (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) 
+        (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) 
+        (= X_2_2 true) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) 
+        (= X_3_3 true) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) 
+        (= X_4_4 true) (= X_4_5 false) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) 
+        (= X_5_5 true) (= X_5_6 false) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) 
+        (= X_6_6 true) (= X_6_7 false) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) 
+        (= X_7_7 true) (= X_7_8 false) (= X_7_9 false) (= X_7_10 false) 
+        (= X_8_8 true) (= X_8_9 false) (= X_8_10 false) 
+        (= X_9_9 true) (= X_9_10 false) 
+        (= X_10_10 true)  )]
     
     
 // Logarithmic semantics

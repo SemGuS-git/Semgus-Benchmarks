@@ -17,9 +17,9 @@
     // phi: zero matrix (empty set)
     phi [() (and (= t (Leaf 'phi')) (= X (bmat.zero s))  )]
     
-    // characters
-    char_0 [() (and (= t (Leaf '0')) (= X (bmat.char s '0')) ) ]
-    char_1 [() (and (= t (Leaf '1')) (= X (bmat.char s '1')) ) ]
+    // characters (with negative sigma)
+    char_0 [() (and (= t (Leaf '0')) (= X (bmat.plus (bmat.char s '0') (bmat.char s 'Y'))) ) ]
+    char_1 [() (and (= t (Leaf '1')) (= X (bmat.plus (bmat.char s '1') (bmat.char s 'Y'))) ) ]
 
     // any (regex dot)
     any [() (and (= t (Leaf '.')) (= X (bmat.any s))  )]
@@ -113,13 +113,13 @@
         (Start.Sem t 5 "1X1X1" true)
         (Start.Sem t 6 "1X1X1X" true)
         (Start.Sem t 1 "0" false)
-        (Start.Sem t 2 "0X" false)
-        (Start.Sem t 3 "XX0" false)
-        (Start.Sem t 4 "0XXX" false)
-        (Start.Sem t 4 "XX0X" false)
-        (Start.Sem t 5 "0XXXX" false)
-        (Start.Sem t 5 "XX0XX" false)
-        (Start.Sem t 5 "XXXX0" false)
-        (Start.Sem t 6 "XXXX0X" false)
+        (Start.Sem t 2 "0Y" false)
+        (Start.Sem t 3 "YY0" false)
+        (Start.Sem t 4 "0YYY" false)
+        (Start.Sem t 4 "YY0Y" false)
+        (Start.Sem t 5 "0YYYY" false)
+        (Start.Sem t 5 "YY0YY" false)
+        (Start.Sem t 5 "YYYY0" false)
+        (Start.Sem t 6 "YYYY0Y" false)
     )
 )

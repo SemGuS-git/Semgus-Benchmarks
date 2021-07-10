@@ -17,9 +17,9 @@
     // phi: zero matrix (empty set)
     phi [() (and (= t (Leaf 'phi')) (= X (bmat.zero s))  )]
     
-    // characters
-    char_0 [() (and (= t (Leaf '0')) (= X (bmat.char s '0')) ) ]
-    char_1 [() (and (= t (Leaf '1')) (= X (bmat.char s '1')) ) ]
+    // characters (with negative sigma)
+    char_0 [() (and (= t (Leaf '0')) (= X (bmat.plus (bmat.char s '0') (bmat.char s 'Y'))) ) ]
+    char_1 [() (and (= t (Leaf '1')) (= X (bmat.plus (bmat.char s '1') (bmat.char s 'Y'))) ) ]
 
     // any (regex dot)
     any [() (and (= t (Leaf '.')) (= X (bmat.any s))  )]
@@ -115,7 +115,7 @@
         (Start.Sem t 4 "XX11" true)
         (Start.Sem t 5 "XXX11" true)
         (Start.Sem t 2 "01" false)
-        (Start.Sem t 3 "X01" false)
-        (Start.Sem t 4 "XX01" false)
+        (Start.Sem t 3 "Y01" false)
+        (Start.Sem t 4 "YY01" false)
     )
 )

@@ -21,21 +21,37 @@
   [ ((X_0_0 Bool) (X_0_1 Bool) (X_0_2 Bool) (X_0_3 Bool) (X_1_1 Bool) (X_1_2 Bool) (X_1_3 Bool) (X_2_2 Bool) (X_2_3 Bool) (X_3_3 Bool) ) (R.Sem t len s_0 s_1 s_2  X_0_0 X_0_1 X_0_2 X_0_3 X_1_1 X_1_2 X_1_3 X_2_2 X_2_3 X_3_3 ) ]
   (
     // epsilon: identity matrix (set of empty strings)
-    eps [() (and (= t (Leaf 'eps')) (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_2_2 true) (= X_2_3 false) (= X_3_3 true)  )]
+    eps [()
+        (and (= t (Leaf 'eps'))
+        (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) 
+        (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) 
+        (= X_2_2 true) (= X_2_3 false) 
+        (= X_3_3 true) 
+    )]
     
 
     // phi production is omitted
 
     
-    // characters
+    // characters (with negative sigma)
 
-    char_0 [() (and (= t (Leaf '0')) (= X_0_0 false) (= X_0_1 (= s_0 0)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (= s_1 0)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 0)) (= X_3_3 false)  )]
+    char_0 [() (and
+        (= t (Leaf '0'))
+        (= X_0_0 false) (= X_0_1 (or (= s_0 0) (= s_0 3))) (= X_0_2 false) (= X_0_3 false) 
+        (= X_1_1 false) (= X_1_2 (or (= s_1 0) (= s_1 3))) (= X_1_3 false) 
+        (= X_2_2 false) (= X_2_3 (or (= s_2 0) (= s_2 3))) 
+        (= X_3_3 false) 
+    )]
 
-    char_1 [() (and (= t (Leaf '1')) (= X_0_0 false) (= X_0_1 (= s_0 1)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (= s_1 1)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 1)) (= X_3_3 false)  )]
+    char_1 [() (and
+        (= t (Leaf '1'))
+        (= X_0_0 false) (= X_0_1 (or (= s_0 1) (= s_0 3))) (= X_0_2 false) (= X_0_3 false) 
+        (= X_1_1 false) (= X_1_2 (or (= s_1 1) (= s_1 3))) (= X_1_3 false) 
+        (= X_2_2 false) (= X_2_3 (or (= s_2 1) (= s_2 3))) 
+        (= X_3_3 false) 
+    )]
 
-
-    // any (regex dot)
-    any [() (and (= t (Leaf '.')) (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_2_2 false) (= X_2_3 true) (= X_3_3 false)  )]
+    
     
     // Disjunction
     (or R:t1 R:t2)
@@ -93,7 +109,11 @@
     
     // Star: base case
     (star R:t1)
-    [ () (and (= t (Star t1)) (= len 0) (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_2_2 true) (= X_2_3 false) (= X_3_3 true)  )]
+    [ () (and (= t (Star t1)) (= len 0) 
+        (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) 
+        (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) 
+        (= X_2_2 true) (= X_2_3 false) 
+        (= X_3_3 true)  )]
     
     
 // Logarithmic semantics
