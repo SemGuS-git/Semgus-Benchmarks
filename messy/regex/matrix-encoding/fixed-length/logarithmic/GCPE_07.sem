@@ -111,7 +111,27 @@
         (= X_15_15 false) 
     )]
 
-    
+
+    // any (regex dot)
+    any [() (and
+        (= t (Leaf '.'))
+        (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) (= X_0_10 false) (= X_0_11 false) (= X_0_12 false) (= X_0_13 false) (= X_0_14 false) (= X_0_15 false) 
+        (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) (= X_1_10 false) (= X_1_11 false) (= X_1_12 false) (= X_1_13 false) (= X_1_14 false) (= X_1_15 false) 
+        (= X_2_2 false) (= X_2_3 true) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) (= X_2_10 false) (= X_2_11 false) (= X_2_12 false) (= X_2_13 false) (= X_2_14 false) (= X_2_15 false) 
+        (= X_3_3 false) (= X_3_4 true) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) (= X_3_10 false) (= X_3_11 false) (= X_3_12 false) (= X_3_13 false) (= X_3_14 false) (= X_3_15 false) 
+        (= X_4_4 false) (= X_4_5 true) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) (= X_4_10 false) (= X_4_11 false) (= X_4_12 false) (= X_4_13 false) (= X_4_14 false) (= X_4_15 false) 
+        (= X_5_5 false) (= X_5_6 true) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) (= X_5_10 false) (= X_5_11 false) (= X_5_12 false) (= X_5_13 false) (= X_5_14 false) (= X_5_15 false) 
+        (= X_6_6 false) (= X_6_7 true) (= X_6_8 false) (= X_6_9 false) (= X_6_10 false) (= X_6_11 false) (= X_6_12 false) (= X_6_13 false) (= X_6_14 false) (= X_6_15 false) 
+        (= X_7_7 false) (= X_7_8 true) (= X_7_9 false) (= X_7_10 false) (= X_7_11 false) (= X_7_12 false) (= X_7_13 false) (= X_7_14 false) (= X_7_15 false) 
+        (= X_8_8 false) (= X_8_9 true) (= X_8_10 false) (= X_8_11 false) (= X_8_12 false) (= X_8_13 false) (= X_8_14 false) (= X_8_15 false) 
+        (= X_9_9 false) (= X_9_10 true) (= X_9_11 false) (= X_9_12 false) (= X_9_13 false) (= X_9_14 false) (= X_9_15 false) 
+        (= X_10_10 false) (= X_10_11 true) (= X_10_12 false) (= X_10_13 false) (= X_10_14 false) (= X_10_15 false) 
+        (= X_11_11 false) (= X_11_12 true) (= X_11_13 false) (= X_11_14 false) (= X_11_15 false) 
+        (= X_12_12 false) (= X_12_13 true) (= X_12_14 false) (= X_12_15 false) 
+        (= X_13_13 false) (= X_13_14 true) (= X_13_15 false) 
+        (= X_14_14 false) (= X_14_15 true) 
+        (= X_15_15 false) 
+    )]
     
     // Disjunction
     (or R:t1 R:t2)

@@ -81,7 +81,21 @@
         (= X_9_9 false) 
     )]
 
-    
+
+    // any (regex dot)
+    any [() (and
+        (= t (Leaf '.'))
+        (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_0_8 false) (= X_0_9 false) 
+        (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_1_8 false) (= X_1_9 false) 
+        (= X_2_2 false) (= X_2_3 true) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_2_8 false) (= X_2_9 false) 
+        (= X_3_3 false) (= X_3_4 true) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_3_8 false) (= X_3_9 false) 
+        (= X_4_4 false) (= X_4_5 true) (= X_4_6 false) (= X_4_7 false) (= X_4_8 false) (= X_4_9 false) 
+        (= X_5_5 false) (= X_5_6 true) (= X_5_7 false) (= X_5_8 false) (= X_5_9 false) 
+        (= X_6_6 false) (= X_6_7 true) (= X_6_8 false) (= X_6_9 false) 
+        (= X_7_7 false) (= X_7_8 true) (= X_7_9 false) 
+        (= X_8_8 false) (= X_8_9 true) 
+        (= X_9_9 false) 
+    )]
     
     // Disjunction
     (or R:t1 R:t2)

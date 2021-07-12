@@ -51,7 +51,15 @@
         (= X_3_3 false) 
     )]
 
-    
+
+    // any (regex dot)
+    any [() (and
+        (= t (Leaf '.'))
+        (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) 
+        (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) 
+        (= X_2_2 false) (= X_2_3 true) 
+        (= X_3_3 false) 
+    )]
     
     // Disjunction
     (or R:t1 R:t2)
