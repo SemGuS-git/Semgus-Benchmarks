@@ -1,0 +1,35 @@
+[[synth_task]]
+    files = [
+        "./fixed-length/linear/GCPE_01.sem",
+        "./fixed-length/linear/GCPE_02.sem",
+        "./fixed-length/linear/GCPE_03.sem",
+        "./fixed-length/linear/GCPE_04.sem",
+        "./fixed-length/linear/GCPE_05.sem",
+        "./fixed-length/linear/GCPE_06.sem",
+        "./fixed-length/linear/GCPE_07.sem",
+        "./fixed-length/linear/GCPE_08.sem",
+        "./fixed-length/linear/GCPE_09.sem",
+        "./fixed-length/linear/GCPE_10.sem",
+        "./fixed-length/linear/GCPE_11.sem",
+        "./fixed-length/linear/GCPE_12.sem",
+        "./fixed-length/linear/GCPE_13.sem",
+        "./fixed-length/linear/GCPE_14.sem",
+        "./fixed-length/linear/GCPE_15.sem",
+        "./fixed-length/linear/GCPE_16.sem",
+        "./fixed-length/linear/GCPE_17.sem",
+        "./fixed-length/linear/GCPE_18.sem",
+        "./fixed-length/linear/GCPE_19.sem",
+        "./fixed-length/linear/GCPE_20.sem",
+        "./fixed-length/linear/GCPE_21.sem",
+        "./fixed-length/linear/GCPE_22.sem",
+        "./fixed-length/linear/GCPE_23.sem",
+        "./fixed-length/linear/GCPE_24.sem",
+        "./fixed-length/linear/GCPE_25.sem",
+    ]
+    
+    [[synth_task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"

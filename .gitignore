@@ -1,4 +1,8 @@
 .vscode/
 **/.metals
+**.unit-tests.csv
+**.synth-result.json
+**.synth-result.csv
+**.interpretation.csv
 **.out.**
 **.log
