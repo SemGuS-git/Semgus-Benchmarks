@@ -1,0 +1,114 @@
+(metadata :format-version "1.0.0")
+(metadata :author "Wiley Corning")
+
+(declare-term-type S.Term)
+(declare-term-type E.Term)
+(declare-term-type B.Term)
+
+(synth-term myfun S.Term (
+    (declare-var (s.t s.t1 s.t2) S.Term)
+    (declare-var (e.t e.t1 e.t2) E.Term)
+    (declare-var (b.t b.t1 b.t2) B.Term)
+    (declare-var (x0 y0 c0) Int)
+    (declare-var (x1 y1 c1) Int)
+    (declare-var (x2 y2 c2) Int)
+    (declare-var (e.r e.v1 e.v2) Int)
+    (declare-var (b.r b.v1 b.v2) Bool)
+    
+    (declare-nt S S.Term (S.Sem S.Term Int Int Int Int Int Int))
+    (declare-nt E E.Term (E.Sem E.Term Int Int Int Int))
+    (declare-nt B B.Term (B.Sem B.Term Int Int Int Bool))
+    
+    ((S s.t) (S.Sem s.t x0 y0 c0 (! x2 :out) (! y2 :out) (! c2 :out))
+        (($assign-x (E e.t1)) (and
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (= x2 e.v1)(= y2 y0) (= c2 c0)
+        ))
+        (($assign-y (E e.t1)) (and
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (= x2 x0)(= y2 e.v1) (= c2 c0)
+        ))
+        (($assign-c (E e.t1)) (and
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (= x2 x0)(= y2 y0) (= c2 e.v1)
+        ))
+        
+        (($cons (S s.t1) (S s.t2)) (and
+            (S.Sem s.t1 x0 y0 c0 x1 y1 c1)
+            (S.Sem s.t2 x1 y1 c1 x2 y2 c2)
+        ))
+        
+        (($while (B b.t1) (S s.t1))
+            (and
+                (B.Sem b.t1 x0 y0 c0 b.v1)
+                (= b.v1 true)                  ; Condition evaluates to true under G0
+                (S.Sem s.t1 x0 y0 c0 x1 y1 c1) ; G0 -> G1: assign G1 by evaluating s on G0
+                (S.Sem s.t  x1 y1 c1 x2 y2 c2) ; G1 -> G2: assign G2 by evaluating t on G1
+            )
+            (and
+                (B.Sem b.t1 x0 y0 c0 b.v1)
+                (= b.v1 false)                 ; Condition evaluates to false under G0
+                (= x2 x0) (= y2 y0) (= c2 c0)  ; G2 := G0; do not execute s
+            )
+        )
+        
+        (($ite (B b.t1) (S s.t1) (S s.t2))
+            (and
+                (B.Sem b.t1 x0 y0 c0 b.v1)
+                (= b.v1 true)
+                (S.Sem s.t1 x0 y0 c0 x2 y2 c2) ; Execute true branch only
+            )
+            (and
+                (B.Sem b.t1 x0 y0 c0 b.v1)
+                (= b.v1 false)
+                (S.Sem s.t2 x0 y0 c0 x2 y2 c2) ; Execute false branch only
+            )
+        )
+        
+    )
+    ((E e.t) (E.Sem e.t x0 y0 c0 (! e.r :out))
+        ($x (= e.r x0))
+        ($y (= e.r y0))
+        ($c (= e.r c0))
+        ($0 (= e.r 0))
+        ($1 (= e.r 1))
+        
+        (($+ (E e.t1) (E e.t2)) (and
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (E.Sem e.t2 x0 y0 c0 e.v2)
+            (= e.r (+ e.v1 e.v2))
+        ))
+        (($- (E e.t1)) (and
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (= e.r (- e.v1))
+        ))
+        (($ite (B b.t1) (E e.t1) (E e.t2)) (and
+            (B.Sem b.t1 x0 y0 c0 b.v1)
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (E.Sem e.t2 x0 y0 c0 e.v2)
+            (= e.r (ite b.v1 e.v1 e.v2))
+        ))
+    )
+    ((B b.t) (B.Sem b.t x0 y0 c0 (! b.r :out))
+
+        ($true  (= b.r true ))
+        ($false (= b.r false))
+        
+        (($not (B b.t1)) (and
+                (B.Sem b.t1 x0 y0 c0 b.v1)
+                (= b.r (! b.v1))
+        ))
+        
+        (($and (B b.t1) (B b.t2)) (and
+            (B.Sem b.t1 x0 y0 c0 b.v1)
+            (B.Sem b.t2 x0 y0 c0 b.v2)
+            (= b.r (and b.v1 b.v2))
+        ))
+        
+        (($lt (E e.t1) (E e.t2)) (and
+            (E.Sem e.t1 x0 y0 c0 e.v1)
+            (E.Sem e.t2 x0 y0 c0 e.v2)
+            (= b.r (< e.v1 e.v2))
+        ))
+    )
+))

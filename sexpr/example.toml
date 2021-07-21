@@ -1,0 +1,38 @@
+[[unit_test]]
+    files = [
+        "max-exp.sem"
+    ]
+    
+    [[unit_test.test]]
+        program = "( $ite ( $lt $x $y ) $y $x )"
+        synth_fun_solution = true
+
+[[interpreter_task]]
+    files = [
+        "max-exp.sem"
+    ]
+    
+    programs = [
+        "( $ite ( $lt $x $y ) $y $x )",
+        "$0"
+    ]
+    
+    examples = [
+        {x=0, y=5},
+        {x=1, y=1},
+        {x=5, y=3}
+    ]
+    
+    run_count = 1000
+
+[[synth_task]]
+    files = [
+        "max-exp.sem",
+    ]
+    
+    [[synth_task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"

@@ -1,0 +1,70 @@
+(metadata :format-version "1.0.0")
+(metadata :realizable true)
+
+(declare-term-type E.Term) ; <nt>.Term naming convention is optional
+(declare-term-type B.Term)
+; We could also write (declare-term-type (E.Term B.Term)) for brevity
+
+(synth-term max2 E.Term (
+  (declare-var (et et1 et2) E.Term) ; Invisible outside of synth-term
+  (declare-var (bt bt1 bt2) B.Term)
+
+  (declare-var (x y r iv1 iv2) Int) ; Var names cannot start with numerals
+  (declare-var (br bv1 bv2) Bool)
+
+  ; Declarations for nonterminals, including sem rel signature
+  ; <nt>.Sem naming convention is optional
+  (declare-nt E E.Term (E.Sem E.Term Int Int Int))
+  (declare-nt B B.Term (B.Sem B.Term Int Int Bool))
+
+  ((E et) (E.Sem et x y (! r :out)) ; Annotation used to mark output variable
+    ($x (= r x)) ; As usual, <node>.Syn naming convention is optional
+    ($y (= r y))
+    ($0 (= r 0)) ; RHS constructors can start with numerals (SMTLIB2 does not allow this)
+    ($1 (= r 1))
+    
+    
+    (($+ (E et1) (E et2)) (and
+      (E.Sem et1 x y iv1)
+      (E.Sem et2 x y iv2)
+      (= r (+ iv1 iv2))
+    ))
+
+    (($ite (B bt1) (E et1) (E et2))
+      (and
+        (B.Sem bt1 x y bv1)
+        (E.Sem et1 x y iv1)
+        (E.Sem et2 x y iv2)
+        (= r (ite bv1 iv1 iv2))
+      )
+    )
+  )
+  ((B bt) (B.Sem bt x y (! br :out))
+
+     ($true (= br true))
+     ($false (= br false))
+     (($not (B bt1))
+        (and
+            (B.Sem bt1 x y bv1)
+            (= br (! bv1))
+        )
+     )
+     
+     (($and (B bt1) (B bt2))
+        (and
+            (B.Sem bt1 x y bv1)
+            (B.Sem bt2 x y bv2)
+            (= br (and bv1 bv2))
+        )
+     )
+     
+    (($lt (E et1) (E et2)) (and
+      (E.Sem et1 x y iv1)
+      (E.Sem et2 x y iv2)
+      (= br (< iv1 iv2))
+    ))
+  )
+))
+
+(constraint (E.Sem max2 4 2 4))
+(constraint (E.Sem max2 2 5 5))
