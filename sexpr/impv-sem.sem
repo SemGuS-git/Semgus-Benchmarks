@@ -15,9 +15,9 @@
     (declare-var (e.r e.v1 e.v2) Int)
     (declare-var (b.r b.v1 b.v2) Bool)
     
-    (declare-nt S S.Term (S.Sem S.Term Int Int Int Int Int Int))
-    (declare-nt E E.Term (E.Sem E.Term Int Int Int Int))
-    (declare-nt B B.Term (B.Sem B.Term Int Int Int Bool))
+    (declare-nt S S.Term (S.Sem (S.Term Int Int Int Int Int Int)))
+    (declare-nt E E.Term (E.Sem (E.Term Int Int Int Int)))
+    (declare-nt B B.Term (B.Sem (B.Term Int Int Int Bool)))
     
     ((S s.t) (S.Sem s.t x0 y0 c0 (! x2 :out) (! y2 :out) (! c2 :out))
         (($assign-x (E e.t1)) (and

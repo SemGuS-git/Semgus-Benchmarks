@@ -14,8 +14,8 @@
 
   ; Declarations for nonterminals, including sem rel signature
   ; <nt>.Sem naming convention is optional
-  (declare-nt E E.Term (E.Sem E.Term Int Int Int))
-  (declare-nt B B.Term (B.Sem B.Term Int Int Bool))
+  (declare-nt E E.Term (E.Sem (E.Term Int Int Int)))
+  (declare-nt B B.Term (B.Sem (B.Term Int Int Bool)))
 
   ((E et) (E.Sem et x y (! r :out)) ; Annotation used to mark output variable
     ($x (= r x)) ; As usual, <node>.Syn naming convention is optional

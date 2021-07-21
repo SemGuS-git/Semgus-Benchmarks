@@ -8,8 +8,8 @@
 (declare-term-type R.Term)
 
 (synth-term match_regex Start.Term (
-    (declare-nt Start Start.Term (Start.Sem Start.Term Int Int Int Int Int Int Int Int Int Int Int Int Bool))
-    (declare-nt R R.Term (R.Sem Start.Term Int Int Int Int Int Int Int Int Int Int Int Int Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool ))
+    (declare-nt Start Start.Term (Start.Sem (Start.Term Int Int Int Int Int Int Int Int Int Int Int Int Bool)))
+    (declare-nt R R.Term (R.Sem (R.Term Int Int Int Int Int Int Int Int Int Int Int Int Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool Bool )))
     
     (declare-var start.t Start.Term)
     (declare-var (r.t r.t1 r.t2) R.Term)
