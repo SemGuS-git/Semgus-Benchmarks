@@ -1,0 +1,25 @@
+includes = [
+    "unit-tests.toml",
+    "fixed-length/linear/synth-subset.toml",
+    "fixed-length/logarithmic/synth-subset.toml",
+]
+
+[[interpreter_task]]
+    files = [
+        "./fixed-length/linear/GCPE_01.sem",
+        "./fixed-length/logarithmic/GCPE_01.sem",
+    ]
+    
+    programs = [
+        "($eval $1)",
+        "($eval ($concat $0 ($star $any)))",
+    ]
+    examples = [
+        {len=0, s_0=9,s_1=9,s_2=9},
+        {len=1, s_0=1,s_1=9,s_2=9},
+        {len=2, s_0=1,s_1=1,s_2=9},
+        {len=3, s_0=0,s_1=0,s_2=1},
+    ]
+    
+    run_count = 1000
+    

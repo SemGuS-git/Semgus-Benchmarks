@@ -12,8 +12,6 @@ with open("sources/messy-regex.json") as f:
 def formulate(input,kind):
     if kind == "fixed-length":
         return formulate_fixedlength(input)
-    if kind == "magic":
-        return formulate_magic(input)
     raise Exception(kind)
 
 def formulate_fixedlength(input):
@@ -43,27 +41,13 @@ def formulate_fixedlength(input):
         "n": max([len(e["i"]) for e in examples]),
         "charset": [0, 1], # hardcoded
         "examples": examples,
-        "comment": f"{input['benchmarkName']}: {input['comment']}",
-        "benchmarkName": input['benchmarkName']
-    }
-    
-def formulate_magic(input):
-    examples = []
-    
-    for key in input['posEx']:
-        examples.append({"string":key, "match": True});
-        
-    for key in input['negEx']:
-        examples.append({"string":key.replace("X","Y"), "match": False});
-    
-    return {
-        "examples": examples,
-        "comment": f"{input['benchmarkName']}: {input['comment']}",
+        "author": "Wiley Corning",
+        "description": f"{input['benchmarkName']}: {input['comment']}",
         "benchmarkName": input['benchmarkName']
     }
 
 
-templates = {k0: {k1: env.get_template(f"sources/regex-{k0}-{k1}.template") for k1 in ('linear','logarithmic')} for k0 in ('fixed-length','magic')}
+templates = {k0: {k1: env.get_template(f"sources/regex-{k0}-{k1}.template") for k1 in ['linear', 'logarithmic']} for k0 in ['fixed-length']}
 
 
 def run(sem,star,params,template):

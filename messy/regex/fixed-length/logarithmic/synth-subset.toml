@@ -1,0 +1,35 @@
+[[synth_task]]
+    files = [
+        "GCPE_01.sem",
+        "GCPE_02.sem",
+        #"GCPE_03.sem",
+        "GCPE_04.sem",
+        "GCPE_05.sem",
+        "GCPE_06.sem",
+        #"GCPE_07.sem",
+        #"GCPE_08.sem",
+        #"GCPE_09.sem",
+        #"GCPE_10.sem",
+        "GCPE_11.sem",
+        "GCPE_12.sem",
+        #"GCPE_13.sem",
+        "GCPE_14.sem",
+        "GCPE_15.sem",
+        "GCPE_16.sem",
+        #"GCPE_17.sem",
+        #"GCPE_18.sem",
+        #"GCPE_19.sem",
+        "GCPE_20.sem",
+        #"GCPE_21.sem",
+        "GCPE_22.sem",
+        #"GCPE_23.sem",
+        #"GCPE_24.sem",
+        #"GCPE_25.sem",
+    ]
+    
+    [[synth_task.solver]]
+        method = "bottom_up"
+        timeout = 600 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"

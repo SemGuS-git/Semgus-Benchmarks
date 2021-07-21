@@ -1,0 +1,42 @@
+includes = [
+    "fixed-length/linear/synth-all.toml",
+    "fixed-length/logarithmic/synth-all.toml",
+]
+
+[[unit_test]]
+    files = [
+        "./fixed-length/linear/GCPE_01.sem",
+        "./fixed-length/logarithmic/GCPE_01.sem",
+    ]
+    
+    [[unit_test.test]]
+        program = "($eval ($concat $0 ($star $any)))"
+        synth_fun_solution = true
+    
+    [[unit_test.test]]
+        program = "($eval $1)"
+        examples = [
+            {len=0, s_0=9,s_1=9,s_2=9,  result=false},
+            {len=1, s_0=1,s_1=9,s_2=9,  result=true},
+            {len=2, s_0=1,s_1=1,s_2=9,  result=false},
+        ]
+
+[[interpreter_task]]
+    files = [
+        "./fixed-length/linear/GCPE_01.sem",
+        "./fixed-length/logarithmic/GCPE_01.sem",
+    ]
+    
+    programs = [
+        "($eval $1)"
+        "($eval ($concat $0 ($star $any)))"
+    ]
+    examples = [
+        {len=0, s_0=9,s_1=9,s_2=9},
+        {len=1, s_0=1,s_1=9,s_2=9},
+        {len=2, s_0=1,s_1=1,s_2=9},
+        {len=3, s_0=0,s_1=0,s_2=1},
+    ]
+    
+    run_count = 1000
+    

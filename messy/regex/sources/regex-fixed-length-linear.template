@@ -1,133 +1,130 @@
 {% macro str(name) %}{% for i in range(0,n) %}{{name}}_{{i}} {%endfor%}{%endmacro%}
 {% macro mat(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}{{name}}_{{i}}_{{j}} {%endfor%}{%endfor%}{%endmacro%}
-{% macro dec_str(name) %}{% for i in range(0,n) %}({{name}}_{{i}} Int) {%endfor%}{%endmacro%}
-{% macro dec_mat(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}({{name}}_{{i}}_{{j}} Bool) {%endfor%}{%endfor%}{%endmacro%}
+{% macro mat_out(name) %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}(! {{name}}_{{i}}_{{j}} :out) {%endfor%}{%endfor%}{%endmacro%}
+{% macro dec_str(name) %}(declare-var ({% for i in range(0,n) %}{{name}}_{{i}} {%endfor%}) Int){%endmacro%}
+{% macro dec_mat(name) %}(declare-var ({% for i in range(0,n+1) %}{% for j in range (i, n+1) %}{{name}}_{{i}}_{{j}} {%endfor%}{%endfor%}) Bool){%endmacro%}
 {% macro t_str() %}{%for i in range(0,n)%}Int {%endfor%}{%endmacro%}
 {% macro t_mat() %}{% for i in range(0,n+1) %}{% for j in range (i, n+1) %}Bool {%endfor%}{%endfor%}{%endmacro%}
 
 {% macro eq_false(name) %}{% for i in range(0,n+1) %}
-        {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} false) {%endfor%}{%endfor%}{%endmacro%}
+                {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} false) {%endfor%}{%endfor%}{%endmacro%}
 
 {% macro eq_id(name) %}{% for i in range(0,n+1) %}
-        {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+                {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 
 {% macro eq_any(name) %}{% for i in range(0,n+1) %}
-        {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i+1==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+                {% for j in range (i, n+1) %}(= {{name}}_{{i}}_{{j}} {% if (i+1==j) %}true{%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 
 {% macro eq_char(s,m,c) %}{% for i in range(0,n+1) %}
-        {% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(or (= {{s}}_{{i}} {{c}}) (= {{s}}_{{i}} {{sigma_neg}})){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
+                {% for j in range (i, n+1) %}(= {{m}}_{{i}}_{{j}} {% if (i+1==j) %}(or (= {{s}}_{{i}} {{c}}) (= {{s}}_{{i}} {{sigma_neg}})){%else%}false{%endif%}) {%endfor%}{%endfor%}{%endmacro%}
 
-{% if comment is defined %}// {{ comment }}{% endif %}
-// string length: {{ n }}
-(synth-fun match_regex ( (len Int) {{ dec_str(s) }}) ((result Bool)) (
-  Start : (Start.Sem(Term Int {{ t_str() }} Bool)) : t
-  [({{ dec_mat(X) }}) (Start.Sem t len {{ str(s) }} result)]
-  (
-    // Evaluate regex on all substrings, return corner element
-{% for k in range(0,n+1) %}
-    (eval R:r) [ () (and (= t (Eval r)) (= len {{k}}) (R.Sem r len {{str(s)}} {{mat(X)}}) (= result {{X}}_0_{{k}}) ) ]
-{% endfor %}
-  )
-)
-(
-  R : (R.Sem(Term Int {{ t_str() }} {{ t_mat() }})) : t
-  [ ({{dec_mat(X)}}) (R.Sem t len {{str(s)}} {{mat(X)}}) ]
-  (
-    // epsilon: identity matrix (set of empty strings)
-    eps [()
-        (and (= t (Leaf 'eps')){{eq_id(X)}}
-    )]
+(metadata :format-version "1.0.0")
+{% if author is defined %}(metadata :author "{{ author }}"){% endif %}
+{% if description is defined %}(metadata :description "{{ description }}"){% endif %}
+
+; string length: {{ n }}
+
+(declare-term-type Start.Term)
+(declare-term-type R.Term)
+
+(synth-term match_regex Start.Term (
+    (declare-nt Start Start.Term (Start.Sem Start.Term Int {{t_str()}}Bool))
+    (declare-nt R R.Term (R.Sem Start.Term Int {{t_str()}}{{t_mat()}}))
     
+    (declare-var start.t Start.Term)
+    (declare-var (r.t r.t1 r.t2) R.Term)
+    
+    (declare-var len Int)
+    {{ dec_str(s) }}
+    (declare-var result Bool)
+    (declare-var nxt Int)
+    {{ dec_mat(X) }}
+    {{ dec_mat(A) }}
+    {{ dec_mat(B) }}
+    
+    ((Start start.t) (Start.Sem start.t len {{str(s)}} (! result :out))
+    ; Evaluate regex on all substrings, return corner element
+        (($eval (R r.t)){% for k in range(0,n+1) %}
+            (and (= len {{k}}) (R.Sem r.t len {{str(s)}} {{mat(X)}}) (= result {{X}}_0_{{k}}) ){% endfor %}
+        )
+    )
+    
+    ((R r.t) (R.Sem r.t len {{str(s)}} {{mat_out(X)}})
+        ($eps
+            (and{{eq_id(X)}}
+            )
+        )
+        
 {% if include_phi is defined and include_phi %}
-    // phi: zero matrix (empty set)
-    phi [() (and
-        (= t (Leaf 'phi')){{eq_false(X)}}
-    )]
+        ; phi: zero matrix (empty set)
+        ($phi
+            (and{{eq_false(X)}}
+            )
+        )
 {% else %}
-    // phi production is omitted
+        ; phi production is omitted
 {% endif %}
     
-    // characters (with negative sigma)
+        ; any (regex dot)
+        ($any
+            (and{{eq_any(X)}}
+        ))
+        
+        ; characters (with negative sigma)
 {% for c in charset %}
-    char_{{c}} [() (and
-        (= t (Leaf '{{c}}')){{eq_char(s,X,c)}}
-    )]
+        ; character {{c}}
+        (${{c}}
+            (and{{eq_char(s,X,c)}}
+            )
+        )
 {% endfor %}
-
-    // any (regex dot)
-    any [() (and
-        (= t (Leaf '.')){{eq_any(X)}}
-    )]
-    
-    // Disjunction
-    (or R:t1 R:t2)
-    [
-        (
-            {{dec_mat(A)}}
-            {{dec_mat(B)}}
+        
+        ; Disjunction
+        (($or (R r.t1) (R r.t2))
+            (and
+                (R.Sem r.t1 len {{str(s)}} {{mat(A)}})
+                (R.Sem r.t2 len {{str(s)}} {{mat(B)}})
+                
+                ; X = A+B
+                {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
+                (= {{X}}_{{i}}_{{j}} (or {{A}}_{{i}}_{{j}} {{B}}_{{i}}_{{j}})){%endfor%}{%endfor%}
+            )
         )
-        (and
-            (= t (Or t1 t2))
-            (R.Sem t1 len {{str(s)}} {{mat(A)}})
-            (R.Sem t2 len {{str(s)}} {{mat(B)}})
-            
-            // X = A+B
-            {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
-            (= {{X}}_{{i}}_{{j}} (or {{A}}_{{i}}_{{j}} {{B}}_{{i}}_{{j}})){%endfor%}{%endfor%}
+        
+        
+        ; Concatenation
+        (($concat (R r.t1) (R r.t2))
+            (and
+                (R.Sem r.t1 len {{str(s)}} {{mat(A)}})
+                (R.Sem r.t2 len {{str(s)}} {{mat(B)}})
+                
+                ; X = AB
+                {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
+                (= {{X}}_{{i}}_{{j}} (or {% for k in range(0, n+1)%}{% if i <= k and k <= j%}(and {{A}}_{{i}}_{{k}} {{B}}_{{k}}_{{j}}){%else%}                 {%endif%} {%endfor%})){%endfor%}{%endfor%}
+            )
         )
-    ]
-    
-    // Concatenation
-    (concat R:t1 R:t2)
-    [
-        (
-            {{dec_mat(A)}}
-            {{dec_mat(B)}}
+        
+        ; Kleene star
+        (($star (R r.t1))
+            ; Base case
+            (and 
+                (= 0 len) {{eq_id(X)}}
+            )
+            ; Inductive case
+            (and
+                (< 0 len)
+                (= nxt (- len 1))
+                (R.Sem r.t1 len {{str(s)}} {{mat(A)}})
+                (R.Sem r.t  nxt {{str(s)}} {{mat(B)}})
+                
+                ; X = (X X_{k-1}) + X_{k-1} = (AB)+B
+                {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
+                (= {{X}}_{{i}}_{{j}} (or {{B}}_{{i}}_{{j}} {% for k in range(0, n+1)%}{% if i <= k and k <= j%}(and {{A}}_{{i}}_{{k}} {{B}}_{{k}}_{{j}}){%else%}                 {%endif%} {%endfor%})){%endfor%}{%endfor%}
+            )
         )
-        (and
-            (= t (Concat t1 t2))
-            (R.Sem t1 len {{str(s)}} {{mat(A)}})
-            (R.Sem t2 len {{str(s)}} {{mat(B)}})
-            
-            // X = AB
-            {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
-            (= {{X}}_{{i}}_{{j}} (or {% for k in range(0, n+1)%}{% if i <= k and k <= j%}(and {{A}}_{{i}}_{{k}} {{B}}_{{k}}_{{j}}){%else%}                 {%endif%} {%endfor%})){%endfor%}{%endfor%}
-        )
-    ]
-    
-    // Star: base case
-    (star R:t1)
-    [ () (and (= t (Star t1)) (= len 0) {{eq_id(X)}} )]
-    
-    // Star: inductive case
-    (star R:t1)
-    [
-        (
-            (kpr Int)
-            {{dec_mat(A)}} // X
-            {{dec_mat(B)}} // X_{k-1}
-        )
-        (and
-            (= t (Star t1))
-            (< 0 len)
-            (= kpr (- len 1))
-            (R.Sem t1 len {{str(s)}} {{mat(A)}})
-            (R.Sem t  kpr {{str(s)}} {{mat(B)}})
-            
-            // X = (X X_{k-1}) + X_{k-1}
-            {%for i in range(0,n+1)%}{%for j in range(i, n+1)%}
-            (= {{X}}_{{i}}_{{j}} (or {{B}}_{{i}}_{{j}} {% for k in range(0, n+1)%}{% if i <= k and k <= j%}(and {{A}}_{{i}}_{{k}} {{B}}_{{k}}_{{j}}){%else%}                 {%endif%} {%endfor%})){%endfor%}{%endfor%}
-        )
-    ]
-  )
-)
-)
-
-{% if comment is defined %}// {{ comment }}{% endif %}
-
-(constraint
-    (and
-    {%for example in examples %}
-        (Start.Sem t {{ example.i | length }} {%for ival in example.i%}{{ival}} {%endfor%}{%for i in range(example.i | length,n)%}{{NA}} {%endfor%}{{example.o | lower}}){%endfor%}
     )
-)
+))
+
+{% if description is defined %}; {{ description }}{% endif %}
+{%for example in examples %}
+(constraint (Start.Sem match_regex {{ example.i | length }} {%for ival in example.i%}{{ival}} {%endfor%}{%for i in range(example.i | length,n)%}{{NA}} {%endfor%}{{example.o | lower}})){%endfor%}
