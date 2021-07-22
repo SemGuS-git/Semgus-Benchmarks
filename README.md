@@ -1,5 +1,5 @@
-This repository contains benchmark files for Semgus.
+# Semantics-Guided Synthesis Benchmarks
 
-Note: the `semgus-cli.sh` shortcut assumes that this repo is situated as a submodule of [SemGuS-Interpreter](https://github.com/Semgus-git/Semgus-Interpreter) and that a .Net 5.0 debug build has been made.
+This repository contains benchmark files for [Semgus](https://semgus.org).
 
-This may be less performant than a release build!
+Files with the `.sem` extension may be used with both the [Messy](https://github.com/kjw227/Messy-Release) and [Bless](https://github.com/SemGuS-git/Bless-Release) solvers; see their respective repositories for further documentation. The `.toml` files in this repository specify task configurations for Bless.
