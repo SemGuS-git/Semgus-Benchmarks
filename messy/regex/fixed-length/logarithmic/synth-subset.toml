@@ -33,3 +33,4 @@
         
         [synth_task.solver.params]
             cost_function = "size"
+            reductions = ["observational_equivalence"]

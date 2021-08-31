@@ -1,0 +1,126 @@
+# [[unit_test]]
+#     files = [
+#         "factorialTest_02.sem"
+#     ]
+    
+#     [[unit_test.test]]
+#         program = "($while ($lt $r $n) ($cons ($assign-r ($* $n $n)) ($assign-r ($- $r $n))))"
+#         synth_fun_solution = true
+[[unit_test]]
+    files = [
+        "mul-impv.sem"
+    ]
+    
+    [[unit_test.test]]
+        # cost: 14
+        program = "($eval ($while ($lt $0 $x) ($cons ($assign-c ($+ $c $y)) ($assign-x ($- $x $1)))))"
+        
+        examples = [
+            {x0=0, y0=5, c2=0},
+            {x0=1, y0=1, c2=1},
+            {x0=5, y0=3, c2=15}
+        ]
+        synth_fun_solution = true
+        
+        
+
+[[synth_task]]
+    files = [
+        "mul-impv.sem",
+    ]
+        
+    [[synth_task.solver]]
+        method = "top_down"
+        timeout = 240 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"
+            interpreter_max_depth = 200
+            reductions = ["observational_equivalence", "rewrite"]
+            rewrite_rules = [
+                "($while $true ?x) => $throw",
+                "($while $false ?x) => $pass",
+
+                "($cons $throw ?x) => $throw",
+                "($cons ?x $throw) => $throw",
+                "($cons $pass ?x) => ?x",
+                "($cons ?x $pass) => ?x",
+
+                "($assign-x $x) => $pass",
+                "($assign-y $y) => $pass",
+                "($assign-c $c) => $pass",
+
+                "($+ ?x ?y) => ($+ ?y ?x)",
+                "($+ ?x $0) => ?x",
+                "($ite $true ?x ?y) => ?x",
+                "($ite $false ?x ?y) => ?y",
+                "($ite ?x ?y ?y) => ?y",
+
+                "($not $true) => $false",
+                "($not $false) => $true",
+                "($not ($not ?x)) => ?x",
+
+                "($and ?x ?y) => ($and ?y ?x)",
+                "($and $true $true) => $true",
+                "($and $false ?x) => $false",
+                "($lt $0 $1) => $true",
+                "($lt $1 $0) => $false",
+            ]
+        
+    [[synth_task.solver]]
+        method = "top_down"
+        timeout = 240 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"
+            interpreter_max_depth = 200
+        
+    [[synth_task.solver]]
+        method = "bottom_up"
+        timeout = 240 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"
+            use_egg = true
+            interpreter_max_depth = 200
+            reductions = ["observational_equivalence", "rewrite"]
+            rewrite_rules = [
+                "($while $true ?x) => $throw",
+                "($while $false ?x) => $pass",
+
+                "($cons $throw ?x) => $throw",
+                "($cons ?x $throw) => $throw",
+                "($cons $pass ?x) => ?x",
+                "($cons ?x $pass) => ?x",
+
+                "($assign-x $x) => $pass",
+                "($assign-y $y) => $pass",
+                "($assign-c $c) => $pass",
+
+                "($+ ?x ?y) => ($+ ?y ?x)",
+                "($+ ?x $0) => ?x",
+                "($ite $true ?x ?y) => ?x",
+                "($ite $false ?x ?y) => ?y",
+                "($ite ?x ?y ?y) => ?y",
+
+                "($not $true) => $false",
+                "($not $false) => $true",
+                "($not ($not ?x)) => ?x",
+
+                "($and ?x ?y) => ($and ?y ?x)",
+                "($and $true $true) => $true",
+                "($and $false ?x) => $false",
+                "($lt $0 $1) => $true",
+                "($lt $1 $0) => $false",
+            ]
+        
+    
+    [[synth_task.solver]]
+        method = "bottom_up"
+        timeout = 240 # in seconds
+        
+        [synth_task.solver.params]
+            cost_function = "size"
+            use_egg = false
+            interpreter_max_depth = 200
+            reductions = ["observational_equivalence"]

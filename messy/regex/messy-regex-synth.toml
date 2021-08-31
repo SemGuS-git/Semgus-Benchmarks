@@ -28,8 +28,8 @@ includes = [
     ]
     
     programs = [
-        "($eval $1)"
-        "($eval ($concat $0 ($star $any)))"
+        "($eval $1)",
+        "($eval ($concat $0 ($star $any)))",
     ]
     examples = [
         {len=0, s_0=9,s_1=9,s_2=9},
