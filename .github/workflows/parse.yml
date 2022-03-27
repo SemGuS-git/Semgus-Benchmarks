@@ -2,9 +2,9 @@ name: Parse Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
 
 env:
   # Don't make dotnet so needy
