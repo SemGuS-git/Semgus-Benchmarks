@@ -13,18 +13,14 @@ env:
 jobs:
 
   test:
-
     runs-on: ubuntu-latest
-    env:
-      DOTNET_ROOT: $HOME/.dotnet
-      PATH: $HOME/.dotnet/tools:$PATH
     steps:
-    - name: Env
+    - name: Update Environment
       run: |
-        echo $PATH
-        echo $DOTNET_ROOT
+        echo "DOTNET_ROOT=${HOME}/.dotnet" >> $GITHUB_ENV
+        echo "${HOME}/.dotnet/tools" >> $GITHUB_PATH
         
-    # - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
