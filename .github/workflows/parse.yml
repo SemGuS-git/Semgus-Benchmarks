@@ -10,15 +10,14 @@ env:
   # Don't make dotnet so needy
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
-  DOTNET_ROOT: $HOME/.dotnet
-  PATH: $HOME/.dotnet/tools:$PATH
-
 jobs:
 
   test:
 
     runs-on: ubuntu-latest
-
+    env:
+      DOTNET_ROOT: $HOME/.dotnet
+      PATH: $HOME/.dotnet/tools:$PATH
     steps:
     - name: Env
       run: |
