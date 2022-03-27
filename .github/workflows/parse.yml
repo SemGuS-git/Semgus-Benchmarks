@@ -1,0 +1,35 @@
+name: Parse Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Don't make dotnet so needy
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_ROOT: $HOME/.dotnet
+  PATH: $HOME/.dotnet/tools:$PATH
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Install Parser
+      run: dotnet tool install --global Semgus.Parser.Tool --version 2.0.0-alpha4 # Changeme
+
+    - name: Test
+      run: semgus-parser --help
+
