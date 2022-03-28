@@ -30,6 +30,22 @@ jobs:
     - name: Install Parser
       run: dotnet tool install --global Semgus.Parser.Tool --version 2.0.0-alpha4 # Changeme
 
-    - name: Test
-      run: semgus-parser --help
-
+    - name: Get Changed Files
+      id: changed_files
+      uses: jitterbit/get-changed-files@v1
+      with:
+        format: json
+        
+    - name: Check Benchmarks
+      run: |
+        readarray -t changed_files <<<"$(jq -r '.[]' <<<'${{ steps.changed_files.outputs.all }}')"
+        for changed_file in ${changed_files[@]}; do
+          case "${changed_file}" in
+            *.sem|*.sy|*.sl)
+              semgus-parser --format verify -- "${changed_file}"
+            ;;
+            *)
+              echo "Not a benchmark file: ${changed_file}"
+            ;;
+          esac
+        done
