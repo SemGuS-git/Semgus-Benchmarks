@@ -19,7 +19,7 @@ jobs:
       run: |
         echo "DOTNET_ROOT=${HOME}/.dotnet" >> $GITHUB_ENV
         echo "${HOME}/.dotnet/tools" >> $GITHUB_PATH
-        
+
     - uses: actions/checkout@v2
 
     - name: Setup .NET
@@ -35,7 +35,7 @@ jobs:
       uses: jitterbit/get-changed-files@v1
       with:
         format: json
-        
+
     - name: Check Benchmarks
       run: |
         failed=0
@@ -43,22 +43,27 @@ jobs:
         for changed_file in ${changed_files[@]}; do
           case "${changed_file}" in
             *.sem|*.sy|*.sl)
+	      echo "Checking benchmark: ${changed_file}"
+
+	      # Disable fail-fast, so we can collect/report errors
               set +e
               grep -F '(check-synth)' "${changed_file}"
               if [ $? -ne 0 ]; then
                 echo "${changed_file}: error: missing '(check-synth)' command" >&2
                 failed=1
               fi
-              
+
               semgus-parser --format verify -- "${changed_file}"
               if [ $? -ne 0 ]; then
                 echo "${changed_file}: error: failed to parse" >&2
                 failed=1
               fi
+
+	      # Re-enable fail-fast
               set -e
             ;;
             *)
-              echo "Not a benchmark file: ${changed_file}"
+              echo "Skipping: ${changed_file}. Not a benchmark file."
             ;;
           esac
         done
