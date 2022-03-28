@@ -44,7 +44,7 @@
          (exists ((r1 Int) (r2 Int))
              (and
               (Sem et1 fc fx r1)
-              (Sem et2 fc fx r2)
+              (Sem et7 fc fx r2)
               (= r (+ r1 r2)))))
         (($- et1 et2)
          (exists ((r1 Int) (r2 Int))
