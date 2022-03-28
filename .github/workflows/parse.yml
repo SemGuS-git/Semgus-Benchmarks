@@ -12,7 +12,8 @@ env:
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 jobs:
 
-  test:
+  parse-verify:
+    name: "Check Benchmark Syntax"
     runs-on: ubuntu-latest
     steps:
     - name: Update Environment
