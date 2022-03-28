@@ -43,9 +43,9 @@ jobs:
         for changed_file in ${changed_files[@]}; do
           case "${changed_file}" in
             *.sem|*.sy|*.sl)
-	      echo "Checking benchmark: ${changed_file}"
+              echo "Checking benchmark: ${changed_file}"
 
-	      # Disable fail-fast, so we can collect/report errors
+              # Disable fail-fast, so we can collect/report errors
               set +e
               grep -F '(check-synth)' "${changed_file}"
               if [ $? -ne 0 ]; then
@@ -59,7 +59,7 @@ jobs:
                 failed=1
               fi
 
-	      # Re-enable fail-fast
+              # Re-enable fail-fast
               set -e
             ;;
             *)
