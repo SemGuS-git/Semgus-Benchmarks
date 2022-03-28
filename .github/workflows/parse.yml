@@ -42,7 +42,15 @@ jobs:
         for changed_file in ${changed_files[@]}; do
           case "${changed_file}" in
             *.sem|*.sy|*.sl)
+              grep -Fx '(check-synth)' "${changed_file}"
+              if [ $? -ne 0 ]; then
+                echo "${changed_file}: error: missing '(check-synth)' command" >&2
+              fi
+              
               semgus-parser --format verify -- "${changed_file}"
+              if [ $? -ne 0 ]; then
+                echo "${changed_file}: error: failed to parse" >&2
+              fi
             ;;
             *)
               echo "Not a benchmark file: ${changed_file}"
