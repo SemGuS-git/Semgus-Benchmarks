@@ -44,7 +44,7 @@ jobs:
           case "${changed_file}" in
             *.sem|*.sy|*.sl)
               set +e
-              grep -Fx '(check-synth)' "${changed_file}"
+              grep -F '(check-synth)' "${changed_file}"
               if [ $? -ne 0 ]; then
                 echo "${changed_file}: error: missing '(check-synth)' command" >&2
                 failed=1
