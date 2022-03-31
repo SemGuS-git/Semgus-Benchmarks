@@ -1,6 +1,6 @@
 # Semantics-Guided Synthesis Benchmarks
 
-This repository contains benchmark files for [SemGuS](http://semgus.org).
+This repository contains benchmark files for [SemGuS](http://semgus.org). For more information about the benchmark format, please refer to the [SemGuS format specification document](https://semgus-git.github.io/Semgus-Site/res/semgus-lang.pdf).
 
 ## Benchmark Contributions
 Contributions of new benchmarks are welcome. Open a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) that adds the new benchmarks, and a maintainer will review the submission.
