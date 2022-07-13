@@ -1,0 +1,16 @@
+[[solver]]
+    method="top_down"
+    [solver.params]
+        cost_function = "size"
+
+[[solver]]
+    method="bottom_up"
+    [solver.params]
+        cost_function = "size"
+        reductions = ["observational_equivalence"]
+
+
+[[solver]]
+    method="bottom_up"
+    [solver.params]
+        cost_function = "size"
