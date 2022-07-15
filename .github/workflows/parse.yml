@@ -29,7 +29,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Install Parser
-      run: dotnet tool install --global Semgus.Parser.Tool --version 2.0.0-alpha4 # Changeme
+      run: dotnet tool install --global Semgus.Parser.Tool  # Grab the most recent version
 
     - name: Get Changed Files
       id: changed_files
