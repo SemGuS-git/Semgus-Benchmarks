@@ -23,9 +23,9 @@
    ($fx)
    ($0)
    ($1)
-   ($+ ($+_1 Start) ($+_2 Start))
-   ($- ($-_1 Start) ($-_2 Start))
-   ($mux ($mux_1 Start) ($mux_2 Start)))))
+   ($+ Start Start)
+   ($- Start Start)
+   ($mux Start Start))))
 
 ;;;
 ;;; Semantics
