@@ -1,0 +1,169 @@
+(declare-term-types
+((A 0) (B 0) (B2 0) (E 0) (M 0) (O 0) (P 0) (RN1 0) (RN10 0) (RN11 0) (RN12 0) (RN2 0) (RN3 0) (RN4 0) (RN9 0) (S 0) (S1 0) (S2 0) (S3 0) (S31 0) (S32 0) (Start 0))
+((($IVarr )
+($IVarn )
+($IVara ))
+(($< RN1 RN2))
+(($< RN9 RN10))
+(($- A A))
+(($- RN3 RN4))
+(($IInt0 ))
+(($+ RN11 RN12))
+(($IInt0 ))
+(($IVarn ))
+(($IVara ))
+(($IInt1 ))
+(($IVarn ))
+(($IVarn ))
+(($IInt1 ))
+(($IVara ))
+(($seq S1 S2))
+(($int=a O))
+(($while B2 S3)
+($seq S2 S2)
+($int=n M))
+(($seq S31 S32))
+(($seq S31 S31)
+($int=r E))
+(($int=a P))
+(($while B S))))
+
+
+(define-funs-rec
+((A.Sem ((A_term_0 A) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(B.Sem ((B_term_0 B) (r__0 Bool) (n Int) (r Int) (a Int)) Bool)
+(B2.Sem ((B2_term_0 B2) (r__0 Bool) (n Int) (r Int) (a Int)) Bool)
+(E.Sem ((E_term_0 E) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(M.Sem ((M_term_0 M) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(O.Sem ((O_term_0 O) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(P.Sem ((P_term_0 P) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN1.Sem ((RN1_term_0 RN1) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN10.Sem ((RN10_term_0 RN10) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN11.Sem ((RN11_term_0 RN11) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN12.Sem ((RN12_term_0 RN12) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN2.Sem ((RN2_term_0 RN2) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN3.Sem ((RN3_term_0 RN3) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN4.Sem ((RN4_term_0 RN4) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN9.Sem ((RN9_term_0 RN9) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(S.Sem ((S_term_0 S) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(S1.Sem ((S1_term_0 S1) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(S2.Sem ((S2_term_0 S2) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(S3.Sem ((S3_term_0 S3) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(S31.Sem ((S31_term_0 S31) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(S32.Sem ((S32_term_0 S32) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool))
+
+((match A_term_0
+  (($IVarr (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 r))))
+($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))
+($IVara (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 a))))))
+(match B_term_0
+  ((($< RN1_term_1 RN2_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (RN1.Sem RN1_term_1 r__1 n r a)
+  (RN2.Sem RN2_term_2 r__2 n r a))))))
+(match B2_term_0
+  ((($< RN9_term_1 RN10_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (RN9.Sem RN9_term_1 r__1 n r a)
+  (RN10.Sem RN10_term_2 r__2 n r a))))))
+(match E_term_0
+  ((($- A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (- r__1 r__2))
+  (A.Sem A_term_1 r__1 n r a)
+  (A.Sem A_term_2 r__2 n r a))))))
+(match M_term_0
+  ((($- RN3_term_1 RN4_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (- r__1 r__2))
+  (RN3.Sem RN3_term_1 r__1 n r a)
+  (RN4.Sem RN4_term_2 r__2 n r a))))))
+(match O_term_0
+  (($IInt0 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 0))))))
+(match P_term_0
+  ((($+ RN11_term_1 RN12_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (RN11.Sem RN11_term_1 r__1 n r a)
+  (RN12.Sem RN12_term_2 r__2 n r a))))))
+(match RN1_term_0
+  (($IInt0 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 0))))))
+(match RN10_term_0
+  (($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match RN11_term_0
+  (($IVara (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 a))))))
+(match RN12_term_0
+  (($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))))
+(match RN2_term_0
+  (($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match RN3_term_0
+  (($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match RN4_term_0
+  (($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))))
+(match RN9_term_0
+  (($IVara (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 a))))))
+(match S_term_0
+  ((($seq S1_term_1 S2_term_2) (exists ((n_r1 Int) (r_r1 Int) (a_r1 Int)) (and (S1.Sem S1_term_1 n_r1 r_r1 a_r1 n r a)
+  (S2.Sem S2_term_2 n_r0 r_r0 a_r0 n_r1 r_r1 a_r1))))))
+(match S1_term_0
+  ((($int=a O_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r_r0)
+  (= a r__1))
+  (O.Sem O_term_1 r__1 n r a))))))
+(match S2_term_0
+  ((($while B2_term_1 S3_term_2) (exists ((r__1 Bool) (n_r2 Int) (r_r2 Int) (a_r2 Int)) (and r__1
+  (B2.Sem B2_term_1 r__1 n r a)
+  (S3.Sem S3_term_2 n_r2 r_r2 a_r2 n r a)
+  (S2.Sem S2_term_0 n_r0 r_r0 a_r0 n_r2 r_r2 a_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B2.Sem B2_term_1 r__1 n r a)
+  (and (= n n_r0)
+  (= r r_r0)
+  (= a a_r0)))))
+(($seq S2_term_1 S2_term_2) (exists ((n_r1 Int) (r_r1 Int) (a_r1 Int)) (and (S2.Sem S2_term_1 n_r1 r_r1 a_r1 n r a)
+  (S2.Sem S2_term_2 n_r0 r_r0 a_r0 n_r1 r_r1 a_r1))))
+(($int=n M_term_1) (exists ((r__1 Int)) (and (and (= n r__1)
+  (= r r_r0)
+  (= a a_r0))
+  (M.Sem M_term_1 r__1 n r a))))))
+(match S3_term_0
+  ((($seq S31_term_1 S32_term_2) (exists ((n_r1 Int) (r_r1 Int) (a_r1 Int)) (and (S31.Sem S31_term_1 n_r1 r_r1 a_r1 n r a)
+  (S32.Sem S32_term_2 n_r0 r_r0 a_r0 n_r1 r_r1 a_r1))))))
+(match S31_term_0
+  ((($seq S31_term_1 S31_term_2) (exists ((n_r1 Int) (r_r1 Int) (a_r1 Int)) (and (S31.Sem S31_term_1 n_r1 r_r1 a_r1 n r a)
+  (S31.Sem S31_term_2 n_r0 r_r0 a_r0 n_r1 r_r1 a_r1))))
+(($int=r E_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r__1)
+  (= a a_r0))
+  (E.Sem E_term_1 r__1 n r a))))))
+(match S32_term_0
+  ((($int=a P_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r_r0)
+  (= a r__1))
+  (P.Sem P_term_1 r__1 n r a))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (n_r2 Int) (r_r2 Int) (a_r2 Int)) (and r__1
+  (B.Sem B_term_1 r__1 n r a)
+  (S.Sem S_term_2 n_r2 r_r2 a_r2 n r a)
+  (Start.Sem Start_term_0 n_r0 r_r0 a_r0 n_r2 r_r2 a_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 n r a)
+  (and (= n n_r0)
+  (= r r_r0)
+  (= a a_r0)))))))))
+
+
+(synth-fun no14_nestedsum_07() Start)
+
+
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_07 1 0 0 n 1 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_07 2 0 0 n 4 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_07 3 0 0 n 10 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_07 4 0 0 n 20 a)))
+
+(check-synth)

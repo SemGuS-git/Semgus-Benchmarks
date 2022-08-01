@@ -1,0 +1,73 @@
+(declare-term-types
+((B1 0) (E 0) (E1 0) (E2 0) (S 0) (Start 0))
+((($< E2 E2))
+(($IVary )
+($IVarx )
+($IInt1 )
+($+ E E))
+(($IInt1 )
+($IVari ))
+(($IInt2 )
+($IVari ))
+(($int=i E1)
+($int=x E)
+($seq S S))
+(($seq S S))))
+
+
+(define-funs-rec
+((B1.Sem ((B1_term_0 B1) (r__0 Bool) (x Int) (y Int) (i Int)) Bool)
+(E.Sem ((E_term_0 E) (r__0 Int) (x Int) (y Int) (i Int)) Bool)
+(E1.Sem ((E1_term_0 E1) (r__0 Int) (x Int) (y Int) (i Int)) Bool)
+(E2.Sem ((E2_term_0 E2) (r__0 Int) (x Int) (y Int) (i Int)) Bool)
+(S.Sem ((S_term_0 S) (x_r0 Int) (y_r0 Int) (i_r0 Int) (x Int) (y Int) (i Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (x_r0 Int) (y_r0 Int) (i_r0 Int) (x Int) (y Int) (i Int)) Bool))
+
+((match B1_term_0
+  ((($< E2_term_1 E2_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (E2.Sem E2_term_1 r__1 x y i)
+  (E2.Sem E2_term_2 r__2 x y i))))))
+(match E_term_0
+  (($IVary (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 y))))
+($IVarx (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 x))))
+($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))
+(($+ E_term_1 E_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (E.Sem E_term_1 r__1 x y i)
+  (E.Sem E_term_2 r__2 x y i))))))
+(match E1_term_0
+  (($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))
+($IVari (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 i))))))
+(match E2_term_0
+  (($IInt2 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 2))))
+($IVari (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 i))))))
+(match S_term_0
+  ((($int=i E1_term_1) (exists ((r__1 Int)) (and (and (= x x_r0)
+  (= y y_r0)
+  (= i r__1))
+  (E1.Sem E1_term_1 r__1 x y i))))
+(($int=x E_term_1) (exists ((r__1 Int)) (and (and (= x r__1)
+  (= y y_r0)
+  (= i i_r0))
+  (E.Sem E_term_1 r__1 x y i))))
+(($seq S_term_1 S_term_2) (exists ((x_r1 Int) (y_r1 Int) (i_r1 Int)) (and (S.Sem S_term_1 x_r1 y_r1 i_r1 x y i)
+  (S.Sem S_term_2 x_r0 y_r0 i_r0 x_r1 y_r1 i_r1))))))
+(match Start_term_0
+  ((($seq S_term_1 S_term_2) (exists ((x_r1 Int) (y_r1 Int) (i_r1 Int)) (and (S.Sem S_term_1 x_r1 y_r1 i_r1 x y i)
+  (S.Sem S_term_2 x_r0 y_r0 i_r0 x_r1 y_r1 i_r1))))))))
+
+
+(synth-fun basicTest_Fib_01() Start)
+
+
+(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 1 1 1 y i)))
+(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 1 5 5 y i)))
+(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 1 10 55 y i)))
+
+(check-synth)

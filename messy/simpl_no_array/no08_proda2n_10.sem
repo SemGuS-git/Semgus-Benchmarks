@@ -1,0 +1,95 @@
+(declare-term-types
+((A 0) (B 0) (E 0) (RN4 0) (RN5 0) (S 0) (Start 0))
+((($IInt1 )
+($IInt0 )
+($IVara )
+($IVarr )
+($IVarn ))
+(($< RN4 RN5))
+(($* A A)
+($+ A A)
+($- A A))
+(($IVarn ))
+(($IVara ))
+(($seq S S)
+($int=r E)
+($int=n E)
+($int=a E))
+(($while B S))))
+
+
+(define-funs-rec
+((A.Sem ((A_term_0 A) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(B.Sem ((B_term_0 B) (r__0 Bool) (n Int) (r Int) (a Int)) Bool)
+(E.Sem ((E_term_0 E) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN4.Sem ((RN4_term_0 RN4) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(RN5.Sem ((RN5_term_0 RN5) (r__0 Int) (n Int) (r Int) (a Int)) Bool)
+(S.Sem ((S_term_0 S) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (n_r0 Int) (r_r0 Int) (a_r0 Int) (n Int) (r Int) (a Int)) Bool))
+
+((match A_term_0
+  (($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))
+($IInt0 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 0))))
+($IVara (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 a))))
+($IVarr (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 r))))
+($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match B_term_0
+  ((($< RN4_term_1 RN5_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (RN4.Sem RN4_term_1 r__1 n r a)
+  (RN5.Sem RN5_term_2 r__2 n r a))))))
+(match E_term_0
+  ((($* A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (* r__1 r__2))
+  (A.Sem A_term_1 r__1 n r a)
+  (A.Sem A_term_2 r__2 n r a))))
+(($+ A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (A.Sem A_term_1 r__1 n r a)
+  (A.Sem A_term_2 r__2 n r a))))
+(($- A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (- r__1 r__2))
+  (A.Sem A_term_1 r__1 n r a)
+  (A.Sem A_term_2 r__2 n r a))))))
+(match RN4_term_0
+  (($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match RN5_term_0
+  (($IVara (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 a))))))
+(match S_term_0
+  ((($seq S_term_1 S_term_2) (exists ((n_r1 Int) (r_r1 Int) (a_r1 Int)) (and (S.Sem S_term_1 n_r1 r_r1 a_r1 n r a)
+  (S.Sem S_term_2 n_r0 r_r0 a_r0 n_r1 r_r1 a_r1))))
+(($int=r E_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r__1)
+  (= a a_r0))
+  (E.Sem E_term_1 r__1 n r a))))
+(($int=n E_term_1) (exists ((r__1 Int)) (and (and (= n r__1)
+  (= r r_r0)
+  (= a a_r0))
+  (E.Sem E_term_1 r__1 n r a))))
+(($int=a E_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r_r0)
+  (= a r__1))
+  (E.Sem E_term_1 r__1 n r a))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (n_r2 Int) (r_r2 Int) (a_r2 Int)) (and r__1
+  (B.Sem B_term_1 r__1 n r a)
+  (S.Sem S_term_2 n_r2 r_r2 a_r2 n r a)
+  (Start.Sem Start_term_0 n_r0 r_r0 a_r0 n_r2 r_r2 a_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 n r a)
+  (and (= n n_r0)
+  (= r r_r0)
+  (= a a_r0)))))))))
+
+
+(synth-fun no08_proda2n_10() Start)
+
+
+(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_10 2 2 1 n 2 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_10 4 4 2 n 24 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_10 5 5 3 n 60 a)))
+
+(check-synth)
