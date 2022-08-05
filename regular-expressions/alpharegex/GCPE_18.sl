@@ -1,24 +1,21 @@
-;; GCPE_09: right symbol 5 = 1
+;; GCPE_18: two 1s between any two 0s
 
-;; Positive-example wildcard character: 20 (only matched by `any`)
-;; Negative-example wildcard character: 30 (matched by all character classes)
 (declare-term-types
     ;; Nonterminals
     ((Start 0) (R 0))
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
-    
+        (($eval R))
         (
             ($eps)
             ($phi)
             ($char_0)
-                ($char_1)
-                ($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($char_1)
+            ($any)
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
@@ -66,8 +63,8 @@
             ($eps (and  (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 true) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 true) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 true) (= X_4_5 false) (= X_4_6 false) (= X_4_7 false) (= X_5_5 true) (= X_5_6 false) (= X_5_7 false) (= X_6_6 true) (= X_6_7 false) (= X_7_7 true)))
             ($phi (and  (= X_0_0 false) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 false) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 false) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 false) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 false) (= X_4_5 false) (= X_4_6 false) (= X_4_7 false) (= X_5_5 false) (= X_5_6 false) (= X_5_7 false) (= X_6_6 false) (= X_6_7 false) (= X_7_7 false)))
             ($any (and  (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 false) (= X_2_3 true) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 false) (= X_3_4 true) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 false) (= X_4_5 true) (= X_4_6 false) (= X_4_7 false) (= X_5_5 false) (= X_5_6 true) (= X_5_7 false) (= X_6_6 false) (= X_6_7 true) (= X_7_7 false)))
-            ($char_0 (and  (= X_0_0 false) (= X_0_1 (or (= s_0 0) (= s_0 30))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 false) (= X_1_2 (or (= s_1 0) (= s_1 30))) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 false) (= X_2_3 (or (= s_2 0) (= s_2 30))) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 false) (= X_3_4 (or (= s_3 0) (= s_3 30))) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 false) (= X_4_5 (or (= s_4 0) (= s_4 30))) (= X_4_6 false) (= X_4_7 false) (= X_5_5 false) (= X_5_6 (or (= s_5 0) (= s_5 30))) (= X_5_7 false) (= X_6_6 false) (= X_6_7 (or (= s_6 0) (= s_6 30))) (= X_7_7 false)))
-            ($char_1 (and  (= X_0_0 false) (= X_0_1 (or (= s_0 1) (= s_0 30))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 false) (= X_1_2 (or (= s_1 1) (= s_1 30))) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 false) (= X_2_3 (or (= s_2 1) (= s_2 30))) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 false) (= X_3_4 (or (= s_3 1) (= s_3 30))) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 false) (= X_4_5 (or (= s_4 1) (= s_4 30))) (= X_4_6 false) (= X_4_7 false) (= X_5_5 false) (= X_5_6 (or (= s_5 1) (= s_5 30))) (= X_5_7 false) (= X_6_6 false) (= X_6_7 (or (= s_6 1) (= s_6 30))) (= X_7_7 false)))
+            ($char_0 (and  (= X_0_0 false) (= X_0_1 (= s_0 0)) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 false) (= X_1_2 (= s_1 0)) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 false) (= X_2_3 (= s_2 0)) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 false) (= X_3_4 (= s_3 0)) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 false) (= X_4_5 (= s_4 0)) (= X_4_6 false) (= X_4_7 false) (= X_5_5 false) (= X_5_6 (= s_5 0)) (= X_5_7 false) (= X_6_6 false) (= X_6_7 (= s_6 0)) (= X_7_7 false)))
+            ($char_1 (and  (= X_0_0 false) (= X_0_1 (= s_0 1)) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_0_7 false) (= X_1_1 false) (= X_1_2 (= s_1 1)) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_1_7 false) (= X_2_2 false) (= X_2_3 (= s_2 1)) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_2_7 false) (= X_3_3 false) (= X_3_4 (= s_3 1)) (= X_3_5 false) (= X_3_6 false) (= X_3_7 false) (= X_4_4 false) (= X_4_5 (= s_4 1)) (= X_4_6 false) (= X_4_7 false) (= X_5_5 false) (= X_5_6 (= s_5 1)) (= X_5_7 false) (= X_6_6 false) (= X_6_7 (= s_6 1)) (= X_7_7 false)))
             (($or t1 t2)
                 (exists
                     (
@@ -232,10 +229,18 @@
 
 (synth-fun match_regex() Start)
 
-(constraint (Start.Sem match_regex 5 0 20 20 20 20 40 40 true))
-(constraint (Start.Sem match_regex 6 20 0 20 20 20 20 40 true))
-(constraint (Start.Sem match_regex 7 20 20 0 20 20 20 20 true))
-(constraint (Start.Sem match_regex 5 1 30 30 30 30 40 40 false))
-(constraint (Start.Sem match_regex 6 30 1 30 30 30 30 40 false))
-(constraint (Start.Sem match_regex 7 30 30 1 30 30 30 30 false))
+(constraint (Start.Sem match_regex 1 0 40 40 40 40 40 40 true))
+(constraint (Start.Sem match_regex 4 0 1 1 0 40 40 40 true))
+(constraint (Start.Sem match_regex 5 0 1 1 1 0 40 40 true))
+(constraint (Start.Sem match_regex 6 0 1 1 1 1 0 40 true))
+(constraint (Start.Sem match_regex 3 1 1 1 40 40 40 40 true))
+(constraint (Start.Sem match_regex 5 0 1 1 1 1 40 40 true))
+(constraint (Start.Sem match_regex 7 1 1 1 1 1 1 0 true))
+(constraint (Start.Sem match_regex 2 0 0 40 40 40 40 40 false))
+(constraint (Start.Sem match_regex 3 0 1 0 40 40 40 40 false))
+(constraint (Start.Sem match_regex 5 1 0 1 0 1 40 40 false))
+(constraint (Start.Sem match_regex 6 0 1 0 1 1 1 40 false))
+(constraint (Start.Sem match_regex 6 1 1 1 0 1 0 40 false))
+(constraint (Start.Sem match_regex 7 0 0 1 1 1 1 1 false))
+(constraint (Start.Sem match_regex 7 1 1 1 1 1 0 0 false))
 (check-synth)

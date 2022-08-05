@@ -80,20 +80,18 @@ def gen_regex_file(info, desc):
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
-    
+        (($eval R))
         (
             ($eps)
             ($phi)
             """)
     for c in charmap.values():
-        out.write(f"($char_{c})")
-        out.write("""
-                """)
+        out.write(f"""($char_{c})
+            """)
     out.write("""($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
@@ -326,12 +324,6 @@ def gen_regex_file(info, desc):
     return out.getvalue()
 
 
-    
-# def formulate(input,kind):
-#     if kind == "fixed-length":
-#         return formulate(input)
-#     raise Exception(kind)
-
 
 
 
@@ -383,42 +375,6 @@ def get_input_info(examples_pos, examples_neg, wildcard_char):
 
 
 
-# def formulate(input):
-#     charmap = {"0":0,"1":1,"X":2,"Y":3} # hardcoded
-    
-#     examples = []
-    
-#     for key in input['posEx']:
-#         encoded = [len(key)]
-#         for c in key:
-#             if not c in charmap.keys():
-#                 raise Exception("Invalid character", c)
-#             encoded.append(charmap[c])
-#         examples.append({"i":encoded, "o": True})
-        
-#     for key in input['negEx']:
-#         encoded = [len(key)]
-#         for c in key:
-#             if c == "X":
-#                 c = "Y"  # For negative examples, use negative sigma character
-#             if not c in charmap.keys():
-#                 raise Exception("Invalid character", c)
-#             encoded.append(charmap[c])
-#         examples.append({"i":encoded, "o": False})
-    
-#     return {"s": "s", "X": "X", "A": "A", "B": "B", "sigma_neg": 3, "NA": 9,
-#         "n": max([len(e["i"]) for e in examples]),
-#         "charset": [0, 1], # hardcoded
-#         "examples": examples,
-#         "author": "Wiley Corning",
-#         "description": f"{input['benchmarkName']}: {input['comment']}",
-#         "benchmarkName": input['benchmarkName']
-#     }
-
-# if len(sys.argv) != 3:
-#     print("This script generates a Semgus grammar for regular expressions on strings of a fixed length.")
-#     print("Usage: gen-regex-file str_len num_chars")
-
 with open("sources/messy-regex.json") as f:
     problems = json.load(f)
     
@@ -428,9 +384,5 @@ with open("sources/messy-regex.json") as f:
         
         print(info)
         
-        f = open(f"{problem['benchmarkName']}.sl","w")
+        f = open(f"../{problem['benchmarkName']}.sl","w")
         f.write(gen_regex_file(info, desc))
-
-# N = int(sys.argv[1])
-# C = int(sys.argv[2])
-# print(gen_regex_file(N,C))

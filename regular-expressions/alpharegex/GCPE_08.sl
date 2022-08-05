@@ -1,4 +1,4 @@
-;; GCPE_23: even 0s, 0 followed by 1
+;; GCPE_08: 0 count = 2k
 
 (declare-term-types
     ;; Nonterminals
@@ -6,17 +6,16 @@
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
-    
+        (($eval R))
         (
             ($eps)
             ($phi)
             ($char_0)
-                ($char_1)
-                ($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($char_1)
+            ($any)
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
@@ -518,18 +517,17 @@
 (synth-fun match_regex() Start)
 
 (constraint (Start.Sem match_regex 1 0 40 40 40 40 40 40 40 40 40 40 40 40 40 true))
-(constraint (Start.Sem match_regex 3 0 0 0 40 40 40 40 40 40 40 40 40 40 40 true))
-(constraint (Start.Sem match_regex 4 1 0 1 0 40 40 40 40 40 40 40 40 40 40 true))
+(constraint (Start.Sem match_regex 2 1 1 40 40 40 40 40 40 40 40 40 40 40 40 true))
 (constraint (Start.Sem match_regex 5 0 1 0 1 0 40 40 40 40 40 40 40 40 40 true))
-(constraint (Start.Sem match_regex 7 1 0 0 0 1 0 0 40 40 40 40 40 40 40 true))
-(constraint (Start.Sem match_regex 14 1 0 0 1 0 0 1 0 0 0 1 0 0 0 true))
+(constraint (Start.Sem match_regex 8 0 0 1 0 0 1 0 0 40 40 40 40 40 40 true))
+(constraint (Start.Sem match_regex 4 1 1 1 1 40 40 40 40 40 40 40 40 40 40 true))
+(constraint (Start.Sem match_regex 9 0 1 0 1 0 1 0 1 0 40 40 40 40 40 true))
+(constraint (Start.Sem match_regex 14 0 0 1 0 0 1 0 0 1 0 0 1 0 0 true))
 (constraint (Start.Sem match_regex 1 1 40 40 40 40 40 40 40 40 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 4 1 1 1 1 40 40 40 40 40 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 3 1 0 1 40 40 40 40 40 40 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 4 0 1 0 1 40 40 40 40 40 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 3 0 0 1 40 40 40 40 40 40 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 5 0 1 1 1 0 40 40 40 40 40 40 40 40 40 false))
+(constraint (Start.Sem match_regex 2 0 1 40 40 40 40 40 40 40 40 40 40 40 40 false))
 (constraint (Start.Sem match_regex 2 1 0 40 40 40 40 40 40 40 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 3 1 1 0 40 40 40 40 40 40 40 40 40 40 40 false))
 (constraint (Start.Sem match_regex 3 1 0 0 40 40 40 40 40 40 40 40 40 40 40 false))
+(constraint (Start.Sem match_regex 3 1 1 1 40 40 40 40 40 40 40 40 40 40 40 false))
+(constraint (Start.Sem match_regex 7 0 1 0 1 0 1 0 40 40 40 40 40 40 40 false))
+(constraint (Start.Sem match_regex 5 1 1 1 1 1 40 40 40 40 40 40 40 40 40 false))
 (check-synth)

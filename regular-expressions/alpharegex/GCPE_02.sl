@@ -1,4 +1,4 @@
-;; GCPE_22: len > 2, not end 10
+;; GCPE_02: end with 01
 
 ;; Positive-example wildcard character: 20 (only matched by `any`)
 ;; Negative-example wildcard character: 30 (matched by all character classes)
@@ -8,17 +8,16 @@
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
-    
+        (($eval R))
         (
             ($eps)
             ($phi)
             ($char_0)
-                ($char_1)
-                ($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($char_1)
+            ($any)
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
@@ -154,17 +153,13 @@
 
 (synth-fun match_regex() Start)
 
-(constraint (Start.Sem match_regex 2 0 0 40 40 true))
 (constraint (Start.Sem match_regex 2 0 1 40 40 true))
-(constraint (Start.Sem match_regex 2 1 1 40 40 true))
-(constraint (Start.Sem match_regex 3 20 0 0 40 true))
 (constraint (Start.Sem match_regex 3 20 0 1 40 true))
-(constraint (Start.Sem match_regex 3 20 1 1 40 true))
-(constraint (Start.Sem match_regex 4 20 20 0 0 true))
 (constraint (Start.Sem match_regex 4 20 20 0 1 true))
-(constraint (Start.Sem match_regex 4 20 20 1 1 true))
-(constraint (Start.Sem match_regex 1 30 40 40 40 false))
+(constraint (Start.Sem match_regex 2 0 0 40 40 false))
 (constraint (Start.Sem match_regex 2 1 0 40 40 false))
+(constraint (Start.Sem match_regex 2 1 1 40 40 false))
+(constraint (Start.Sem match_regex 3 30 0 0 40 false))
 (constraint (Start.Sem match_regex 3 30 1 0 40 false))
-(constraint (Start.Sem match_regex 4 30 30 1 0 false))
+(constraint (Start.Sem match_regex 3 30 1 1 40 false))
 (check-synth)

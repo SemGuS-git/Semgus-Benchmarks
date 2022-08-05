@@ -1,24 +1,21 @@
-;; GCPE_20: odd position is 1
+;; GCPE_06: len = 3k
 
-;; Positive-example wildcard character: 20 (only matched by `any`)
-;; Negative-example wildcard character: 30 (matched by all character classes)
+;; Positive-example wildcard character: 10 (only matched by `any`)
+;; Negative-example wildcard character: 20 (matched by all character classes)
 (declare-term-types
     ;; Nonterminals
     ((Start 0) (R 0))
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
-    
+        (($eval R))
         (
             ($eps)
             ($phi)
-            ($char_0)
-                ($char_1)
-                ($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($any)
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
@@ -62,8 +59,6 @@
             ($eps (and  (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_2_2 true) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_3_3 true) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_4_4 true) (= X_4_5 false) (= X_4_6 false) (= X_5_5 true) (= X_5_6 false) (= X_6_6 true)))
             ($phi (and  (= X_0_0 false) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_1_1 false) (= X_1_2 false) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_2_2 false) (= X_2_3 false) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_3_3 false) (= X_3_4 false) (= X_3_5 false) (= X_3_6 false) (= X_4_4 false) (= X_4_5 false) (= X_4_6 false) (= X_5_5 false) (= X_5_6 false) (= X_6_6 false)))
             ($any (and  (= X_0_0 false) (= X_0_1 true) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_1_1 false) (= X_1_2 true) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_2_2 false) (= X_2_3 true) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_3_3 false) (= X_3_4 true) (= X_3_5 false) (= X_3_6 false) (= X_4_4 false) (= X_4_5 true) (= X_4_6 false) (= X_5_5 false) (= X_5_6 true) (= X_6_6 false)))
-            ($char_0 (and  (= X_0_0 false) (= X_0_1 (or (= s_0 0) (= s_0 30))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_1_1 false) (= X_1_2 (or (= s_1 0) (= s_1 30))) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_2_2 false) (= X_2_3 (or (= s_2 0) (= s_2 30))) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_3_3 false) (= X_3_4 (or (= s_3 0) (= s_3 30))) (= X_3_5 false) (= X_3_6 false) (= X_4_4 false) (= X_4_5 (or (= s_4 0) (= s_4 30))) (= X_4_6 false) (= X_5_5 false) (= X_5_6 (or (= s_5 0) (= s_5 30))) (= X_6_6 false)))
-            ($char_1 (and  (= X_0_0 false) (= X_0_1 (or (= s_0 1) (= s_0 30))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_0_5 false) (= X_0_6 false) (= X_1_1 false) (= X_1_2 (or (= s_1 1) (= s_1 30))) (= X_1_3 false) (= X_1_4 false) (= X_1_5 false) (= X_1_6 false) (= X_2_2 false) (= X_2_3 (or (= s_2 1) (= s_2 30))) (= X_2_4 false) (= X_2_5 false) (= X_2_6 false) (= X_3_3 false) (= X_3_4 (or (= s_3 1) (= s_3 30))) (= X_3_5 false) (= X_3_6 false) (= X_4_4 false) (= X_4_5 (or (= s_4 1) (= s_4 30))) (= X_4_6 false) (= X_5_5 false) (= X_5_6 (or (= s_5 1) (= s_5 30))) (= X_6_6 false)))
             (($or t1 t2)
                 (exists
                     (
@@ -203,19 +198,9 @@
 
 (synth-fun match_regex() Start)
 
-(constraint (Start.Sem match_regex 1 0 40 40 40 40 40 true))
-(constraint (Start.Sem match_regex 2 0 20 40 40 40 40 true))
-(constraint (Start.Sem match_regex 3 0 20 0 40 40 40 true))
-(constraint (Start.Sem match_regex 4 0 20 0 20 40 40 true))
-(constraint (Start.Sem match_regex 5 0 20 0 20 0 40 true))
-(constraint (Start.Sem match_regex 6 0 20 0 20 0 20 true))
-(constraint (Start.Sem match_regex 1 1 40 40 40 40 40 false))
-(constraint (Start.Sem match_regex 2 1 30 40 40 40 40 false))
-(constraint (Start.Sem match_regex 3 30 30 1 40 40 40 false))
-(constraint (Start.Sem match_regex 4 1 30 30 30 40 40 false))
-(constraint (Start.Sem match_regex 4 30 30 1 30 40 40 false))
-(constraint (Start.Sem match_regex 5 1 30 30 30 30 40 false))
-(constraint (Start.Sem match_regex 5 30 30 1 30 30 40 false))
-(constraint (Start.Sem match_regex 5 30 30 30 30 1 40 false))
-(constraint (Start.Sem match_regex 6 30 30 30 30 1 30 false))
+(constraint (Start.Sem match_regex 3 10 10 10 30 30 30 true))
+(constraint (Start.Sem match_regex 6 10 10 10 10 10 10 true))
+(constraint (Start.Sem match_regex 1 20 30 30 30 30 30 false))
+(constraint (Start.Sem match_regex 2 20 20 30 30 30 30 false))
+(constraint (Start.Sem match_regex 4 20 20 20 20 30 30 false))
 (check-synth)
