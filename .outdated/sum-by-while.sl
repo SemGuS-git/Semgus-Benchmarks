@@ -31,7 +31,7 @@
 
   (($t) ; B productions
    ($f)
-   ($! ($!_1 B))
+   ($not ($not_1 B))
    ($and($and_1 B) ($and_2 B))
    ($or($or_1 B) ($or_2 B))
    ($< ($<_1 E) ($<_2 E)))))
@@ -114,7 +114,7 @@
    (! (match bt ; B.Sem definitions
         (($t (= r true))
          ($f (= r false))
-         (($! bt)
+         (($not bt)
           (exists ((rb Bool))
               (and
                (B.Sem bt x y z v w rb)

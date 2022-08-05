@@ -3,7 +3,7 @@
 ;;;;
 
 ;;; Metadata
-;; (set-info :format-version "2.0.0")
+;; (set-info :format-version "2.1.0")
 ;; (set-info :author("Jinwoo Kim" "Keith Johnson" "Wiley Corning"))
 ;; (set-info :realizable true)
 
@@ -11,24 +11,30 @@
 ;;; Term types
 ;;;
 (declare-term-types
- ;; Nonterminals
- ((E 0) (B 0))
+;; Nonterminals
+((E 0) (B 0))
 
- ;; Productions
- ((($x); E productions
-   ($y)
-   ($z)
-   ($0)
-   ($1)
-   ($+ ($+_1 E) ($+_2 E))
-   ($ite($ite_1 B) ($ite_2 E) ($ite_3 E)))
-
-  (($t) ; B productions
-   ($f)
-   ($not ($not_1 B))
-   ($and($and_1 B) ($and_2 B))
-   ($or($or_1 B) ($or_2 B))
-   ($< ($<_1 E) ($<_2 E)))))
+;; Productions
+(
+    ( ; E productions
+        ($x)
+        ($y)
+        ($z)
+        ($0)
+        ($1)
+        ($+ E E)
+        ($ite B E E)
+    )
+    (  ; B productions
+        ($t)
+        ($f)
+        ($not B)
+        ($and B B)
+        ($or B B)
+        ($< E E)
+    )
+)
+)
 
 ;;;
 ;;; Semantics

@@ -1,7 +1,7 @@
 
 
 ;;; Metadata
-;; (set-info :format-version "2.0.0")
+;; (set-info :format-version "2.1.0")
 ;; (set-info :author("Wiley Corning"))
 ;; (set-info :realizable true)
 
@@ -17,8 +17,8 @@
    ($y)
    ($0)
    ($1)
-   ($+ ($+_1 E) ($+_2 E))
-   ($* ($*_1 E) ($*_2 E))
+   ($+ E E)
+   ($* E E)
    ))
 )
 
