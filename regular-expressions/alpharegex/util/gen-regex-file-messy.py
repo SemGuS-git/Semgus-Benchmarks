@@ -126,9 +126,9 @@ def gen_regex_file(info, desc):
         out.write(")")
         out.write("""
                     (and """)
-        out.write(f"(= len {i}) ")
+        out.write(f"(= len {i+1}) ")
         child(out,N,1,"X")
-        out.write(f" (= result X_0_{i})")
+        out.write(f" (= result X_0_{i+1})")
         out.write(""")
                 )""")
         
