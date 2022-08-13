@@ -1,0 +1,388 @@
+{
+    "block_types": [
+        {
+            "members": ["int", "int", "int"],
+            "cmp": "(and (and (>= a.0 b.0) (>= a.1 b.1)) (>= a.2 b.2))",
+            "top": ["-100", "-100", "-100"],
+            "bot": ["100", "100", "100"],
+            "join_incomparable": [
+                "(ite (< a.0 b.0) a.0 b.0)",
+                "(ite (< a.1 b.1) a.1 b.1)",
+                "(- 100)"
+            ],
+            "meet_incomparable": ["100", "100", "(ite (> a.2 b.2) a.2 b.2)"]
+        },
+        {
+            "members": ["int"],
+            "cmp": "(>= a.0 b.0)",
+            "top": ["-100"],
+            "bot": ["100"],
+            "join_incomparable": ["(ite (< a.0 b.0) a.0 b.0)"],
+            "meet_incomparable": ["(ite (< a.0 b.0) a.0 b.0)"]
+        },
+        {
+            "members": ["bool"],
+            "cmp": "(or (not b.0) a.0)",
+            "top": ["false"],
+            "bot": ["true"],
+            "join_incomparable": ["(and a.0 b.0)"],
+            "meet_incomparable": ["true"]
+        }
+    ],
+    "productions": [
+        {
+            "term_type": 1,
+            "name": "$assign_x",
+            "id": 0,
+            "semantics": [
+                {
+                    "block_types": [0, 0, 1],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0, 2],
+                            "monotonicities": ["increasing", "increasing"],
+                            "expressions": ["@2.0", "@0.1", "@0.2"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 1,
+            "name": "$assign_y",
+            "id": 1,
+            "semantics": [
+                {
+                    "block_types": [0, 0, 1],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0, 2],
+                            "monotonicities": ["increasing", "increasing"],
+                            "expressions": ["@0.0", "@2.0", "@0.2"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 1,
+            "name": "$assign_z",
+            "id": 2,
+            "semantics": [
+                {
+                    "block_types": [0, 0, 1],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0, 2],
+                            "monotonicities": ["increasing", "increasing"],
+                            "expressions": ["@0.0", "@0.1", "@2.0"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 1,
+            "name": "$cons",
+            "id": 3,
+            "semantics": [
+                {
+                    "block_types": [0, 0, 0],
+                    "steps": [
+                        {
+                            "type": "assert",
+                            "required": [],
+                            "monotonicities": [],
+                            "predicate": "(true)"
+                        },
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        { "type": "eval", "term": 2, "input": 2, "output": 1 }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 10000,
+            "name": "[placeholder 4]",
+            "id": 4,
+            "semantics": []
+        },
+        {
+            "term_type": 1,
+            "name": "$while",
+            "id": 5,
+            "semantics": [
+                {
+                    "block_types": [0, 0, 2, 0],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        {
+                            "type": "assert",
+                            "required": [2],
+                            "monotonicities": ["none"],
+                            "predicate": "(= @2.0 (true))"
+                        },
+                        { "type": "eval", "term": 2, "input": 0, "output": 3 },
+                        { "type": "eval", "term": 0, "input": 3, "output": 1 }
+                    ]
+                },
+                {
+                    "block_types": [0, 0, 2],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        {
+                            "type": "assert",
+                            "required": [2],
+                            "monotonicities": ["none"],
+                            "predicate": "(= @2.0 (false))"
+                        },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0],
+                            "monotonicities": ["increasing"],
+                            "expressions": ["@0.0", "@0.1", "@0.2"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$0",
+            "id": 6,
+            "semantics": [
+                {
+                    "block_types": [0, 1],
+                    "steps": [
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [],
+                            "monotonicities": [],
+                            "expressions": ["0"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$1",
+            "id": 7,
+            "semantics": [
+                {
+                    "block_types": [0, 1],
+                    "steps": [
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [],
+                            "monotonicities": [],
+                            "expressions": ["1"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$x",
+            "id": 8,
+            "semantics": [
+                {
+                    "block_types": [0, 1],
+                    "steps": [
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0],
+                            "monotonicities": ["increasing"],
+                            "expressions": ["@0.0"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$y",
+            "id": 9,
+            "semantics": [
+                {
+                    "block_types": [0, 1],
+                    "steps": [
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0],
+                            "monotonicities": ["increasing"],
+                            "expressions": ["@0.1"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$z",
+            "id": 10,
+            "semantics": [
+                {
+                    "block_types": [0, 1],
+                    "steps": [
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [0],
+                            "monotonicities": ["increasing"],
+                            "expressions": ["@0.2"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$+",
+            "id": 11,
+            "semantics": [
+                {
+                    "block_types": [0, 1, 1, 1],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        { "type": "eval", "term": 2, "input": 0, "output": 3 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [2, 3],
+                            "monotonicities": ["increasing", "increasing"],
+                            "expressions": ["(+ @2.0 @3.0)"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$-",
+            "id": 12,
+            "semantics": [
+                {
+                    "block_types": [0, 1, 1, 1],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        { "type": "eval", "term": 2, "input": 0, "output": 3 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [2, 3],
+                            "monotonicities": ["increasing", "decreasing"],
+                            "expressions": ["(- @2.0 @3.0)"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 0,
+            "name": "$return_z",
+            "id": 13,
+            "semantics": [
+                {
+                    "block_types": [0, 1, 0],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [2],
+                            "monotonicities": ["increasing"],
+                            "expressions": ["@2.2"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 10000,
+            "name": "[placeholder 14]",
+            "id": 14,
+            "semantics": []
+        },
+        {
+            "term_type": 10000,
+            "name": "[placeholder 15]",
+            "id": 15,
+            "semantics": []
+        },
+        {
+            "term_type": 2,
+            "name": "$<",
+            "id": 16,
+            "semantics": [
+                {
+                    "block_types": [0, 2, 1, 1],
+                    "steps": [
+                        { "type": "eval", "term": 1, "input": 0, "output": 2 },
+                        { "type": "eval", "term": 2, "input": 0, "output": 3 },
+                        {
+                            "type": "set",
+                            "target": 1,
+                            "required": [2, 3],
+                            "monotonicities": ["decreasing", "increasing"],
+                            "expressions": ["(< @2.0 @3.0)"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "term_type": 10000,
+            "name": "[placeholder 17]",
+            "id": 17,
+            "semantics": []
+        },
+        {
+            "term_type": 10000,
+            "name": "[placeholder 18]",
+            "id": 18,
+            "semantics": []
+        },
+        {
+            "term_type": 10000,
+            "name": "[placeholder 19]",
+            "id": 19,
+            "semantics": []
+        }
+    ],
+    "nonterminals": [
+        { "name": "_Start", "bounds_universal": [["100"], ["-100"]] },
+        {
+            "name": "_Outer",
+            "bounds_universal": [
+                ["100", "100", "100"],
+                ["-100", "-100", "-100"]
+            ]
+        },
+        {
+            "name": "_S",
+            "bounds_universal": [
+                ["100", "100", "100"],
+                ["-100", "-100", "-100"]
+            ]
+        },
+        { "name": "_E", "bounds_universal": [["100"], ["-100"]] },
+        { "name": "_A", "bounds_universal": [["100"], ["-100"]] },
+        { "name": "_B", "bounds_universal": [["true"], ["false"]] }
+    ]
+}

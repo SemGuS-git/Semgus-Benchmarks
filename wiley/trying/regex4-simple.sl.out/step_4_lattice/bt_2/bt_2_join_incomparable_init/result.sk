@@ -1,0 +1,96 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/regex4-simple.sl.out/step_4_lattice/bt_2/bt_2_join_incomparable_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+/*input.sk:66*/
+
+void bt_2_join_incomparable (bt_2 a, bt_2 b, ref bt_2 _out)/*input.sk:66*/
+{
+  bit a_0 = a.v2;
+  bit b_0 = b.v2;
+  bit a_1 = a.v4;
+  bit b_1 = b.v4;
+  bit a_2 = a.v12;
+  bit b_2 = b.v12;
+  bit a_3 = a.v14;
+  bit b_3 = b.v14;
+  _out = new bt_2(v0=1, v1=1, v2=a_0 || b_0, v3=1, v4=a_1 || b_1, v5=1, v6=1, v7=1, v8=1, v9=1, v10=1, v11=1, v12=a_2 || b_2, v13=1, v14=a_3 || b_3);
+  return;
+}
+/*input.sk:22*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:22*/
+{
+  _out = (((((((((((((((!(a.v0)) || (b.v0)) && ((!(a.v1)) || (b.v1))) && ((!(a.v2)) || (b.v2))) && ((!(a.v3)) || (b.v3))) && ((!(a.v4)) || (b.v4))) && ((!(a.v5)) || (b.v5))) && ((!(a.v6)) || (b.v6))) && ((!(a.v7)) || (b.v7))) && ((!(a.v8)) || (b.v8))) && ((!(a.v9)) || (b.v9))) && ((!(a.v10)) || (b.v10))) && ((!(a.v11)) || (b.v11))) && ((!(a.v12)) || (b.v12))) && ((!(a.v13)) || (b.v13))) && ((!(a.v14)) || (b.v14));
+  return;
+}
+/*input.sk:77*/
+
+void forall_test_join_incomparable (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)/*input.sk:77*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_v0, v1=a_v1, v2=a_v2, v3=a_v3, v4=a_v4, v5=a_v5, v6=a_v6, v7=a_v7, v8=a_v8, v9=a_v9, v10=a_v10, v11=a_v11, v12=a_v12, v13=a_v13, v14=a_v14);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=b_v0, v1=b_v1, v2=b_v2, v3=b_v3, v4=b_v4, v5=b_v5, v6=b_v6, v7=b_v7, v8=b_v8, v9=b_v9, v10=b_v10, v11=b_v11, v12=b_v12, v13=b_v13, v14=b_v14);
+  test_join_incomparable(a, b);
+}
+/*input.sk:77*/
+
+void forall_test_join_incomparable__Wrapper (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)  implements forall_test_join_incomparable__WrapperNospec/*input.sk:77*/
+{
+  forall_test_join_incomparable(a_v0, a_v1, a_v2, a_v3, a_v4, a_v5, a_v6, a_v7, a_v8, a_v9, a_v10, a_v11, a_v12, a_v13, a_v14, b_v0, b_v1, b_v2, b_v3, b_v4, b_v5, b_v6, b_v7, b_v8, b_v9, b_v10, b_v11, b_v12, b_v13, b_v14);
+}
+/*input.sk:77*/
+
+void forall_test_join_incomparable__WrapperNospec (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)/*input.sk:77*/
+{ }
+/*input.sk:70*/
+
+void test_join_incomparable (bt_2 a, bt_2 b)/*input.sk:70*/
+{
+  bit _pac_sc_s0_s2 = 0;
+  compare_bt_2(a, b, _pac_sc_s0_s2);
+  bit _pac_sc_s0;
+  _pac_sc_s0 = _pac_sc_s0_s2;
+  if(!(_pac_sc_s0_s2))/*input.sk:71*/
+  {
+    bit _pac_sc_s0_s4 = 0;
+    compare_bt_2(b, a, _pac_sc_s0_s4);
+    _pac_sc_s0 = _pac_sc_s0_s4;
+  }
+  if(!(_pac_sc_s0))/*input.sk:71*/
+  {
+    bt_2@ANONYMOUS join_incomparable_ab_s6 = null;
+    bt_2_join_incomparable(a, b, join_incomparable_ab_s6);
+    bit _pac_sc_s7_s9 = 0;
+    compare_bt_2(a, join_incomparable_ab_s6, _pac_sc_s7_s9);
+    bit _pac_sc_s7;
+    _pac_sc_s7 = _pac_sc_s7_s9;
+    if(_pac_sc_s7_s9)/*input.sk:73*/
+    {
+      bit _pac_sc_s7_s11 = 0;
+      compare_bt_2(b, join_incomparable_ab_s6, _pac_sc_s7_s11);
+      _pac_sc_s7 = _pac_sc_s7_s11;
+    }
+    assert (_pac_sc_s7); //Assert at input.sk:73 (0)
+  }
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 481

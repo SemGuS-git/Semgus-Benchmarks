@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<hole_values>
+    <hole_value line="27" col="-1"  name="H__0_5" type="int" value="8" />
+    <hole_value line="27" col="-1"  name="H__0_12" type="int" value="1" />
+    <hole_value line="27" col="-1"  name="H__0_2" type="int" value="1" />
+    <hole_value line="27" col="-1"  name="H__0_1" type="int" value="8" />
+    <hole_value line="27" col="-1"  name="H__0_11" type="int" value="6" />
+    <hole_value line="27" col="-1"  name="H__0_4" type="int" value="1" />
+    <hole_value line="27" col="-1"  name="H__0_6" type="int" value="6" />
+    <hole_value line="27" col="-1"  name="H__0_13" type="int" value="6" />
+    <hole_value line="27" col="-1"  name="H__0_0" type="int" value="8" />
+    <hole_value line="27" col="-1"  name="H__0_7" type="int" value="11" />
+    <hole_value line="27" col="-1"  name="H__0_8" type="int" value="6" />
+    <hole_value line="27" col="-1"  name="H__0_14" type="int" value="1" />
+    <hole_value line="27" col="-1"  name="H__0_3" type="int" value="7" />
+    <hole_value line="27" col="-1"  name="H__0_9" type="int" value="8" />
+    <hole_value line="27" col="-1"  name="H__0_10" type="int" value="6" />
+</hole_values>

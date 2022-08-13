@@ -1,0 +1,71 @@
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+bit eq_bt_0 (bt_0 a, bt_0 b) {
+    return a.v0 == b.v0 && a.v1 == b.v1 && a.v2 == b.v2;
+}
+
+bit compare_bt_0 (bt_0 a, bt_0 b) {
+    return (a.v0 >= b.v0 && a.v1 >= b.v1) && a.v2 >= b.v2;
+}
+
+generator bit overlap_atom_bit (bit a, bit b) {
+    int t = ??;
+    if(t == 0) {
+        return a && b;
+    }
+    if(t == 1) {
+        return a || b;
+    }
+    if(t == 2) {
+        return a == b;
+    }
+    if(t == 3) {
+        return a != b;
+    }
+    if(t == 4) {
+        return !(a || b);
+    }
+    if(t == 5) {
+        return 0;
+    }
+    return 1;
+}
+
+generator int overlap_atom_int (int a, int b) {
+    int t = ??;
+    if(t == 0) {
+        return a < b ? a : b;
+    }
+    if(t == 1) {
+        return a > b ? a : b;
+    }
+    if(t == 2) {
+        return -100;
+    }
+    if(t == 3) {
+        return 100;
+    }
+    return 0;
+}
+
+bt_0 bt_0_meet_incomparable (bt_0 a, bt_0 b) {
+    return new bt_0(v0 = overlap_atom_int(a.v0, b.v0), v1 = overlap_atom_int(a.v1, b.v1), v2 = overlap_atom_int(a.v2, b.v2));
+}
+
+void test_meet_incomparable (bt_0 a, bt_0 b) {
+    if(!(compare_bt_0(a, b) || compare_bt_0(b, a))) {
+        bt_0 meet_incomparable_ab = bt_0_meet_incomparable(a, b);
+        assert(compare_bt_0(meet_incomparable_ab, a) && compare_bt_0(meet_incomparable_ab, b));
+    }
+}
+
+harness void forall_test_meet_incomparable (int a_v0, int a_v1, int a_v2, int b_v0, int b_v1, int b_v2) {
+    // Assemble structs
+    bt_0 a = new bt_0(v0 = a_v0 - 16, v1 = a_v1 - 16, v2 = a_v2 - 16);
+    bt_0 b = new bt_0(v0 = b_v0 - 16, v1 = b_v1 - 16, v2 = b_v2 - 16);
+    test_meet_incomparable(a, b);
+}
+

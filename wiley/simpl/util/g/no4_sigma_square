@@ -1,0 +1,34 @@
+(* accepts n, returns 1^2 + 2^2 + ... + n^n *)
+Examples
+1 -> 1;
+2 -> 5;
+3 -> 14;
+
+Partial Program
+fun n ->
+r = 0;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1
+
+Int Var Comps
+r,n,t1,t2
+
+Array Var Comps
+none
+
+
+
+// todo set r
+Start ::= return_r U
+U ::= while B C
+A ::= r n t1 t2 0 1 ...
+
+r n t1 t2
+ 1 1 ? ?
+ 5 2 ? ?
+14 3 ? ?

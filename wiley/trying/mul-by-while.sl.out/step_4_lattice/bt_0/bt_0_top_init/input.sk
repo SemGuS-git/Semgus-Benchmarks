@@ -1,0 +1,38 @@
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+bit compare_bt_0 (bt_0 a, bt_0 b) {
+    return (a.v0 >= b.v0 && a.v1 >= b.v1) && a.v2 >= b.v2;
+}
+
+generator bit fixed_atom_bit () {
+    return ??;
+}
+
+generator int fixed_atom_int () {
+    int t = ??;
+    if(t == 0) {
+        return -100;
+    }
+    if(t == 1) {
+        return 100;
+    }
+    return 0;
+}
+
+bt_0 bt_0_top () {
+    return new bt_0(v0 = fixed_atom_int(), v1 = fixed_atom_int(), v2 = fixed_atom_int());
+}
+
+void test_top (bt_0 a) {
+    assert(compare_bt_0(a, bt_0_top()));
+}
+
+harness void forall_test_top (int a_v0, int a_v1, int a_v2) {
+    // Assemble structs
+    bt_0 a = new bt_0(v0 = a_v0 - 16, v1 = a_v1 - 16, v2 = a_v2 - 16);
+    test_top(a);
+}
+

@@ -1,0 +1,375 @@
+generator bit atom_bit (bit a, bit b) {
+    int t = ??(2);
+    if(t == 0) {
+        return !a || b;
+    }
+    if(t == 1) {
+        return !b || a;
+    }
+    return 1;
+}
+
+generator bit atom_int (int a, int b) {
+    int t = ??(3);
+    if(t == 0) {
+        return a == b;
+    }
+    if(t == 1) {
+        return a <= b;
+    }
+    if(t == 2) {
+        return a < b;
+    }
+    if(t == 3) {
+        return a >= b;
+    }
+    if(t == 4) {
+        return a > b;
+    }
+    return 1;
+}
+
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+struct bt_1 {
+    int v0;
+}
+struct bt_2 {
+    bit v0;
+}
+bit eq_bt_0 (bt_0 a, bt_0 b) {
+    return a.v0 == b.v0 && a.v1 == b.v1 && a.v2 == b.v2;
+}
+
+bit compare_bt_0 (bt_0 a, bt_0 b) {
+    bit leq = 0;
+    repeat(??) {
+        leq = leq || disjunct_bt_0(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_0 (bt_0 a, bt_0 b) {
+    return atom_int(a.v0, b.v0) && atom_int(a.v1, b.v1) && atom_int(a.v2, b.v2);
+}
+
+harness void not_equivalence_bt_0 () {
+    bt_0 a = new bt_0(v0 = ??, v1 = ??, v2 = ??);
+    bt_0 b = new bt_0(v0 = ??, v1 = ??, v2 = ??);
+    assert(!eq_bt_0(a, b));
+    assert(compare_bt_0(a, b));
+}
+
+bit eq_bt_1 (bt_1 a, bt_1 b) {
+    return a.v0 == b.v0;
+}
+
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    bit leq = 0;
+    repeat(??) {
+        leq = leq || disjunct_bt_1(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_1 (bt_1 a, bt_1 b) {
+    return atom_int(a.v0, b.v0);
+}
+
+harness void not_equivalence_bt_1 () {
+    bt_1 a = new bt_1(v0 = ??);
+    bt_1 b = new bt_1(v0 = ??);
+    assert(!eq_bt_1(a, b));
+    assert(compare_bt_1(a, b));
+}
+
+bit eq_bt_2 (bt_2 a, bt_2 b) {
+    return a.v0 == b.v0;
+}
+
+bit compare_bt_2 (bt_2 a, bt_2 b) {
+    bit leq = 0;
+    repeat(??) {
+        leq = leq || disjunct_bt_2(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_2 (bt_2 a, bt_2 b) {
+    return atom_bit(a.v0, b.v0);
+}
+
+harness void not_equivalence_bt_2 () {
+    bt_2 a = new bt_2(v0 = ??);
+    bt_2 b = new bt_2(v0 = ??);
+    assert(!eq_bt_2(a, b));
+    assert(compare_bt_2(a, b));
+}
+
+bt_0 prod_0_sem_0 (bt_0 b0, bt_1 b2) {
+    return new bt_0(v0 = b2.v0, v1 = b0.v1, v2 = b0.v2);
+}
+
+bt_0 prod_1_sem_0 (bt_0 b0, bt_1 b2) {
+    return new bt_0(v0 = b0.v0, v1 = b2.v0, v2 = b0.v2);
+}
+
+bt_0 prod_2_sem_0 (bt_0 b0, bt_1 b2) {
+    return new bt_0(v0 = b0.v0, v1 = b0.v1, v2 = b2.v0);
+}
+
+bit prod_5_sem_1_pred_0 (bt_0 b0, bt_2 b2) {
+    return b2.v0 == 0;
+}
+
+bt_0 prod_5_sem_1 (bt_0 b0, bt_2 b2) {
+    return new bt_0(v0 = b0.v0, v1 = b0.v1, v2 = b0.v2);
+}
+
+bt_1 prod_8_sem_0 (bt_0 b0) {
+    return new bt_1(v0 = b0.v0);
+}
+
+bt_1 prod_9_sem_0 (bt_0 b0) {
+    return new bt_1(v0 = b0.v1);
+}
+
+bt_1 prod_10_sem_0 (bt_0 b0) {
+    return new bt_1(v0 = b0.v2);
+}
+
+bt_1 prod_11_sem_0 (bt_0 b0, bt_1 b2, bt_1 b3) {
+    return new bt_1(v0 = b2.v0 + b3.v0);
+}
+
+bt_1 prod_12_sem_0 (bt_0 b0, bt_1 b2, bt_1 b3) {
+    return new bt_1(v0 = b2.v0 - b3.v0);
+}
+
+bt_1 prod_13_sem_0 (bt_0 b0, bt_0 b2) {
+    return new bt_1(v0 = b2.v2);
+}
+
+bt_2 prod_16_sem_0 (bt_0 b0, bt_1 b2, bt_1 b3) {
+    return new bt_2(v0 = b2.v0 < b3.v0);
+}
+
+harness void main (int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, int bt_0_1_0, int bt_0_1_1, int bt_0_1_2, int bt_0_2_0, int bt_0_2_1, int bt_0_2_2, int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, bit bt_2_0_0, bit bt_2_1_0, bit bt_2_2_0) {
+    bt_0 bt_0_0 = new bt_0(v0 = bt_0_0_0, v1 = bt_0_0_1, v2 = bt_0_0_2);
+    bt_0 bt_0_1 = new bt_0(v0 = bt_0_1_0, v1 = bt_0_1_1, v2 = bt_0_1_2);
+    bt_0 bt_0_2 = new bt_0(v0 = bt_0_2_0, v1 = bt_0_2_1, v2 = bt_0_2_2);
+    bt_1 bt_1_0 = new bt_1(v0 = bt_1_0_0);
+    bt_1 bt_1_1 = new bt_1(v0 = bt_1_1_0);
+    bt_1 bt_1_2 = new bt_1(v0 = bt_1_2_0);
+    bt_2 bt_2_0 = new bt_2(v0 = bt_2_0_0);
+    bt_2 bt_2_1 = new bt_2(v0 = bt_2_1_0);
+    bt_2 bt_2_2 = new bt_2(v0 = bt_2_2_0);
+    
+    // bt_0: reflexivity and antisymmetry
+    assert((compare_bt_0(bt_0_0, bt_0_1) && compare_bt_0(bt_0_1, bt_0_0)) == eq_bt_0(bt_0_0, bt_0_1));
+    // bt_0: transitivity
+    assert(!compare_bt_0(bt_0_0, bt_0_1) || !compare_bt_0(bt_0_1, bt_0_2) || compare_bt_0(bt_0_0, bt_0_2));
+    
+    // bt_1: reflexivity and antisymmetry
+    assert((compare_bt_1(bt_1_0, bt_1_1) && compare_bt_1(bt_1_1, bt_1_0)) == eq_bt_1(bt_1_0, bt_1_1));
+    // bt_1: transitivity
+    assert(!compare_bt_1(bt_1_0, bt_1_1) || !compare_bt_1(bt_1_1, bt_1_2) || compare_bt_1(bt_1_0, bt_1_2));
+    
+    // bt_2: reflexivity and antisymmetry
+    assert((compare_bt_2(bt_2_0, bt_2_1) && compare_bt_2(bt_2_1, bt_2_0)) == eq_bt_2(bt_2_0, bt_2_1));
+    // bt_2: transitivity
+    assert(!compare_bt_2(bt_2_0, bt_2_1) || !compare_bt_2(bt_2_1, bt_2_2) || compare_bt_2(bt_2_0, bt_2_2));
+    int cost = 0;
+    int prod_0_sem_0_mono_0 = ??(2) /*#MONO prod_0_sem_0.0*/;
+    if(prod_0_sem_0_mono_0 == 0) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_0(prod_0_sem_0(bt_0_0, bt_1_0), prod_0_sem_0(bt_0_1, bt_1_0)));
+    }
+    else 
+    if(prod_0_sem_0_mono_0 == 1) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_0(prod_0_sem_0(bt_0_1, bt_1_0), prod_0_sem_0(bt_0_0, bt_1_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_0_sem_0_mono_2 = ??(2) /*#MONO prod_0_sem_0.2*/;
+    if(prod_0_sem_0_mono_2 == 0) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_0(prod_0_sem_0(bt_0_0, bt_1_0), prod_0_sem_0(bt_0_0, bt_1_1)));
+    }
+    else 
+    if(prod_0_sem_0_mono_2 == 1) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_0(prod_0_sem_0(bt_0_0, bt_1_1), prod_0_sem_0(bt_0_0, bt_1_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_1_sem_0_mono_0 = ??(2) /*#MONO prod_1_sem_0.0*/;
+    if(prod_1_sem_0_mono_0 == 0) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_0(prod_1_sem_0(bt_0_0, bt_1_0), prod_1_sem_0(bt_0_1, bt_1_0)));
+    }
+    else 
+    if(prod_1_sem_0_mono_0 == 1) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_0(prod_1_sem_0(bt_0_1, bt_1_0), prod_1_sem_0(bt_0_0, bt_1_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_1_sem_0_mono_2 = ??(2) /*#MONO prod_1_sem_0.2*/;
+    if(prod_1_sem_0_mono_2 == 0) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_0(prod_1_sem_0(bt_0_0, bt_1_0), prod_1_sem_0(bt_0_0, bt_1_1)));
+    }
+    else 
+    if(prod_1_sem_0_mono_2 == 1) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_0(prod_1_sem_0(bt_0_0, bt_1_1), prod_1_sem_0(bt_0_0, bt_1_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_2_sem_0_mono_0 = ??(2) /*#MONO prod_2_sem_0.0*/;
+    if(prod_2_sem_0_mono_0 == 0) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_0(prod_2_sem_0(bt_0_0, bt_1_0), prod_2_sem_0(bt_0_1, bt_1_0)));
+    }
+    else 
+    if(prod_2_sem_0_mono_0 == 1) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_0(prod_2_sem_0(bt_0_1, bt_1_0), prod_2_sem_0(bt_0_0, bt_1_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_2_sem_0_mono_2 = ??(2) /*#MONO prod_2_sem_0.2*/;
+    if(prod_2_sem_0_mono_2 == 0) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_0(prod_2_sem_0(bt_0_0, bt_1_0), prod_2_sem_0(bt_0_0, bt_1_1)));
+    }
+    else 
+    if(prod_2_sem_0_mono_2 == 1) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_0(prod_2_sem_0(bt_0_0, bt_1_1), prod_2_sem_0(bt_0_0, bt_1_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_5_sem_1_mono_0 = ??(2) /*#MONO prod_5_sem_1.0*/;
+    if(prod_5_sem_1_mono_0 == 0) {
+        assert(!(prod_5_sem_1_pred_0(bt_0_0, bt_2_0) && prod_5_sem_1_pred_0(bt_0_1, bt_2_0) && compare_bt_0(bt_0_0, bt_0_1)) || compare_bt_0(prod_5_sem_1(bt_0_0, bt_2_0), prod_5_sem_1(bt_0_1, bt_2_0)));
+    }
+    else 
+    if(prod_5_sem_1_mono_0 == 1) {
+        assert(!(prod_5_sem_1_pred_0(bt_0_0, bt_2_0) && prod_5_sem_1_pred_0(bt_0_1, bt_2_0) && compare_bt_0(bt_0_0, bt_0_1)) || compare_bt_0(prod_5_sem_1(bt_0_1, bt_2_0), prod_5_sem_1(bt_0_0, bt_2_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_8_sem_0_mono_0 = ??(2) /*#MONO prod_8_sem_0.0*/;
+    if(prod_8_sem_0_mono_0 == 0) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_1(prod_8_sem_0(bt_0_0), prod_8_sem_0(bt_0_1)));
+    }
+    else 
+    if(prod_8_sem_0_mono_0 == 1) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_1(prod_8_sem_0(bt_0_1), prod_8_sem_0(bt_0_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_9_sem_0_mono_0 = ??(2) /*#MONO prod_9_sem_0.0*/;
+    if(prod_9_sem_0_mono_0 == 0) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_1(prod_9_sem_0(bt_0_0), prod_9_sem_0(bt_0_1)));
+    }
+    else 
+    if(prod_9_sem_0_mono_0 == 1) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_1(prod_9_sem_0(bt_0_1), prod_9_sem_0(bt_0_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_10_sem_0_mono_0 = ??(2) /*#MONO prod_10_sem_0.0*/;
+    if(prod_10_sem_0_mono_0 == 0) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_1(prod_10_sem_0(bt_0_0), prod_10_sem_0(bt_0_1)));
+    }
+    else 
+    if(prod_10_sem_0_mono_0 == 1) {
+        assert(!compare_bt_0(bt_0_0, bt_0_1) || compare_bt_1(prod_10_sem_0(bt_0_1), prod_10_sem_0(bt_0_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_11_sem_0_mono_2 = ??(2) /*#MONO prod_11_sem_0.2*/;
+    if(prod_11_sem_0_mono_2 == 0) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_1(prod_11_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_11_sem_0(bt_0_0, bt_1_1, bt_1_2)));
+    }
+    else 
+    if(prod_11_sem_0_mono_2 == 1) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_1(prod_11_sem_0(bt_0_0, bt_1_1, bt_1_2), prod_11_sem_0(bt_0_0, bt_1_0, bt_1_2)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_11_sem_0_mono_3 = ??(2) /*#MONO prod_11_sem_0.3*/;
+    if(prod_11_sem_0_mono_3 == 0) {
+        assert(!compare_bt_1(bt_1_1, bt_1_2) || compare_bt_1(prod_11_sem_0(bt_0_0, bt_1_0, bt_1_1), prod_11_sem_0(bt_0_0, bt_1_0, bt_1_2)));
+    }
+    else 
+    if(prod_11_sem_0_mono_3 == 1) {
+        assert(!compare_bt_1(bt_1_1, bt_1_2) || compare_bt_1(prod_11_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_11_sem_0(bt_0_0, bt_1_0, bt_1_1)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_12_sem_0_mono_2 = ??(2) /*#MONO prod_12_sem_0.2*/;
+    if(prod_12_sem_0_mono_2 == 0) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_1(prod_12_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_12_sem_0(bt_0_0, bt_1_1, bt_1_2)));
+    }
+    else 
+    if(prod_12_sem_0_mono_2 == 1) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_1(prod_12_sem_0(bt_0_0, bt_1_1, bt_1_2), prod_12_sem_0(bt_0_0, bt_1_0, bt_1_2)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_12_sem_0_mono_3 = ??(2) /*#MONO prod_12_sem_0.3*/;
+    if(prod_12_sem_0_mono_3 == 0) {
+        assert(!compare_bt_1(bt_1_1, bt_1_2) || compare_bt_1(prod_12_sem_0(bt_0_0, bt_1_0, bt_1_1), prod_12_sem_0(bt_0_0, bt_1_0, bt_1_2)));
+    }
+    else 
+    if(prod_12_sem_0_mono_3 == 1) {
+        assert(!compare_bt_1(bt_1_1, bt_1_2) || compare_bt_1(prod_12_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_12_sem_0(bt_0_0, bt_1_0, bt_1_1)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_13_sem_0_mono_2 = ??(2) /*#MONO prod_13_sem_0.2*/;
+    if(prod_13_sem_0_mono_2 == 0) {
+        assert(!compare_bt_0(bt_0_1, bt_0_2) || compare_bt_1(prod_13_sem_0(bt_0_0, bt_0_1), prod_13_sem_0(bt_0_0, bt_0_2)));
+    }
+    else 
+    if(prod_13_sem_0_mono_2 == 1) {
+        assert(!compare_bt_0(bt_0_1, bt_0_2) || compare_bt_1(prod_13_sem_0(bt_0_0, bt_0_2), prod_13_sem_0(bt_0_0, bt_0_1)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_16_sem_0_mono_2 = ??(2) /*#MONO prod_16_sem_0.2*/;
+    if(prod_16_sem_0_mono_2 == 0) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_2(prod_16_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_16_sem_0(bt_0_0, bt_1_1, bt_1_2)));
+    }
+    else 
+    if(prod_16_sem_0_mono_2 == 1) {
+        assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_2(prod_16_sem_0(bt_0_0, bt_1_1, bt_1_2), prod_16_sem_0(bt_0_0, bt_1_0, bt_1_2)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_16_sem_0_mono_3 = ??(2) /*#MONO prod_16_sem_0.3*/;
+    if(prod_16_sem_0_mono_3 == 0) {
+        assert(!compare_bt_1(bt_1_1, bt_1_2) || compare_bt_2(prod_16_sem_0(bt_0_0, bt_1_0, bt_1_1), prod_16_sem_0(bt_0_0, bt_1_0, bt_1_2)));
+    }
+    else 
+    if(prod_16_sem_0_mono_3 == 1) {
+        assert(!compare_bt_1(bt_1_1, bt_1_2) || compare_bt_2(prod_16_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_16_sem_0(bt_0_0, bt_1_0, bt_1_1)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    minimize(cost);
+}
+

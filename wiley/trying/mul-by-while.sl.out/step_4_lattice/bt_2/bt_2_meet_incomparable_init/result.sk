@@ -1,0 +1,74 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/mul-by-while.sl.out/step_4_lattice/bt_2/bt_2_meet_incomparable_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_2 {
+    bit v0;
+}
+/*input.sk:52*/
+
+void bt_2_meet_incomparable (bt_2 a, bt_2 b, ref bt_2 _out)/*input.sk:52*/
+{
+  _out = new bt_2(v0=1);
+  return;
+}
+/*input.sk:8*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:8*/
+{
+  _out = (!(b.v0)) || (a.v0);
+  return;
+}
+/*input.sk:63*/
+
+void forall_test_meet_incomparable (bit a_v0, bit b_v0)/*input.sk:63*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_v0);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=b_v0);
+  test_meet_incomparable(a, b);
+}
+/*input.sk:63*/
+
+void forall_test_meet_incomparable__Wrapper (bit a_v0, bit b_v0)  implements forall_test_meet_incomparable__WrapperNospec/*input.sk:63*/
+{
+  forall_test_meet_incomparable(a_v0, b_v0);
+}
+/*input.sk:63*/
+
+void forall_test_meet_incomparable__WrapperNospec (bit a_v0, bit b_v0)/*input.sk:63*/
+{ }
+/*input.sk:56*/
+
+void test_meet_incomparable (bt_2 a, bt_2 b)/*input.sk:56*/
+{
+  bit _pac_sc_s0_s2 = 0;
+  compare_bt_2(a, b, _pac_sc_s0_s2);
+  bit _pac_sc_s0;
+  _pac_sc_s0 = _pac_sc_s0_s2;
+  if(!(_pac_sc_s0_s2))/*input.sk:57*/
+  {
+    bit _pac_sc_s0_s4 = 0;
+    compare_bt_2(b, a, _pac_sc_s0_s4);
+    _pac_sc_s0 = _pac_sc_s0_s4;
+  }
+  if(!(_pac_sc_s0))/*input.sk:57*/
+  {
+    bt_2@ANONYMOUS meet_incomparable_ab_s6 = null;
+    bt_2_meet_incomparable(a, b, meet_incomparable_ab_s6);
+    bit _pac_sc_s7_s9 = 0;
+    compare_bt_2(meet_incomparable_ab_s6, a, _pac_sc_s7_s9);
+    bit _pac_sc_s7;
+    _pac_sc_s7 = _pac_sc_s7_s9;
+    if(_pac_sc_s7_s9)/*input.sk:59*/
+    {
+      bit _pac_sc_s7_s11 = 0;
+      compare_bt_2(meet_incomparable_ab_s6, b, _pac_sc_s7_s11);
+      _pac_sc_s7 = _pac_sc_s7_s11;
+    }
+    assert (_pac_sc_s7); //Assert at input.sk:59 (0)
+  }
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 353

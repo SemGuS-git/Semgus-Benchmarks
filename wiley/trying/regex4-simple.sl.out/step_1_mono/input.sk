@@ -1,0 +1,207 @@
+generator bit atom_bit (bit a, bit b) {
+    int t = ??(2);
+    if(t == 0) {
+        return !a || b;
+    }
+    if(t == 1) {
+        return !b || a;
+    }
+    return 1;
+}
+
+generator bit atom_int (int a, int b) {
+    int t = ??(3);
+    if(t == 0) {
+        return a == b;
+    }
+    if(t == 1) {
+        return a <= b;
+    }
+    if(t == 2) {
+        return a < b;
+    }
+    if(t == 3) {
+        return a >= b;
+    }
+    if(t == 4) {
+        return a > b;
+    }
+    return 1;
+}
+
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+    int v3;
+}
+struct bt_1 {
+    bit v0;
+}
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+bit eq_bt_1 (bt_1 a, bt_1 b) {
+    return a.v0 == b.v0;
+}
+
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    bit leq = 0;
+    repeat(??) {
+        leq = leq || disjunct_bt_1(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_1 (bt_1 a, bt_1 b) {
+    return atom_bit(a.v0, b.v0);
+}
+
+harness void not_equivalence_bt_1 () {
+    bt_1 a = new bt_1(v0 = ??);
+    bt_1 b = new bt_1(v0 = ??);
+    assert(!eq_bt_1(a, b));
+    assert(compare_bt_1(a, b));
+}
+
+bit eq_bt_2 (bt_2 a, bt_2 b) {
+    return a.v0 == b.v0 && a.v1 == b.v1 && a.v2 == b.v2 && a.v3 == b.v3 && a.v4 == b.v4 && a.v5 == b.v5 && a.v6 == b.v6 && a.v7 == b.v7 && a.v8 == b.v8 && a.v9 == b.v9 && a.v10 == b.v10 && a.v11 == b.v11 && a.v12 == b.v12 && a.v13 == b.v13 && a.v14 == b.v14;
+}
+
+bit compare_bt_2 (bt_2 a, bt_2 b) {
+    bit leq = 0;
+    repeat(??) {
+        leq = leq || disjunct_bt_2(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_2 (bt_2 a, bt_2 b) {
+    return atom_bit(a.v0, b.v0) && atom_bit(a.v1, b.v1) && atom_bit(a.v2, b.v2) && atom_bit(a.v3, b.v3) && atom_bit(a.v4, b.v4) && atom_bit(a.v5, b.v5) && atom_bit(a.v6, b.v6) && atom_bit(a.v7, b.v7) && atom_bit(a.v8, b.v8) && atom_bit(a.v9, b.v9) && atom_bit(a.v10, b.v10) && atom_bit(a.v11, b.v11) && atom_bit(a.v12, b.v12) && atom_bit(a.v13, b.v13) && atom_bit(a.v14, b.v14);
+}
+
+harness void not_equivalence_bt_2 () {
+    bt_2 a = new bt_2(v0 = ??, v1 = ??, v2 = ??, v3 = ??, v4 = ??, v5 = ??, v6 = ??, v7 = ??, v8 = ??, v9 = ??, v10 = ??, v11 = ??, v12 = ??, v13 = ??, v14 = ??);
+    bt_2 b = new bt_2(v0 = ??, v1 = ??, v2 = ??, v3 = ??, v4 = ??, v5 = ??, v6 = ??, v7 = ??, v8 = ??, v9 = ??, v10 = ??, v11 = ??, v12 = ??, v13 = ??, v14 = ??);
+    assert(!eq_bt_2(a, b));
+    assert(compare_bt_2(a, b));
+}
+
+bt_1 prod_0_sem_0 (bt_0 b0, bt_2 b2) {
+    return new bt_1(v0 = b2.v4);
+}
+
+bt_2 prod_8_sem_0 (bt_0 b0, bt_2 b2, bt_2 b3) {
+    return new bt_2(v0 = b2.v0 || b3.v0, v1 = b2.v1 || b3.v1, v2 = b2.v2 || b3.v2, v3 = b2.v3 || b3.v3, v4 = b2.v4 || b3.v4, v5 = b2.v5 || b3.v5, v6 = b2.v6 || b3.v6, v7 = b2.v7 || b3.v7, v8 = b2.v8 || b3.v8, v9 = b2.v9 || b3.v9, v10 = b2.v10 || b3.v10, v11 = b2.v11 || b3.v11, v12 = b2.v12 || b3.v12, v13 = b2.v13 || b3.v13, v14 = b2.v14 || b3.v14);
+}
+
+bt_2 prod_9_sem_0 (bt_0 b0, bt_2 b2, bt_2 b3) {
+    return new bt_2(v0 = b2.v0 && b3.v0, v1 = b2.v0 && b3.v1 || b2.v1 && b3.v5, v2 = b2.v0 && b3.v2 || b2.v1 && b3.v6 || b2.v2 && b3.v9, v3 = b2.v0 && b3.v3 || b2.v1 && b3.v7 || b2.v2 && b3.v10 || b2.v3 && b3.v12, v4 = b2.v0 && b3.v4 || b2.v1 && b3.v8 || b2.v2 && b3.v11 || b2.v3 && b3.v13 || b2.v4 && b3.v14, v5 = b2.v5 && b3.v5, v6 = b2.v5 && b3.v6 || b2.v6 && b3.v9, v7 = b2.v5 && b3.v7 || b2.v6 && b3.v10 || b2.v7 && b3.v12, v8 = b2.v5 && b3.v8 || b2.v6 && b3.v11 || b2.v7 && b3.v13 || b2.v8 && b3.v14, v9 = b2.v9 && b3.v9, v10 = b2.v9 && b3.v10 || b2.v10 && b3.v12, v11 = b2.v9 && b3.v11 || b2.v10 && b3.v13 || b2.v11 && b3.v14, v12 = b2.v12 && b3.v12, v13 = b2.v12 && b3.v13 || b2.v13 && b3.v14, v14 = b2.v14 && b3.v14);
+}
+
+bt_2 prod_10_sem_0 (bt_0 b0, bt_2 b2) {
+    return new bt_2(v0 = 1, v1 = b2.v1, v2 = b2.v2 || b2.v1 && b2.v6, v3 = b2.v3 || b2.v2 && b2.v10 || b2.v1 && b2.v7 || b2.v1 && b2.v6 && b2.v10, v4 = b2.v4 || b2.v3 && b2.v13 || b2.v2 && b2.v11 || b2.v1 && b2.v8 || b2.v1 && b2.v6 && b2.v11 || b2.v1 && b2.v7 && b2.v13 || b2.v2 && b2.v10 && b2.v13 || b2.v1 && b2.v6 && b2.v10 && b2.v13, v5 = 1, v6 = b2.v6, v7 = b2.v7 || b2.v6 && b2.v10, v8 = b2.v8 || b2.v7 && b2.v13 || b2.v6 && b2.v11 || b2.v6 && b2.v10 && b2.v13, v9 = 1, v10 = b2.v10, v11 = b2.v11 || b2.v10 && b2.v13, v12 = 1, v13 = b2.v13, v14 = 1);
+}
+
+harness void main (int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, int bt_0_0_3, bit bt_1_0_0, bit bt_1_1_0, bit bt_1_2_0, bit bt_2_0_0, bit bt_2_0_1, bit bt_2_0_2, bit bt_2_0_3, bit bt_2_0_4, bit bt_2_0_5, bit bt_2_0_6, bit bt_2_0_7, bit bt_2_0_8, bit bt_2_0_9, bit bt_2_0_10, bit bt_2_0_11, bit bt_2_0_12, bit bt_2_0_13, bit bt_2_0_14, bit bt_2_1_0, bit bt_2_1_1, bit bt_2_1_2, bit bt_2_1_3, bit bt_2_1_4, bit bt_2_1_5, bit bt_2_1_6, bit bt_2_1_7, bit bt_2_1_8, bit bt_2_1_9, bit bt_2_1_10, bit bt_2_1_11, bit bt_2_1_12, bit bt_2_1_13, bit bt_2_1_14, bit bt_2_2_0, bit bt_2_2_1, bit bt_2_2_2, bit bt_2_2_3, bit bt_2_2_4, bit bt_2_2_5, bit bt_2_2_6, bit bt_2_2_7, bit bt_2_2_8, bit bt_2_2_9, bit bt_2_2_10, bit bt_2_2_11, bit bt_2_2_12, bit bt_2_2_13, bit bt_2_2_14) {
+    bt_0 bt_0_0 = new bt_0(v0 = bt_0_0_0, v1 = bt_0_0_1, v2 = bt_0_0_2, v3 = bt_0_0_3);
+    bt_1 bt_1_0 = new bt_1(v0 = bt_1_0_0);
+    bt_1 bt_1_1 = new bt_1(v0 = bt_1_1_0);
+    bt_1 bt_1_2 = new bt_1(v0 = bt_1_2_0);
+    bt_2 bt_2_0 = new bt_2(v0 = bt_2_0_0, v1 = bt_2_0_1, v2 = bt_2_0_2, v3 = bt_2_0_3, v4 = bt_2_0_4, v5 = bt_2_0_5, v6 = bt_2_0_6, v7 = bt_2_0_7, v8 = bt_2_0_8, v9 = bt_2_0_9, v10 = bt_2_0_10, v11 = bt_2_0_11, v12 = bt_2_0_12, v13 = bt_2_0_13, v14 = bt_2_0_14);
+    bt_2 bt_2_1 = new bt_2(v0 = bt_2_1_0, v1 = bt_2_1_1, v2 = bt_2_1_2, v3 = bt_2_1_3, v4 = bt_2_1_4, v5 = bt_2_1_5, v6 = bt_2_1_6, v7 = bt_2_1_7, v8 = bt_2_1_8, v9 = bt_2_1_9, v10 = bt_2_1_10, v11 = bt_2_1_11, v12 = bt_2_1_12, v13 = bt_2_1_13, v14 = bt_2_1_14);
+    bt_2 bt_2_2 = new bt_2(v0 = bt_2_2_0, v1 = bt_2_2_1, v2 = bt_2_2_2, v3 = bt_2_2_3, v4 = bt_2_2_4, v5 = bt_2_2_5, v6 = bt_2_2_6, v7 = bt_2_2_7, v8 = bt_2_2_8, v9 = bt_2_2_9, v10 = bt_2_2_10, v11 = bt_2_2_11, v12 = bt_2_2_12, v13 = bt_2_2_13, v14 = bt_2_2_14);
+    
+    // bt_1: reflexivity and antisymmetry
+    assert((compare_bt_1(bt_1_0, bt_1_1) && compare_bt_1(bt_1_1, bt_1_0)) == eq_bt_1(bt_1_0, bt_1_1));
+    // bt_1: transitivity
+    assert(!compare_bt_1(bt_1_0, bt_1_1) || !compare_bt_1(bt_1_1, bt_1_2) || compare_bt_1(bt_1_0, bt_1_2));
+    
+    // bt_2: reflexivity and antisymmetry
+    assert((compare_bt_2(bt_2_0, bt_2_1) && compare_bt_2(bt_2_1, bt_2_0)) == eq_bt_2(bt_2_0, bt_2_1));
+    // bt_2: transitivity
+    assert(!compare_bt_2(bt_2_0, bt_2_1) || !compare_bt_2(bt_2_1, bt_2_2) || compare_bt_2(bt_2_0, bt_2_2));
+    int cost = 0;
+    int prod_0_sem_0_mono_2 = ??(2) /*#MONO prod_0_sem_0.2*/;
+    if(prod_0_sem_0_mono_2 == 0) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_1(prod_0_sem_0(bt_0_0, bt_2_0), prod_0_sem_0(bt_0_0, bt_2_1)));
+    }
+    else 
+    if(prod_0_sem_0_mono_2 == 1) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_1(prod_0_sem_0(bt_0_0, bt_2_1), prod_0_sem_0(bt_0_0, bt_2_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_8_sem_0_mono_2 = ??(2) /*#MONO prod_8_sem_0.2*/;
+    if(prod_8_sem_0_mono_2 == 0) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_2(prod_8_sem_0(bt_0_0, bt_2_0, bt_2_2), prod_8_sem_0(bt_0_0, bt_2_1, bt_2_2)));
+    }
+    else 
+    if(prod_8_sem_0_mono_2 == 1) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_2(prod_8_sem_0(bt_0_0, bt_2_1, bt_2_2), prod_8_sem_0(bt_0_0, bt_2_0, bt_2_2)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_8_sem_0_mono_3 = ??(2) /*#MONO prod_8_sem_0.3*/;
+    if(prod_8_sem_0_mono_3 == 0) {
+        assert(!compare_bt_2(bt_2_1, bt_2_2) || compare_bt_2(prod_8_sem_0(bt_0_0, bt_2_0, bt_2_1), prod_8_sem_0(bt_0_0, bt_2_0, bt_2_2)));
+    }
+    else 
+    if(prod_8_sem_0_mono_3 == 1) {
+        assert(!compare_bt_2(bt_2_1, bt_2_2) || compare_bt_2(prod_8_sem_0(bt_0_0, bt_2_0, bt_2_2), prod_8_sem_0(bt_0_0, bt_2_0, bt_2_1)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_9_sem_0_mono_2 = ??(2) /*#MONO prod_9_sem_0.2*/;
+    if(prod_9_sem_0_mono_2 == 0) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_2(prod_9_sem_0(bt_0_0, bt_2_0, bt_2_2), prod_9_sem_0(bt_0_0, bt_2_1, bt_2_2)));
+    }
+    else 
+    if(prod_9_sem_0_mono_2 == 1) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_2(prod_9_sem_0(bt_0_0, bt_2_1, bt_2_2), prod_9_sem_0(bt_0_0, bt_2_0, bt_2_2)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_9_sem_0_mono_3 = ??(2) /*#MONO prod_9_sem_0.3*/;
+    if(prod_9_sem_0_mono_3 == 0) {
+        assert(!compare_bt_2(bt_2_1, bt_2_2) || compare_bt_2(prod_9_sem_0(bt_0_0, bt_2_0, bt_2_1), prod_9_sem_0(bt_0_0, bt_2_0, bt_2_2)));
+    }
+    else 
+    if(prod_9_sem_0_mono_3 == 1) {
+        assert(!compare_bt_2(bt_2_1, bt_2_2) || compare_bt_2(prod_9_sem_0(bt_0_0, bt_2_0, bt_2_2), prod_9_sem_0(bt_0_0, bt_2_0, bt_2_1)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    int prod_10_sem_0_mono_2 = ??(2) /*#MONO prod_10_sem_0.2*/;
+    if(prod_10_sem_0_mono_2 == 0) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_2(prod_10_sem_0(bt_0_0, bt_2_0), prod_10_sem_0(bt_0_0, bt_2_1)));
+    }
+    else 
+    if(prod_10_sem_0_mono_2 == 1) {
+        assert(!compare_bt_2(bt_2_0, bt_2_1) || compare_bt_2(prod_10_sem_0(bt_0_0, bt_2_1), prod_10_sem_0(bt_0_0, bt_2_0)));
+    }
+    else {
+        cost = cost + 1;
+    }
+    minimize(cost);
+}
+

@@ -1,0 +1,35 @@
+(* accepts n, returns n * (n-2) * (n-4) * ... *)
+Examples
+0 -> 1;
+1 -> 1;
+2 -> 2;
+5 -> 15;
+
+Partial Program
+fun n ->
+r = 1;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1,2
+
+Int Var Comps
+r,n,t
+
+Array Var Comps
+none
+
+
+// todo set r
+Start ::= return_r U
+U ::= while B C
+A ::= r n t 0 1 2 ...
+
+r,n,t
+1 0 ?
+1 1 ?
+2 2 ?
+15 5 ?

@@ -1,0 +1,115 @@
+int budget_bt_0 = ??;
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+bit prev_compare_bt_0 (bt_0 a, bt_0 b) {
+    return (a.v0 >= b.v0 && a.v1 >= b.v1) && a.v2 >= b.v2;
+}
+
+bit compare_bt_0 (bt_0 a, bt_0 b) {
+    bit leq = 0;
+    repeat(budget_bt_0) {
+        leq = leq || disjunct_bt_0(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_0 (bt_0 a, bt_0 b) {
+    return atom_int(a.v0, b.v0) && atom_int(a.v1, b.v1) && atom_int(a.v2, b.v2);
+}
+
+harness void next_order_is_superset_bt_0 (int a_0, int a_1, int a_2, int b_0, int b_1, int b_2) {
+    bt_0 a = new bt_0(v0 = a_0, v1 = a_1, v2 = a_2);
+    bt_0 b = new bt_0(v0 = b_0, v1 = b_1, v2 = b_2);
+    assert(prev_compare_bt_0(a, b) == compare_bt_0(a, b));
+}
+
+int budget_bt_1 = ??;
+struct bt_1 {
+    int v0;
+}
+bit prev_compare_bt_1 (bt_1 a, bt_1 b) {
+    return (a.v0 > b.v0 || a.v0 > b.v0) || a.v0 >= b.v0;
+}
+
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    bit leq = 0;
+    repeat(budget_bt_1) {
+        leq = leq || disjunct_bt_1(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_1 (bt_1 a, bt_1 b) {
+    return atom_int(a.v0, b.v0);
+}
+
+harness void next_order_is_superset_bt_1 (int a_0, int b_0) {
+    bt_1 a = new bt_1(v0 = a_0);
+    bt_1 b = new bt_1(v0 = b_0);
+    assert(prev_compare_bt_1(a, b) == compare_bt_1(a, b));
+}
+
+int budget_bt_2 = ??;
+struct bt_2 {
+    bit v0;
+}
+bit prev_compare_bt_2 (bt_2 a, bt_2 b) {
+    return !b.v0 || a.v0;
+}
+
+bit compare_bt_2 (bt_2 a, bt_2 b) {
+    bit leq = 0;
+    repeat(budget_bt_2) {
+        leq = leq || disjunct_bt_2(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_2 (bt_2 a, bt_2 b) {
+    return atom_bit(a.v0, b.v0);
+}
+
+harness void next_order_is_superset_bt_2 (bit a_0, bit b_0) {
+    bt_2 a = new bt_2(v0 = a_0);
+    bt_2 b = new bt_2(v0 = b_0);
+    assert(prev_compare_bt_2(a, b) == compare_bt_2(a, b));
+}
+
+generator bit atom_bit (bit a, bit b) {
+    int t = ??(2);
+    if(t == 0) {
+        return !a || b;
+    }
+    if(t == 1) {
+        return !b || a;
+    }
+    return 1;
+}
+
+generator bit atom_int (int a, int b) {
+    int t = ??(3);
+    if(t == 0) {
+        return a == b;
+    }
+    if(t == 1) {
+        return a <= b;
+    }
+    if(t == 2) {
+        return a < b;
+    }
+    if(t == 3) {
+        return a >= b;
+    }
+    if(t == 4) {
+        return a > b;
+    }
+    return 1;
+}
+
+harness void reduce_complexity () {
+    minimize(budget_bt_0 + budget_bt_1 + budget_bt_2);
+}
+

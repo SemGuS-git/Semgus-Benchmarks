@@ -1,0 +1,53 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/mul-by-while.sl.out/step_4_lattice/bt_0/bt_0_top_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+/*input.sk:25*/
+
+void bt_0_top (ref bt_0 _out)/*input.sk:25*/
+{
+  _out = new bt_0(v0=-100, v1=-100, v2=-100);
+  return;
+}
+/*input.sk:6*/
+
+void compare_bt_0 (bt_0 a, bt_0 b, ref bit _out)/*input.sk:6*/
+{
+  _out = (((a.v0) >= (b.v0)) && ((a.v1) >= (b.v1))) && ((a.v2) >= (b.v2));
+  return;
+}
+/*input.sk:33*/
+
+void forall_test_top (int a_v0, int a_v1, int a_v2)/*input.sk:33*/
+{
+  bt_0@ANONYMOUS a;
+  a = new bt_0(v0=a_v0 - 16, v1=a_v1 - 16, v2=a_v2 - 16);
+  test_top(a);
+}
+/*input.sk:33*/
+
+void forall_test_top__Wrapper (int a_v0, int a_v1, int a_v2)  implements forall_test_top__WrapperNospec/*input.sk:33*/
+{
+  forall_test_top(a_v0, a_v1, a_v2);
+}
+/*input.sk:33*/
+
+void forall_test_top__WrapperNospec (int a_v0, int a_v1, int a_v2)/*input.sk:33*/
+{ }
+/*input.sk:29*/
+
+void test_top (bt_0 a)/*input.sk:29*/
+{
+  bt_0@ANONYMOUS _out_s1 = null;
+  bt_0_top(_out_s1);
+  bit _out_s3 = 0;
+  compare_bt_0(a, _out_s1, _out_s3)//{};
+  assert (_out_s3); //Assert at input.sk:30 (0)
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 350

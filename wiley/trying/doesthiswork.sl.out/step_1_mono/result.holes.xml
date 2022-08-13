@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<hole_values>
+    <hole_value line="72" col="-1"  name="H__5" type="int" value="1" />
+    <hole_value line="2" col="-1"  name="H__0_81_5" type="int" value="0" />
+    <hole_value line="2" col="-1"  name="H__0_78_5" type="int" value="0" />
+    <hole_value line="84" col="-1"  name="H__7" type="int" value="0" />
+    <hole_value line="13" col="-1"  name="H__1_70_1" type="int" value="4" />
+    <hole_value line="13" col="-1"  name="H__1_67_1" type="int" value="2" />
+    <hole_value line="2" col="-1"  name="H__0_76_5" type="int" value="0" />
+    <hole_value line="160" col="-1"  name="H__12" type="int" value="1" />
+    <hole_value line="2" col="-1"  name="H__0_77_5" type="int" value="0" />
+    <hole_value line="83" col="-1"  name="H__6" type="int" value="1" />
+    <hole_value line="60" col="-1"  name="H__3" type="int" value="1" />
+    <hole_value line="149" col="-1"  name="H__11" type="int" value="0" />
+    <hole_value line="2" col="-1"  name="H__0_74_5" type="int" value="1" />
+    <hole_value line="13" col="-1"  name="H__1_72_1" type="int" value="2" />
+    <hole_value line="13" col="-1"  name="H__1_66_1" type="int" value="2" />
+    <hole_value line="138" col="-1"  name="H__10" type="int" value="0" />
+    <hole_value line="13" col="-1"  name="H__1_71_1" type="int" value="2" />
+    <hole_value line="13" col="-1"  name="H__1_68_1" type="int" value="0" />
+    <hole_value line="49" col="-1"  name="H__2" type="int" value="3" />
+    <hole_value line="2" col="-1"  name="H__0_79_5" type="int" value="0" />
+    <hole_value line="13" col="-1"  name="H__1_73_1" type="int" value="4" />
+    <hole_value line="61" col="-1"  name="H__4" type="int" value="2" />
+    <hole_value line="2" col="-1"  name="H__0_80_5" type="int" value="0" />
+    <hole_value line="127" col="-1"  name="H__9" type="int" value="0" />
+    <hole_value line="13" col="-1"  name="H__1_69_1" type="int" value="4" />
+    <hole_value line="2" col="-1"  name="H__0_75_5" type="int" value="0" />
+    <hole_value line="116" col="-1"  name="H__8" type="int" value="2" />
+</hole_values>

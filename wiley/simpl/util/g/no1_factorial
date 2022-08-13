@@ -1,0 +1,33 @@
+Examples
+0 -> 1;
+1 -> 1;
+2 -> 2;
+3 -> 6;
+
+Partial Program
+fun n ->
+r = 1;
+while (?){
+    ?;
+}
+return r;
+
+Int Comps
+0,1
+
+Int Var Comps
+r,n
+
+Array Var Comps
+none
+
+// todo set r
+Start ::= return_r U
+U ::= while B C
+A ::= r n 0 1 ...
+
+r,n
+(1,0)
+(1,1)
+(2,2)
+(6,3)

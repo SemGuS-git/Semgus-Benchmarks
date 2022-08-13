@@ -1,0 +1,75 @@
+[
+    {
+        "desc": "Add zero",
+        "from": "($+ $0 ?0)",
+        "to": "?0"
+    },
+    {
+        "desc": "Associativity of addition",
+        "from": "($+ ?0 ($+ ?1 ?2))",
+        "to": "($+ ($+ ?0 ?1) ?2)"
+    },
+    {
+        "desc": "Commutativity of addition",
+        "from": "($+ ?0 ?1)",
+        "to": "($+ ?1 ?0)",
+        "when": "(< ?0 ?1)"
+    },
+    {
+        "desc": "Commutativity of addition",
+        "from": "($+ ($+ ?0 ?1) ?2)",
+        "to": "($+ ($+ ?2 ?1) ?0)",
+        "when": "(< ?0 ?2)"
+    },
+    {
+        "desc": "Commutativity of addition",
+        "from": "($+ ($+ ?0 ?1) ?2)",
+        "to": "($+ ($+ ?0 ?2) ?1)",
+        "when": "(< ?1 ?2)"
+    },
+    {
+        "desc": "Double negation",
+        "from": "($not ($not ?0))",
+        "to": "?0"
+    },
+    {
+        "desc": "Inaccessible branch",
+        "from": "($ite $t ?0 ?)",
+        "to": "?0"
+    },
+    {
+        "desc": "Inaccessible branch",
+        "from": "($ite $f ? ?0)",
+        "to": "?0"
+    },
+    {
+        "desc": "Negated conditional",
+        "from": "($ite ($not ?0) ?1 ?2)",
+        "to": "($ite ?0 ?2 ?1)"
+    },
+    {
+        "desc": "Equal branches",
+        "from": "($ite ? ?0 ?1)",
+        "to": "?0",
+        "when": "(= ?0 ?1)"
+    },
+    {
+        "desc": "Less than self",
+        "from": "($< ? ?0 ?1)",
+        "to": "$f",
+        "when": "(= ?0 ?1)"
+    },
+    {
+        "desc": "While false",
+        "from": "($while $f ?)"
+    },
+    {
+        "desc": "While true",
+        "from": "($while $t ?)"
+    },
+    {
+        "desc": "Associativity of cons",
+        "from": "($cons ?0 ($cons ?1 ?2))",
+        "to": "($cons ($cons ?0 ?1) ?2)"
+    }
+]

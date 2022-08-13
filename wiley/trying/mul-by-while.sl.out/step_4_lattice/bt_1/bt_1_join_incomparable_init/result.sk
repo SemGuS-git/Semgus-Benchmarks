@@ -1,0 +1,77 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/mul-by-while.sl.out/step_4_lattice/bt_1/bt_1_join_incomparable_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_1 {
+    int v0;
+}
+/*input.sk:52*/
+
+void bt_1_join_incomparable (bt_1 a, bt_1 b, ref bt_1 _out)/*input.sk:52*/
+{
+  int a_0 = a.v0;
+  int b_0 = b.v0;
+  int _out_s13 = (a_0 < b_0 ? a_0 : b_0);
+  _out = new bt_1(v0=_out_s13);
+  return;
+}
+/*input.sk:8*/
+
+void compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:8*/
+{
+  _out = (a.v0) >= (b.v0);
+  return;
+}
+/*input.sk:63*/
+
+void forall_test_join_incomparable (int a_v0, int b_v0)/*input.sk:63*/
+{
+  bt_1@ANONYMOUS a;
+  a = new bt_1(v0=a_v0 - 16);
+  bt_1@ANONYMOUS b;
+  b = new bt_1(v0=b_v0 - 16);
+  test_join_incomparable(a, b);
+}
+/*input.sk:63*/
+
+void forall_test_join_incomparable__Wrapper (int a_v0, int b_v0)  implements forall_test_join_incomparable__WrapperNospec/*input.sk:63*/
+{
+  forall_test_join_incomparable(a_v0, b_v0);
+}
+/*input.sk:63*/
+
+void forall_test_join_incomparable__WrapperNospec (int a_v0, int b_v0)/*input.sk:63*/
+{ }
+/*input.sk:56*/
+
+void test_join_incomparable (bt_1 a, bt_1 b)/*input.sk:56*/
+{
+  bit _pac_sc_s0_s2 = 0;
+  compare_bt_1(a, b, _pac_sc_s0_s2);
+  bit _pac_sc_s0;
+  _pac_sc_s0 = _pac_sc_s0_s2;
+  if(!(_pac_sc_s0_s2))/*input.sk:57*/
+  {
+    bit _pac_sc_s0_s4 = 0;
+    compare_bt_1(b, a, _pac_sc_s0_s4);
+    _pac_sc_s0 = _pac_sc_s0_s4;
+  }
+  if(!(_pac_sc_s0))/*input.sk:57*/
+  {
+    bt_1@ANONYMOUS join_incomparable_ab_s6 = null;
+    bt_1_join_incomparable(a, b, join_incomparable_ab_s6);
+    bit _pac_sc_s7_s9 = 0;
+    compare_bt_1(a, join_incomparable_ab_s6, _pac_sc_s7_s9);
+    bit _pac_sc_s7;
+    _pac_sc_s7 = _pac_sc_s7_s9;
+    if(_pac_sc_s7_s9)/*input.sk:59*/
+    {
+      bit _pac_sc_s7_s11 = 0;
+      compare_bt_1(b, join_incomparable_ab_s6, _pac_sc_s7_s11);
+      _pac_sc_s7 = _pac_sc_s7_s11;
+    }
+    assert (_pac_sc_s7); //Assert at input.sk:59 (0)
+  }
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 337

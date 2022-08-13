@@ -1,0 +1,277 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/doesthiswork.sl.out/step_1_mono/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+struct bt_1 {
+    int v0;
+}
+struct bt_2 {
+    bit v0;
+}
+/*input.sk:97*/
+
+void _main (int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, bit bt_2_0_0, bit bt_2_1_0, bit bt_2_2_0)/*input.sk:97*/
+{
+  bt_0@ANONYMOUS bt_0_0;
+  bt_0_0 = new bt_0(v0=bt_0_0_0, v1=bt_0_0_1, v2=bt_0_0_2);
+  bt_1@ANONYMOUS bt_1_0;
+  bt_1_0 = new bt_1(v0=bt_1_0_0);
+  bt_1@ANONYMOUS bt_1_1;
+  bt_1_1 = new bt_1(v0=bt_1_1_0);
+  bt_1@ANONYMOUS bt_1_2;
+  bt_1_2 = new bt_1(v0=bt_1_2_0);
+  bt_2@ANONYMOUS bt_2_0;
+  bt_2_0 = new bt_2(v0=bt_2_0_0);
+  bt_2@ANONYMOUS bt_2_1;
+  bt_2_1 = new bt_2(v0=bt_2_1_0);
+  bt_2@ANONYMOUS bt_2_2;
+  bt_2_2 = new bt_2(v0=bt_2_2_0);
+  bit _pac_sc_s0_s2 = 0;
+  compare_bt_1(bt_1_0, bt_1_1, _pac_sc_s0_s2);
+  bit _pac_sc_s0;
+  _pac_sc_s0 = _pac_sc_s0_s2;
+  if(_pac_sc_s0_s2)/*input.sk:107*/
+  {
+    bit _pac_sc_s0_s4 = 0;
+    compare_bt_1(bt_1_1, bt_1_0, _pac_sc_s0_s4);
+    _pac_sc_s0 = _pac_sc_s0_s4;
+  }
+  bit _out_s6 = 0;
+  eq_bt_1(bt_1_0, bt_1_1, _out_s6);
+  assert (_pac_sc_s0 == _out_s6); //Assert at input.sk:107 (0)
+  bit _pac_sc_s8_s10 = 0;
+  compare_bt_1(bt_1_0, bt_1_1, _pac_sc_s8_s10);
+  bit _pac_sc_s8;
+  _pac_sc_s8 = !(_pac_sc_s8_s10);
+  if(!(_pac_sc_s8))/*input.sk:109*/
+  {
+    bit _pac_sc_s8_s12 = 0;
+    compare_bt_1(bt_1_1, bt_1_2, _pac_sc_s8_s12);
+    _pac_sc_s8 = !(_pac_sc_s8_s12);
+  }
+  bit _pac_sc_s7 = _pac_sc_s8;
+  if(!(_pac_sc_s8))/*input.sk:109*/
+  {
+    bit _pac_sc_s7_s14 = 0;
+    compare_bt_1(bt_1_0, bt_1_2, _pac_sc_s7_s14);
+    _pac_sc_s7 = _pac_sc_s7_s14;
+  }
+  assert (_pac_sc_s7); //Assert at input.sk:109 (0)
+  bit _pac_sc_s15_s17 = 0;
+  compare_bt_2(bt_2_0, bt_2_1, _pac_sc_s15_s17);
+  bit _pac_sc_s15;
+  _pac_sc_s15 = _pac_sc_s15_s17;
+  if(_pac_sc_s15_s17)/*input.sk:112*/
+  {
+    bit _pac_sc_s15_s19 = 0;
+    compare_bt_2(bt_2_1, bt_2_0, _pac_sc_s15_s19);
+    _pac_sc_s15 = _pac_sc_s15_s19;
+  }
+  bit _out_s21 = 0;
+  eq_bt_2(bt_2_0, bt_2_1, _out_s21);
+  assert (_pac_sc_s15 == _out_s21); //Assert at input.sk:112 (0)
+  bit _pac_sc_s23_s25 = 0;
+  compare_bt_2(bt_2_0, bt_2_1, _pac_sc_s23_s25);
+  bit _pac_sc_s23;
+  _pac_sc_s23 = !(_pac_sc_s23_s25);
+  if(!(_pac_sc_s23))/*input.sk:114*/
+  {
+    bit _pac_sc_s23_s27 = 0;
+    compare_bt_2(bt_2_1, bt_2_2, _pac_sc_s23_s27);
+    _pac_sc_s23 = !(_pac_sc_s23_s27);
+  }
+  bit _pac_sc_s22 = _pac_sc_s23;
+  if(!(_pac_sc_s23))/*input.sk:114*/
+  {
+    bit _pac_sc_s22_s29 = 0;
+    compare_bt_2(bt_2_0, bt_2_2, _pac_sc_s22_s29);
+    _pac_sc_s22 = _pac_sc_s22_s29;
+  }
+  assert (_pac_sc_s22); //Assert at input.sk:114 (0)
+  bit _pac_sc_s48_s50 = 0;
+  compare_bt_1(bt_1_0, bt_1_1, _pac_sc_s48_s50);
+  bit _pac_sc_s48;
+  _pac_sc_s48 = !(_pac_sc_s48_s50);
+  if(!(_pac_sc_s48))/*input.sk:129*/
+  {
+    bt_1@ANONYMOUS _pac_sc_s48_s52 = null;
+    prod_0_sem_0(bt_0_0, bt_2_0, bt_1_0, bt_1_2, _pac_sc_s48_s52);
+    bt_1@ANONYMOUS _pac_sc_s48_s54 = null;
+    prod_0_sem_0(bt_0_0, bt_2_0, bt_1_1, bt_1_2, _pac_sc_s48_s54);
+    bit _pac_sc_s48_s56 = 0;
+    compare_bt_1(_pac_sc_s48_s52, _pac_sc_s48_s54, _pac_sc_s48_s56)//{};
+    _pac_sc_s48 = _pac_sc_s48_s56;
+  }
+  assert (_pac_sc_s48); //Assert at input.sk:129 (0)
+  bit _pac_sc_s66_s68 = 0;
+  compare_bt_1(bt_1_1, bt_1_2, _pac_sc_s66_s68);
+  bit _pac_sc_s66;
+  _pac_sc_s66 = !(_pac_sc_s66_s68);
+  if(!(_pac_sc_s66))/*input.sk:140*/
+  {
+    bt_1@ANONYMOUS _pac_sc_s66_s70 = null;
+    prod_0_sem_0(bt_0_0, bt_2_0, bt_1_0, bt_1_1, _pac_sc_s66_s70);
+    bt_1@ANONYMOUS _pac_sc_s66_s72 = null;
+    prod_0_sem_0(bt_0_0, bt_2_0, bt_1_0, bt_1_2, _pac_sc_s66_s72);
+    bit _pac_sc_s66_s74 = 0;
+    compare_bt_1(_pac_sc_s66_s70, _pac_sc_s66_s72, _pac_sc_s66_s74)//{};
+    _pac_sc_s66 = _pac_sc_s66_s74;
+  }
+  assert (_pac_sc_s66); //Assert at input.sk:140 (0)
+  bit _pac_sc_s84_s86 = 0;
+  compare_bt_1(bt_1_0, bt_1_1, _pac_sc_s84_s86);
+  bit _pac_sc_s84;
+  _pac_sc_s84 = !(_pac_sc_s84_s86);
+  if(!(_pac_sc_s84))/*input.sk:151*/
+  {
+    bt_2@ANONYMOUS _pac_sc_s84_s88 = null;
+    prod_4_sem_0(bt_0_0, bt_1_0, bt_1_2, _pac_sc_s84_s88);
+    bt_2@ANONYMOUS _pac_sc_s84_s90 = null;
+    prod_4_sem_0(bt_0_0, bt_1_1, bt_1_2, _pac_sc_s84_s90);
+    bit _pac_sc_s84_s92 = 0;
+    compare_bt_2(_pac_sc_s84_s88, _pac_sc_s84_s90, _pac_sc_s84_s92)//{};
+    _pac_sc_s84 = _pac_sc_s84_s92;
+  }
+  assert (_pac_sc_s84); //Assert at input.sk:151 (0)
+  bit _pac_sc_s111_s113 = 0;
+  compare_bt_1(bt_1_1, bt_1_2, _pac_sc_s111_s113);
+  bit _pac_sc_s111;
+  _pac_sc_s111 = !(_pac_sc_s111_s113);
+  if(!(_pac_sc_s111))/*input.sk:166*/
+  {
+    bt_2@ANONYMOUS _pac_sc_s111_s115 = null;
+    prod_4_sem_0(bt_0_0, bt_1_0, bt_1_2, _pac_sc_s111_s115);
+    bt_2@ANONYMOUS _pac_sc_s111_s117 = null;
+    prod_4_sem_0(bt_0_0, bt_1_0, bt_1_1, _pac_sc_s111_s117);
+    bit _pac_sc_s111_s119 = 0;
+    compare_bt_2(_pac_sc_s111_s115, _pac_sc_s111_s117, _pac_sc_s111_s119)//{};
+    _pac_sc_s111 = _pac_sc_s111_s119;
+  }
+  assert (_pac_sc_s111); //Assert at input.sk:166 (0)
+}
+/*input.sk:47*/
+
+void compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:47*/
+{
+  int a_0 = a.v0;
+  int b_0 = b.v0;
+  bit _out_s129 = a_0 < b_0;
+  bit _pac_sc_s125 = _out_s129;
+  if(!(_out_s129))/*input.sk:50*/
+  {
+    int a_1 = a.v0;
+    int b_1 = b.v0;
+    _pac_sc_s125 = a_1 < b_1;
+  }
+  bit _pac_sc_s125_0 = _pac_sc_s125;
+  if(!(_pac_sc_s125))/*input.sk:50*/
+  {
+    int a_2 = a.v0;
+    int b_2 = b.v0;
+    _pac_sc_s125_0 = a_2 == b_2;
+  }
+  _out = _pac_sc_s125_0;
+  return;
+}
+/*input.sk:70*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:70*/
+{
+  bit a_0 = a.v0;
+  bit b_0 = b.v0;
+  _out = (!(b_0)) || a_0;
+  return;
+}
+/*input.sk:43*/
+
+void eq_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:43*/
+{
+  _out = (a.v0) == (b.v0);
+  return;
+}
+/*input.sk:66*/
+
+void eq_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:66*/
+{
+  _out = (a.v0) == (b.v0);
+  return;
+}
+/*input.sk:97*/
+
+void main__Wrapper (int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, bit bt_2_0_0, bit bt_2_1_0, bit bt_2_2_0)  implements main__WrapperNospec/*input.sk:97*/
+{
+  _main(bt_0_0_0, bt_0_0_1, bt_0_0_2, bt_1_0_0, bt_1_1_0, bt_1_2_0, bt_2_0_0, bt_2_1_0, bt_2_2_0);
+}
+/*input.sk:97*/
+
+void main__WrapperNospec (int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, bit bt_2_0_0, bit bt_2_1_0, bit bt_2_2_0)/*input.sk:97*/
+{ }
+/*input.sk:59*/
+
+void not_equivalence_bt_1 ()/*input.sk:59*/
+{
+  bt_1@ANONYMOUS a = new bt_1(v0=1);
+  bt_1@ANONYMOUS b;
+  b = new bt_1(v0=2);
+  bit _out_s135 = 0;
+  eq_bt_1(a, b, _out_s135);
+  assert (!(_out_s135)); //Assert at input.sk:62 (0)
+  bit _out_s137 = 0;
+  compare_bt_1(a, b, _out_s137);
+  assert (_out_s137); //Assert at input.sk:63 (0)
+}
+/*input.sk:59*/
+
+void not_equivalence_bt_1__Wrapper ()  implements not_equivalence_bt_1__WrapperNospec/*input.sk:59*/
+{
+  not_equivalence_bt_1();
+}
+/*input.sk:59*/
+
+void not_equivalence_bt_1__WrapperNospec ()/*input.sk:59*/
+{ }
+/*input.sk:82*/
+
+void not_equivalence_bt_2 ()/*input.sk:82*/
+{
+  bt_2@ANONYMOUS a = new bt_2(v0=1);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=0);
+  bit _out_s131 = 0;
+  eq_bt_2(a, b, _out_s131);
+  assert (!(_out_s131)); //Assert at input.sk:85 (0)
+  bit _out_s133 = 0;
+  compare_bt_2(a, b, _out_s133);
+  assert (_out_s133); //Assert at input.sk:86 (0)
+}
+/*input.sk:82*/
+
+void not_equivalence_bt_2__Wrapper ()  implements not_equivalence_bt_2__WrapperNospec/*input.sk:82*/
+{
+  not_equivalence_bt_2();
+}
+/*input.sk:82*/
+
+void not_equivalence_bt_2__WrapperNospec ()/*input.sk:82*/
+{ }
+/*input.sk:89*/
+
+void prod_0_sem_0 (bt_0 b0, bt_2 b2, bt_1 b3, bt_1 b4, ref bt_1 _out)/*input.sk:89*/
+{
+  _out = new bt_1(v0=(b2.v0 ? b3.v0 : b4.v0));
+  return;
+}
+/*input.sk:93*/
+
+void prod_4_sem_0 (bt_0 b0, bt_1 b2, bt_1 b3, ref bt_2 _out)/*input.sk:93*/
+{
+  _out = new bt_2(v0=(b2.v0) < (b3.v0));
+  return;
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 1451

@@ -1,0 +1,232 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/regex4-simple.sl.out/step_4_lattice/bt_2/bt_2_meet_incomparable_3/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+/*input.sk:66*/
+
+void bt_2_meet_incomparable (bt_2 a, bt_2 b, ref bt_2 _out)/*input.sk:66*/
+{
+  bit a_0 = a.v0;
+  bit b_0 = b.v0;
+  bit a_1 = a.v1;
+  bit b_1 = b.v1;
+  bit a_2 = a.v2;
+  bit b_2 = b.v2;
+  bit a_3 = a.v3;
+  bit b_3 = b.v3;
+  bit a_4 = a.v4;
+  bit b_4 = b.v4;
+  bit a_5 = a.v5;
+  bit b_5 = b.v5;
+  bit a_6 = a.v6;
+  bit b_6 = b.v6;
+  bit a_7 = a.v7;
+  bit b_7 = b.v7;
+  bit a_8 = a.v8;
+  bit b_8 = b.v8;
+  bit a_9 = a.v9;
+  bit b_9 = b.v9;
+  bit a_10 = a.v11;
+  bit b_10 = b.v11;
+  bit a_11 = a.v12;
+  bit b_11 = b.v12;
+  bit a_12 = a.v13;
+  bit b_12 = b.v13;
+  bit a_13 = a.v14;
+  bit b_13 = b.v14;
+  _out = new bt_2(v0=a_0 && b_0, v1=a_1 && b_1, v2=a_2 && b_2, v3=a_3 && b_3, v4=a_4 && b_4, v5=a_5 && b_5, v6=a_6 && b_6, v7=a_7 && b_7, v8=a_8 && b_8, v9=a_9 && b_9, v10=0, v11=a_10 && b_10, v12=a_11 && b_11, v13=a_12 && b_12, v14=a_13 && b_13);
+  return;
+}
+/*input.sk:22*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:22*/
+{
+  _out = (((((((((((((((!(a.v0)) || (b.v0)) && ((!(a.v1)) || (b.v1))) && ((!(a.v2)) || (b.v2))) && ((!(a.v3)) || (b.v3))) && ((!(a.v4)) || (b.v4))) && ((!(a.v5)) || (b.v5))) && ((!(a.v6)) || (b.v6))) && ((!(a.v7)) || (b.v7))) && ((!(a.v8)) || (b.v8))) && ((!(a.v9)) || (b.v9))) && ((!(a.v10)) || (b.v10))) && ((!(a.v11)) || (b.v11))) && ((!(a.v12)) || (b.v12))) && ((!(a.v13)) || (b.v13))) && ((!(a.v14)) || (b.v14));
+  return;
+}
+/*input.sk:77*/
+
+void forall_test_meet_incomparable (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)/*input.sk:77*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_v0, v1=a_v1, v2=a_v2, v3=a_v3, v4=a_v4, v5=a_v5, v6=a_v6, v7=a_v7, v8=a_v8, v9=a_v9, v10=a_v10, v11=a_v11, v12=a_v12, v13=a_v13, v14=a_v14);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=b_v0, v1=b_v1, v2=b_v2, v3=b_v3, v4=b_v4, v5=b_v5, v6=b_v6, v7=b_v7, v8=b_v8, v9=b_v9, v10=b_v10, v11=b_v11, v12=b_v12, v13=b_v13, v14=b_v14);
+  test_meet_incomparable(a, b);
+}
+/*input.sk:77*/
+
+void forall_test_meet_incomparable__Wrapper (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)  implements forall_test_meet_incomparable__WrapperNospec/*input.sk:77*/
+{
+  forall_test_meet_incomparable(a_v0, a_v1, a_v2, a_v3, a_v4, a_v5, a_v6, a_v7, a_v8, a_v9, a_v10, a_v11, a_v12, a_v13, a_v14, b_v0, b_v1, b_v2, b_v3, b_v4, b_v5, b_v6, b_v7, b_v8, b_v9, b_v10, b_v11, b_v12, b_v13, b_v14);
+}
+/*input.sk:77*/
+
+void forall_test_meet_incomparable__WrapperNospec (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)/*input.sk:77*/
+{ }
+/*input.sk:116*/
+
+void improve_meet_incomparable ()/*input.sk:116*/
+{
+  bt_2@ANONYMOUS a = new bt_2(v0=0, v1=1, v2=0, v3=0, v4=0, v5=1, v6=0, v7=0, v8=0, v9=1, v10=0, v11=0, v12=1, v13=0, v14=0);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=0, v1=0, v2=0, v3=0, v4=0, v5=0, v6=1, v7=0, v8=0, v9=1, v10=1, v11=0, v12=0, v13=0, v14=1);
+  bit _pac_sc_s41_s43 = 0;
+  compare_bt_2(a, b, _pac_sc_s41_s43);
+  bit _pac_sc_s41;
+  _pac_sc_s41 = _pac_sc_s41_s43;
+  if(!(_pac_sc_s41_s43))/*input.sk:119*/
+  {
+    bit _pac_sc_s41_s45 = 0;
+    compare_bt_2(b, a, _pac_sc_s41_s45);
+    _pac_sc_s41 = _pac_sc_s41_s45;
+  }
+  assert (!(_pac_sc_s41)); //Assert at input.sk:119 (0)
+  bt_2@ANONYMOUS prev_meet_incomparable_ab_s47 = null;
+  prev_bt_2_meet_incomparable(a, b, prev_meet_incomparable_ab_s47);
+  bt_2@ANONYMOUS next_meet_incomparable_ab_s49 = null;
+  bt_2_meet_incomparable(a, b, next_meet_incomparable_ab_s49);
+  bit _pac_sc_s50_s52 = 0;
+  compare_bt_2(prev_meet_incomparable_ab_s47, next_meet_incomparable_ab_s49, _pac_sc_s50_s52);
+  bit _pac_sc_s50;
+  _pac_sc_s50 = _pac_sc_s50_s52;
+  if(_pac_sc_s50_s52)/*input.sk:122*/
+  {
+    bit _pac_sc_s50_s54 = 0;
+    compare_bt_2(next_meet_incomparable_ab_s49, prev_meet_incomparable_ab_s47, _pac_sc_s50_s54);
+    _pac_sc_s50 = !(_pac_sc_s50_s54);
+  }
+  assert (_pac_sc_s50); //Assert at input.sk:122 (0)
+}
+/*input.sk:116*/
+
+void improve_meet_incomparable__Wrapper ()  implements improve_meet_incomparable__WrapperNospec/*input.sk:116*/
+{
+  improve_meet_incomparable();
+}
+/*input.sk:116*/
+
+void improve_meet_incomparable__WrapperNospec ()/*input.sk:116*/
+{ }
+/*input.sk:84*/
+
+void prev_bt_2_meet_incomparable (bt_2 a, bt_2 b, ref bt_2 _out)/*input.sk:84*/
+{
+  bit a_0 = a.v0;
+  bit b_0 = b.v0;
+  bit a_1 = a.v1;
+  bit b_1 = b.v1;
+  bit a_2 = a.v2;
+  bit b_2 = b.v2;
+  bit a_3 = a.v3;
+  bit b_3 = b.v3;
+  bit a_4 = a.v4;
+  bit b_4 = b.v4;
+  bit a_5 = a.v5;
+  bit b_5 = b.v5;
+  bit a_6 = a.v6;
+  bit b_6 = b.v6;
+  bit a_7 = a.v7;
+  bit b_7 = b.v7;
+  bit a_8 = a.v8;
+  bit b_8 = b.v8;
+  bit a_9 = a.v11;
+  bit b_9 = b.v11;
+  bit a_10 = a.v12;
+  bit b_10 = b.v12;
+  bit a_11 = a.v13;
+  bit b_11 = b.v13;
+  bit a_12 = a.v14;
+  bit b_12 = b.v14;
+  _out = new bt_2(v0=a_0 && b_0, v1=a_1 && b_1, v2=a_2 && b_2, v3=a_3 && b_3, v4=a_4 && b_4, v5=a_5 && b_5, v6=a_6 && b_6, v7=a_7 && b_7, v8=a_8 && b_8, v9=0, v10=0, v11=a_9 && b_9, v12=a_10 && b_10, v13=a_11 && b_11, v14=a_12 && b_12);
+  return;
+}
+/*input.sk:125*/
+
+void stability_meet_incomparable (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)/*input.sk:125*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_v0, v1=a_v1, v2=a_v2, v3=a_v3, v4=a_v4, v5=a_v5, v6=a_v6, v7=a_v7, v8=a_v8, v9=a_v9, v10=a_v10, v11=a_v11, v12=a_v12, v13=a_v13, v14=a_v14);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=b_v0, v1=b_v1, v2=b_v2, v3=b_v3, v4=b_v4, v5=b_v5, v6=b_v6, v7=b_v7, v8=b_v8, v9=b_v9, v10=b_v10, v11=b_v11, v12=b_v12, v13=b_v13, v14=b_v14);
+  bit _pac_sc_s0_s2 = 0;
+  compare_bt_2(a, b, _pac_sc_s0_s2);
+  bit _pac_sc_s0;
+  _pac_sc_s0 = _pac_sc_s0_s2;
+  if(!(_pac_sc_s0_s2))/*input.sk:129*/
+  {
+    bit _pac_sc_s0_s4 = 0;
+    compare_bt_2(b, a, _pac_sc_s0_s4);
+    _pac_sc_s0 = _pac_sc_s0_s4;
+  }
+  if(!(_pac_sc_s0))/*input.sk:129*/
+  {
+    bt_2@ANONYMOUS prev_meet_incomparable_ab_s6 = null;
+    prev_bt_2_meet_incomparable(a, b, prev_meet_incomparable_ab_s6);
+    bt_2@ANONYMOUS next_meet_incomparable_ab_s8 = null;
+    bt_2_meet_incomparable(a, b, next_meet_incomparable_ab_s8);
+    bit _out_s10 = 0;
+    compare_bt_2(prev_meet_incomparable_ab_s6, next_meet_incomparable_ab_s8, _out_s10);
+    assert (_out_s10); //Assert at input.sk:132 (0)
+  }
+}
+/*input.sk:125*/
+
+void stability_meet_incomparable__Wrapper (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)  implements stability_meet_incomparable__WrapperNospec/*input.sk:125*/
+{
+  stability_meet_incomparable(a_v0, a_v1, a_v2, a_v3, a_v4, a_v5, a_v6, a_v7, a_v8, a_v9, a_v10, a_v11, a_v12, a_v13, a_v14, b_v0, b_v1, b_v2, b_v3, b_v4, b_v5, b_v6, b_v7, b_v8, b_v9, b_v10, b_v11, b_v12, b_v13, b_v14);
+}
+/*input.sk:125*/
+
+void stability_meet_incomparable__WrapperNospec (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14)/*input.sk:125*/
+{ }
+/*input.sk:70*/
+
+void test_meet_incomparable (bt_2 a, bt_2 b)/*input.sk:70*/
+{
+  bit _pac_sc_s55_s57 = 0;
+  compare_bt_2(a, b, _pac_sc_s55_s57);
+  bit _pac_sc_s55;
+  _pac_sc_s55 = _pac_sc_s55_s57;
+  if(!(_pac_sc_s55_s57))/*input.sk:71*/
+  {
+    bit _pac_sc_s55_s59 = 0;
+    compare_bt_2(b, a, _pac_sc_s55_s59);
+    _pac_sc_s55 = _pac_sc_s55_s59;
+  }
+  if(!(_pac_sc_s55))/*input.sk:71*/
+  {
+    bt_2@ANONYMOUS meet_incomparable_ab_s61 = null;
+    bt_2_meet_incomparable(a, b, meet_incomparable_ab_s61);
+    bit _pac_sc_s62_s64 = 0;
+    compare_bt_2(meet_incomparable_ab_s61, a, _pac_sc_s62_s64);
+    bit _pac_sc_s62;
+    _pac_sc_s62 = _pac_sc_s62_s64;
+    if(_pac_sc_s62_s64)/*input.sk:73*/
+    {
+      bit _pac_sc_s62_s66 = 0;
+      compare_bt_2(meet_incomparable_ab_s61, b, _pac_sc_s62_s66);
+      _pac_sc_s62 = _pac_sc_s62_s66;
+    }
+    assert (_pac_sc_s62); //Assert at input.sk:73 (0)
+  }
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 1432

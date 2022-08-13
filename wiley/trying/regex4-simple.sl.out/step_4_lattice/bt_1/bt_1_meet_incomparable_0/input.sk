@@ -1,0 +1,95 @@
+struct bt_1 {
+    bit v0;
+}
+bit eq_bt_1 (bt_1 a, bt_1 b) {
+    return a.v0 == b.v0;
+}
+
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    return !a.v0 || b.v0;
+}
+
+generator bit overlap_atom_bit (bit a, bit b) {
+    int t = ??;
+    if(t == 0) {
+        return a && b;
+    }
+    if(t == 1) {
+        return a || b;
+    }
+    if(t == 2) {
+        return a == b;
+    }
+    if(t == 3) {
+        return a != b;
+    }
+    if(t == 4) {
+        return !(a || b);
+    }
+    if(t == 5) {
+        return 0;
+    }
+    return 1;
+}
+
+generator int overlap_atom_int (int a, int b) {
+    int t = ??;
+    if(t == 0) {
+        return a < b ? a : b;
+    }
+    if(t == 1) {
+        return a > b ? a : b;
+    }
+    if(t == 2) {
+        return -100;
+    }
+    if(t == 3) {
+        return 100;
+    }
+    return 0;
+}
+
+bt_1 bt_1_meet_incomparable (bt_1 a, bt_1 b) {
+    return new bt_1(v0 = overlap_atom_bit(a.v0, b.v0));
+}
+
+void test_meet_incomparable (bt_1 a, bt_1 b) {
+    if(!(compare_bt_1(a, b) || compare_bt_1(b, a))) {
+        bt_1 meet_incomparable_ab = bt_1_meet_incomparable(a, b);
+        assert(compare_bt_1(meet_incomparable_ab, a) && compare_bt_1(meet_incomparable_ab, b));
+    }
+}
+
+harness void forall_test_meet_incomparable (bit a_v0, bit b_v0) {
+    // Assemble structs
+    bt_1 a = new bt_1(v0 = a_v0);
+    bt_1 b = new bt_1(v0 = b_v0);
+    test_meet_incomparable(a, b);
+}
+
+bt_1 prev_bt_1_meet_incomparable (bt_1 a, bt_1 b) {
+    bt_1 _out;
+    _out = new bt_1(v0 = 1);
+    return _out;
+}
+
+harness void improve_meet_incomparable () {
+    bt_1 a = new bt_1(v0 = ??);
+    bt_1 b = new bt_1(v0 = ??);
+    assert(!(compare_bt_1(a, b) || compare_bt_1(b, a)));
+    bt_1 prev_meet_incomparable_ab = prev_bt_1_meet_incomparable(a, b);
+    bt_1 next_meet_incomparable_ab = bt_1_meet_incomparable(a, b);
+    assert(compare_bt_1(prev_meet_incomparable_ab, next_meet_incomparable_ab) && !compare_bt_1(next_meet_incomparable_ab, prev_meet_incomparable_ab));
+}
+
+harness void stability_meet_incomparable (bit a_v0, bit b_v0) {
+    // Assemble structs
+    bt_1 a = new bt_1(v0 = a_v0);
+    bt_1 b = new bt_1(v0 = b_v0);
+    if(!(compare_bt_1(a, b) || compare_bt_1(b, a))) {
+        bt_1 prev_meet_incomparable_ab = prev_bt_1_meet_incomparable(a, b);
+        bt_1 next_meet_incomparable_ab = bt_1_meet_incomparable(a, b);
+        assert(compare_bt_1(prev_meet_incomparable_ab, next_meet_incomparable_ab));
+    }
+}
+

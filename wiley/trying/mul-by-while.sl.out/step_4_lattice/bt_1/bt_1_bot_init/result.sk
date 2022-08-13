@@ -1,0 +1,51 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/mul-by-while.sl.out/step_4_lattice/bt_1/bt_1_bot_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_1 {
+    int v0;
+}
+/*input.sk:23*/
+
+void bt_1_bot (ref bt_1 _out)/*input.sk:23*/
+{
+  _out = new bt_1(v0=100);
+  return;
+}
+/*input.sk:4*/
+
+void compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:4*/
+{
+  _out = (a.v0) >= (b.v0);
+  return;
+}
+/*input.sk:31*/
+
+void forall_test_bot (int a_v0)/*input.sk:31*/
+{
+  bt_1@ANONYMOUS a;
+  a = new bt_1(v0=a_v0 - 16);
+  test_bot(a);
+}
+/*input.sk:31*/
+
+void forall_test_bot__Wrapper (int a_v0)  implements forall_test_bot__WrapperNospec/*input.sk:31*/
+{
+  forall_test_bot(a_v0);
+}
+/*input.sk:31*/
+
+void forall_test_bot__WrapperNospec (int a_v0)/*input.sk:31*/
+{ }
+/*input.sk:27*/
+
+void test_bot (bt_1 a)/*input.sk:27*/
+{
+  bt_1@ANONYMOUS _out_s1 = null;
+  bt_1_bot(_out_s1);
+  bit _out_s3 = 0;
+  compare_bt_1(_out_s1, a, _out_s3)//{};
+  assert (_out_s3); //Assert at input.sk:28 (0)
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 311

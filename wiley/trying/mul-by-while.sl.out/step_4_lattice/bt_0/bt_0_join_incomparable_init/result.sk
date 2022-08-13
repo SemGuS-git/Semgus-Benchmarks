@@ -1,0 +1,82 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/mul-by-while.sl.out/step_4_lattice/bt_0/bt_0_join_incomparable_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+/*input.sk:54*/
+
+void bt_0_join_incomparable (bt_0 a, bt_0 b, ref bt_0 _out)/*input.sk:54*/
+{
+  int a_0 = a.v0;
+  int b_0 = b.v0;
+  int _out_s13 = (a_0 < b_0 ? a_0 : b_0);
+  int a_1 = a.v1;
+  int b_1 = b.v1;
+  int _out_s15 = (a_1 < b_1 ? a_1 : b_1);
+  _out = new bt_0(v0=_out_s13, v1=_out_s15, v2=-100);
+  return;
+}
+/*input.sk:10*/
+
+void compare_bt_0 (bt_0 a, bt_0 b, ref bit _out)/*input.sk:10*/
+{
+  _out = (((a.v0) >= (b.v0)) && ((a.v1) >= (b.v1))) && ((a.v2) >= (b.v2));
+  return;
+}
+/*input.sk:65*/
+
+void forall_test_join_incomparable (int a_v0, int a_v1, int a_v2, int b_v0, int b_v1, int b_v2)/*input.sk:65*/
+{
+  bt_0@ANONYMOUS a;
+  a = new bt_0(v0=a_v0 - 16, v1=a_v1 - 16, v2=a_v2 - 16);
+  bt_0@ANONYMOUS b;
+  b = new bt_0(v0=b_v0 - 16, v1=b_v1 - 16, v2=b_v2 - 16);
+  test_join_incomparable(a, b);
+}
+/*input.sk:65*/
+
+void forall_test_join_incomparable__Wrapper (int a_v0, int a_v1, int a_v2, int b_v0, int b_v1, int b_v2)  implements forall_test_join_incomparable__WrapperNospec/*input.sk:65*/
+{
+  forall_test_join_incomparable(a_v0, a_v1, a_v2, b_v0, b_v1, b_v2);
+}
+/*input.sk:65*/
+
+void forall_test_join_incomparable__WrapperNospec (int a_v0, int a_v1, int a_v2, int b_v0, int b_v1, int b_v2)/*input.sk:65*/
+{ }
+/*input.sk:58*/
+
+void test_join_incomparable (bt_0 a, bt_0 b)/*input.sk:58*/
+{
+  bit _pac_sc_s0_s2 = 0;
+  compare_bt_0(a, b, _pac_sc_s0_s2);
+  bit _pac_sc_s0;
+  _pac_sc_s0 = _pac_sc_s0_s2;
+  if(!(_pac_sc_s0_s2))/*input.sk:59*/
+  {
+    bit _pac_sc_s0_s4 = 0;
+    compare_bt_0(b, a, _pac_sc_s0_s4);
+    _pac_sc_s0 = _pac_sc_s0_s4;
+  }
+  if(!(_pac_sc_s0))/*input.sk:59*/
+  {
+    bt_0@ANONYMOUS join_incomparable_ab_s6 = null;
+    bt_0_join_incomparable(a, b, join_incomparable_ab_s6);
+    bit _pac_sc_s7_s9 = 0;
+    compare_bt_0(a, join_incomparable_ab_s6, _pac_sc_s7_s9);
+    bit _pac_sc_s7;
+    _pac_sc_s7 = _pac_sc_s7_s9;
+    if(_pac_sc_s7_s9)/*input.sk:61*/
+    {
+      bit _pac_sc_s7_s11 = 0;
+      compare_bt_0(b, join_incomparable_ab_s6, _pac_sc_s7_s11);
+      _pac_sc_s7 = _pac_sc_s7_s11;
+    }
+    assert (_pac_sc_s7); //Assert at input.sk:61 (0)
+  }
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 367

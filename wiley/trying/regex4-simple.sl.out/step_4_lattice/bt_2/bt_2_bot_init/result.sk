@@ -1,0 +1,65 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/regex4-simple.sl.out/step_4_lattice/bt_2/bt_2_bot_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+/*input.sk:37*/
+
+void bt_2_bot (ref bt_2 _out)/*input.sk:37*/
+{
+  _out = new bt_2(v0=0, v1=0, v2=0, v3=0, v4=0, v5=0, v6=0, v7=0, v8=0, v9=0, v10=0, v11=0, v12=0, v13=0, v14=0);
+  return;
+}
+/*input.sk:18*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:18*/
+{
+  _out = (((((((((((((((!(a.v0)) || (b.v0)) && ((!(a.v1)) || (b.v1))) && ((!(a.v2)) || (b.v2))) && ((!(a.v3)) || (b.v3))) && ((!(a.v4)) || (b.v4))) && ((!(a.v5)) || (b.v5))) && ((!(a.v6)) || (b.v6))) && ((!(a.v7)) || (b.v7))) && ((!(a.v8)) || (b.v8))) && ((!(a.v9)) || (b.v9))) && ((!(a.v10)) || (b.v10))) && ((!(a.v11)) || (b.v11))) && ((!(a.v12)) || (b.v12))) && ((!(a.v13)) || (b.v13))) && ((!(a.v14)) || (b.v14));
+  return;
+}
+/*input.sk:45*/
+
+void forall_test_bot (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14)/*input.sk:45*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_v0, v1=a_v1, v2=a_v2, v3=a_v3, v4=a_v4, v5=a_v5, v6=a_v6, v7=a_v7, v8=a_v8, v9=a_v9, v10=a_v10, v11=a_v11, v12=a_v12, v13=a_v13, v14=a_v14);
+  test_bot(a);
+}
+/*input.sk:45*/
+
+void forall_test_bot__Wrapper (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14)  implements forall_test_bot__WrapperNospec/*input.sk:45*/
+{
+  forall_test_bot(a_v0, a_v1, a_v2, a_v3, a_v4, a_v5, a_v6, a_v7, a_v8, a_v9, a_v10, a_v11, a_v12, a_v13, a_v14);
+}
+/*input.sk:45*/
+
+void forall_test_bot__WrapperNospec (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14)/*input.sk:45*/
+{ }
+/*input.sk:41*/
+
+void test_bot (bt_2 a)/*input.sk:41*/
+{
+  bt_2@ANONYMOUS _out_s1 = null;
+  bt_2_bot(_out_s1);
+  bit _out_s3 = 0;
+  compare_bt_2(_out_s1, a, _out_s3)//{};
+  assert (_out_s3); //Assert at input.sk:42 (0)
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 386

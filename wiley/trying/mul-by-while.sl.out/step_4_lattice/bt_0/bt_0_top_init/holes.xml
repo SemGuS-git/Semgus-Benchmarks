@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<hole_values>
+    <hole_value line="15" col="-1"  name="H__1_1" type="int" value="0" />
+    <hole_value line="15" col="-1"  name="H__1_0" type="int" value="0" />
+    <hole_value line="15" col="-1"  name="H__1_2" type="int" value="0" />
+</hole_values>

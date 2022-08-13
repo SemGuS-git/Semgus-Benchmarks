@@ -1,0 +1,16 @@
+bt_2 bt_2_top () {
+    return new bt_2(v0 = 0);
+}
+
+bt_2 bt_2_bot () {
+    return new bt_2(v0 = 1);
+}
+
+bt_2 bt_2_join_incomparable (bt_2 a, bt_2 b) {
+    return new bt_2(v0 = a.v0 && b.v0);
+}
+
+bt_2 bt_2_meet_incomparable (bt_2 a, bt_2 b) {
+    return new bt_2(v0 = 1);
+}
+

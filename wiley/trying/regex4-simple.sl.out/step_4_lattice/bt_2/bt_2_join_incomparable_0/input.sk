@@ -1,0 +1,117 @@
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+bit eq_bt_2 (bt_2 a, bt_2 b) {
+    return a.v0 == b.v0 && a.v1 == b.v1 && a.v2 == b.v2 && a.v3 == b.v3 && a.v4 == b.v4 && a.v5 == b.v5 && a.v6 == b.v6 && a.v7 == b.v7 && a.v8 == b.v8 && a.v9 == b.v9 && a.v10 == b.v10 && a.v11 == b.v11 && a.v12 == b.v12 && a.v13 == b.v13 && a.v14 == b.v14;
+}
+
+bit compare_bt_2 (bt_2 a, bt_2 b) {
+    return ((((((((((((((!a.v0 || b.v0) && (!a.v1 || b.v1)) && (!a.v2 || b.v2)) && (!a.v3 || b.v3)) && (!a.v4 || b.v4)) && (!a.v5 || b.v5)) && (!a.v6 || b.v6)) && (!a.v7 || b.v7)) && (!a.v8 || b.v8)) && (!a.v9 || b.v9)) && (!a.v10 || b.v10)) && (!a.v11 || b.v11)) && (!a.v12 || b.v12)) && (!a.v13 || b.v13)) && (!a.v14 || b.v14);
+}
+
+generator bit overlap_atom_bit (bit a, bit b) {
+    int t = ??;
+    if(t == 0) {
+        return a && b;
+    }
+    if(t == 1) {
+        return a || b;
+    }
+    if(t == 2) {
+        return a == b;
+    }
+    if(t == 3) {
+        return a != b;
+    }
+    if(t == 4) {
+        return !(a || b);
+    }
+    if(t == 5) {
+        return 0;
+    }
+    return 1;
+}
+
+generator int overlap_atom_int (int a, int b) {
+    int t = ??;
+    if(t == 0) {
+        return a < b ? a : b;
+    }
+    if(t == 1) {
+        return a > b ? a : b;
+    }
+    if(t == 2) {
+        return -100;
+    }
+    if(t == 3) {
+        return 100;
+    }
+    return 0;
+}
+
+bt_2 bt_2_join_incomparable (bt_2 a, bt_2 b) {
+    return new bt_2(v0 = overlap_atom_bit(a.v0, b.v0), v1 = overlap_atom_bit(a.v1, b.v1), v2 = overlap_atom_bit(a.v2, b.v2), v3 = overlap_atom_bit(a.v3, b.v3), v4 = overlap_atom_bit(a.v4, b.v4), v5 = overlap_atom_bit(a.v5, b.v5), v6 = overlap_atom_bit(a.v6, b.v6), v7 = overlap_atom_bit(a.v7, b.v7), v8 = overlap_atom_bit(a.v8, b.v8), v9 = overlap_atom_bit(a.v9, b.v9), v10 = overlap_atom_bit(a.v10, b.v10), v11 = overlap_atom_bit(a.v11, b.v11), v12 = overlap_atom_bit(a.v12, b.v12), v13 = overlap_atom_bit(a.v13, b.v13), v14 = overlap_atom_bit(a.v14, b.v14));
+}
+
+void test_join_incomparable (bt_2 a, bt_2 b) {
+    if(!(compare_bt_2(a, b) || compare_bt_2(b, a))) {
+        bt_2 join_incomparable_ab = bt_2_join_incomparable(a, b);
+        assert(compare_bt_2(a, join_incomparable_ab) && compare_bt_2(b, join_incomparable_ab));
+    }
+}
+
+harness void forall_test_join_incomparable (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14) {
+    // Assemble structs
+    bt_2 a = new bt_2(v0 = a_v0, v1 = a_v1, v2 = a_v2, v3 = a_v3, v4 = a_v4, v5 = a_v5, v6 = a_v6, v7 = a_v7, v8 = a_v8, v9 = a_v9, v10 = a_v10, v11 = a_v11, v12 = a_v12, v13 = a_v13, v14 = a_v14);
+    bt_2 b = new bt_2(v0 = b_v0, v1 = b_v1, v2 = b_v2, v3 = b_v3, v4 = b_v4, v5 = b_v5, v6 = b_v6, v7 = b_v7, v8 = b_v8, v9 = b_v9, v10 = b_v10, v11 = b_v11, v12 = b_v12, v13 = b_v13, v14 = b_v14);
+    test_join_incomparable(a, b);
+}
+
+bt_2 prev_bt_2_join_incomparable (bt_2 a, bt_2 b) {
+    bt_2 _out;
+    bit a_0 = a.v2;
+    bit b_0 = b.v2;
+    bit a_1 = a.v4;
+    bit b_1 = b.v4;
+    bit a_2 = a.v12;
+    bit b_2 = b.v12;
+    bit a_3 = a.v14;
+    bit b_3 = b.v14;
+    _out = new bt_2(v0 = 1, v1 = 1, v2 = a_0 || b_0, v3 = 1, v4 = a_1 || b_1, v5 = 1, v6 = 1, v7 = 1, v8 = 1, v9 = 1, v10 = 1, v11 = 1, v12 = a_2 || b_2, v13 = 1, v14 = a_3 || b_3);
+    return _out;
+}
+
+harness void improve_join_incomparable () {
+    bt_2 a = new bt_2(v0 = ??, v1 = ??, v2 = ??, v3 = ??, v4 = ??, v5 = ??, v6 = ??, v7 = ??, v8 = ??, v9 = ??, v10 = ??, v11 = ??, v12 = ??, v13 = ??, v14 = ??);
+    bt_2 b = new bt_2(v0 = ??, v1 = ??, v2 = ??, v3 = ??, v4 = ??, v5 = ??, v6 = ??, v7 = ??, v8 = ??, v9 = ??, v10 = ??, v11 = ??, v12 = ??, v13 = ??, v14 = ??);
+    assert(!(compare_bt_2(a, b) || compare_bt_2(b, a)));
+    bt_2 prev_join_incomparable_ab = prev_bt_2_join_incomparable(a, b);
+    bt_2 next_join_incomparable_ab = bt_2_join_incomparable(a, b);
+    assert(compare_bt_2(next_join_incomparable_ab, prev_join_incomparable_ab) && !compare_bt_2(prev_join_incomparable_ab, next_join_incomparable_ab));
+}
+
+harness void stability_join_incomparable (bit a_v0, bit a_v1, bit a_v2, bit a_v3, bit a_v4, bit a_v5, bit a_v6, bit a_v7, bit a_v8, bit a_v9, bit a_v10, bit a_v11, bit a_v12, bit a_v13, bit a_v14, bit b_v0, bit b_v1, bit b_v2, bit b_v3, bit b_v4, bit b_v5, bit b_v6, bit b_v7, bit b_v8, bit b_v9, bit b_v10, bit b_v11, bit b_v12, bit b_v13, bit b_v14) {
+    // Assemble structs
+    bt_2 a = new bt_2(v0 = a_v0, v1 = a_v1, v2 = a_v2, v3 = a_v3, v4 = a_v4, v5 = a_v5, v6 = a_v6, v7 = a_v7, v8 = a_v8, v9 = a_v9, v10 = a_v10, v11 = a_v11, v12 = a_v12, v13 = a_v13, v14 = a_v14);
+    bt_2 b = new bt_2(v0 = b_v0, v1 = b_v1, v2 = b_v2, v3 = b_v3, v4 = b_v4, v5 = b_v5, v6 = b_v6, v7 = b_v7, v8 = b_v8, v9 = b_v9, v10 = b_v10, v11 = b_v11, v12 = b_v12, v13 = b_v13, v14 = b_v14);
+    if(!(compare_bt_2(a, b) || compare_bt_2(b, a))) {
+        bt_2 prev_join_incomparable_ab = prev_bt_2_join_incomparable(a, b);
+        bt_2 next_join_incomparable_ab = bt_2_join_incomparable(a, b);
+        assert(compare_bt_2(next_join_incomparable_ab, prev_join_incomparable_ab));
+    }
+}
+

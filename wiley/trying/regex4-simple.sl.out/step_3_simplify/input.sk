@@ -1,0 +1,101 @@
+int budget_bt_1 = ??;
+struct bt_1 {
+    bit v0;
+}
+bit prev_compare_bt_1 (bt_1 a, bt_1 b) {
+    return ((!a.v0 || b.v0) || (!a.v0 || b.v0)) || (!a.v0 || b.v0);
+}
+
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    bit leq = 0;
+    repeat(budget_bt_1) {
+        leq = leq || disjunct_bt_1(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_1 (bt_1 a, bt_1 b) {
+    return atom_bit(a.v0, b.v0);
+}
+
+harness void next_order_is_superset_bt_1 (bit a_0, bit b_0) {
+    bt_1 a = new bt_1(v0 = a_0);
+    bt_1 b = new bt_1(v0 = b_0);
+    assert(prev_compare_bt_1(a, b) == compare_bt_1(a, b));
+}
+
+int budget_bt_2 = ??;
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+bit prev_compare_bt_2 (bt_2 a, bt_2 b) {
+    return ((((((((((((((!a.v0 || b.v0) && (!a.v1 || b.v1)) && (!a.v2 || b.v2)) && (!a.v3 || b.v3)) && (!a.v4 || b.v4)) && (!a.v5 || b.v5)) && (!a.v6 || b.v6)) && (!a.v7 || b.v7)) && (!a.v8 || b.v8)) && (!a.v9 || b.v9)) && (!a.v10 || b.v10)) && (!a.v11 || b.v11)) && (!a.v12 || b.v12)) && (!a.v13 || b.v13)) && (!a.v14 || b.v14);
+}
+
+bit compare_bt_2 (bt_2 a, bt_2 b) {
+    bit leq = 0;
+    repeat(budget_bt_2) {
+        leq = leq || disjunct_bt_2(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_2 (bt_2 a, bt_2 b) {
+    return atom_bit(a.v0, b.v0) && atom_bit(a.v1, b.v1) && atom_bit(a.v2, b.v2) && atom_bit(a.v3, b.v3) && atom_bit(a.v4, b.v4) && atom_bit(a.v5, b.v5) && atom_bit(a.v6, b.v6) && atom_bit(a.v7, b.v7) && atom_bit(a.v8, b.v8) && atom_bit(a.v9, b.v9) && atom_bit(a.v10, b.v10) && atom_bit(a.v11, b.v11) && atom_bit(a.v12, b.v12) && atom_bit(a.v13, b.v13) && atom_bit(a.v14, b.v14);
+}
+
+harness void next_order_is_superset_bt_2 (bit a_0, bit a_1, bit a_2, bit a_3, bit a_4, bit a_5, bit a_6, bit a_7, bit a_8, bit a_9, bit a_10, bit a_11, bit a_12, bit a_13, bit a_14, bit b_0, bit b_1, bit b_2, bit b_3, bit b_4, bit b_5, bit b_6, bit b_7, bit b_8, bit b_9, bit b_10, bit b_11, bit b_12, bit b_13, bit b_14) {
+    bt_2 a = new bt_2(v0 = a_0, v1 = a_1, v2 = a_2, v3 = a_3, v4 = a_4, v5 = a_5, v6 = a_6, v7 = a_7, v8 = a_8, v9 = a_9, v10 = a_10, v11 = a_11, v12 = a_12, v13 = a_13, v14 = a_14);
+    bt_2 b = new bt_2(v0 = b_0, v1 = b_1, v2 = b_2, v3 = b_3, v4 = b_4, v5 = b_5, v6 = b_6, v7 = b_7, v8 = b_8, v9 = b_9, v10 = b_10, v11 = b_11, v12 = b_12, v13 = b_13, v14 = b_14);
+    assert(prev_compare_bt_2(a, b) == compare_bt_2(a, b));
+}
+
+generator bit atom_bit (bit a, bit b) {
+    int t = ??(2);
+    if(t == 0) {
+        return !a || b;
+    }
+    if(t == 1) {
+        return !b || a;
+    }
+    return 1;
+}
+
+generator bit atom_int (int a, int b) {
+    int t = ??(3);
+    if(t == 0) {
+        return a == b;
+    }
+    if(t == 1) {
+        return a <= b;
+    }
+    if(t == 2) {
+        return a < b;
+    }
+    if(t == 3) {
+        return a >= b;
+    }
+    if(t == 4) {
+        return a > b;
+    }
+    return 1;
+}
+
+harness void reduce_complexity () {
+    minimize(budget_bt_1 + budget_bt_2);
+}
+

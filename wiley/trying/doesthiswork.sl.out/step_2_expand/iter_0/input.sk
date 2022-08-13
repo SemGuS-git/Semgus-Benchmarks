@@ -1,0 +1,175 @@
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+struct bt_1 {
+    int v0;
+}
+struct bt_2 {
+    bit v0;
+}
+int budget_bt_1 = ??;
+bit eq_bt_1 (bt_1 a, bt_1 b) {
+    return a.v0 == b.v0;
+}
+
+bit prev_compare_bt_1 (bt_1 a, bt_1 b) {
+    return (a.v0 < b.v0 || a.v0 < b.v0) || a.v0 == b.v0;
+}
+
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    bit leq = 0;
+    repeat(budget_bt_1) {
+        leq = leq || disjunct_bt_1(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_1 (bt_1 a, bt_1 b) {
+    return atom_int(a.v0, b.v0);
+}
+
+harness void partial_order_bt_1 (int a_0, int b_0, int c_0) {
+    bt_1 a = new bt_1(v0 = a_0);
+    bt_1 b = new bt_1(v0 = b_0);
+    bt_1 c = new bt_1(v0 = c_0);
+    
+    // bt_1: reflexivity and antisymmetry
+    assert((compare_bt_1(a, b) && compare_bt_1(b, a)) == eq_bt_1(a, b));
+    // bt_1: transitivity
+    assert(!compare_bt_1(a, b) || !compare_bt_1(b, c) || compare_bt_1(a, c));
+}
+
+harness void next_order_is_superset_bt_1 (int a_0, int b_0) {
+    bt_1 a = new bt_1(v0 = a_0);
+    bt_1 b = new bt_1(v0 = b_0);
+    assume prev_compare_bt_1(a, b);
+    assert(compare_bt_1(a, b));
+}
+
+int budget_bt_2 = ??;
+bit eq_bt_2 (bt_2 a, bt_2 b) {
+    return a.v0 == b.v0;
+}
+
+bit prev_compare_bt_2 (bt_2 a, bt_2 b) {
+    return !b.v0 || a.v0;
+}
+
+bit compare_bt_2 (bt_2 a, bt_2 b) {
+    bit leq = 0;
+    repeat(budget_bt_2) {
+        leq = leq || disjunct_bt_2(a, b);
+    }
+    return leq;
+}
+
+generator bit disjunct_bt_2 (bt_2 a, bt_2 b) {
+    return atom_bit(a.v0, b.v0);
+}
+
+harness void partial_order_bt_2 (bit a_0, bit b_0, bit c_0) {
+    bt_2 a = new bt_2(v0 = a_0);
+    bt_2 b = new bt_2(v0 = b_0);
+    bt_2 c = new bt_2(v0 = c_0);
+    
+    // bt_2: reflexivity and antisymmetry
+    assert((compare_bt_2(a, b) && compare_bt_2(b, a)) == eq_bt_2(a, b));
+    // bt_2: transitivity
+    assert(!compare_bt_2(a, b) || !compare_bt_2(b, c) || compare_bt_2(a, c));
+}
+
+harness void next_order_is_superset_bt_2 (bit a_0, bit b_0) {
+    bt_2 a = new bt_2(v0 = a_0);
+    bt_2 b = new bt_2(v0 = b_0);
+    assume prev_compare_bt_2(a, b);
+    assert(compare_bt_2(a, b));
+}
+
+generator bit atom_bit (bit a, bit b) {
+    int t = ??(2);
+    if(t == 0) {
+        return !a || b;
+    }
+    if(t == 1) {
+        return !b || a;
+    }
+    return 1;
+}
+
+generator bit atom_int (int a, int b) {
+    int t = ??(3);
+    if(t == 0) {
+        return a == b;
+    }
+    if(t == 1) {
+        return a <= b;
+    }
+    if(t == 2) {
+        return a < b;
+    }
+    if(t == 3) {
+        return a >= b;
+    }
+    if(t == 4) {
+        return a > b;
+    }
+    return 1;
+}
+
+bt_1 prod_0_sem_0 (bt_0 b0, bt_2 b2, bt_1 b3, bt_1 b4) {
+    return new bt_1(v0 = b2.v0 ? b3.v0 : b4.v0);
+}
+
+harness void mono_prod_0_sem_0_v3 (int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, bit bt_2_0_0) {
+    bt_1 bt_1_0 = new bt_1(v0 = bt_1_0_0);
+    bt_1 bt_1_1 = new bt_1(v0 = bt_1_1_0);
+    bt_1 bt_1_2 = new bt_1(v0 = bt_1_2_0);
+    bt_0 bt_0_0 = new bt_0(v0 = bt_0_0_0, v1 = bt_0_0_1, v2 = bt_0_0_2);
+    bt_2 bt_2_0 = new bt_2(v0 = bt_2_0_0);
+    assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_1(prod_0_sem_0(bt_0_0, bt_2_0, bt_1_0, bt_1_2), prod_0_sem_0(bt_0_0, bt_2_0, bt_1_1, bt_1_2)));
+}
+
+harness void mono_prod_0_sem_0_v4 (int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, int bt_0_0_0, int bt_0_0_1, int bt_0_0_2, bit bt_2_0_0) {
+    bt_1 bt_1_0 = new bt_1(v0 = bt_1_0_0);
+    bt_1 bt_1_1 = new bt_1(v0 = bt_1_1_0);
+    bt_1 bt_1_2 = new bt_1(v0 = bt_1_2_0);
+    bt_0 bt_0_0 = new bt_0(v0 = bt_0_0_0, v1 = bt_0_0_1, v2 = bt_0_0_2);
+    bt_2 bt_2_0 = new bt_2(v0 = bt_2_0_0);
+    assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_1(prod_0_sem_0(bt_0_0, bt_2_0, bt_1_2, bt_1_0), prod_0_sem_0(bt_0_0, bt_2_0, bt_1_2, bt_1_1)));
+}
+
+bt_2 prod_4_sem_0 (bt_0 b0, bt_1 b2, bt_1 b3) {
+    return new bt_2(v0 = b2.v0 < b3.v0);
+}
+
+harness void mono_prod_4_sem_0_v2 (int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, int bt_0_0_0, int bt_0_0_1, int bt_0_0_2) {
+    bt_1 bt_1_0 = new bt_1(v0 = bt_1_0_0);
+    bt_1 bt_1_1 = new bt_1(v0 = bt_1_1_0);
+    bt_1 bt_1_2 = new bt_1(v0 = bt_1_2_0);
+    bt_0 bt_0_0 = new bt_0(v0 = bt_0_0_0, v1 = bt_0_0_1, v2 = bt_0_0_2);
+    assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_2(prod_4_sem_0(bt_0_0, bt_1_0, bt_1_2), prod_4_sem_0(bt_0_0, bt_1_1, bt_1_2)));
+}
+
+harness void mono_prod_4_sem_0_v3 (int bt_1_0_0, int bt_1_1_0, int bt_1_2_0, int bt_0_0_0, int bt_0_0_1, int bt_0_0_2) {
+    bt_1 bt_1_0 = new bt_1(v0 = bt_1_0_0);
+    bt_1 bt_1_1 = new bt_1(v0 = bt_1_1_0);
+    bt_1 bt_1_2 = new bt_1(v0 = bt_1_2_0);
+    bt_0 bt_0_0 = new bt_0(v0 = bt_0_0_0, v1 = bt_0_0_1, v2 = bt_0_0_2);
+    assert(!compare_bt_1(bt_1_0, bt_1_1) || compare_bt_2(prod_4_sem_0(bt_0_0, bt_1_2, bt_1_1), prod_4_sem_0(bt_0_0, bt_1_2, bt_1_0)));
+}
+
+harness void require_expansion () {
+    assert(budget_bt_1 >= 0);
+    bt_1 bt_1_new0 = new bt_1(v0 = ??);
+    bt_1 bt_1_new1 = new bt_1(v0 = ??);
+    bit expand_ord_bt_1 = compare_bt_1(bt_1_new0, bt_1_new1) && !prev_compare_bt_1(bt_1_new0, bt_1_new1);
+    assert(budget_bt_2 >= 0);
+    bt_2 bt_2_new0 = new bt_2(v0 = ??);
+    bt_2 bt_2_new1 = new bt_2(v0 = ??);
+    bit expand_ord_bt_2 = compare_bt_2(bt_2_new0, bt_2_new1) && !prev_compare_bt_2(bt_2_new0, bt_2_new1);
+    assert(expand_ord_bt_1 || expand_ord_bt_2);
+    minimize(budget_bt_1 + budget_bt_2);
+}
+

@@ -1,0 +1,57 @@
+{
+    "arg_labels": ["in", "in", "in", "out"],
+    "examples": ["0 0 0 0", "1 1 0 1", "2 5 0 10", "4 3 0 12"],
+    "start_symbol": 0,
+    "nonterminals": [
+        {
+            "name": "_Start",
+            "term_type": 0,
+            "productions": [{ "prod_id": 13, "child_nts": [1] }],
+            "passthrough_productions": []
+        },
+        {
+            "name": "_Outer",
+            "term_type": 1,
+            "productions": [{ "prod_id": 5, "child_nts": [5, 2] }],
+            "passthrough_productions": []
+        },
+        {
+            "name": "_S",
+            "term_type": 1,
+            "productions": [
+                { "prod_id": 0, "child_nts": [3] },
+                { "prod_id": 1, "child_nts": [3] },
+                { "prod_id": 2, "child_nts": [3] },
+                { "prod_id": 3, "child_nts": [2, 2] }
+            ],
+            "passthrough_productions": []
+        },
+        {
+            "name": "_E",
+            "term_type": 0,
+            "productions": [
+                { "prod_id": 11, "child_nts": [4, 4] },
+                { "prod_id": 12, "child_nts": [4, 4] }
+            ],
+            "passthrough_productions": [{ "nt_id": 4 }]
+        },
+        {
+            "name": "_A",
+            "term_type": 0,
+            "productions": [
+                { "prod_id": 6, "child_nts": [] },
+                { "prod_id": 7, "child_nts": [] },
+                { "prod_id": 8, "child_nts": [] },
+                { "prod_id": 9, "child_nts": [] },
+                { "prod_id": 10, "child_nts": [] }
+            ],
+            "passthrough_productions": []
+        },
+        {
+            "name": "_B",
+            "term_type": 2,
+            "productions": [{ "prod_id": 16, "child_nts": [4, 4] }],
+            "passthrough_productions": []
+        }
+    ]
+}

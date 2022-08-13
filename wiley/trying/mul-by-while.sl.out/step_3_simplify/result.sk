@@ -1,0 +1,185 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/mul-by-while.sl.out/step_3_simplify/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_0 {
+    int v0;
+    int v1;
+    int v2;
+}
+struct bt_1 {
+    int v0;
+}
+struct bt_2 {
+    bit v0;
+}
+/*input.sk:11*/
+
+void compare_bt_0 (bt_0 a, bt_0 b, ref bit _out)/*input.sk:11*/
+{
+  int a_0 = a.v0;
+  int b_0 = b.v0;
+  bit _pac_sc_s26_s28 = a_0 >= b_0;
+  bit _pac_sc_s26;
+  _pac_sc_s26 = _pac_sc_s26_s28;
+  if(_pac_sc_s26_s28)/*input.sk:20*/
+  {
+    int a_1 = a.v1;
+    int b_1 = b.v1;
+    _pac_sc_s26 = a_1 >= b_1;
+  }
+  bit _pac_sc_s25 = _pac_sc_s26;
+  if(_pac_sc_s26)/*input.sk:20*/
+  {
+    int a_2 = a.v2;
+    int b_2 = b.v2;
+    _pac_sc_s25 = a_2 >= b_2;
+  }
+  _out = _pac_sc_s25;
+  return;
+}
+/*input.sk:37*/
+
+void compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:37*/
+{
+  int a_0 = a.v0;
+  int b_0 = b.v0;
+  _out = a_0 >= b_0;
+  return;
+}
+/*input.sk:63*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:63*/
+{
+  bit a_0 = a.v0;
+  bit b_0 = b.v0;
+  _out = (!(b_0)) || a_0;
+  return;
+}
+/*input.sk:1*/
+
+void glblInit_budget_bt_0__ANONYMOUS_s34 (ref int budget_bt_0__ANONYMOUS_s33)/*input.sk:1*/
+{
+  budget_bt_0__ANONYMOUS_s33 = 1;
+}
+/*input.sk:29*/
+
+void glblInit_budget_bt_1__ANONYMOUS_s36 (ref int budget_bt_1__ANONYMOUS_s35)/*input.sk:29*/
+{
+  budget_bt_1__ANONYMOUS_s35 = 1;
+}
+/*input.sk:55*/
+
+void glblInit_budget_bt_2__ANONYMOUS_s38 (ref int budget_bt_2__ANONYMOUS_s37)/*input.sk:55*/
+{
+  budget_bt_2__ANONYMOUS_s37 = 1;
+}
+/*input.sk:23*/
+
+void next_order_is_superset_bt_0 (int a_0, int a_1, int a_2, int b_0, int b_1, int b_2)/*input.sk:23*/
+{
+  bt_0@ANONYMOUS a;
+  a = new bt_0(v0=a_0, v1=a_1, v2=a_2);
+  bt_0@ANONYMOUS b;
+  b = new bt_0(v0=b_0, v1=b_1, v2=b_2);
+  bit _out_s19 = 0;
+  prev_compare_bt_0(a, b, _out_s19);
+  bit _out_s21 = 0;
+  compare_bt_0(a, b, _out_s21);
+  assert (_out_s19 == _out_s21); //Assert at input.sk:26 (0)
+}
+/*input.sk:23*/
+
+void next_order_is_superset_bt_0__Wrapper (int a_0, int a_1, int a_2, int b_0, int b_1, int b_2)  implements next_order_is_superset_bt_0__WrapperNospec/*input.sk:23*/
+{
+  next_order_is_superset_bt_0(a_0, a_1, a_2, b_0, b_1, b_2);
+}
+/*input.sk:23*/
+
+void next_order_is_superset_bt_0__WrapperNospec (int a_0, int a_1, int a_2, int b_0, int b_1, int b_2)/*input.sk:23*/
+{ }
+/*input.sk:49*/
+
+void next_order_is_superset_bt_1 (int a_0, int b_0)/*input.sk:49*/
+{
+  bt_1@ANONYMOUS a;
+  a = new bt_1(v0=a_0);
+  bt_1@ANONYMOUS b;
+  b = new bt_1(v0=b_0);
+  bit _out_s10 = 0;
+  prev_compare_bt_1(a, b, _out_s10);
+  bit _out_s12 = 0;
+  compare_bt_1(a, b, _out_s12);
+  assert (_out_s10 == _out_s12); //Assert at input.sk:52 (0)
+}
+/*input.sk:49*/
+
+void next_order_is_superset_bt_1__Wrapper (int a_0, int b_0)  implements next_order_is_superset_bt_1__WrapperNospec/*input.sk:49*/
+{
+  next_order_is_superset_bt_1(a_0, b_0);
+}
+/*input.sk:49*/
+
+void next_order_is_superset_bt_1__WrapperNospec (int a_0, int b_0)/*input.sk:49*/
+{ }
+/*input.sk:75*/
+
+void next_order_is_superset_bt_2 (bit a_0, bit b_0)/*input.sk:75*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_0);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=b_0);
+  bit _out_s1 = 0;
+  prev_compare_bt_2(a, b, _out_s1);
+  bit _out_s3 = 0;
+  compare_bt_2(a, b, _out_s3);
+  assert (_out_s1 == _out_s3); //Assert at input.sk:78 (0)
+}
+/*input.sk:75*/
+
+void next_order_is_superset_bt_2__Wrapper (bit a_0, bit b_0)  implements next_order_is_superset_bt_2__WrapperNospec/*input.sk:75*/
+{
+  next_order_is_superset_bt_2(a_0, b_0);
+}
+/*input.sk:75*/
+
+void next_order_is_superset_bt_2__WrapperNospec (bit a_0, bit b_0)/*input.sk:75*/
+{ }
+/*input.sk:7*/
+
+void prev_compare_bt_0 (bt_0 a, bt_0 b, ref bit _out)/*input.sk:7*/
+{
+  _out = (((a.v0) >= (b.v0)) && ((a.v1) >= (b.v1))) && ((a.v2) >= (b.v2));
+  return;
+}
+/*input.sk:33*/
+
+void prev_compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:33*/
+{
+  _out = (((a.v0) > (b.v0)) || ((a.v0) > (b.v0))) || ((a.v0) >= (b.v0));
+  return;
+}
+/*input.sk:59*/
+
+void prev_compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:59*/
+{
+  _out = (!(b.v0)) || (a.v0);
+  return;
+}
+/*input.sk:112*/
+
+void reduce_complexity ()/*input.sk:112*/
+{ }
+/*input.sk:112*/
+
+void reduce_complexity__Wrapper ()  implements reduce_complexity__WrapperNospec/*input.sk:112*/
+{
+  reduce_complexity();
+}
+/*input.sk:112*/
+
+void reduce_complexity__WrapperNospec ()/*input.sk:112*/
+{ }
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 572

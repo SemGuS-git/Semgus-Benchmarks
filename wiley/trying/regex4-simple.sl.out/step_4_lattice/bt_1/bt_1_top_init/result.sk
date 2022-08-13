@@ -1,0 +1,51 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/regex4-simple.sl.out/step_4_lattice/bt_1/bt_1_top_init/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_1 {
+    bit v0;
+}
+/*input.sk:23*/
+
+void bt_1_top (ref bt_1 _out)/*input.sk:23*/
+{
+  _out = new bt_1(v0=1);
+  return;
+}
+/*input.sk:4*/
+
+void compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:4*/
+{
+  _out = (!(a.v0)) || (b.v0);
+  return;
+}
+/*input.sk:31*/
+
+void forall_test_top (bit a_v0)/*input.sk:31*/
+{
+  bt_1@ANONYMOUS a;
+  a = new bt_1(v0=a_v0);
+  test_top(a);
+}
+/*input.sk:31*/
+
+void forall_test_top__Wrapper (bit a_v0)  implements forall_test_top__WrapperNospec/*input.sk:31*/
+{
+  forall_test_top(a_v0);
+}
+/*input.sk:31*/
+
+void forall_test_top__WrapperNospec (bit a_v0)/*input.sk:31*/
+{ }
+/*input.sk:27*/
+
+void test_top (bt_1 a)/*input.sk:27*/
+{
+  bt_1@ANONYMOUS _out_s1 = null;
+  bt_1_top(_out_s1);
+  bit _out_s3 = 0;
+  compare_bt_1(a, _out_s1, _out_s3)//{};
+  assert (_out_s3); //Assert at input.sk:28 (0)
+}
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 900

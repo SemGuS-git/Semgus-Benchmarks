@@ -1,0 +1,36 @@
+struct bt_1 {
+    int v0;
+}
+bit compare_bt_1 (bt_1 a, bt_1 b) {
+    return a.v0 >= b.v0;
+}
+
+generator bit fixed_atom_bit () {
+    return ??;
+}
+
+generator int fixed_atom_int () {
+    int t = ??;
+    if(t == 0) {
+        return -100;
+    }
+    if(t == 1) {
+        return 100;
+    }
+    return 0;
+}
+
+bt_1 bt_1_bot () {
+    return new bt_1(v0 = fixed_atom_int());
+}
+
+void test_bot (bt_1 a) {
+    assert(compare_bt_1(bt_1_bot(), a));
+}
+
+harness void forall_test_bot (int a_v0) {
+    // Assemble structs
+    bt_1 a = new bt_1(v0 = a_v0 - 16);
+    test_bot(a);
+}
+

@@ -1,0 +1,232 @@
+SKETCH version 1.7.6
+Benchmark = /mnt/c/Users/Wiley/home/uw/semgus/Semgus-Benchmarks/trying/regex4-simple.sl.out/step_3_simplify/input.sk
+/* BEGIN PACKAGE ANONYMOUS*/
+struct bt_1 {
+    bit v0;
+}
+struct bt_2 {
+    bit v0;
+    bit v1;
+    bit v2;
+    bit v3;
+    bit v4;
+    bit v5;
+    bit v6;
+    bit v7;
+    bit v8;
+    bit v9;
+    bit v10;
+    bit v11;
+    bit v12;
+    bit v13;
+    bit v14;
+}
+/*input.sk:9*/
+
+void compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:9*/
+{
+  bit a_0 = a.v0;
+  bit b_0 = b.v0;
+  _out = (!(a_0)) || b_0;
+  return;
+}
+/*input.sk:49*/
+
+void compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:49*/
+{
+  bit a_0 = a.v0;
+  bit b_0 = b.v0;
+  bit _pac_sc_s20_s22 = (!(a_0)) || b_0;
+  bit _pac_sc_s20;
+  _pac_sc_s20 = _pac_sc_s20_s22;
+  if(_pac_sc_s20_s22)/*input.sk:58*/
+  {
+    bit a_1 = a.v1;
+    bit b_1 = b.v1;
+    _pac_sc_s20 = (!(a_1)) || b_1;
+  }
+  bit _pac_sc_s19 = _pac_sc_s20;
+  if(_pac_sc_s20)/*input.sk:58*/
+  {
+    bit a_2 = a.v2;
+    bit b_2 = b.v2;
+    _pac_sc_s19 = (!(a_2)) || b_2;
+  }
+  bit _pac_sc_s18 = _pac_sc_s19;
+  if(_pac_sc_s19)/*input.sk:58*/
+  {
+    bit a_3 = a.v3;
+    bit b_3 = b.v3;
+    _pac_sc_s18 = (!(a_3)) || b_3;
+  }
+  bit _pac_sc_s17 = _pac_sc_s18;
+  if(_pac_sc_s18)/*input.sk:58*/
+  {
+    bit a_4 = a.v4;
+    bit b_4 = b.v4;
+    _pac_sc_s17 = (!(a_4)) || b_4;
+  }
+  bit _pac_sc_s16 = _pac_sc_s17;
+  if(_pac_sc_s17)/*input.sk:58*/
+  {
+    bit a_5 = a.v5;
+    bit b_5 = b.v5;
+    _pac_sc_s16 = (!(a_5)) || b_5;
+  }
+  bit _pac_sc_s15 = _pac_sc_s16;
+  if(_pac_sc_s16)/*input.sk:58*/
+  {
+    bit a_6 = a.v6;
+    bit b_6 = b.v6;
+    _pac_sc_s15 = (!(a_6)) || b_6;
+  }
+  bit _pac_sc_s14 = _pac_sc_s15;
+  if(_pac_sc_s15)/*input.sk:58*/
+  {
+    bit a_7 = a.v7;
+    bit b_7 = b.v7;
+    _pac_sc_s14 = (!(a_7)) || b_7;
+  }
+  bit _pac_sc_s13 = _pac_sc_s14;
+  if(_pac_sc_s14)/*input.sk:58*/
+  {
+    bit a_8 = a.v8;
+    bit b_8 = b.v8;
+    _pac_sc_s13 = (!(a_8)) || b_8;
+  }
+  bit _pac_sc_s12 = _pac_sc_s13;
+  if(_pac_sc_s13)/*input.sk:58*/
+  {
+    bit a_9 = a.v9;
+    bit b_9 = b.v9;
+    _pac_sc_s12 = (!(a_9)) || b_9;
+  }
+  bit _pac_sc_s11 = _pac_sc_s12;
+  if(_pac_sc_s12)/*input.sk:58*/
+  {
+    bit a_10 = a.v10;
+    bit b_10 = b.v10;
+    _pac_sc_s11 = (!(a_10)) || b_10;
+  }
+  bit _pac_sc_s10 = _pac_sc_s11;
+  if(_pac_sc_s11)/*input.sk:58*/
+  {
+    bit a_11 = a.v11;
+    bit b_11 = b.v11;
+    _pac_sc_s10 = (!(a_11)) || b_11;
+  }
+  bit _pac_sc_s9 = _pac_sc_s10;
+  if(_pac_sc_s10)/*input.sk:58*/
+  {
+    bit a_12 = a.v12;
+    bit b_12 = b.v12;
+    _pac_sc_s9 = (!(a_12)) || b_12;
+  }
+  bit _pac_sc_s8 = _pac_sc_s9;
+  if(_pac_sc_s9)/*input.sk:58*/
+  {
+    bit a_13 = a.v13;
+    bit b_13 = b.v13;
+    _pac_sc_s8 = (!(a_13)) || b_13;
+  }
+  bit _pac_sc_s7 = _pac_sc_s8;
+  if(_pac_sc_s8)/*input.sk:58*/
+  {
+    bit a_14 = a.v14;
+    bit b_14 = b.v14;
+    _pac_sc_s7 = (!(a_14)) || b_14;
+  }
+  _out = _pac_sc_s7;
+  return;
+}
+/*input.sk:1*/
+
+void glblInit_budget_bt_1__ANONYMOUS_s61 (ref int budget_bt_1__ANONYMOUS_s60)/*input.sk:1*/
+{
+  budget_bt_1__ANONYMOUS_s60 = 1;
+}
+/*input.sk:27*/
+
+void glblInit_budget_bt_2__ANONYMOUS_s63 (ref int budget_bt_2__ANONYMOUS_s62)/*input.sk:27*/
+{
+  budget_bt_2__ANONYMOUS_s62 = 1;
+}
+/*input.sk:21*/
+
+void next_order_is_superset_bt_1 (bit a_0, bit b_0)/*input.sk:21*/
+{
+  bt_1@ANONYMOUS a;
+  a = new bt_1(v0=a_0);
+  bt_1@ANONYMOUS b;
+  b = new bt_1(v0=b_0);
+  bit _out_s52 = 0;
+  prev_compare_bt_1(a, b, _out_s52);
+  bit _out_s54 = 0;
+  compare_bt_1(a, b, _out_s54);
+  assert (_out_s52 == _out_s54); //Assert at input.sk:24 (0)
+}
+/*input.sk:21*/
+
+void next_order_is_superset_bt_1__Wrapper (bit a_0, bit b_0)  implements next_order_is_superset_bt_1__WrapperNospec/*input.sk:21*/
+{
+  next_order_is_superset_bt_1(a_0, b_0);
+}
+/*input.sk:21*/
+
+void next_order_is_superset_bt_1__WrapperNospec (bit a_0, bit b_0)/*input.sk:21*/
+{ }
+/*input.sk:61*/
+
+void next_order_is_superset_bt_2 (bit a_0, bit a_1, bit a_2, bit a_3, bit a_4, bit a_5, bit a_6, bit a_7, bit a_8, bit a_9, bit a_10, bit a_11, bit a_12, bit a_13, bit a_14, bit b_0, bit b_1, bit b_2, bit b_3, bit b_4, bit b_5, bit b_6, bit b_7, bit b_8, bit b_9, bit b_10, bit b_11, bit b_12, bit b_13, bit b_14)/*input.sk:61*/
+{
+  bt_2@ANONYMOUS a;
+  a = new bt_2(v0=a_0, v1=a_1, v2=a_2, v3=a_3, v4=a_4, v5=a_5, v6=a_6, v7=a_7, v8=a_8, v9=a_9, v10=a_10, v11=a_11, v12=a_12, v13=a_13, v14=a_14);
+  bt_2@ANONYMOUS b;
+  b = new bt_2(v0=b_0, v1=b_1, v2=b_2, v3=b_3, v4=b_4, v5=b_5, v6=b_6, v7=b_7, v8=b_8, v9=b_9, v10=b_10, v11=b_11, v12=b_12, v13=b_13, v14=b_14);
+  bit _out_s1 = 0;
+  prev_compare_bt_2(a, b, _out_s1);
+  bit _out_s3 = 0;
+  compare_bt_2(a, b, _out_s3);
+  assert (_out_s1 == _out_s3); //Assert at input.sk:64 (0)
+}
+/*input.sk:61*/
+
+void next_order_is_superset_bt_2__Wrapper (bit a_0, bit a_1, bit a_2, bit a_3, bit a_4, bit a_5, bit a_6, bit a_7, bit a_8, bit a_9, bit a_10, bit a_11, bit a_12, bit a_13, bit a_14, bit b_0, bit b_1, bit b_2, bit b_3, bit b_4, bit b_5, bit b_6, bit b_7, bit b_8, bit b_9, bit b_10, bit b_11, bit b_12, bit b_13, bit b_14)  implements next_order_is_superset_bt_2__WrapperNospec/*input.sk:61*/
+{
+  next_order_is_superset_bt_2(a_0, a_1, a_2, a_3, a_4, a_5, a_6, a_7, a_8, a_9, a_10, a_11, a_12, a_13, a_14, b_0, b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_10, b_11, b_12, b_13, b_14);
+}
+/*input.sk:61*/
+
+void next_order_is_superset_bt_2__WrapperNospec (bit a_0, bit a_1, bit a_2, bit a_3, bit a_4, bit a_5, bit a_6, bit a_7, bit a_8, bit a_9, bit a_10, bit a_11, bit a_12, bit a_13, bit a_14, bit b_0, bit b_1, bit b_2, bit b_3, bit b_4, bit b_5, bit b_6, bit b_7, bit b_8, bit b_9, bit b_10, bit b_11, bit b_12, bit b_13, bit b_14)/*input.sk:61*/
+{ }
+/*input.sk:5*/
+
+void prev_compare_bt_1 (bt_1 a, bt_1 b, ref bit _out)/*input.sk:5*/
+{
+  _out = (((!(a.v0)) || (b.v0)) || ((!(a.v0)) || (b.v0))) || ((!(a.v0)) || (b.v0));
+  return;
+}
+/*input.sk:45*/
+
+void prev_compare_bt_2 (bt_2 a, bt_2 b, ref bit _out)/*input.sk:45*/
+{
+  _out = (((((((((((((((!(a.v0)) || (b.v0)) && ((!(a.v1)) || (b.v1))) && ((!(a.v2)) || (b.v2))) && ((!(a.v3)) || (b.v3))) && ((!(a.v4)) || (b.v4))) && ((!(a.v5)) || (b.v5))) && ((!(a.v6)) || (b.v6))) && ((!(a.v7)) || (b.v7))) && ((!(a.v8)) || (b.v8))) && ((!(a.v9)) || (b.v9))) && ((!(a.v10)) || (b.v10))) && ((!(a.v11)) || (b.v11))) && ((!(a.v12)) || (b.v12))) && ((!(a.v13)) || (b.v13))) && ((!(a.v14)) || (b.v14));
+  return;
+}
+/*input.sk:98*/
+
+void reduce_complexity ()/*input.sk:98*/
+{ }
+/*input.sk:98*/
+
+void reduce_complexity__Wrapper ()  implements reduce_complexity__WrapperNospec/*input.sk:98*/
+{
+  reduce_complexity();
+}
+/*input.sk:98*/
+
+void reduce_complexity__WrapperNospec ()/*input.sk:98*/
+{ }
+/* END PACKAGE ANONYMOUS*/
+[SKETCH] DONE
+Total time = 1843
