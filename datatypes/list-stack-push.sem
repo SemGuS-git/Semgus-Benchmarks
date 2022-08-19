@@ -1,3 +1,12 @@
+
+;;; Metadata
+(set-info :format-version "2.0.0")
+(set-info :author "Kanghee Park")
+(set-info :realizable true)
+
+;;;
+;;; Datatypes
+;;;
 (declare-datatypes
   ((List 0) (Stack 0)) ; Intger List and Stack (may define generic List/Stack later)
 
@@ -10,6 +19,9 @@
   )) 
 )
 
+;;;
+;;; Productions
+;;;
 (declare-term-types  
     ;; Term types  ; Declare terms inductively using syntactic constructors
     ((I 0) (B 0) (L 0) (ST 0))  ; Each term type corresponds to a nonterminal in the default grammar
@@ -45,6 +57,9 @@
   )
 )
 
+;;;
+;;; Function Semantics
+;;;
 (define-funs-rec
   ;; Signatures
   (
@@ -91,6 +106,9 @@
     ))
 )
 
+;;;
+;;; Term Semantics
+;;;
 (define-funs-rec
   ;; Semantic relations and their types
   (
@@ -202,3 +220,15 @@
       :input (x st) :output (r)
     ))
 )
+
+;;;
+;;; Function to synthesize
+;;;
+(synth-fun push() ST)
+
+
+;;;
+;;; Constraints 
+;;;
+
+;;; To-Do
