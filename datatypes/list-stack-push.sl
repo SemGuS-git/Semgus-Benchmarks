@@ -12,7 +12,7 @@
 
   ((  ; Constructors for List
     ($nil)
-    ($cons (hd Int) (tl List))
+    ($cons (head Int) (tail List))
   )
   (   ; Constructor for Stack
     ($stack (list List))
@@ -27,7 +27,7 @@
     ((I 0) (B 0) (L 0) (ST 0))  ; Each term type corresponds to a nonterminal in the default grammar
 
     ;; Productions
-    (( ; Productions for term type E
+    (( ; Productions for term type I
         ($x)
         ($0)
         ($1)
@@ -115,7 +115,7 @@
     (I.Sem ((it I) (x Int) (st Stack) (r Int)) Bool)  ; Each relation is declared as a function Sem : (members) -> Bool
     (B.Sem ((bt B) (x Int) (st Stack) (r Bool)) Bool) ; The `_.Sem` names are a naming convention with no special significance.
     (L.Sem ((lt L) (x Int) (st Stack) (r List)) Bool)
-    (ST.Sem ((stt L) (x Int) (st Stack) (r Stack)) Bool)
+    (ST.Sem ((stt ST) (x Int) (st Stack) (r Stack)) Bool)
   )
   ;; Bodies
   (
@@ -151,25 +151,25 @@
         (($not bt1)
           (exists ((rb Bool))
             (and
-              (B.Sem bt1 x y rb)
+              (B.Sem bt1 x st rb)
               (= r (not rb)))))
         (($and bt1 bt2)
           (exists ((rb1 Bool) (rb2 Bool))
             (and
-              (B.Sem bt1 x y rb1)
-              (B.Sem bt2 x y rb2)
+              (B.Sem bt1 x st rb1)
+              (B.Sem bt2 x st rb2)
               (= r (and rb1 rb2)))))
         (($or bt1 bt2)
           (exists ((rb1 Bool) (rb2 Bool))
             (and
-              (B.Sem bt1 x y rb1)
-              (B.Sem bt2 x y rb2)
+              (B.Sem bt1 x st rb1)
+              (B.Sem bt2 x st rb2)
               (= r (or rb1 rb2)))))
         (($< et1 et2)
           (exists ((r1 Int) (r2 Int))
             (and
-              (E.Sem et1 x y r1)
-              (E.Sem et2 x y r2)
+              (E.Sem et1 x st r1)
+              (E.Sem et2 x st r2)
               (= r (< r1 r2))))))
       ) ; end `match bt`
       :input (x st) :output (r)
