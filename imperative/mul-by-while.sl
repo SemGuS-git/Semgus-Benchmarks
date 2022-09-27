@@ -4,7 +4,7 @@
 
 ;;; Metadata
 ;; (set-info :format-version "2.1.0")
-;; (set-info :author("Wiley Corning"))
+;; (set-info :author ("Wiley Corning"))
 ;; (set-info :realizable true)
 
 ;;;
@@ -165,8 +165,8 @@
 ;;;
 ;;; Function to synthesize - a term rooted at Start
 ;;;
-(synth-fun mul_by_while() E
-    (((_Start E) (_Outer S) (_S S) (_E E) (_A E) (_B B))
+(synth-fun mul_by_while () E
+    ((_Start E) (_Outer S) (_S S) (_E E) (_A E) (_B B))
     (
         (_Start E (($return_z _Outer)))
         (_Outer S (($while _B _S)))
@@ -174,7 +174,7 @@
         (_E E (_A ($+ _A _A) ($- _A _A)))
         (_A E ($0 $1 $x $y $z))
         (_B B (($< _A _A)))
-    )))
+    ))
 
 ;;;
 ;;; Constraints - examples
