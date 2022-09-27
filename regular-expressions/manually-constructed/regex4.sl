@@ -4,7 +4,7 @@
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
+        (($eval R))
     
         (
             ($eps)
@@ -12,9 +12,9 @@
             ($char_1)
             ($char_2)
             ($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
