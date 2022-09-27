@@ -4,23 +4,23 @@
     
     ;; Productions
     (
-        (($eval($eval_1 R)))
+        (($eval R))
     
         (
             ($eps)
             ($phi)
             ($char_1)
-                ($char_2)
-                ($char_3)
-                ($char_4)
-                ($char_5)
-                ($char_6)
-                ($char_7)
-                ($char_8)
-                ($any)
-            ($or ($or_1 R) ($or_2 R))
-            ($concat ($concat_1 R) ($concat_2 R))
-            ($star ($star_1 R))
+            ($char_2)
+            ($char_3)
+            ($char_4)
+            ($char_5)
+            ($char_6)
+            ($char_7)
+            ($char_8)
+            ($any)
+            ($or R R)
+            ($concat R R)
+            ($star R)
         )
     )
 )
@@ -243,8 +243,7 @@
     )
 )
 
-(synth-fun match_regex() Start
-(
+(synth-fun match_regex () Start
     ((nt_Start Start) (nt_R R) (nt_Good R) (nt_Bad R) (t_a R) (t_b R) (t_Kludge R))
     (
         (nt_Start Start (($eval nt_R)))
@@ -255,9 +254,8 @@
         (t_b R ($char_2))
         (t_Kludge R ($phi))
     )
+)
 
-)
-)
 
 (constraint (Start.Sem match_regex 1 1 1 1 1 1 1 1 true))
 (constraint (Start.Sem match_regex 1 1 1 1 2 1 1 1 false))
