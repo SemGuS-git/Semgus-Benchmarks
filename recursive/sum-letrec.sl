@@ -98,8 +98,7 @@
 (constraint (I.Sem (F.Exp sum) sum 4 10))
 (constraint (I.Sem (F.Exp sum) sum 6 21))
 
+(check-synth)
+
 ;;; Expected: letrec sum x = ite(0 < x, x + f(x-1), 0)
 ;;; (define-fun sum() F ($letrec ($ite (< $0 $x) ($+ $x ($app_f ($- $x $1))) $0)))
-
-
-
