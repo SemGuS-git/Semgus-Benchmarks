@@ -1,6 +1,7 @@
 .vscode/
 **/.metals
 **/.semgus-output
+.DS_Store
 
 # Emacs things
 *~
