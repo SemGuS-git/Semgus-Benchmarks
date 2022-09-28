@@ -32,7 +32,8 @@
   
     ;; Bodies
     ((! (match it
-               (($x (= r x)) ($0 (= r 0)) ($1 (= r 1) ($2 (= r 2))
+               (($x (= r x)) 
+                ($0 (= r 0)) ($1 (= r 1)) ($2 (= r 2))
                 (($+ it1 it2)
                  (exists ((r1 Int) (r2 Int))
                          (and (I.Sem it1 ft x r1)
@@ -85,7 +86,7 @@
 ;;;
 ;;; Function to synthesize
 ;;;
-(synth-fun sum() F)
+(synth-fun fib() F)
 
 ;;;
 ;;; Constraints
