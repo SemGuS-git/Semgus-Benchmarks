@@ -1,0 +1,88 @@
+; Semgus problem that attempts to synthesize the max function for two variables 
+; over imperative terms
+
+(set-info :format-version "1.0.0")
+(set-info :realizable true)
+
+(declare-term-types
+  ;; Declare the 'universal grammar' to be used in the Semgus problem
+ ((S 0) (E 0) (B 0))
+ ;; Productions for S: S -> x := E | y := E | seq S S | ite B S S
+ ((($=x E)
+   ($=y E)
+   ($seq S S)
+   ($ite B S S))
+    ;; Productions for E: E -> x | y | 0 | 1 | E + E
+  (($x)
+   ($y)
+   ($0)
+   ($1)
+   ($+ E E))
+  ;; Productions for B: B -> E < E | and B B | not B
+  (($< E E)
+   ($and B B)
+   ($not B))))
+
+(define-funs-rec 
+    ;; Define the semantics of the productions of the universal grammar
+    ((sem-S ((st S) (x Int) (y Int) (rx Int) (ry Int)) Bool)
+     (sem-E ((et E) (x Int) (y Int) (r Int)) Bool)
+     (sem-B ((bt B) (x Int) (y Int) (r Bool)) Bool))
+    ((! (match st ; Semantics of S
+               ((($=x et) (exists ((r Int))
+                                  (and (sem-E et x y r)
+                                       (and (= rx r) (= ry y)))))
+                (($=y et) (exists ((r Int))
+                                  (and (sem-E et x y r)
+                                       (and (= rx x) (= ry r)))))
+                (($seq st1 st2) (exists ((xi1 Int) (yi1 Int))
+                                        (and (sem-S st1 x y xi1 yi1)
+                                             (sem-S st2 xi1 yi1 rx ry))))
+                (($ite bt st1 st2)
+                 (exists ((r Bool) (xt1 Int) (yt1 Int) (xf1 Int) (yf1 Int))
+                         (and (sem-B bt x y r)
+                              (sem-S st1 x y xt1 yt1)
+                              (sem-S st2 x y xf1 yf1) 
+                              (and (= rx (ite r xt1 xf1)) (= ry (ite r yt1 yf1))))))))
+        :input (x y) :output (rx ry))
+     (! (match et ; Semantics of E
+               (($x (= r x))
+                ($y (= r y))
+                ($0 (= r 0))
+                ($1 (= r 1))
+                (($+ et1 et2)
+                 (exists ((r1 Int) (r2 Int))
+                         (and (sem-E et1 x y r1)
+                              (sem-E et2 x y r2)
+                              (= r (+ r1 r2)))))))
+        :input (x y) :output (r))
+     (! (match bt ; Semantics of B
+               ((($< et1 et2) (exists ((r1 Int) (r2 Int))
+                                      (and (sem-E et1 x y r1)
+                                           (sem-E et2 x y r2)
+                                           (= r (< r1 r2)))))
+                (($and bt1 bt2) (exists ((r1 Bool) (r2 Bool))
+                                        (and (sem-B bt1 x y r1)
+                                             (sem-B bt2 x y r2)
+                                             (= r (and r1 r2)))))
+                (($not bt) (exists ((r1 Bool))
+                                   (and (sem-B bt x y r1)
+                                        (= r (not r1)))))))
+        :input (x y) :output (r))))
+                   
+(synth-fun max2 () S) ; synth-fun block: defines term max2 to synthesize, of term-type S
+
+;; Constraints that define semantics of term max2: here, we want the max value assigned to x, leaving y unchanged
+
+;; Example-based constraints
+(constraint (sem-S max2 4 2 4 2))
+(constraint (sem-S max2 2 4 4 4))
+
+;; Universal constraints using variables
+;;
+;;(constraint (forall ((x Int) (y Int) (r Int)) (and (sem-S max2 x y r y) (= (ite (> x y) x y) r))))
+;;
+
+;; Final problem is realizable: ($ite ($< x y) ($=x y) ($=x x))
+
+(check-synth)
