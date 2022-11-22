@@ -1,9 +1,11 @@
-
+;;;;
+;;;; polynomial.sl - synthesizing polynomials
+;;;;
 
 ;;; Metadata
-;; (set-info :format-version "2.1.0")
-;; (set-info :author("Wiley Corning"))
-;; (set-info :realizable true)
+(set-info :format-version "2.1.0")
+(set-info :author("Wiley Corning"))
+(set-info :realizable true)
 
 ;;;
 ;;; Term types
@@ -52,14 +54,7 @@
 )
 
 
-(synth-fun f() E) 
-
-(set-info :solution (
-    (
-        f
-        ($* ($+ ($+ ($+ $x $x) $y) $1) ($+ ($+ ($+ $x $x) $y) $1))
-    )
-))
+(synth-fun f () E)
 
 (constraint (E.Sem f 2 3 64))
 (constraint (E.Sem f 0 0 1))

@@ -66,7 +66,7 @@
          ($false (not o))))
      :input (xi yi) :output (o))))
 
-(synth-fun doublex() L)
+(synth-fun doublex () L)
 (constraint (L.Sem doublex 0 0 0 0))
 (constraint (L.Sem doublex 2 0 0 4))
 (check-synth)

@@ -35,6 +35,7 @@
          ($3 (= y 3))))
      :input (x) :output (y))))
 
-(synth-fun f() E)
+(synth-fun f () E)
 (constraint (E.Sem f 1 9))
+(constraint (E.Sem f 2 12))
 (check-synth)
