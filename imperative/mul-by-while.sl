@@ -3,9 +3,9 @@
 ;;;;
 
 ;;; Metadata
-;; (set-info :format-version "2.1.0")
-;; (set-info :author ("Wiley Corning"))
-;; (set-info :realizable true)
+(set-info :format-version "2.1.0")
+(set-info :author ("Wiley Corning"))
+(set-info :realizable true)
 
 ;;;
 ;;; Term types
@@ -158,9 +158,6 @@
     )) :input (x y z) :output (r))
   )
 )
-
-
-;;  (eval (while (> y 0) (cons (assign_z (+ z x)) (assign_y (- y 1)))))
 
 ;;;
 ;;; Function to synthesize - a term rooted at Start
