@@ -66,7 +66,7 @@
          ($false (not o))))
      :input (xi yi) :output (o))))
 
-(synth-fun ident() L)
+(synth-fun ident () L)
 (constraint (L.Sem ident 0 0 0 0))
 (constraint (L.Sem ident 2 0 0 2))
 (check-synth)
