@@ -1,11 +1,11 @@
 ;;;;
-;;;; max2-exp.sl - The max2 example problem encoded in SemGuS
+;;;; max3-exp.sl - The max3 example problem encoded in SemGuS
 ;;;;
 
 ;;; Metadata
-;; (set-info :format-version "2.1.0")
-;; (set-info :author("Jinwoo Kim" "Keith Johnson" "Wiley Corning"))
-;; (set-info :realizable true)
+(set-info :format-version "2.1.0")
+(set-info :author("Jinwoo Kim" "Keith Johnson" "Wiley Corning"))
+(set-info :realizable true)
 
 ;;;
 ;;; Term types
@@ -99,14 +99,7 @@
 ;;;
 ;;; Function to synthesize - a term rooted at E
 ;;;
-(synth-fun max3() E) ; Using the default universe of terms rooted at E
-
-(set-info :solution (
-    (
-        max3
-        ($ite ($< $x $y) ($ite ($< $y $z) $z $y) ($ite ($< $x $z) $z $x))
-    )
-))
+(synth-fun max3 () E) ; Using the default universe of terms rooted at E
 
 ;;;
 ;;; Constraints - examples
@@ -118,17 +111,7 @@
 (constraint (E.Sem max3 2 8 3 8))
 
 
-;
-; Constraints - logical specification
-;; ;
-;; (constraint (forall ((x Int) (y Int) (r Int))
-;;                 (= (E.Sem max2 x y r)
-;;                    (and (or (= x r)
-;;                             (= y r))
-;;                         (>= r x)
-;;                         (>= r y)))))
-
-;; ;;;
-;;; Instruct the solver to find max2
+;;;
+;;; Instruct the solver to find max3
 ;;;
 (check-synth)
