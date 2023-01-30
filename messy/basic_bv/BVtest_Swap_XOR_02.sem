@@ -22,11 +22,11 @@
   ((($seq Start1_term_1 Start1_term_2) (exists ((x_r1 (_ BitVec 32)) (y_r1 (_ BitVec 32))) (and (Start1.Sem Start1_term_1 x_r1 y_r1 x y)
   (Start1.Sem Start1_term_2 x_r0 y_r0 x_r1 y_r1))))))
 (match Start1_term_0
-  ((($bv=x E_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x r__1)
+  ((($bv=x E_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x_r0 r__1)
   (= y y_r0))
   (E.Sem E_term_1 r__1 x y))))
 (($bv=y E_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x x_r0)
-  (= y r__1))
+  (= y_r0 r__1))
   (E.Sem E_term_1 r__1 x y))))))
 (match V_term_0
   (($IBVVary (exists ((r__1 (_ BitVec 32))) (and (= r__0 r__1)

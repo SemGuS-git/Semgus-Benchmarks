@@ -22,7 +22,7 @@
 (($bvneg E_term_1) (exists ((r__1 (_ BitVec 32))) (and (= r__0 (bvnot r__1))
   (E.Sem E_term_1 r__1 x y))))))
 (match Start_term_0
-  ((($bv=x E_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x r__1)
+  ((($bv=x E_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x_r0 r__1)
   (= y y_r0))
   (E.Sem E_term_1 r__1 x y))))))))
 

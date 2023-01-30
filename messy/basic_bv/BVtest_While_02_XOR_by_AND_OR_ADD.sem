@@ -36,7 +36,7 @@
 ($IBVVarx (exists ((r__1 (_ BitVec 32))) (and (= r__0 r__1)
   (= r__1 x))))))
 (match S_term_0
-  ((($bv=x E1_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x r__1)
+  ((($bv=x E1_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x_r0 r__1)
   (= y y_r0))
   (E1.Sem E1_term_1 r__1 x y))))
 (($seq S_term_1 S_term_2) (exists ((x_r1 (_ BitVec 32)) (y_r1 (_ BitVec 32))) (and (S.Sem S_term_1 x_r1 y_r1 x y)
