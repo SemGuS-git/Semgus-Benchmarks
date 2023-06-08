@@ -152,22 +152,34 @@ def gen_regex_file(info, desc):
 
 (synth-fun match_regex() Start)""")
 
+    list_pos = [ ]
     for eg in examples_pos:
-        out.write(f"""
-(constraint (Start.Sem match_regex \"""")
+        curr_eg = ""
         for c in eg:
             if c >= 10:
-                c = c // 10
-            out.write(f"{c}")
+                curr_eg += "X"
+            else:
+                curr_eg += str(c)
+        list_pos.append(curr_eg)
+    for eg_pos in generate_all_on_list(list_pos):
+        out.write(f"""
+(constraint (Start.Sem match_regex \"""")
+        out.write(f"{eg_pos}")
         out.write("""\" true))""")
 
+    list_neg = [ ]
     for eg in examples_neg:
-        out.write(f"""
-(constraint (Start.Sem match_regex \"""")
+        curr_eg = ""
         for c in eg:
             if c >= 10:
-                c = c // 10
-            out.write(f"{c}")
+                curr_eg += "X"
+            else:
+                curr_eg += str(c)
+        list_neg.append(curr_eg)
+    for eg_neg in generate_all_on_list(list_neg):
+        out.write(f"""
+(constraint (Start.Sem match_regex \"""")
+        out.write(f"{eg_neg}")
         out.write("""\" false))""")
 
     out.write("""
@@ -176,8 +188,21 @@ def gen_regex_file(info, desc):
     return out.getvalue()
 
 
+def generate_all_on_list(listt):
+    output_list = [ ]
+    for string in listt:
+        output_list += generate_all_combinations(string)
+    return output_list
 
+def generate_all_combinations(string):
+    if "X" not in string:
+        return [string]
 
+    i = string.index("X")
+    replace_0 = generate_all_combinations(string[:i] + "0" + string[i+1:])
+    replace_1 = generate_all_combinations(string[:i] + "1" + string[i+1:])
+
+    return replace_0 + replace_1
 
 def get_input_info(examples_pos, examples_neg, wildcard_char):
     charmap = dict()
