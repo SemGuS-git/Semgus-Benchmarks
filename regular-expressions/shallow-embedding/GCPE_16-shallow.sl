@@ -16,7 +16,7 @@
             ($char_0)         ;; (str.to.re "0")
             ($char_1)         ;; (str.to.re "1")
             ($any)            ;; (re.allchar)
-            ($question R)     ;; (re.opt r1)
+            ($opt R)          ;; (re.opt r1)
             ($or R R)         ;; (re.union r1 r2)
             ($concat R R)     ;; (re.++ r1 r2)
             ($star R)         ;; (re.* r1)
@@ -27,7 +27,6 @@
 (define-funs-rec
     (
         (Start.Sem ((t Start) (str String) (result Bool)) Bool)
-        ;;(R.Sem ((t R) (str String) (r1 RegLan)) Bool)
         (R.Sem ((t R) (result RegLan)) Bool)
     )
     
@@ -71,7 +70,7 @@
                     )
                 )
             )
-            (($question t1)
+            (($opt t1)
                 (exists
                     (
                         (r1 RegLan)

@@ -87,7 +87,7 @@ def gen_regex_file(info, desc):
         out.write(f"""($char_{c})
             """)
     out.write("""($any)
-            ($question R)
+            ($opt R)
             ($or R R)
             ($concat R R)
             ($star R)
@@ -224,7 +224,7 @@ def gen_regex_file(info, desc):
 
     #### QUESTION
     out.write("""
-            (($question t1)
+            (($opt t1)
                 (exists
                     (
                         """)

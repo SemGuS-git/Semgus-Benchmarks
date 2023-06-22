@@ -11,7 +11,7 @@
             ($char_0)
             ($char_1)
             ($any)
-            ($question R)
+            ($opt R)
             ($or R R)
             ($concat R R)
             ($star R)
@@ -95,7 +95,7 @@
                     )
                 )
             )
-            (($question t1)
+            (($opt t1)
                 (exists
                     (
                          (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_3_3 Bool)
