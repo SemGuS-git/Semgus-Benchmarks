@@ -42,11 +42,11 @@
             ))
         )) :input (s_0 s_1 s_2) :output (result))
         (! (match t (
-            ($eps (and (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (and (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_2_2 true) (= X_2_3 false) (= X_3_3 true))))
-            ($phi (and (= X_0_0 false) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (and (= X_1_1 false) (= X_1_2 false) (= X_1_3 false) (= X_2_2 false) (= X_2_3 false) (= X_3_3 false))))
-            ($char_1 (and (= X_0_0 false) (= X_0_1 (= s_0 1)) (= X_0_2 false) (= X_0_3 false) (and (= X_1_1 false) (= X_1_2 (= s_1 1)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 1)) (= X_3_3 false)) ))
-            ($char_2 (and (= X_0_0 false) (= X_0_1 (= s_0 2)) (= X_0_2 false) (= X_0_3 false) (and (= X_1_1 false) (= X_1_2 (= s_1 2)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 2)) (= X_3_3 false)) ))
-            ($any (and (= X_0_0 false) (= X_0_1 (> s_0 0)) (= X_0_2 false) (= X_0_3 false) (and (= X_1_1 false) (= X_1_2 (> s_1 0)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (> s_2 0)) (= X_3_3 false))))
+            ($eps (and (= X_0_0 true) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_1_1 true) (= X_1_2 false) (= X_1_3 false) (= X_2_2 true) (= X_2_3 false) (= X_3_3 true)))
+            ($phi (and (= X_0_0 false) (= X_0_1 false) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 false) (= X_1_3 false) (= X_2_2 false) (= X_2_3 false) (= X_3_3 false)))
+            ($char_1 (and (= X_0_0 false) (= X_0_1 (= s_0 1)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (= s_1 1)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 1)) (= X_3_3 false)))
+            ($char_2 (and (= X_0_0 false) (= X_0_1 (= s_0 2)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (= s_1 2)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (= s_2 2)) (= X_3_3 false)))
+            ($any (and (= X_0_0 false) (= X_0_1 (> s_0 0)) (= X_0_2 false) (= X_0_3 false) (= X_1_1 false) (= X_1_2 (> s_1 0)) (= X_1_3 false) (= X_2_2 false) (= X_2_3 (> s_2 0)) (= X_3_3 false)))
             (($or t1 t2)
                 (exists
                     (
