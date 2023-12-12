@@ -6,3 +6,6 @@
 # Emacs things
 *~
 \#*#
+
+# Don't commit parsed benchmark files
+*.sexpr
