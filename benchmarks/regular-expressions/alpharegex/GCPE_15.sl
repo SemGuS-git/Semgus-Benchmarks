@@ -1,6 +1,11 @@
 ;; GCPE_15: except 0 and 1
 
 ;; Positive-example wildcard character: 20 (only matched by `any`)
+
+;; (set-info :format-version "2.2.0")
+;; (set-info :author("Rahul Krishnan" "Wiley Corning"))
+;; (set-info :realizable true)
+
 (declare-term-types
     ;; Nonterminals
     ((Start 0) (R 0))
@@ -12,7 +17,7 @@
             ($char_0)
             ($char_1)
             ($any)
-            ($opt R)
+            ($question R)
             ($or R R)
             ($concat R R)
             ($star R)
@@ -110,7 +115,7 @@
                     )
                 )
             )
-            (($opt t1)
+            (($question t1)
                 (exists
                     (
                          (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_0_4 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_1_4 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_2_4 Bool) (A_3_3 Bool) (A_3_4 Bool) (A_4_4 Bool)

@@ -1,5 +1,10 @@
 ;; GCPE_23: even 0s, 0 followed by 1
 
+;; (set-info :format-version "2.2.0")
+;; (set-info :author("Rahul Krishnan" "Wiley Corning"))
+;; (set-info :realizable true)
+
+
 (declare-term-types
     ;; Nonterminals
     ((Start 0) (R 0))
@@ -11,7 +16,7 @@
             ($char_0)
             ($char_1)
             ($any)
-            ($opt R)
+            ($question R)
             ($or R R)
             ($concat R R)
             ($star R)
@@ -359,7 +364,7 @@
                     )
                 )
             )
-            (($opt t1)
+            (($question t1)
                 (exists
                     (
                          (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_0_4 Bool) (A_0_5 Bool) (A_0_6 Bool) (A_0_7 Bool) (A_0_8 Bool) (A_0_9 Bool) (A_0_10 Bool) (A_0_11 Bool) (A_0_12 Bool) (A_0_13 Bool) (A_0_14 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_1_4 Bool) (A_1_5 Bool) (A_1_6 Bool) (A_1_7 Bool) (A_1_8 Bool) (A_1_9 Bool) (A_1_10 Bool) (A_1_11 Bool) (A_1_12 Bool) (A_1_13 Bool) (A_1_14 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_2_4 Bool) (A_2_5 Bool) (A_2_6 Bool) (A_2_7 Bool) (A_2_8 Bool) (A_2_9 Bool) (A_2_10 Bool) (A_2_11 Bool) (A_2_12 Bool) (A_2_13 Bool) (A_2_14 Bool) (A_3_3 Bool) (A_3_4 Bool) (A_3_5 Bool) (A_3_6 Bool) (A_3_7 Bool) (A_3_8 Bool) (A_3_9 Bool) (A_3_10 Bool) (A_3_11 Bool) (A_3_12 Bool) (A_3_13 Bool) (A_3_14 Bool) (A_4_4 Bool) (A_4_5 Bool) (A_4_6 Bool) (A_4_7 Bool) (A_4_8 Bool) (A_4_9 Bool) (A_4_10 Bool) (A_4_11 Bool) (A_4_12 Bool) (A_4_13 Bool) (A_4_14 Bool) (A_5_5 Bool) (A_5_6 Bool) (A_5_7 Bool) (A_5_8 Bool) (A_5_9 Bool) (A_5_10 Bool) (A_5_11 Bool) (A_5_12 Bool) (A_5_13 Bool) (A_5_14 Bool) (A_6_6 Bool) (A_6_7 Bool) (A_6_8 Bool) (A_6_9 Bool) (A_6_10 Bool) (A_6_11 Bool) (A_6_12 Bool) (A_6_13 Bool) (A_6_14 Bool) (A_7_7 Bool) (A_7_8 Bool) (A_7_9 Bool) (A_7_10 Bool) (A_7_11 Bool) (A_7_12 Bool) (A_7_13 Bool) (A_7_14 Bool) (A_8_8 Bool) (A_8_9 Bool) (A_8_10 Bool) (A_8_11 Bool) (A_8_12 Bool) (A_8_13 Bool) (A_8_14 Bool) (A_9_9 Bool) (A_9_10 Bool) (A_9_11 Bool) (A_9_12 Bool) (A_9_13 Bool) (A_9_14 Bool) (A_10_10 Bool) (A_10_11 Bool) (A_10_12 Bool) (A_10_13 Bool) (A_10_14 Bool) (A_11_11 Bool) (A_11_12 Bool) (A_11_13 Bool) (A_11_14 Bool) (A_12_12 Bool) (A_12_13 Bool) (A_12_14 Bool) (A_13_13 Bool) (A_13_14 Bool) (A_14_14 Bool)

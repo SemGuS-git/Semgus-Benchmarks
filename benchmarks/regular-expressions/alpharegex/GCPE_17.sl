@@ -1,5 +1,10 @@
 ;; GCPE_17: at least one 0 and at most one 1
 
+;; (set-info :format-version "2.2.0")
+;; (set-info :author("Rahul Krishnan" "Wiley Corning"))
+;; (set-info :realizable true)
+
+
 (declare-term-types
     ;; Nonterminals
     ((Start 0) (R 0))
@@ -11,7 +16,7 @@
             ($char_0)
             ($char_1)
             ($any)
-            ($opt R)
+            ($question R)
             ($or R R)
             ($concat R R)
             ($star R)
@@ -209,7 +214,7 @@
                     )
                 )
             )
-            (($opt t1)
+            (($question t1)
                 (exists
                     (
                          (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_0_4 Bool) (A_0_5 Bool) (A_0_6 Bool) (A_0_7 Bool) (A_0_8 Bool) (A_0_9 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_1_4 Bool) (A_1_5 Bool) (A_1_6 Bool) (A_1_7 Bool) (A_1_8 Bool) (A_1_9 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_2_4 Bool) (A_2_5 Bool) (A_2_6 Bool) (A_2_7 Bool) (A_2_8 Bool) (A_2_9 Bool) (A_3_3 Bool) (A_3_4 Bool) (A_3_5 Bool) (A_3_6 Bool) (A_3_7 Bool) (A_3_8 Bool) (A_3_9 Bool) (A_4_4 Bool) (A_4_5 Bool) (A_4_6 Bool) (A_4_7 Bool) (A_4_8 Bool) (A_4_9 Bool) (A_5_5 Bool) (A_5_6 Bool) (A_5_7 Bool) (A_5_8 Bool) (A_5_9 Bool) (A_6_6 Bool) (A_6_7 Bool) (A_6_8 Bool) (A_6_9 Bool) (A_7_7 Bool) (A_7_8 Bool) (A_7_9 Bool) (A_8_8 Bool) (A_8_9 Bool) (A_9_9 Bool)
