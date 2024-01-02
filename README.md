@@ -4,8 +4,12 @@ This repository contains benchmark files for [SemGuS](http://semgus.org). For mo
 
 ## Overview
 The benchmarks are in the `benchmarks` folder and organized into directories based on the domain of the benchmark. These names are somewhat arbitrary,
-as we do not have set "tracks" for SemGuS benchmarks at this time. The `features` folder contains trivially-solvable benchmarks for checking what
-features a SemGuS solver supports; that is, gauging how "general" a solver is.
+as we do not have set "tracks" for SemGuS benchmarks at this time. There are five overall categories:
+* Bitvector benchmarks
+* Boolean formula benchmarks
+* Regular expression benchmarks
+* Benchmarks from Messy (mostly unrealizable)
+* Samples in other domains (integer arithmetic, datatypes, and imperative programs)
 
 ## Benchmark Contributions
 Contributions of new benchmarks are welcome. Open a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) that adds the new benchmarks, and a maintainer will review the submission.
