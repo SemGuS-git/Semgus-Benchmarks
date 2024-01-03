@@ -24,14 +24,14 @@
         )
         ;; Alpha productions
         (
-            ($alpha)
+            ($alpha-a)
             ($concat-a Alpha Alpha)
             ($or-a Alpha Alpha)
             ($star-a Alpha)
         )
         ;; Num productions
         (
-            ($num)
+            ($num-n)
             ($concat-n Num Num)
             ($or-n Num Num)
             ($star-n Num)
@@ -66,7 +66,7 @@
                 ( (A_0_0 Bool) (A_0_1 Bool) (A_0_2 Bool) (A_0_3 Bool) (A_0_4 Bool) (A_1_1 Bool) (A_1_2 Bool) (A_1_3 Bool) (A_1_4 Bool) (A_2_2 Bool) (A_2_3 Bool) (A_2_4 Bool) (A_3_3 Bool) (A_3_4 Bool) (A_4_4 Bool) (B_0_0 Bool) (B_0_1 Bool) (B_0_2 Bool) (B_0_3 Bool) (B_0_4 Bool) (B_1_1 Bool) (B_1_2 Bool) (B_1_3 Bool) (B_1_4 Bool) (B_2_2 Bool) (B_2_3 Bool) (B_2_4 Bool) (B_3_3 Bool) (B_3_4 Bool) (B_4_4 Bool))
                 (and
                     (Entry.Sem t1 s_0 s_1 s_2 s_3 A_0_0 A_0_1 A_0_2 A_0_3 A_0_4 A_1_1 A_1_2 A_1_3 A_1_4 A_2_2 A_2_3 A_2_4 A_3_3 A_3_4 A_4_4)
-                    (Row.Sem t2 s_0 s_1 s_2 s_3 A_0_0 A_0_1 A_0_2 A_0_3 A_0_4 A_1_1 A_1_2 A_1_3 A_1_4 A_2_2 A_2_3 A_2_4 A_3_3 A_3_4 A_4_4)
+                    (Row.Sem t2 s_0 s_1 s_2 s_3 B_0_0 B_0_1 B_0_2 B_0_3 B_0_4 B_1_1 B_1_2 B_1_3 B_1_4 B_2_2 B_2_3 B_2_4 B_3_3 B_3_4 B_4_4)
                     (and
                         (= X_0_0 false) 
                         (= X_0_1 (and A_0_0 (= s_0 ",") B_1_1))
@@ -96,7 +96,7 @@
             )
         )) :input ( s_0 s_1 s_2 s_3) :output ( X_0_0 X_0_1 X_0_2 X_0_3 X_0_4 X_1_1 X_1_2 X_1_3 X_1_4 X_2_2 X_2_3 X_2_4 X_3_3 X_3_4 X_4_4))
         (! (match at (
-            ($alpha (and  (= X_0_0 false) (= X_0_1 (and (str.<= "a" s_0) (str.<= s_0 "z"))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_1_1 false) (= X_1_2 (and (str.<= "a" s_1) (str.<= s_1 "z"))) (= X_1_3 false) (= X_1_4 false) (= X_2_2 false) (= X_2_3 (and (str.<= "a" s_2) (str.<= s_2 "z"))) (= X_2_4 false) (= X_3_3 false) (= X_3_4 (and (str.<= "a" s_3) (str.<= s_3 "z"))) (= X_4_4 false)))
+            ($alpha-a (and  (= X_0_0 false) (= X_0_1 (and (str.<= "a" s_0) (str.<= s_0 "z"))) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_1_1 false) (= X_1_2 (and (str.<= "a" s_1) (str.<= s_1 "z"))) (= X_1_3 false) (= X_1_4 false) (= X_2_2 false) (= X_2_3 (and (str.<= "a" s_2) (str.<= s_2 "z"))) (= X_2_4 false) (= X_3_3 false) (= X_3_4 (and (str.<= "a" s_3) (str.<= s_3 "z"))) (= X_4_4 false)))
             (($or-a t1 t2)
                 (exists
                     (
@@ -193,7 +193,7 @@
             )
         )) :input ( s_0 s_1 s_2 s_3) :output ( X_0_0 X_0_1 X_0_2 X_0_3 X_0_4 X_1_1 X_1_2 X_1_3 X_1_4 X_2_2 X_2_3 X_2_4 X_3_3 X_3_4 X_4_4))
         (! (match nt (
-            ($num (and  (= X_0_0 false) (= X_0_1 (str.is_digit s_0)) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_1_1 false) (= X_1_2 (str.is_digit s_1)) (= X_1_3 false) (= X_1_4 false) (= X_2_2 false) (= X_2_3 (str.is_digit s_2)) (= X_2_4 false) (= X_3_3 false) (= X_3_4 (str.is_digit s_3)) (= X_4_4 false)))
+            ($num-n (and  (= X_0_0 false) (= X_0_1 (str.is_digit s_0)) (= X_0_2 false) (= X_0_3 false) (= X_0_4 false) (= X_1_1 false) (= X_1_2 (str.is_digit s_1)) (= X_1_3 false) (= X_1_4 false) (= X_2_2 false) (= X_2_3 (str.is_digit s_2)) (= X_2_4 false) (= X_3_3 false) (= X_3_4 (str.is_digit s_3)) (= X_4_4 false)))
             (($or-n t1 t2)
                 (exists
                     (
