@@ -1,0 +1,245 @@
+[
+    {
+        "name": "P1",
+        "inputs": 1,
+        "prods": ["bvsub", "bvand"],
+        "consts": [1],
+        "numImpVars": 1, 
+        "description": "turn off right-most 1 bit",
+        "constraints": ["#x00000004 #x00000003", "#x01111111 #x01111110", "#x00000001 #x00000000"],
+        "logical": "(bvand x (bvsub x #x00000001))"
+    },
+    {
+        "name": "P2",
+        "inputs": 1,
+        "prods": ["bvadd", "bvand"],
+        "consts": [1],
+        "numImpVars": 1,
+        "description": "test if an unsigned int is of the form 2^{n-1}",
+        "constraints": ["#x00000000 #x00000000", "#xffffffff #x00000000", "#xf1f1f2ff #xf1f1f200"],
+        "logical": "(bvand x (bvadd x #x00000001))"
+    },
+    {
+        "name": "P3",
+        "inputs": 1,
+        "prods": ["bvneg", "bvand"],
+        "consts": [],
+        "numImpVars": 1,
+        "description": "isolate the right-most 1 bit",
+        "constraints": ["#xf0000000 #x10000000", "#xffffffff #x00000001", "#x0000000e #x00000002"],
+        "logical": "(bvand x (bvneg x))"
+    },
+    {
+        "name": "P4",
+        "inputs": 1,
+        "prods": ["bvsub", "bvxor"],
+        "consts": [1],
+        "numImpVars": 1,
+        "description": "form a mask that identifies the rightmost 1 bit and trailing 0's",
+        "constraints": ["#x00000000 #xffffffff", "#x00010000 #x0001ffff", "#x00ef4000 #x00007fff"],
+        "logical": "(bvxor x (bvsub x #x00000001))"
+    },
+    {
+        "name": "P5",
+        "inputs": 1,
+        "prods": ["bvsub", "bvor"],
+        "consts": [1],
+        "numImpVars": 1,
+        "description": "right propogate right-most 1 bit",
+        "constraints": ["#x00000000 #xffffffff", "#x00010000 #x0001ffff", "#x0b000020 #x0b00003f"],
+        "logical": "(bvor x (bvsub x #x00000001))"
+    },
+    {
+        "name": "P6",
+        "inputs": 1,
+        "prods": ["bvadd", "bvor"],
+        "consts": [1],
+        "numImpVars": 1,
+        "description": "turn on the right-most 0 bit in a word",
+        "constraints": ["#x00000000 #x00000001", "#x0000bfff #x0000ffff", "#xeeeaffff #xeeebffff"],
+        "logical": "(bvor x (bvadd x #x00000001))"
+    },
+    {
+        "name": "P7",
+        "inputs": 1,
+        "prods": ["bvnot", "bvadd", "bvand"],
+        "consts": [1],
+        "numImpVars": 2,
+        "description": "isolate the right-most 0 bit",
+        "constraints": ["#x00000000 #x00000001", "#x00000001 #x00000002", "#x0000eebf #x00000040"],
+        "logical": "(bvand (bvnot x) (bvadd x #x00000001))"
+    },
+    {
+        "name": "P8",
+        "inputs": 1,
+        "prods": ["bvsub", "bvnot", "bvand"],
+        "consts": [1],
+        "numImpVars": 2,
+        "description": "form a mask that identifies the trailing 0's",
+        "constraints": ["#x00000000 #xffffffff", "#x00000001 #x00000000", "#x000f0000 #x0000ffff"],
+        "logical": "(bvand (bvsub x #x00000001) (bvnot x))"
+    },
+    {
+        "name": "P9",
+        "inputs": 1,
+        "prods": ["bvshr", "bvxor", "bvsub"],
+        "consts": [31],
+        "numImpVars": 2,
+        "description": "function computing absolute value",
+        "constraints": ["#x00000000 #x00000000", "#xffffffff #xfffffffd", "#xfffffff1 #xffffffef"],
+        "logical": "(bvsub (bvxor x (bvlshr x #x0000001f)) (bvlshr x #x0000001f))"
+    },
+    {
+        "name": "P10",
+        "inputs": 2,
+        "prods": ["bvand", "bvxor"],
+        "consts": [],
+        "numImpVars": 2,
+        "isBool": 1,
+        "description": "test if number of leading zeroes is same on both inputs",
+        "constraints": ["#x00000000 #x00000000 true", "#x00000000 #x01000000 false", "#x00000101 #x000001ff true"],
+        "logical": "(bvule (bvxor x y) (bvand x y))"
+    },
+    {
+        "name": "P11",
+        "inputs": 2,
+        "prods": ["bvnot", "bvand"],
+        "consts": [],
+        "numImpVars": 2,
+        "isBool": 1,
+        "description": "test if number of leading zeroes is less on first input than the second",
+        "constraints": ["#x00000000 #x00000000 false", "#x00000100 #x00000000 true", "#x000001ff #x000000ff true"],
+        "logical": "(bvugt (bvand x (bvnot y)) y)"
+    },
+    {
+        "name": "P12",
+        "inputs": 2,
+        "prods": ["bvnot", "bvand"],
+        "consts": [],
+        "numImpVars": 2,
+        "isBool": 1,
+        "description": "test if number of leadering zeroes on first input is less than or equal to that of the second input",
+        "constraints": ["#x00000000 #x00000000 true", "#x000ff000 #x0000ffff true", "#x0000ffff #x10000000 false"],
+        "logical": "(bvule (bvand x (bvnot y)) y)"
+    },
+    {
+        "name": "P13",
+        "inputs": 1,
+        "prods": ["bvshr", "bvneg", "bvor"],
+        "consts": [31],
+        "numImpVars": 3,
+        "description": "computes the sign function",
+        "logical": "(bvor (bvlshr x #x0000001f) (bvlshr (bvneg x) #x0000001f))"
+    },
+    {
+        "name": "P14",
+        "inputs": 2,
+        "prods": ["bvand", "bvxor", "bvshr", "bvadd"],
+        "consts": [1],
+        "numImpVars": 3,
+        "description": "computes the floor of the average of two integers without overflowing",
+        "logical": "(bvadd (bvand x y) (bvlshr (bvxor x y) #x00000001))"
+    },
+    {
+        "name": "P15",
+        "inputs": 2,
+        "prods": ["bvor", "bvxor", "bvshr", "bvsub"],
+        "consts": [1],
+        "numImpVars": 3,
+        "description": "computes the ceiling of the average of two integers without overflowing",
+        "logical": "(bvsub (bvor x y) (bvlshr (bvxor x y) #x00000001))"
+    },
+    {
+        "name": "P16",
+        "inputs": 2,
+        "prods": ["bvxor", "bvneg", "bvuge", "bvand"],
+        "consts": [],
+        "numImpVars": 4,
+        "description": "compute the max of two integers",
+        "logical": "(bvxor (bvand (bvxor x y) (bvneg (ite (bvuge x y) #x00000001 #x00000000))) y)"
+    },
+    {
+        "name": "P17",
+        "inputs": 1,
+        "prods": ["bvsub", "bvor", "bvadd", "bvand"],
+        "consts": [1],
+        "numImpVars": 3,
+        "description": "turn off the right-most contiguous string of 1's",
+        "logical": "(bvand (bvadd (bvor x (bvsub x #x00000001)) #x00000001) x)"
+    },
+    {
+        "name": "P18",
+        "inputs": 1,
+        "prods": ["bvsub", "bvand", "bvnot", "bvredor"],
+        "consts": [1],
+        "numImpVars": 5,
+        "description": "determine if an integers is a power of 2",
+        "logical": "(bvand (bvnot (ite (= (bvand (bvsub x #x00000001) x) #x00000000) #x00000000 #x00000001)) (ite (= x #x00000000) #x00000000 #x00000001))"
+    },
+    {
+        "name": "P19",
+        "inputs": 3,
+        "prods": ["bvshr", "bvxor", "bvand", "bvshl"],
+        "consts": [],
+        "numImpVars": 5,
+        "description": "Exchanging 2 fields A and B of the same register of first input where second input is mask which identifies field B and third input is number of bits from end of A to start of B",
+        "logical": "(bvxor (bvxor (bvshl (bvand (bvxor x (bvlshr x z)) y) z) (bvand (bvxor x (bvlshr x z)) y)) x)"
+    },
+    {
+        "name": "P20",
+        "inputs": 1,
+        "prods": ["bvneg", "bvand", "bvadd", "bvxor", "bvshr", "bvdiv", "bvor"],
+        "consts": [2],
+        "numImpVars": 6,
+        "description": "next higher unsigned number with same number of 1 bits",
+        "logical": "(bvor (bvudiv (bvlshr (bvxor x (bvand x (bvneg x))) #x00000002) (bvand x (bvneg x))) (bvadd x (bvand x (bvneg x))))"
+    },
+    {
+        "name": "P21",
+        "inputs": 4,
+        "prods": ["bvneg", "bveq", "bvxor", "bvand"],
+        "consts": [],
+        "numImpVars": 7,
+        "description": "cycling through values of the last 3 inputs",
+        "logical": "(bvxor (bvxor (bvand (bvneg (ite (bveq x w) #x00000001 #x00000000)) (bvxor y w)) (bvand (bvneg (ite (bveq x y) #x00000001 #x00000000)) (bvxor z w))) w)"
+    },
+    {
+        "name": "P22",
+        "inputs": 1,
+        "prods": ["bvshr", "bvxor", "bvand", "bvmul"],
+        "consts": [1, 28, 286331153],
+        "numImpVars": 7,
+        "description": "compute parity",
+        "logical": "(bvand (bvlshr (bvmul (bvand (bvxor (bvxor (bvlshr x #x00000001) x) (bvlshr (bvxor (bvlshr x #x00000001) x) #x00000002)) #x11111111) #x11111111) #x0000001c) #x00000001)"
+    },
+    {
+        "name": "P23",
+        "inputs": 1,
+        "prods": ["bvshr", "bvand", "bvsub", "bvadd"],
+        "consts": [1, 1431655765, 858993459, 4, 252645135],
+        "numImpVars": 9,
+        "description": "counting number of bits",
+        "subterms": {"co1": "(bvlshr x #x00000001)", "co2": "(bvand (co1 x) #x55555555)", "co3": "(bvsub x (co2 x))", "co4": "(bvand (co3 x) #x33333333)", "co5": "(bvlshr (co3 x) #x00000002)", "co6": "(bvand (co3 x) #x33333333)", "co7": "(bvadd (co4 x) (co6 x))", "co8": "(bvlshr (co7 x) #x00000004)", "co9": "(bvadd (co8 x) (co7 x))"},
+        "logical": "(bvand (co9 x) #x0f0f0f0f)"
+    },
+    {
+        "name": "P24",
+        "inputs": 1,
+        "prods": ["bvsub", "bvshr", "bvor", "bvadd"],
+        "consts": [1,2,4,8,16],
+        "numImpVars": 11,
+        "description": "round up to next highest power of 2",
+        "subterms": {"co1": "(bvsub x #x00000001)", "co2": "(bvlshr (co1 x) #x00000001)", "co3": "(bvor (co1 x) (co2 x))", "co4": "(bvlshr (co3 x) #x00000002)", "co5": "(bvor (co3 x) (co4 x))", "co6": "(bvlshr (co5 x) #x00000004)", "co7": "(bvor (co5 x) (co6 x))", "co8": "(bvlshr (co7 x) #x00000008)", "co9": "(bvor (co7 x) (co8 x))", "co10": "(bvlshr (co9 x) #x00000010)", "co11": "(bvor (co9 x) (co10 x))"},
+        "logical": "(bvadd (co10 x) #x00000001)"
+    },
+    {
+        "name": "P25",
+        "inputs": 2,
+        "prods": ["bvand", "bvshr", "bvmul", "bvadd"],
+        "consts": [65535, 16],
+        "numImpVars": 15,
+        "description": "compute higher order half of product of inputs",
+        "subterms": {"co1": "(bvand x #x0000ffff)", "co2": "(bvlshr x #x00000010)", "co3": "(bvand y #x0000ffff)", "co4": "(bvlshr y #x00000010)", "co5": "(bvmul (co1 x y) (co3 x y))", "co6": "(bvmul (co2 x y) (co3 x y))", "co7": "(bvmul (co1 x y) (co4 x y))", "co8": "(bvmul (co2 x y) (co4 x y))", "co9": "(bvlshr (co5 x y) #x00000010)", "co10": "(bvadd (co6 x y) (co9 x y))", "co11": "(bvand (co10 x y) #x0000ffff)", "co12": "(bvlshr (co10 x y) #x00000010)", "co13": "(bvadd (co7 x y) (co11 x y))", "co14": "(bvlshr (co13 x y) #x00000010)", "co15": "(bvadd (co14 x y) (co12 x y))"},
+        "logical": "(bvadd (co15 x y) (co8 x y))"
+    }
+]

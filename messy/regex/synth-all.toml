@@ -1,5 +1,0 @@
-includes = [
-    "unit-tests.toml",
-    "fixed-length/linear/synth-all.toml",
-    "fixed-length/logarithmic/synth-all.toml",
-]

@@ -42,6 +42,12 @@ jobs:
         failed=0
         readarray -t changed_files <<<"$(jq -r '.[]' <<<'${{ steps.changed_files.outputs.all }}')"
         for changed_file in ${changed_files[@]}; do
+
+          if [ ! -f "${changed_file}" ]; then
+            echo "File doesn't exist - must have been deleted: ${changed_file}"
+            continue
+          fi
+        
           case "${changed_file}" in
             *.sem|*.sy|*.sl)
               echo "Checking benchmark: ${changed_file}"
