@@ -1,5 +1,3 @@
-SAME AS XOR_01
-
 (declare-term-types
 ((E 0) (Start 0) (Start1 0) (V 0))
 ((($bvxor V V))

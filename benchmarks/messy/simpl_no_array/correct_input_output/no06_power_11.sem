@@ -95,6 +95,6 @@
 (constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_11 n 1 a 0 1 0)))
 (constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_11 n 1 a 1 1 1)))
 (constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_11 n 27 a 3 1 3)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_115 n 25 a 2 1 )))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_11 n 25 a 2 1 5)))
 
 (check-synth)
