@@ -1,0 +1,62 @@
+(declare-term-types
+((B 0) (E1 0) (S 0) (Start 0))
+((($bvult E1 E1))
+(($bvor E1 E1)
+($IBVVary )
+($bvadd E1 E1)
+($bvand E1 E1)
+($IBVVarx ))
+(($bv=x E1)
+($seq S S))
+(($while B S))))
+
+
+(define-funs-rec
+((B.Sem ((B_term_0 B) (r__0 Bool) (x (_ BitVec 32)) (y (_ BitVec 32))) Bool)
+(E1.Sem ((E1_term_0 E1) (r__0 (_ BitVec 32)) (x (_ BitVec 32)) (y (_ BitVec 32))) Bool)
+(S.Sem ((S_term_0 S) (x_r0 (_ BitVec 32)) (y_r0 (_ BitVec 32)) (x (_ BitVec 32)) (y (_ BitVec 32))) Bool)
+(Start.Sem ((Start_term_0 Start) (x_r0 (_ BitVec 32)) (y_r0 (_ BitVec 32)) (x (_ BitVec 32)) (y (_ BitVec 32))) Bool))
+
+((match B_term_0
+  ((($bvult E1_term_1 E1_term_2) (exists ((r__1 (_ BitVec 32)) (r__2 (_ BitVec 32))) (and (= r__0 (bvult r__1 r__2))
+  (E1.Sem E1_term_1 r__1 x y)
+  (E1.Sem E1_term_2 r__2 x y))))))
+(match E1_term_0
+  ((($bvor E1_term_1 E1_term_2) (exists ((r__1 (_ BitVec 32)) (r__2 (_ BitVec 32))) (and (= r__0 (bvor r__1 r__2))
+  (E1.Sem E1_term_1 r__1 x y)
+  (E1.Sem E1_term_2 r__2 x y))))
+($IBVVary (exists ((r__1 (_ BitVec 32))) (and (= r__0 r__1)
+  (= r__1 y))))
+(($bvadd E1_term_1 E1_term_2) (exists ((r__1 (_ BitVec 32)) (r__2 (_ BitVec 32))) (and (= r__0 (bvadd r__1 r__2))
+  (E1.Sem E1_term_1 r__1 x y)
+  (E1.Sem E1_term_2 r__2 x y))))
+(($bvand E1_term_1 E1_term_2) (exists ((r__1 (_ BitVec 32)) (r__2 (_ BitVec 32))) (and (= r__0 (bvand r__1 r__2))
+  (E1.Sem E1_term_1 r__1 x y)
+  (E1.Sem E1_term_2 r__2 x y))))
+($IBVVarx (exists ((r__1 (_ BitVec 32))) (and (= r__0 r__1)
+  (= r__1 x))))))
+(match S_term_0
+  ((($bv=x E1_term_1) (exists ((r__1 (_ BitVec 32))) (and (and (= x_r0 r__1)
+  (= y y_r0))
+  (E1.Sem E1_term_1 r__1 x y))))
+(($seq S_term_1 S_term_2) (exists ((x_r1 (_ BitVec 32)) (y_r1 (_ BitVec 32))) (and (S.Sem S_term_1 x_r1 y_r1 x y)
+  (S.Sem S_term_2 x_r0 y_r0 x_r1 y_r1))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (x_r2 (_ BitVec 32)) (y_r2 (_ BitVec 32))) (and r__1
+  (B.Sem B_term_1 r__1 x y)
+  (S.Sem S_term_2 x_r2 y_r2 x y)
+  (Start.Sem Start_term_0 x_r0 y_r0 x_r2 y_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 x y)
+  (and (= x x_r0)
+  (= y y_r0)))))))))
+
+
+(synth-fun BVtest_While_02_XOR_by_AND_OR_ADD() Start)
+
+
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x0000000f y #x00000009 #x00000006)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x000000db y #x000000f7 #x0000002c)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x00000001 y #x0000000e #x0000000f)))
+
+(check-synth)

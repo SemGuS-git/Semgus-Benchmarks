@@ -1,0 +1,73 @@
+(declare-term-types
+((B 0) (E 0) (RN1 0) (S 0) (Start 0))
+((($< RN1 E))
+(($IVarz )
+($IVarx )
+($+ E E)
+($IVarv )
+($IVary )
+($IVarw )
+($IInt1 ))
+(($IVarx ))
+(($int=x E))
+(($while B S))))
+
+
+(define-funs-rec
+((B.Sem ((B_term_0 B) (r__0 Bool) (w Int) (z Int) (y Int) (x Int) (v Int)) Bool)
+(E.Sem ((E_term_0 E) (r__0 Int) (w Int) (z Int) (y Int) (x Int) (v Int)) Bool)
+(RN1.Sem ((RN1_term_0 RN1) (r__0 Int) (w Int) (z Int) (y Int) (x Int) (v Int)) Bool)
+(S.Sem ((S_term_0 S) (w_r0 Int) (z_r0 Int) (y_r0 Int) (x_r0 Int) (v_r0 Int) (w Int) (z Int) (y Int) (x Int) (v Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (w_r0 Int) (z_r0 Int) (y_r0 Int) (x_r0 Int) (v_r0 Int) (w Int) (z Int) (y Int) (x Int) (v Int)) Bool))
+
+((match B_term_0
+  ((($< RN1_term_1 E_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (RN1.Sem RN1_term_1 r__1 w z y x v)
+  (E.Sem E_term_2 r__2 w z y x v))))))
+(match E_term_0
+  (($IVarz (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 z))))
+($IVarx (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 x))))
+(($+ E_term_1 E_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (E.Sem E_term_1 r__1 w z y x v)
+  (E.Sem E_term_2 r__2 w z y x v))))
+($IVarv (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 v))))
+($IVary (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 y))))
+($IVarw (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 w))))
+($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))))
+(match RN1_term_0
+  (($IVarx (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 x))))))
+(match S_term_0
+  ((($int=x E_term_1) (exists ((r__1 Int)) (and (and (= w w_r0)
+  (= z z_r0)
+  (= y y_r0)
+  (= x r__1)
+  (= v v_r0))
+  (E.Sem E_term_1 r__1 w z y x v))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (w_r2 Int) (z_r2 Int) (y_r2 Int) (x_r2 Int) (v_r2 Int)) (and r__1
+  (B.Sem B_term_1 r__1 w z y x v)
+  (S.Sem S_term_2 w_r2 z_r2 y_r2 x_r2 v_r2 w z y x v)
+  (Start.Sem Start_term_0 w_r0 z_r0 y_r0 x_r0 v_r0 w_r2 z_r2 y_r2 x_r2 v_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 w z y x v)
+  (and (= w w_r0)
+  (= z z_r0)
+  (= y y_r0)
+  (= x x_r0)
+  (= v v_r0)))))))))
+
+
+(synth-fun basicTest_SumByWhileLoop_01() Start)
+
+
+(constraint (exists ((v Int) (y Int) (z Int) (w Int)) (Start.Sem basicTest_SumByWhileLoop_01 w z y 15 v 2 5 4 3 1)))
+(constraint (exists ((v Int) (y Int) (z Int) (w Int)) (Start.Sem basicTest_SumByWhileLoop_01 w z y 70 v 21 16 13 11 9)))
+
+(check-synth)

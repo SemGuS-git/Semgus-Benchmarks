@@ -1,0 +1,78 @@
+(declare-term-types
+((A 0) (B 0) (E 0) (N 0) (ON 0) (RN1 0) (S 0) (S1 0) (S2 0) (Start 0))
+((($IVarx ))
+(($< RN1 N))
+(($+ A A)
+($- A A))
+(($IVarn ))
+(($IInt1 ))
+(($IInt1 ))
+(($seq S1 S2))
+(($int=x E))
+(($int=n ON))
+(($while B S))))
+
+
+(define-funs-rec
+((A.Sem ((A_term_0 A) (r__0 Int) (x Int) (n Int)) Bool)
+(B.Sem ((B_term_0 B) (r__0 Bool) (x Int) (n Int)) Bool)
+(E.Sem ((E_term_0 E) (r__0 Int) (x Int) (n Int)) Bool)
+(N.Sem ((N_term_0 N) (r__0 Int) (x Int) (n Int)) Bool)
+(ON.Sem ((ON_term_0 ON) (r__0 Int) (x Int) (n Int)) Bool)
+(RN1.Sem ((RN1_term_0 RN1) (r__0 Int) (x Int) (n Int)) Bool)
+(S.Sem ((S_term_0 S) (x_r0 Int) (n_r0 Int) (x Int) (n Int)) Bool)
+(S1.Sem ((S1_term_0 S1) (x_r0 Int) (n_r0 Int) (x Int) (n Int)) Bool)
+(S2.Sem ((S2_term_0 S2) (x_r0 Int) (n_r0 Int) (x Int) (n Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (x_r0 Int) (n_r0 Int) (x Int) (n Int)) Bool))
+
+((match A_term_0
+  (($IVarx (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 x))))))
+(match B_term_0
+  ((($< RN1_term_1 N_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (RN1.Sem RN1_term_1 r__1 x n)
+  (N.Sem N_term_2 r__2 x n))))))
+(match E_term_0
+  ((($+ A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (A.Sem A_term_1 r__1 x n)
+  (A.Sem A_term_2 r__2 x n))))
+(($- A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (- r__1 r__2))
+  (A.Sem A_term_1 r__1 x n)
+  (A.Sem A_term_2 r__2 x n))))))
+(match N_term_0
+  (($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match ON_term_0
+  (($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))))
+(match RN1_term_0
+  (($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))))
+(match S_term_0
+  ((($seq S1_term_1 S2_term_2) (exists ((x_r1 Int) (n_r1 Int)) (and (S1.Sem S1_term_1 x_r1 n_r1 x n)
+  (S2.Sem S2_term_2 x_r0 n_r0 x_r1 n_r1))))))
+(match S1_term_0
+  ((($int=x E_term_1) (exists ((r__1 Int)) (and (and (= x r__1)
+  (= n n_r0))
+  (E.Sem E_term_1 r__1 x n))))))
+(match S2_term_0
+  ((($int=n ON_term_1) (exists ((r__1 Int)) (and (and (= x x_r0)
+  (= n r__1))
+  (ON.Sem ON_term_1 r__1 x n))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (x_r2 Int) (n_r2 Int)) (and r__1
+  (B.Sem B_term_1 r__1 x n)
+  (S.Sem S_term_2 x_r2 n_r2 x n)
+  (Start.Sem Start_term_0 x_r0 n_r0 x_r2 n_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 x n)
+  (and (= x x_r0)
+  (= n n_r0)))))))))
+
+
+(synth-fun minimal_unsat() Start)
+
+
+(constraint (exists ((n Int)) (Start.Sem minimal_unsat 2 n 5 4)))
+
+(check-synth)

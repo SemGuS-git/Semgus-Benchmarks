@@ -1,0 +1,73 @@
+(declare-term-types
+((A 0) (B 0) (S 0) (S1 0) (Start 0))
+((($IVart1 )
+($IInt0 )
+($IVarr )
+($IVarn )
+($IInt1 ))
+(($< A A))
+(($seq S1 S1))
+(($int=r A)
+($int=t1 A)
+($int=n A))
+(($while B S))))
+
+
+(define-funs-rec
+((A.Sem ((A_term_0 A) (r__0 Int) (n Int) (r Int) (t1 Int)) Bool)
+(B.Sem ((B_term_0 B) (r__0 Bool) (n Int) (r Int) (t1 Int)) Bool)
+(S.Sem ((S_term_0 S) (n_r0 Int) (r_r0 Int) (t1_r0 Int) (n Int) (r Int) (t1 Int)) Bool)
+(S1.Sem ((S1_term_0 S1) (n_r0 Int) (r_r0 Int) (t1_r0 Int) (n Int) (r Int) (t1 Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (n_r0 Int) (r_r0 Int) (t1_r0 Int) (n Int) (r Int) (t1 Int)) Bool))
+
+((match A_term_0
+  (($IVart1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 t1))))
+($IInt0 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 0))))
+($IVarr (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 r))))
+($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))
+($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))))
+(match B_term_0
+  ((($< A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (A.Sem A_term_1 r__1 n r t1)
+  (A.Sem A_term_2 r__2 n r t1))))))
+(match S_term_0
+  ((($seq S1_term_1 S1_term_2) (exists ((n_r1 Int) (r_r1 Int) (t1_r1 Int)) (and (S1.Sem S1_term_1 n_r1 r_r1 t1_r1 n r t1)
+  (S1.Sem S1_term_2 n_r0 r_r0 t1_r0 n_r1 r_r1 t1_r1))))))
+(match S1_term_0
+  ((($int=r A_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r__1)
+  (= t1 t1_r0))
+  (A.Sem A_term_1 r__1 n r t1))))
+(($int=t1 A_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r_r0)
+  (= t1 r__1))
+  (A.Sem A_term_1 r__1 n r t1))))
+(($int=n A_term_1) (exists ((r__1 Int)) (and (and (= n r__1)
+  (= r r_r0)
+  (= t1 t1_r0))
+  (A.Sem A_term_1 r__1 n r t1))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (n_r2 Int) (r_r2 Int) (t1_r2 Int)) (and r__1
+  (B.Sem B_term_1 r__1 n r t1)
+  (S.Sem S_term_2 n_r2 r_r2 t1_r2 n r t1)
+  (Start.Sem Start_term_0 n_r0 r_r0 t1_r0 n_r2 r_r2 t1_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 n r t1)
+  (and (= n n_r0)
+  (= r r_r0)
+  (= t1 t1_r0)))))))))
+
+
+(synth-fun no04_sigmaSquare_05() Start)
+
+
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_05 n 1 t1 1 0 4123)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_05 n 5 t1 2 0 4123)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_05 n 14 t1 3 0 4123)))
+
+(check-synth)

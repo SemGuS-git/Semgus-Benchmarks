@@ -1,0 +1,65 @@
+(declare-term-types
+((A 0) (B 0) (E 0) (S 0) (Start 0))
+((($IVarr )
+($IVarn ))
+(($< A A))
+(($+ A A)
+($- A A))
+(($seq S S)
+($int=r E)
+($int=n E))
+(($while B S))))
+
+
+(define-funs-rec
+((A.Sem ((A_term_0 A) (r__0 Int) (n Int) (r Int)) Bool)
+(B.Sem ((B_term_0 B) (r__0 Bool) (n Int) (r Int)) Bool)
+(E.Sem ((E_term_0 E) (r__0 Int) (n Int) (r Int)) Bool)
+(S.Sem ((S_term_0 S) (n_r0 Int) (r_r0 Int) (n Int) (r Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (n_r0 Int) (r_r0 Int) (n Int) (r Int)) Bool))
+
+((match A_term_0
+  (($IVarr (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 r))))
+($IVarn (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 n))))))
+(match B_term_0
+  ((($< A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (< r__1 r__2))
+  (A.Sem A_term_1 r__1 n r)
+  (A.Sem A_term_2 r__2 n r))))))
+(match E_term_0
+  ((($+ A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (A.Sem A_term_1 r__1 n r)
+  (A.Sem A_term_2 r__2 n r))))
+(($- A_term_1 A_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (- r__1 r__2))
+  (A.Sem A_term_1 r__1 n r)
+  (A.Sem A_term_2 r__2 n r))))))
+(match S_term_0
+  ((($seq S_term_1 S_term_2) (exists ((n_r1 Int) (r_r1 Int)) (and (S.Sem S_term_1 n_r1 r_r1 n r)
+  (S.Sem S_term_2 n_r0 r_r0 n_r1 r_r1))))
+(($int=r E_term_1) (exists ((r__1 Int)) (and (and (= n n_r0)
+  (= r r__1))
+  (E.Sem E_term_1 r__1 n r))))
+(($int=n E_term_1) (exists ((r__1 Int)) (and (and (= n r__1)
+  (= r r_r0))
+  (E.Sem E_term_1 r__1 n r))))))
+(match Start_term_0
+  ((($while B_term_1 S_term_2) (exists ((r__1 Bool) (n_r2 Int) (r_r2 Int)) (and r__1
+  (B.Sem B_term_1 r__1 n r)
+  (S.Sem S_term_2 n_r2 r_r2 n r)
+  (Start.Sem Start_term_0 n_r0 r_r0 n_r2 r_r2)))
+(exists ((r__1 Bool)) (and (not r__1)
+  (B.Sem B_term_1 r__1 n r)
+  (and (= n n_r0)
+  (= r r_r0)))))))))
+
+
+(synth-fun no03_sigmaTest_02() Start)
+
+
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_02 n 0 0 0)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_02 n 1 1 0)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_02 n 3 2 0)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_02 n 6 3 0)))
+
+(check-synth)

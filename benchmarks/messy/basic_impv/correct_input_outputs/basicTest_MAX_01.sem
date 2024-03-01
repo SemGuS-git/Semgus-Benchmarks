@@ -1,0 +1,45 @@
+(declare-term-types
+((E 0) (Start 0))
+((($IVarx )
+($IVary )
+($IInt1 )
+($IInt0 )
+($+ E E))
+(($int=y E)
+($int=x E))))
+
+
+(define-funs-rec
+((E.Sem ((E_term_0 E) (r__0 Int) (x Int) (y Int)) Bool)
+(Start.Sem ((Start_term_0 Start) (x_r0 Int) (y_r0 Int) (x Int) (y Int)) Bool))
+
+((match E_term_0
+  (($IVarx (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 x))))
+($IVary (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 y))))
+($IInt1 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 1))))
+($IInt0 (exists ((r__1 Int)) (and (= r__0 r__1)
+  (= r__1 0))))
+(($+ E_term_1 E_term_2) (exists ((r__1 Int) (r__2 Int)) (and (= r__0 (+ r__1 r__2))
+  (E.Sem E_term_1 r__1 x y)
+  (E.Sem E_term_2 r__2 x y))))))
+(match Start_term_0
+  ((($int=y E_term_1) (exists ((r__1 Int)) (and (and (= x x_r0)
+  (= y r__1))
+  (E.Sem E_term_1 r__1 x y))))
+(($int=x E_term_1) (exists ((r__1 Int)) (and (and (= x r__1)
+  (= y y_r0))
+  (E.Sem E_term_1 r__1 x y))))))))
+
+
+(synth-fun basicTest_MAX_01() Start)
+
+
+(constraint (Start.Sem basicTest_MAX_01 4 1 4 1))
+(constraint (Start.Sem basicTest_MAX_01 6 2 2 6))
+(constraint (Start.Sem basicTest_MAX_01 1 1 1 1))
+(constraint (Start.Sem basicTest_MAX_01 8 8 8 8))
+
+(check-synth)
