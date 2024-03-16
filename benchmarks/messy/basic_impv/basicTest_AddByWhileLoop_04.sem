@@ -58,8 +58,8 @@
 (synth-fun basicTest_AddByWhileLoop_04() Start)
 
 
-(constraint (Start.Sem basicTest_AddByWhileLoop_04 4 10 10 10))
-(constraint (Start.Sem basicTest_AddByWhileLoop_04 12 20 20 20))
-(constraint (Start.Sem basicTest_AddByWhileLoop_04 20 12 12 12))
+(constraint (Start.Sem basicTest_AddByWhileLoop_04 10 10 4 10))
+(constraint (Start.Sem basicTest_AddByWhileLoop_04 20 20 12 20))
+(constraint (Start.Sem basicTest_AddByWhileLoop_04 12 12 20 12))
 
 (check-synth)

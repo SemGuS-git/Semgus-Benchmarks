@@ -93,9 +93,9 @@
 (synth-fun no13_fibonacci_09() Start)
 
 
-(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 1 1 1 n 1 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 2 1 1 n 1 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 3 1 1 n 2 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 8 1 1 n 21 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 n 1 a 1 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 n 1 a 2 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 n 2 a 3 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no13_fibonacci_09 n 21 a 8 1 1)))
 
 (check-synth)

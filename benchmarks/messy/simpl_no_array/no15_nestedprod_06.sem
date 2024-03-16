@@ -173,9 +173,9 @@
 (synth-fun no15_nestedprod_06() Start)
 
 
-(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 1 1 1 n 1 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 2 1 1 n 2 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 3 1 1 n 12 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 4 1 1 n 288 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 n 1 a 1 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 n 2 a 2 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 n 12 a 3 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no15_nestedprod_06 n 288 a 4 1 1)))
 
 (check-synth)

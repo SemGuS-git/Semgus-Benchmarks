@@ -38,7 +38,7 @@
 
 
 (constraint (Start.Sem basicTest_MAX_01 4 1 4 1))
-(constraint (Start.Sem basicTest_MAX_01 2 6 6 2))
+(constraint (Start.Sem basicTest_MAX_01 6 2 2 6))
 (constraint (Start.Sem basicTest_MAX_01 1 1 1 1))
 (constraint (Start.Sem basicTest_MAX_01 8 8 8 8))
 

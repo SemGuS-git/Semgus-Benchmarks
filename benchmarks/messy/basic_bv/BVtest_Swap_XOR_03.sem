@@ -34,7 +34,7 @@
 (synth-fun BVtest_Swap_XOR_03() Start)
 
 
-(constraint (Start.Sem BVtest_Swap_XOR_03 #x00000009 #x00000006 #x00000006 #x00000009))
-(constraint (Start.Sem BVtest_Swap_XOR_03 #x000000f7 #x0000002c #x0000002c #x000000f7))
+(constraint (Start.Sem BVtest_Swap_XOR_03 #x00000006 #x00000009 #x00000009 #x00000006))
+(constraint (Start.Sem BVtest_Swap_XOR_03 #x0000002c #x000000f7 #x000000f7 #x0000002c))
 
 (check-synth)

@@ -97,8 +97,8 @@
 (synth-fun no04_sigmaSquare_07() Start)
 
 
-(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_07 1 0 4123 n 1 t1)))
-(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_07 2 0 4123 n 5 t1)))
-(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_07 3 0 4123 n 14 t1)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_07 n 1 t1 1 0 4123)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_07 n 5 t1 2 0 4123)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no04_sigmaSquare_07 n 14 t1 3 0 4123)))
 
 (check-synth)

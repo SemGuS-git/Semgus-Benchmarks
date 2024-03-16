@@ -77,9 +77,9 @@
 (synth-fun no01_factorialTest_10() Start)
 
 
-(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 0 1 n 1)))
-(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 1 1 n 1)))
-(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 2 1 n 2)))
-(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 3 1 n 6)))
+(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 n 1 0 1)))
+(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 n 1 1 1)))
+(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 n 2 2 1)))
+(constraint (exists ((n Int)) (Start.Sem no01_factorialTest_10 n 6 3 1)))
 
 (check-synth)

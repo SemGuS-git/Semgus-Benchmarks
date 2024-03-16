@@ -51,9 +51,9 @@
 (synth-fun basicTest_MAX_03() Start)
 
 
-(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 4 1 4123 4 1 c)))
-(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 2 6 4123 6 2 c)))
-(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 1 1 4123 1 1 c)))
-(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 8 8 4123 8 8 c)))
+(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 4 1 c 4 1 4123)))
+(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 6 2 c 2 6 4123)))
+(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 1 1 c 1 1 4123)))
+(constraint (exists ((c Int)) (Start.Sem basicTest_MAX_03 8 8 c 8 8 4123)))
 
 (check-synth)

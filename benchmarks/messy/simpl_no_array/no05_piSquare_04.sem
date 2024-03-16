@@ -78,8 +78,8 @@
 (synth-fun no05_piSquare_04() Start)
 
 
-(constraint (exists ((t1 Int) (n Int)) (Start.Sem no05_piSquare_04 1 1 4123 n 1 t1)))
-(constraint (exists ((t1 Int) (n Int)) (Start.Sem no05_piSquare_04 2 1 4123 n 4 t1)))
-(constraint (exists ((t1 Int) (n Int)) (Start.Sem no05_piSquare_04 3 1 4123 n 36 t1)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no05_piSquare_04 n 1 t1 1 1 4123)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no05_piSquare_04 n 4 t1 2 1 4123)))
+(constraint (exists ((t1 Int) (n Int)) (Start.Sem no05_piSquare_04 n 36 t1 3 1 4123)))
 
 (check-synth)

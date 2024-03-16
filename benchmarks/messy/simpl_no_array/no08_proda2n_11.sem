@@ -92,8 +92,8 @@
 (synth-fun no08_proda2n_11() Start)
 
 
-(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_11 2 2 1 n 2 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_11 4 4 2 n 24 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_11 5 5 3 n 60 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_11 n 2 a 2 2 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_11 n 24 a 4 4 2)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no08_proda2n_11 n 60 a 5 5 3)))
 
 (check-synth)

@@ -55,8 +55,8 @@
 (synth-fun BVtest_While_02_XOR_by_AND_OR_ADD() Start)
 
 
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x00000009 #x00000006 #x0000000f y)))
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x000000f7 #x0000002c #x000000db y)))
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x0000000e #x0000000f #x00000001 y)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x0000000f y #x00000009 #x00000006)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x000000db y #x000000f7 #x0000002c)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_While_02_XOR_by_AND_OR_ADD #x00000001 y #x0000000e #x0000000f)))
 
 (check-synth)

@@ -169,9 +169,9 @@
 (synth-fun no14_nestedsum_06() Start)
 
 
-(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 1 0 0 n 1 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 2 0 0 n 4 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 3 0 0 n 10 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 4 0 0 n 20 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 n 1 a 1 0 0)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 n 4 a 2 0 0)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 n 10 a 3 0 0)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no14_nestedsum_06 n 20 a 4 0 0)))
 
 (check-synth)

@@ -27,7 +27,7 @@
 (synth-fun BVtest_PLUS_01() Start)
 
 
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_PLUS_01 #x00000009 #x00000006 #x0000000f y)))
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_PLUS_01 #x000000f7 #x0000002c #x00000123 y)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_PLUS_01 #x0000000f y #x00000009 #x00000006)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_PLUS_01 #x00000123 y #x000000f7 #x0000002c)))
 
 (check-synth)

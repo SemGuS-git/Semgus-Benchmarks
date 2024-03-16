@@ -26,9 +26,9 @@
 (synth-fun basicTest_AddOne_01() Start)
 
 
-(constraint (Start.Sem basicTest_AddOne_01 4 5))
-(constraint (Start.Sem basicTest_AddOne_01 2 3))
-(constraint (Start.Sem basicTest_AddOne_01 1 2))
-(constraint (Start.Sem basicTest_AddOne_01 8 9))
+(constraint (Start.Sem basicTest_AddOne_01 5 4))
+(constraint (Start.Sem basicTest_AddOne_01 3 2))
+(constraint (Start.Sem basicTest_AddOne_01 2 1))
+(constraint (Start.Sem basicTest_AddOne_01 9 8))
 
 (check-synth)

@@ -63,9 +63,9 @@
 (synth-fun no03_sigmaTest_01() Start)
 
 
-(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 0 0 n 0)))
-(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 1 0 n 1)))
-(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 2 0 n 3)))
-(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 3 0 n 6)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 n 0 0 0)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 n 1 1 0)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 n 3 2 0)))
+(constraint (exists ((n Int)) (Start.Sem no03_sigmaTest_01 n 6 3 0)))
 
 (check-synth)

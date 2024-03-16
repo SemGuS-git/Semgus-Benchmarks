@@ -73,6 +73,6 @@
 (synth-fun minimal_unsat() Start)
 
 
-(constraint (exists ((n Int)) (Start.Sem minimal_unsat 5 4 2 n)))
+(constraint (exists ((n Int)) (Start.Sem minimal_unsat 2 n 5 4)))
 
 (check-synth)

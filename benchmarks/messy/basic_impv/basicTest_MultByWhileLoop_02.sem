@@ -75,8 +75,8 @@
 (synth-fun basicTest_MultByWhileLoop_02() Start)
 
 
-(constraint (exists ((y Int) (x Int)) (Start.Sem basicTest_MultByWhileLoop_02 4 10 0 x y 40)))
-(constraint (exists ((y Int) (x Int)) (Start.Sem basicTest_MultByWhileLoop_02 5 6 0 x y 30)))
-(constraint (exists ((y Int) (x Int)) (Start.Sem basicTest_MultByWhileLoop_02 8 3 0 x y 24)))
+(constraint (exists ((y Int) (x Int)) (Start.Sem basicTest_MultByWhileLoop_02 x y 40 4 10 0)))
+(constraint (exists ((y Int) (x Int)) (Start.Sem basicTest_MultByWhileLoop_02 x y 30 5 6 0)))
+(constraint (exists ((y Int) (x Int)) (Start.Sem basicTest_MultByWhileLoop_02 x y 24 8 3 0)))
 
 (check-synth)

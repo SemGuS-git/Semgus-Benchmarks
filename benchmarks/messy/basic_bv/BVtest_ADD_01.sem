@@ -31,6 +31,6 @@
 (synth-fun BVtest_ADD_01() Start)
 
 
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_ADD_01 #x00000004 #x00000004 #x00000003 y)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_ADD_01 #x00000003 y #x00000004 #x00000004)))
 
 (check-synth)

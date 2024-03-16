@@ -88,9 +88,9 @@
 (synth-fun no06_power_10() Start)
 
 
-(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 0 1 0 n 1 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 1 1 1 n 1 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 3 1 3 n 27 a)))
-(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 2 1 5 n 25 a)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 n 1 a 0 1 0)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 n 1 a 1 1 1)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 n 27 a 3 1 3)))
+(constraint (exists ((a Int) (n Int)) (Start.Sem no06_power_10 n 25 a 2 1 5)))
 
 (check-synth)

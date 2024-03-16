@@ -39,7 +39,7 @@
 (synth-fun basicTest_SumWithLimitedOps_01() Start)
 
 
-(constraint (exists ((v Int) (y Int) (z Int) (w Int)) (Start.Sem basicTest_SumWithLimitedOps_01 2 5 4 3 1 w z y 15 v)))
-(constraint (exists ((v Int) (y Int) (z Int) (w Int)) (Start.Sem basicTest_SumWithLimitedOps_01 21 16 13 11 9 w z y 70 v)))
+(constraint (exists ((v Int) (y Int) (z Int) (w Int)) (Start.Sem basicTest_SumWithLimitedOps_01 w z y 15 v 2 5 4 3 1)))
+(constraint (exists ((v Int) (y Int) (z Int) (w Int)) (Start.Sem basicTest_SumWithLimitedOps_01 w z y 70 v 21 16 13 11 9)))
 
 (check-synth)

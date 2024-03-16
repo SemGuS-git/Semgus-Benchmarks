@@ -35,9 +35,9 @@
 (synth-fun BVtest_MAX_01() Start)
 
 
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x00000009 #x00000006 #x00000009 y)))
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x0000002c #x000000f7 #x000000f7 y)))
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x00000020 #x00000011 #x00000020 y)))
-(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x0000008e #x0000008e #x0000008e y)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x00000009 y #x00000009 #x00000006)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x000000f7 y #x0000002c #x000000f7)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x00000020 y #x00000020 #x00000011)))
+(constraint (exists ((y (_ BitVec 32))) (Start.Sem BVtest_MAX_01 #x0000008e y #x0000008e #x0000008e)))
 
 (check-synth)

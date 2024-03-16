@@ -66,8 +66,8 @@
 (synth-fun basicTest_Fib_01() Start)
 
 
-(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 1 1 1 y i)))
-(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 1 5 5 y i)))
-(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 1 10 55 y i)))
+(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 1 y i 1 1 1)))
+(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 5 y i 1 1 5)))
+(constraint (exists ((i Int) (y Int)) (Start.Sem basicTest_Fib_01 55 y i 1 1 10)))
 
 (check-synth)

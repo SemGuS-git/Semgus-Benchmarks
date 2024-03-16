@@ -84,9 +84,9 @@
 (synth-fun no02_doubleFactorialTest_11() Start)
 
 
-(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 0 1 n 1)))
-(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 1 1 n 1)))
-(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 2 1 n 2)))
-(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 5 1 n 15)))
+(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 n 1 0 1)))
+(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 n 1 1 1)))
+(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 n 2 2 1)))
+(constraint (exists ((n Int)) (Start.Sem no02_doubleFactorialTest_11 n 15 5 1)))
 
 (check-synth)
