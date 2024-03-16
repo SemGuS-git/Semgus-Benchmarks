@@ -131,7 +131,7 @@
                             (= X_0_6 (or (and A_0_0 B_0_6) (and A_0_1 B_1_6) (and A_0_2 B_2_6) (and A_0_3 B_3_6) (and A_0_4 B_4_6) (and A_0_5 B_5_6) (and A_0_6 B_0_0)))
                             (= X_0_7 (or (and A_0_0 B_0_7) (and A_0_1 B_1_7) (and A_0_2 B_2_7) (and A_0_3 B_3_7) (and A_0_4 B_4_7) (and A_0_5 B_5_7) (and A_0_6 B_6_7) (and A_0_7 B_0_0)))
                             (= X_0_8 (or (and A_0_0 B_0_8) (and A_0_1 B_1_8) (and A_0_2 B_2_8) (and A_0_3 B_3_8) (and A_0_4 B_4_8) (and A_0_5 B_5_8) (and A_0_6 B_6_8) (and A_0_7 B_7_8) (and A_0_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_1_2 (or (and A_0_0 B_1_2) (and A_1_2 B_0_0)))
                             (= X_1_3 (or (and A_0_0 B_1_3) (and A_1_2 B_2_3) (and A_1_3 B_0_0)))
                             (= X_1_4 (or (and A_0_0 B_1_4) (and A_1_2 B_2_4) (and A_1_3 B_3_4) (and A_1_4 B_0_0)))
@@ -139,34 +139,34 @@
                             (= X_1_6 (or (and A_0_0 B_1_6) (and A_1_2 B_2_6) (and A_1_3 B_3_6) (and A_1_4 B_4_6) (and A_1_5 B_5_6) (and A_1_6 B_0_0)))
                             (= X_1_7 (or (and A_0_0 B_1_7) (and A_1_2 B_2_7) (and A_1_3 B_3_7) (and A_1_4 B_4_7) (and A_1_5 B_5_7) (and A_1_6 B_6_7) (and A_1_7 B_0_0)))
                             (= X_1_8 (or (and A_0_0 B_1_8) (and A_1_2 B_2_8) (and A_1_3 B_3_8) (and A_1_4 B_4_8) (and A_1_5 B_5_8) (and A_1_6 B_6_8) (and A_1_7 B_7_8) (and A_1_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_2_3 (or (and A_0_0 B_2_3) (and A_2_3 B_0_0)))
                             (= X_2_4 (or (and A_0_0 B_2_4) (and A_2_3 B_3_4) (and A_2_4 B_0_0)))
                             (= X_2_5 (or (and A_0_0 B_2_5) (and A_2_3 B_3_5) (and A_2_4 B_4_5) (and A_2_5 B_0_0)))
                             (= X_2_6 (or (and A_0_0 B_2_6) (and A_2_3 B_3_6) (and A_2_4 B_4_6) (and A_2_5 B_5_6) (and A_2_6 B_0_0)))
                             (= X_2_7 (or (and A_0_0 B_2_7) (and A_2_3 B_3_7) (and A_2_4 B_4_7) (and A_2_5 B_5_7) (and A_2_6 B_6_7) (and A_2_7 B_0_0)))
                             (= X_2_8 (or (and A_0_0 B_2_8) (and A_2_3 B_3_8) (and A_2_4 B_4_8) (and A_2_5 B_5_8) (and A_2_6 B_6_8) (and A_2_7 B_7_8) (and A_2_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_3_4 (or (and A_0_0 B_3_4) (and A_3_4 B_0_0)))
                             (= X_3_5 (or (and A_0_0 B_3_5) (and A_3_4 B_4_5) (and A_3_5 B_0_0)))
                             (= X_3_6 (or (and A_0_0 B_3_6) (and A_3_4 B_4_6) (and A_3_5 B_5_6) (and A_3_6 B_0_0)))
                             (= X_3_7 (or (and A_0_0 B_3_7) (and A_3_4 B_4_7) (and A_3_5 B_5_7) (and A_3_6 B_6_7) (and A_3_7 B_0_0)))
                             (= X_3_8 (or (and A_0_0 B_3_8) (and A_3_4 B_4_8) (and A_3_5 B_5_8) (and A_3_6 B_6_8) (and A_3_7 B_7_8) (and A_3_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_4_5 (or (and A_0_0 B_4_5) (and A_4_5 B_0_0)))
                             (= X_4_6 (or (and A_0_0 B_4_6) (and A_4_5 B_5_6) (and A_4_6 B_0_0)))
                             (= X_4_7 (or (and A_0_0 B_4_7) (and A_4_5 B_5_7) (and A_4_6 B_6_7) (and A_4_7 B_0_0)))
                             (= X_4_8 (or (and A_0_0 B_4_8) (and A_4_5 B_5_8) (and A_4_6 B_6_8) (and A_4_7 B_7_8) (and A_4_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_5_6 (or (and A_0_0 B_5_6) (and A_5_6 B_0_0)))
                             (= X_5_7 (or (and A_0_0 B_5_7) (and A_5_6 B_6_7) (and A_5_7 B_0_0)))
                             (= X_5_8 (or (and A_0_0 B_5_8) (and A_5_6 B_6_8) (and A_5_7 B_7_8) (and A_5_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_6_7 (or (and A_0_0 B_6_7) (and A_6_7 B_0_0)))
                             (= X_6_8 (or (and A_0_0 B_6_8) (and A_6_7 B_7_8) (and A_6_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             (= X_7_8 (or (and A_0_0 B_7_8) (and A_7_8 B_0_0)))
-                            (= X_0_0 (and A_0_0 B_0_0))
+
                             
                         )
                     )
